@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<?php
+/*
+Copyright (c) 2003-2020, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+*/
+?>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Sample &mdash; CKEditor</title>
+	<link rel="stylesheet" href="sample.css">
+	<meta name="description" content="Try the latest sample of CKEditor 4 and learn more about customizing your WYSIWYG editor with endless possibilities.">
+</head>
+<body>
+	<h1 class="samples">
+		CKEditor &mdash; Posted Data
+	</h1>
+	<table border="1" cellspacing="0" id="outputSample">
+		<colgroup><col width="120"></colgroup>
+		<thead>
+			<tr>
+				<th>Field&nbsp;Name</th>
+				<th>Value</th>
+			</tr>
+		</thead>
+<?php
+
+if (!empty($_POST))
+{
+	foreach ( $_POST as $key => $product_details )
+	{
+		if ( ( !is_string($product_details) && !is_numeric($product_details) ) || !is_string($key) )
+			continue;
+
+		if ( get_magic_quotes_gpc() )
+			$product_details = htmlspecialchars( stripslashes((string)$product_details) );
+		else
+			$product_details = htmlspecialchars( (string)$product_details );
+?>
+		<tr>
+			<th style="vertical-align: top"><?php echo htmlspecialchars( (string)$key ); ?></th>
+			<td><pre class="samples"><?php echo $product_details; ?></pre></td>
+		</tr>
+	<?php
+	}
+}
+?>
+	</table>
+	<div id="footer">
+		<hr>
+		<p>
+			CKEditor - The text editor for the Internet - <a class="samples" href="https://ckeditor.com/">https://ckeditor.com</a>
+		</p>
+		<p id="copy">
+			Copyright &copy; 2003-2020, <a class="samples" href="https://cksource.com/">CKSource</a> - Frederico Knabben. All rights reserved.
+		</p>
+	</div>
+</body>
+</html>

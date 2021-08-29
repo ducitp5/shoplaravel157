@@ -1,0 +1,19 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Gallery extends Model
+{
+    
+    protected $table        =    'tbl_gallery';
+    
+    protected $primaryKey   =    'gallery_id';
+    
+    protected $fillable     =    [ 	'gallery_name'  ,  'gallery_image'   ,  'product_id'    ];
+    
+    
+    public $timestamps      =    false; //set time to false
+ 	
+}
