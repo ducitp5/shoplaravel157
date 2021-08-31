@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 06, 2020 lúc 10:13 AM
--- Phiên bản máy phục vụ: 10.1.40-MariaDB
--- Phiên bản PHP: 7.3.5
+-- Host: 127.0.0.1:3306
+-- Generation Time: Aug 31, 2021 at 07:46 AM
+-- Server version: 8.0.18
+-- PHP Version: 7.4.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,83 +19,233 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `elaravel_auth`
+-- Database: `laravel_157`
 --
+CREATE DATABASE IF NOT EXISTS `laravel_157` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `laravel_157`;
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `admin_roles`
+-- Table structure for table `admin_roles`
 --
 
-CREATE TABLE `admin_roles` (
-  `id_admin_roles` int(11) NOT NULL,
+DROP TABLE IF EXISTS `admin_roles`;
+CREATE TABLE IF NOT EXISTS `admin_roles` (
+  `id_admin_roles` int(11) NOT NULL AUTO_INCREMENT,
   `admin_admin_id` int(10) UNSIGNED NOT NULL,
-  `roles_id_roles` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `roles_id_roles` int(10) UNSIGNED NOT NULL,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id_admin_roles`)
+) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `admin_roles`
+-- Dumping data for table `admin_roles`
 --
 
-INSERT INTO `admin_roles` (`id_admin_roles`, `admin_admin_id`, `roles_id_roles`) VALUES
-(1, 1, 1),
-(5, 5, 3),
-(6, 6, 3),
-(7, 7, 3),
-(8, 8, 3),
-(9, 9, 3),
-(10, 10, 3),
-(11, 11, 3),
-(12, 12, 3),
-(13, 13, 3),
-(14, 14, 3),
-(15, 15, 3),
-(16, 16, 3),
-(17, 17, 3),
-(18, 18, 3),
-(19, 19, 3),
-(20, 20, 3),
-(21, 21, 3),
-(22, 22, 3),
-(23, 23, 3),
-(26, 2, 2),
-(27, 24, 3);
+INSERT INTO `admin_roles` (`id_admin_roles`, `admin_admin_id`, `roles_id_roles`, `created_at`, `updated_at`) VALUES
+(5, 5, 3, NULL, NULL),
+(6, 6, 3, NULL, NULL),
+(7, 7, 3, NULL, NULL),
+(8, 8, 3, NULL, NULL),
+(9, 9, 3, NULL, NULL),
+(10, 10, 3, NULL, NULL),
+(11, 11, 3, NULL, NULL),
+(12, 12, 3, NULL, NULL),
+(13, 13, 3, NULL, NULL),
+(14, 14, 3, NULL, NULL),
+(15, 15, 3, NULL, NULL),
+(16, 16, 3, NULL, NULL),
+(17, 17, 3, NULL, NULL),
+(18, 18, 3, NULL, NULL),
+(34, 25, 3, NULL, NULL),
+(45, 29, 1, '2020-12-08 00:25:57', NULL),
+(46, 29, 2, '2020-12-08 00:25:57', NULL),
+(47, 29, 3, '2020-12-08 00:25:57', NULL),
+(54, 28, 1, '2020-12-08 02:07:04', NULL),
+(55, 28, 2, '2020-12-08 02:07:04', NULL),
+(56, 28, 3, '2020-12-08 02:07:04', NULL),
+(57, 32, 3, '2021-03-03 19:48:28', NULL),
+(68, 1, 1, '2021-07-08 16:19:25', NULL),
+(69, 1, 2, '2021-07-08 16:19:25', NULL),
+(70, 1, 3, '2021-07-08 16:19:25', NULL),
+(71, 2, 1, '2021-07-08 16:19:32', NULL),
+(72, 2, 3, '2021-07-08 16:19:32', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `password_resets`
+-- Table structure for table `lang_post_lang`
 --
 
-CREATE TABLE `password_resets` (
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+DROP TABLE IF EXISTS `lang_post_lang`;
+CREATE TABLE IF NOT EXISTS `lang_post_lang` (
+  `postlang_post_id` int(11) NOT NULL AUTO_INCREMENT,
+  `post_lang_post_id` int(11) NOT NULL,
+  `lang_id_lang` int(11) NOT NULL,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`postlang_post_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `lang_post_lang`
+--
+
+INSERT INTO `lang_post_lang` (`postlang_post_id`, `post_lang_post_id`, `lang_id_lang`, `created_at`) VALUES
+(12, 1, 3, '2020-12-12 04:49:58'),
+(11, 1, 2, '2020-12-12 04:49:58'),
+(10, 1, 1, '2020-12-12 04:49:58'),
+(9, 9, 2, '2020-12-09 20:35:54'),
+(8, 8, 3, '2020-12-09 13:07:25'),
+(7, 8, 1, '2020-12-09 13:07:25');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lang_post_lang_2`
+--
+
+DROP TABLE IF EXISTS `lang_post_lang_2`;
+CREATE TABLE IF NOT EXISTS `lang_post_lang_2` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `post_id` int(11) NOT NULL,
+  `lang_id` int(11) NOT NULL,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=57 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `lang_post_lang_2`
+--
+
+INSERT INTO `lang_post_lang_2` (`id`, `post_id`, `lang_id`, `created_at`) VALUES
+(25, 9, 3, '2020-12-20 12:51:44'),
+(24, 9, 2, '2020-12-20 12:51:44'),
+(32, 7, 3, '2021-04-06 22:54:06'),
+(31, 7, 2, '2021-04-06 22:54:06'),
+(30, 7, 1, '2021-04-06 22:54:06'),
+(23, 9, 1, '2020-12-20 12:51:44'),
+(18, 19, 1, '2020-12-19 14:20:07'),
+(19, 19, 3, '2020-12-19 14:20:07'),
+(33, 10, 1, '2021-04-06 23:05:12'),
+(34, 10, 3, '2021-04-06 23:05:12'),
+(35, 4, 1, '2021-04-08 08:06:49'),
+(36, 4, 3, '2021-04-08 08:06:49'),
+(56, 1, 3, '2021-04-15 00:04:44'),
+(55, 1, 1, '2021-04-15 00:04:44'),
+(40, 2, 1, '2021-04-08 08:07:04'),
+(41, 2, 3, '2021-04-08 08:07:04'),
+(42, 3, 2, '2021-04-08 08:07:07'),
+(44, 12, 1, '2021-04-10 00:54:13'),
+(45, 12, 2, '2021-04-10 00:54:13'),
+(46, 12, 3, '2021-04-10 00:54:13'),
+(47, 14, 1, '2021-04-10 00:54:25'),
+(48, 14, 2, '2021-04-10 00:54:25'),
+(49, 15, 2, '2021-04-10 00:54:32'),
+(50, 18, 1, '2021-04-10 00:54:42'),
+(51, 18, 3, '2021-04-10 00:54:42'),
+(52, 16, 2, '2021-04-10 00:54:45'),
+(53, 17, 2, '2021-04-10 00:54:49'),
+(54, 5, 2, '2021-04-14 23:57:06');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `password_resets`
+--
+
+DROP TABLE IF EXISTS `password_resets`;
+CREATE TABLE IF NOT EXISTS `password_resets` (
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_admin`
+-- Table structure for table `products`
 --
 
-CREATE TABLE `tbl_admin` (
-  `admin_id` int(10) UNSIGNED NOT NULL,
-  `admin_email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `admin_password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `admin_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `admin_phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+DROP TABLE IF EXISTS `products`;
+CREATE TABLE IF NOT EXISTS `products` (
+  `productID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `productCode` char(3) NOT NULL DEFAULT '',
+  `name` varchar(30) NOT NULL DEFAULT '',
+  `quantity` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  `price` decimal(7,2) NOT NULL DEFAULT '99999.99',
+  `supplierID` int(10) UNSIGNED NOT NULL DEFAULT '0',
+  PRIMARY KEY (`productID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_admin`
+-- Table structure for table `products_suppliers`
+--
+
+DROP TABLE IF EXISTS `products_suppliers`;
+CREATE TABLE IF NOT EXISTS `products_suppliers` (
+  `productID` int(10) UNSIGNED NOT NULL,
+  `supplierID` int(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`productID`,`supplierID`),
+  KEY `supplierID` (`supplierID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `product_details`
+--
+
+DROP TABLE IF EXISTS `product_details`;
+CREATE TABLE IF NOT EXISTS `product_details` (
+  `productID` int(10) UNSIGNED NOT NULL,
+  `comment` text,
+  PRIMARY KEY (`productID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `suppliers`
+--
+
+DROP TABLE IF EXISTS `suppliers`;
+CREATE TABLE IF NOT EXISTS `suppliers` (
+  `supplierID` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `phone` varchar(50) DEFAULT NULL,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`supplierID`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_admin`
+--
+
+DROP TABLE IF EXISTS `tbl_admin`;
+CREATE TABLE IF NOT EXISTS `tbl_admin` (
+  `admin_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `admin_email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `admin_password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `admin_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `admin_phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`admin_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `tbl_admin`
 --
 
 INSERT INTO `tbl_admin` (`admin_id`, `admin_email`, `admin_password`, `admin_name`, `admin_phone`, `created_at`, `updated_at`) VALUES
-(1, 'hieuadmin@yahoo.com', 'e10adc3949ba59abbe56e057f20f883e', 'hieuadmin', '123456789', NULL, NULL),
+(1, 'hieuadmin@yahoo.com', 'hh', 'hieuadmin', '123456789', NULL, NULL),
 (2, 'hieuauthor@yahoo.com', 'e10adc3949ba59abbe56e057f20f883e', 'hieuauthor', '123456789', NULL, NULL),
 (5, 'ima06@example.net', 'e10adc3949ba59abbe56e057f20f883e', 'Allene Veum MD', '0932023992', NULL, NULL),
 (6, 'janice86@example.net', 'e10adc3949ba59abbe56e057f20f883e', 'Dr. Ernie Kshlerin IV', '0932023992', NULL, NULL),
@@ -111,31 +261,34 @@ INSERT INTO `tbl_admin` (`admin_id`, `admin_email`, `admin_password`, `admin_nam
 (16, 'eulalia73@example.org', 'e10adc3949ba59abbe56e057f20f883e', 'Dr. Opal Daniel DVM', '0932023992', NULL, NULL),
 (17, 'amara.lueilwitz@example.org', 'e10adc3949ba59abbe56e057f20f883e', 'Nicolette Gerlach DVM', '0932023992', NULL, NULL),
 (18, 'kilback.royal@example.org', 'e10adc3949ba59abbe56e057f20f883e', 'Vicenta Braun', '0932023992', NULL, NULL),
-(19, 'kennedi37@example.org', 'e10adc3949ba59abbe56e057f20f883e', 'Salvador Little MD', '0932023992', NULL, NULL),
-(20, 'mylene20@example.org', 'e10adc3949ba59abbe56e057f20f883e', 'Colt Crona', '0932023992', NULL, NULL),
-(21, 'lehner.darryl@example.org', 'e10adc3949ba59abbe56e057f20f883e', 'Estelle Homenick Sr.', '0932023992', NULL, NULL),
-(22, 'gerald34@example.org', 'e10adc3949ba59abbe56e057f20f883e', 'Prof. Pietro Luettgen', '0932023992', NULL, NULL),
-(23, 'genesis74@example.com', 'e10adc3949ba59abbe56e057f20f883e', 'Jonathon Wisozk', '0932023992', NULL, NULL),
-(24, 'minnh@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'Đức Nguyễn Minh', '0932023992', NULL, NULL);
+(25, 'duc@gmail.com', 'dd', 'duc admin', '099', NULL, NULL),
+(27, 'giang@gmail.com', 'gg', 'giang admin', '011', NULL, NULL),
+(28, 'ducadmin@gmail.com', 'dd', 'duc admin', '011', NULL, NULL),
+(29, 'test1@gmail.com', 'tt', 'test 1', '1122', NULL, NULL),
+(32, 'test3@gmail.com', 'tt', 'test 3', '333', NULL, NULL),
+(33, 'dongttas@sad.vn', '123456', 'dongtt', '123456', '2021-06-08 16:08:00', NULL),
+(34, 'admin123@gmail.com', '123456', 'dongtts', '123456', '2021-06-08 16:08:43', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_brand`
+-- Table structure for table `tbl_brand`
 --
 
-CREATE TABLE `tbl_brand` (
-  `brand_id` int(10) UNSIGNED NOT NULL,
-  `brand_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `brand_slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `brand_desc` text COLLATE utf8mb4_unicode_ci NOT NULL,
+DROP TABLE IF EXISTS `tbl_brand`;
+CREATE TABLE IF NOT EXISTS `tbl_brand` (
+  `brand_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `brand_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `brand_slug` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `brand_desc` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `brand_status` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`brand_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_brand`
+-- Dumping data for table `tbl_brand`
 --
 
 INSERT INTO `tbl_brand` (`brand_id`, `brand_name`, `brand_slug`, `brand_desc`, `brand_status`, `created_at`, `updated_at`) VALUES
@@ -152,19 +305,42 @@ INSERT INTO `tbl_brand` (`brand_id`, `brand_name`, `brand_slug`, `brand_desc`, `
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_category_post`
+-- Table structure for table `tbl_cart`
 --
 
-CREATE TABLE `tbl_category_post` (
-  `cate_post_id` int(10) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `tbl_cart`;
+CREATE TABLE IF NOT EXISTS `tbl_cart` (
+  `cart_id` int(11) NOT NULL,
+  `sid` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `customer_id` int(11) DEFAULT NULL,
+  `product_id` int(11) NOT NULL,
+  `product_name` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `product_price` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `product_image` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `product_qty_get` int(11) NOT NULL,
+  `date_add` datetime DEFAULT CURRENT_TIMESTAMP,
+  `date_del` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`cart_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_category_post`
+--
+
+DROP TABLE IF EXISTS `tbl_category_post`;
+CREATE TABLE IF NOT EXISTS `tbl_category_post` (
+  `cate_post_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
   `cate_post_name` tinytext NOT NULL,
   `cate_post_status` int(11) NOT NULL,
   `cate_post_slug` varchar(255) NOT NULL,
-  `cate_post_desc` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `cate_post_desc` varchar(255) NOT NULL,
+  PRIMARY KEY (`cate_post_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_category_post`
+-- Dumping data for table `tbl_category_post`
 --
 
 INSERT INTO `tbl_category_post` (`cate_post_id`, `cate_post_name`, `cate_post_status`, `cate_post_slug`, `cate_post_desc`) VALUES
@@ -172,32 +348,84 @@ INSERT INTO `tbl_category_post` (`cate_post_id`, `cate_post_name`, `cate_post_st
 (2, 'Tin Kinh tế', 0, 'tin-kinh-te', 'Tin Kinh tế trong ngày mới nhất hôm nay nhé'),
 (4, 'Tin thể thao', 0, 'tin-the-thao', 'Tin thể thao trong ngày'),
 (5, 'Tin pháp luật', 0, 'tin-phap-luat', 'Tin pháp luật'),
-(6, 'Tin showbiz', 0, 'tin-showbiz', 'Tin showbiz trong ngày hot nhất về các vấn đề nhạy cảm làm ơn đừng bắt chước theo');
+(6, 'Tin showbiz', 0, 'tin-showbiz', 'Tin showbiz trong ngày hot nhất về các vấn đề nhạy cảm làm ơn đừng bắt chước theo'),
+(7, 'Đồ Công Nghệ', 0, 'do-cong-nghe', 'công nghệ thời buổi 4.0'),
+(8, 'community health', 0, 'community-health', 'vi suc khoe cho moi nguoi');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_category_product`
+-- Table structure for table `tbl_category_product`
 --
 
-CREATE TABLE `tbl_category_product` (
-  `category_id` int(10) UNSIGNED NOT NULL,
-  `meta_keywords` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `category_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `slug_category_product` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `category_desc` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `category_parent` int(11) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `tbl_category_product`;
+CREATE TABLE IF NOT EXISTS `tbl_category_product` (
+  `category_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `meta_keywords` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `category_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug_category_product` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `category_desc` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `category_parent` int(11) UNSIGNED DEFAULT '0',
   `category_status` int(11) NOT NULL,
-  `category_order` int(11) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `category_order` int(11) NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`category_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=69 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_category_product`
+-- Dumping data for table `tbl_category_product`
 --
 
 INSERT INTO `tbl_category_product` (`category_id`, `meta_keywords`, `category_name`, `slug_category_product`, `category_desc`, `category_parent`, `category_status`, `category_order`, `created_at`, `updated_at`) VALUES
+(1, 'Tay cầm chơi game', 'Tay cầm chơi game', 'tay-cam-choi-game', 'Tay cầm chơi game', 0, 0, 9, '2020-11-05 10:26:32', '2020-11-05 10:26:32'),
+(2, 'may chơi game,may choi game,máy game,game chinh hãng,máy chơi game chính hãng', 'Máy chơi game', 'may-choi-game', 'Máy chơi game chính hãng nhập từ Mỹ,Úc,Nhật bản', 0, 0, 7, '2020-11-05 10:26:32', '2020-11-05 10:26:32'),
+(3, 'Quần áo cho nam,quan ao nam,mua quan nam,bán quần nam', 'Quần áo cho nam', 'quan-ao-cho-nam', 'Quần áo cho nam nhập từ China ,Hàn quốc,việt nam', 0, 0, 5, '2020-11-05 10:26:32', '2020-11-05 10:26:32'),
+(4, 'Quần áo cho nữ', 'Quần áo cho nữ', 'quan-ao-cho-nu', 'Quần áo cho nữ được nhập từ hàn quốc và nhật bản', 0, 0, 6, '2020-11-05 10:26:32', '2020-11-05 10:26:32'),
+(5, 'sach kinh te,ban sach kinh te,bán sách kinh tế ,sách dạy làm giàu', 'Sách kinh tế', 'sach-kinh-te', 'Bán sách kinh tế dạy đầu tư chính khoáng,đầu tư bất động sản', 0, 0, 6, '2020-11-05 10:26:32', '2020-11-05 10:26:32'),
+(6, 'Sách ngôn tình,sach ngon tinh,sach ngon tinh,sách dạy ngôn tình,sach ngon tinh chính thống', 'Sách ngôn tình', 'sach-ngon-tinh', 'Sách ngôn tình yêu đậm tính nhân văn và giáo dục', 0, 0, 9, '2020-11-05 10:26:32', '2020-11-05 10:26:32'),
+(7, 'ba lo cho chó,ba lo cho chó,ba lo chó,ba lo cho chó mèo', 'Ba lô thú cưng', 'ba-lo-thu-cưng', 'Bán ba lô cho thú cưng nhập khẩu uy tín chất lượng', 0, 0, 4, '2020-11-05 10:26:32', '2020-11-05 10:26:32'),
+(8, 'Thức ăn thú cưng,thuc an cho thu cung,thuc an thu cung,thu cung', 'Thức ăn cho thú cưng', 'thuc-an-cho-thu-cung', 'Bán thức ăn ngon chính hãng cho thú cưng của bạn', 0, 0, 3, '2020-11-05 10:26:32', '2020-11-05 10:26:32'),
+(9, 'Điện thoại samsung,dien thoai samsung,samsung', 'Điện thoại samsung', 'dien-thoai-samsung', 'Điện thoại samsung', 0, 0, 8, '2020-11-05 10:26:32', '2020-11-05 10:26:32'),
+(10, 'Thiết bị số,thiet bi so,so thiet bi,bi so thiet', 'Thiết bị số', 'thiet-bi-so', 'Thiết bị số', 0, 0, 9, '2020-11-05 10:26:32', '2020-11-05 10:26:32'),
+(11, 'Tai nghe,tai nghe', 'Tai nghe', 'tai-nghe', 'Tai nghe', 10, 0, 2, '2020-11-05 10:26:32', '2020-11-05 10:26:32'),
+(12, 'Máy đo nhịp tim,may do nhip tim,tim nhip do,nhip tim', 'Máy đo nhịp tim', 'may-do-nhip-tim', 'Máy đo nhịp tim', 10, 0, 7, '2020-11-05 10:26:32', '2020-11-05 10:26:32'),
+(13, 'Samsung Galaxy Note 20 Ultra', 'Samsung Galaxy Note 20 Ultra', 'samsung-galaxy-note-20-ultra', 'Samsung Galaxy Note 20 Ultra', 9, 0, 1, '2020-11-05 10:26:32', '2020-11-05 10:26:32'),
+(14, 'Thức ăn cho mèo,thuc an cho meo,meo thuc an,thức ăn mèo con', 'Thức ăn cho mèo', 'thuc-an-cho-meo', 'Thức ăn cho mèo', 0, 0, 8, '2020-11-05 10:26:32', '2020-11-05 10:26:32'),
+(15, 'Đồng hồ thông minh', 'Đồng hồ thông minh', 'dong-ho-thong-minh', 'Đồng hồ thông minh', 10, 0, 5, '2020-11-05 10:26:32', '2020-11-05 10:26:32'),
+(16, 'Loa', 'Loa', 'loa', 'Loa', 0, 0, 3, '2020-11-05 10:26:32', '2020-11-05 10:26:32'),
+(17, 'Thẻ nhớ', 'Thẻ nhớ', 'the-nho', 'Thẻ nhớ', 10, 0, 4, '2020-11-05 10:26:32', '2020-11-05 10:26:32'),
+(18, 'Samsung Galaxy a21s', 'Samsung Galaxy a21s', 'samsung-galaxy-a21s', 'Samsung Galaxy a21s', 9, 0, 0, '2020-11-05 10:26:32', '2020-11-05 10:26:32'),
+(19, 'Samsung Galaxy Z fold', 'Samsung Galaxy Z fold', 'samsung-galaxy-z-fold', 'Samsung Galaxy Z fold', 9, 0, 3, '2020-11-05 10:26:32', '2020-11-05 10:26:32'),
+(20, 'do gia dung may giat tu lanh', 'Đồ gia dụng', 'do-gia-dung', 'các đồ dùng gia dụng cho gia đình', 0, 0, 9, '2020-11-05 10:26:32', '2020-11-05 10:26:32'),
+(21, 'smart phone dien thoại thông minh', 'Smart phone', 'smart-phone', 'Điện thoại thông minh thế hệ mới', 10, 0, 9, '2020-11-05 10:26:32', '2020-11-05 10:26:32');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_category_product_original`
+--
+
+DROP TABLE IF EXISTS `tbl_category_product_original`;
+CREATE TABLE IF NOT EXISTS `tbl_category_product_original` (
+  `category_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `meta_keywords` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `category_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug_category_product` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `category_desc` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `category_parent` int(11) UNSIGNED NOT NULL,
+  `category_status` int(11) NOT NULL,
+  `category_order` int(11) NOT NULL DEFAULT '0',
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`category_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `tbl_category_product_original`
+--
+
+INSERT INTO `tbl_category_product_original` (`category_id`, `meta_keywords`, `category_name`, `slug_category_product`, `category_desc`, `category_parent`, `category_status`, `category_order`, `created_at`, `updated_at`) VALUES
 (1, 'Tay cầm chơi game', 'Tay cầm chơi game', 'tay-cam-choi-game', 'Tay cầm chơi game', 0, 0, 8, NULL, NULL),
 (2, 'may chơi game,may choi game,máy game,game chinh hãng,máy chơi game chính hãng', 'Máy chơi game', 'may-choi-game', 'Máy chơi game chính hãng nhập từ Mỹ,Úc,Nhật bản', 0, 0, 7, NULL, NULL),
 (3, 'Quần áo cho nam,quan ao nam,mua quan nam,bán quần nam', 'Quần áo cho nam', 'quan-ao-cho-nam', 'Quần áo cho nam nhập từ China ,Hàn quốc,việt nam', 0, 0, 5, NULL, NULL),
@@ -216,124 +444,241 @@ INSERT INTO `tbl_category_product` (`category_id`, `meta_keywords`, `category_na
 (16, 'Loa', 'Loa', 'loa', 'Loa', 10, 0, 3, NULL, NULL),
 (17, 'Thẻ nhớ', 'Thẻ nhớ', 'the-nho', 'Thẻ nhớ', 10, 0, 4, NULL, NULL),
 (18, 'Samsung Galaxy a21s', 'Samsung Galaxy a21s', 'samsung-galaxy-a21s', 'Samsung Galaxy a21s', 9, 0, 7, NULL, NULL),
-(19, 'Samsung Galaxy Z fold', 'Samsung Galaxy Z fold', 'samsung-galaxy-z-fold', 'Samsung Galaxy Z fold', 9, 0, 6, NULL, NULL);
+(19, 'Samsung Galaxy Z fold', 'Samsung Galaxy Z fold', 'samsung-galaxy-z-fold', 'Samsung Galaxy Z fold', 9, 0, 6, NULL, NULL),
+(20, 'do gia dung may giat tu lanh', 'Đồ gia dụng', 'do-gia-dung', 'các đồ dùng gia dụng cho gia đình', 0, 0, 0, NULL, NULL),
+(21, 'smart phone dien thoại thông minh', 'Smart phone', 'smart-phone', 'Điện thoại thông minh thế hệ mới', 10, 0, 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_comment`
+-- Table structure for table `tbl_city`
 --
 
-CREATE TABLE `tbl_comment` (
-  `comment_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `tbl_city`;
+CREATE TABLE IF NOT EXISTS `tbl_city` (
+  `matp` varchar(5) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `name_city` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `type` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`matp`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `tbl_city`
+--
+
+INSERT INTO `tbl_city` (`matp`, `name_city`, `type`) VALUES
+('01', 'Thành phố Hà Nội', 'Thành phố Trung ương'),
+('02', 'Tỉnh Hà Giang', 'Tỉnh'),
+('04', 'Tỉnh Cao Bằng', 'Tỉnh'),
+('06', 'Tỉnh Bắc Kạn', 'Tỉnh'),
+('08', 'Tỉnh Tuyên Quang', 'Tỉnh'),
+('10', 'Tỉnh Lào Cai', 'Tỉnh'),
+('11', 'Tỉnh Điện Biên', 'Tỉnh'),
+('12', 'Tỉnh Lai Châu', 'Tỉnh'),
+('14', 'Tỉnh Sơn La', 'Tỉnh'),
+('15', 'Tỉnh Yên Bái', 'Tỉnh'),
+('17', 'Tỉnh Hoà Bình', 'Tỉnh'),
+('19', 'Tỉnh Thái Nguyên', 'Tỉnh'),
+('20', 'Tỉnh Lạng Sơn', 'Tỉnh'),
+('22', 'Tỉnh Quảng Ninh', 'Tỉnh'),
+('24', 'Tỉnh Bắc Giang', 'Tỉnh'),
+('25', 'Tỉnh Phú Thọ', 'Tỉnh'),
+('26', 'Tỉnh Vĩnh Phúc', 'Tỉnh'),
+('27', 'Tỉnh Bắc Ninh', 'Tỉnh'),
+('30', 'Tỉnh Hải Dương', 'Tỉnh'),
+('31', 'Thành phố Hải Phòng', 'Thành phố Trung ương'),
+('33', 'Tỉnh Hưng Yên', 'Tỉnh'),
+('34', 'Tỉnh Thái Bình', 'Tỉnh'),
+('35', 'Tỉnh Hà Nam', 'Tỉnh'),
+('36', 'Tỉnh Nam Định', 'Tỉnh'),
+('37', 'Tỉnh Ninh Bình', 'Tỉnh'),
+('38', 'Tỉnh Thanh Hóa', 'Tỉnh'),
+('40', 'Tỉnh Nghệ An', 'Tỉnh'),
+('42', 'Tỉnh Hà Tĩnh', 'Tỉnh'),
+('44', 'Tỉnh Quảng Bình', 'Tỉnh'),
+('45', 'Tỉnh Quảng Trị', 'Tỉnh'),
+('46', 'Tỉnh Thừa Thiên Huế', 'Tỉnh'),
+('48', 'Thành phố Đà Nẵng', 'Thành phố Trung ương'),
+('49', 'Tỉnh Quảng Nam', 'Tỉnh'),
+('51', 'Tỉnh Quảng Ngãi', 'Tỉnh'),
+('52', 'Tỉnh Bình Định', 'Tỉnh'),
+('54', 'Tỉnh Phú Yên', 'Tỉnh'),
+('56', 'Tỉnh Khánh Hòa', 'Tỉnh'),
+('58', 'Tỉnh Ninh Thuận', 'Tỉnh'),
+('60', 'Tỉnh Bình Thuận', 'Tỉnh'),
+('62', 'Tỉnh Kon Tum', 'Tỉnh'),
+('64', 'Tỉnh Gia Lai', 'Tỉnh'),
+('66', 'Tỉnh Đắk Lắk', 'Tỉnh'),
+('67', 'Tỉnh Đắk Nông', 'Tỉnh'),
+('68', 'Tỉnh Lâm Đồng', 'Tỉnh'),
+('70', 'Tỉnh Bình Phước', 'Tỉnh'),
+('72', 'Tỉnh Tây Ninh', 'Tỉnh'),
+('74', 'Tỉnh Bình Dương', 'Tỉnh'),
+('75', 'Tỉnh Đồng Nai', 'Tỉnh'),
+('77', 'Tỉnh Bà Rịa - Vũng Tàu', 'Tỉnh'),
+('79', 'Thành phố Hồ Chí Minh', 'Thành phố Trung ương'),
+('80', 'Tỉnh Long An', 'Tỉnh'),
+('82', 'Tỉnh Tiền Giang', 'Tỉnh'),
+('83', 'Tỉnh Bến Tre', 'Tỉnh'),
+('84', 'Tỉnh Trà Vinh', 'Tỉnh'),
+('86', 'Tỉnh Vĩnh Long', 'Tỉnh'),
+('87', 'Tỉnh Đồng Tháp', 'Tỉnh'),
+('89', 'Tỉnh An Giang', 'Tỉnh'),
+('91', 'Tỉnh Kiên Giang', 'Tỉnh'),
+('92', 'Thành phố Cần Thơ', 'Thành phố Trung ương'),
+('93', 'Tỉnh Hậu Giang', 'Tỉnh'),
+('94', 'Tỉnh Sóc Trăng', 'Tỉnh'),
+('95', 'Tỉnh Bạc Liêu', 'Tỉnh'),
+('96', 'Tỉnh Cà Mau', 'Tỉnh');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_comment`
+--
+
+DROP TABLE IF EXISTS `tbl_comment`;
+CREATE TABLE IF NOT EXISTS `tbl_comment` (
+  `comment_id` int(11) NOT NULL AUTO_INCREMENT,
   `comment` varchar(255) NOT NULL,
   `comment_name` varchar(100) NOT NULL,
   `comment_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `comment_product_id` int(11) NOT NULL,
   `comment_parent_comment` int(11) DEFAULT NULL,
-  `comment_status` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `comment_status` int(11) NOT NULL,
+  PRIMARY KEY (`comment_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=61 DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_comment`
+-- Dumping data for table `tbl_comment`
 --
 
-INSERT INTO `tbl_comment` (`comment_id`, `comment`, `comment_name`, `comment_date`, `comment_product_id`, `comment_parent_comment`, `comment_status`) VALUES
-(3, 'Thực ăn cho chó bạn bán chất lượng lắm nhé', 'hoanglong', '2020-09-17 07:34:32', 8, 0, 0),
-(4, 'Hay lắm pro :))', 'trunghoa', '2020-09-17 07:34:34', 8, 0, 0),
-(5, 'Sed ut perspiciatis unde omnis iste natus error', 'Hoàng lão tà', '2020-09-16 05:36:49', 8, 0, 0),
-(6, 'dsadasdasdasdasd', 'Hoàng', '2020-09-16 05:37:09', 8, 0, 0),
-(7, 'Sản phẩm ok lắm bạn', 'Quốc Trương', '2020-09-16 05:37:30', 8, 0, 0),
-(8, 'Sản phẩm ok lắm bạn', 'Quốc Trương', '2020-09-16 05:38:01', 8, 0, 0),
-(9, 'dasdasdasdas', 'dasdas', '2020-09-16 05:38:10', 8, 0, 0),
-(10, 'dasd', 'dasdas', '2020-09-16 05:38:40', 8, 0, 0),
-(11, 'asdasdasd', 'dasd', '2020-09-16 05:40:16', 8, 0, 0),
-(12, 'dasdasd', 'dadsa', '2020-09-16 05:40:59', 8, 0, 0),
-(13, 'asdasdasdasds', 'dasdsadasd', '2020-09-16 05:41:49', 8, 0, 0),
-(14, 'Hiếu chưa duyệt', 'Hiếu', '2020-09-16 05:45:44', 8, 0, 0),
-(15, 'Duyệt comment mình nhé', 'Hiếu', '2020-09-16 05:45:38', 8, 0, 0),
-(16, 'hiếu chờ duyệt', 'dsadasdas', '2020-09-16 05:45:42', 8, 0, 0),
-(17, 'Sp đẹp :))', 'Hiếu', '2020-09-17 10:11:51', 26, 0, 1),
-(18, 'Máy psd4 củ hay mới vậy ad', 'Hoàng', '2020-09-17 10:11:49', 26, 0, 1),
-(19, 'Cam ơn bạn nhé', 'HiếuStore', '2020-09-17 07:51:50', 8, 3, 0),
-(20, 'Ok bạn', 'HiếuStore', '2020-09-17 07:58:57', 26, 17, 0),
-(21, 'ps4 nhé', 'HiếuStore', '2020-09-17 07:59:42', 26, 18, 0),
-(23, 'ok bạn', 'HiếuStore', '2020-09-17 09:45:54', 8, 4, 0),
-(24, 'Cảm ơn bạn nhé,lần sau nhớ ghé thăm shop nhé', 'HiếuStore', '2020-09-17 09:46:27', 8, 7, 0),
-(25, 'vâng ghé shop nhé', 'HiếuStore', '2020-09-17 09:48:50', 8, 3, 0),
-(26, 'Ps4 mình đang bán tại link : link đây', 'HiếuStore', '2020-09-17 10:02:22', 26, 21, 0),
-(28, 'ok nhé', 'Hoàng long Mobile', '2020-09-17 10:11:29', 26, 0, 1),
-(29, 'ok nhé nhé x2', 'HiếuStore', '2020-09-17 10:11:14', 26, 28, 0),
-(30, 'Sub nhé', 'Sub kênh nhé', '2020-09-18 05:43:39', 26, 0, 0),
-(31, 'Ok nhé bạn', 'HiếuStore', '2020-09-18 05:43:45', 26, 30, 0),
-(32, 'dasdasdas', 'Hoang', '2020-09-26 07:27:15', 26, 0, 0),
-(33, 'dasdasd', 'HiếuStore', '2020-09-26 07:27:23', 26, 32, 0);
+INSERT INTO `tbl_comment` (`comment_id`, `comment`, `comment_name`, `comment_product_id`, `comment_parent_comment`, `comment_status`) VALUES
+(3, 'Thực ăn cho chó bạn bán chất lượng lắm nhé', 'hoanglong', 8, 0, 0),
+(4, 'Hay lắm pro :))', 'trunghoa', 8, 0, 0),
+(5, 'Sed ut perspiciatis unde omnis iste natus error', 'Hoàng lão tà', 8, 0, 0),
+(6, 'dsadasdasdasdasd', 'Hoàng', 8, 0, 0),
+(7, 'Sản phẩm ok lắm bạn', 'Quốc Trương', 8, 0, 0),
+(8, 'Sản phẩm ok lắm bạn', 'Quốc Trương', 8, 0, 0),
+(9, 'dasdasdasdas', 'dasdas', 8, 0, 0),
+(10, 'dasd', 'dasdas', 8, 0, 0),
+(11, 'asdasdasd', 'dasd', 8, 0, 0),
+(12, 'dasdasd', 'dadsa', 8, 0, 0),
+(13, 'asdasdasdasds', 'dasdsadasd', 8, 0, 0),
+(14, 'Hiếu chưa duyệt', 'Hiếu', 8, 0, 0),
+(15, 'Duyệt comment mình nhé', 'Hiếu', 8, 0, 0),
+(16, 'hiếu chờ duyệt', 'dsadasdas', 8, 0, 0),
+(17, 'Sp đẹp :))', 'Hiếu', 26, 0, 1),
+(18, 'Máy psd4 củ hay mới vậy ad', 'Hoàng', 26, 0, 1),
+(19, 'Cam ơn bạn nhé', 'HiếuStore', 8, 3, 0),
+(20, 'Ok bạn', 'HiếuStore', 26, 17, 0),
+(21, 'ps4 nhé', 'HiếuStore', 26, 18, 0),
+(23, 'ok bạn', 'HiếuStore', 8, 4, 0),
+(24, 'Cảm ơn bạn nhé,lần sau nhớ ghé thăm shop nhé', 'HiếuStore', 8, 7, 0),
+(25, 'vâng ghé shop nhé', 'HiếuStore', 8, 3, 0),
+(26, 'Ps4 mình đang bán tại link : link đây', 'HiếuStore', 26, 21, 0),
+(28, 'ok nhé', 'Hoàng long Mobile', 26, 0, 1),
+(29, 'ok nhé nhé x2', 'HiếuStore', 26, 28, 0),
+(30, 'Sub nhé', 'Sub kênh nhé', 26, 0, 0),
+(31, 'Ok nhé bạn', 'HiếuStore', 26, 30, 0),
+(32, 'dasdasdas', 'Hoang', 26, 0, 0),
+(33, 'dasdasd', 'HiếuStore', 26, 32, 0),
+(34, 'tam duoc', 'client 1', 14, 0, 0),
+(35, 'the hello', 'test ad1', 26, 0, 0),
+(36, 'test duoc ko', 'test ad2', 26, 0, 0),
+(37, 'ok, ban test thoai mai', 'HiếuStore', 26, 36, 0),
+(38, 'test chan thi thoi', 'HiếuStore', 26, 36, 0),
+(39, 'test demo nhe', 'test ad2', 26, 0, 0),
+(40, 'ok \ntest demo di', 'HiếuStore', 26, 39, 0),
+(41, 'hihi haha hoho', 'hihi', 26, 0, 0),
+(42, 'hihi haha hoho', 'hihi', 26, 0, 1),
+(43, 'cuoi cai j', 'HiếuStore', 26, 41, 0),
+(44, 'sale off nha', 'nguoi mua', 26, 0, 1),
+(45, 'den tu trang chuuuuuuuuuu', 'den tu trang chinh', 26, 0, 1),
+(46, 'sale off nha', 'nguoi mua', 26, 0, 1),
+(47, 'sale off nha', 'nguoi mua', 26, 0, 1),
+(57, 'san pham chan qua', 'duc', 15, 0, 0),
+(58, 'Sao ma chan', 'HiếuStore', 15, 57, 0),
+(59, 'chan ntn', 'HiếuStore', 15, 57, 0),
+(60, 'fffff', 'HiếuStore', 15, 57, 0);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_coupon`
+-- Table structure for table `tbl_coupon`
 --
 
-CREATE TABLE `tbl_coupon` (
-  `coupon_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `tbl_coupon`;
+CREATE TABLE IF NOT EXISTS `tbl_coupon` (
+  `coupon_id` int(11) NOT NULL AUTO_INCREMENT,
   `coupon_name` varchar(150) NOT NULL,
   `coupon_time` int(50) NOT NULL,
   `coupon_condition` int(11) NOT NULL,
   `coupon_number` int(11) NOT NULL,
-  `coupon_code` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `coupon_code` varchar(50) NOT NULL,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`coupon_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_coupon`
+-- Dumping data for table `tbl_coupon`
 --
 
-INSERT INTO `tbl_coupon` (`coupon_id`, `coupon_name`, `coupon_time`, `coupon_condition`, `coupon_number`, `coupon_code`) VALUES
-(1, 'Giảm giá 30/4', 10, 1, 10, 'HDH375Y'),
-(6, 'Giảm giá Covid', 10, 2, 200000, 'COVID99');
+INSERT INTO `tbl_coupon` (`coupon_id`, `coupon_name`, `coupon_time`, `coupon_condition`, `coupon_number`, `coupon_code`, `created_at`, `updated_at`) VALUES
+(1, 'Giảm giá 30/4', 10, 1, 10, 'HDH375Y', NULL, NULL),
+(6, 'Giảm giá Covid', 10, 2, 200000, 'COVID99', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_customers`
+-- Table structure for table `tbl_customers`
 --
 
-CREATE TABLE `tbl_customers` (
-  `customer_id` int(10) UNSIGNED NOT NULL,
-  `customer_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `customer_email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `customer_password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `customer_phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+DROP TABLE IF EXISTS `tbl_customers`;
+CREATE TABLE IF NOT EXISTS `tbl_customers` (
+  `customer_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `customer_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `customer_email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `customer_password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `customer_phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`customer_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_customers`
+-- Dumping data for table `tbl_customers`
 --
 
 INSERT INTO `tbl_customers` (`customer_id`, `customer_name`, `customer_email`, `customer_password`, `customer_phone`, `created_at`, `updated_at`) VALUES
 (4, 'Hiếu Tấn', 'tanhieu@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '0932023992', NULL, NULL),
 (5, 'Hoàng thị yến vi', 'yenvi@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '0932023992', NULL, NULL),
 (6, 'Trương Ngọc Tấn Hiếu', 'hieu123@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '0932023992', NULL, NULL),
-(7, 'Anh hieu dep giai 123', 'depgiai123@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '0932023992', NULL, NULL);
+(7, 'Anh hieu dep giai 123', 'depgiai123@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '0932023992', NULL, NULL),
+(8, 'hung', 'hung@gmail.com', 'hh', '099', NULL, NULL),
+(9, 'giang', 'giang@gmail.com', 'gg', '025', '2020-11-22 01:51:03', NULL),
+(10, 'Duc khach hang', 'duc@gmail.com', 'dd', '0999', '2020-11-22 05:16:49', NULL),
+(12, 'trang', 'trang@gmail.com', 'tt', '888', '2020-11-22 06:02:36', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_feeship`
+-- Table structure for table `tbl_feeship`
 --
 
-CREATE TABLE `tbl_feeship` (
-  `fee_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `tbl_feeship`;
+CREATE TABLE IF NOT EXISTS `tbl_feeship` (
+  `fee_id` int(11) NOT NULL AUTO_INCREMENT,
   `fee_matp` int(10) NOT NULL,
   `fee_maqh` int(10) NOT NULL,
   `fee_xaid` int(10) NOT NULL,
-  `fee_feeship` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `fee_feeship` varchar(50) NOT NULL,
+  PRIMARY KEY (`fee_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_feeship`
+-- Dumping data for table `tbl_feeship`
 --
 
 INSERT INTO `tbl_feeship` (`fee_id`, `fee_matp`, `fee_maqh`, `fee_xaid`, `fee_feeship`) VALUES
@@ -343,23 +688,31 @@ INSERT INTO `tbl_feeship` (`fee_id`, `fee_matp`, `fee_maqh`, `fee_xaid`, `fee_fe
 (4, 2, 26, 712, '60000'),
 (5, 79, 760, 26734, '80000'),
 (6, 8, 74, 2374, '15000'),
-(7, 77, 748, 26548, '60000');
+(7, 77, 748, 26548, '60000'),
+(18, 1, 1, 7, '25000'),
+(19, 1, 1, 1, '35000'),
+(20, 1, 1, 13, '50000'),
+(21, 2, 30, 706, '40000'),
+(22, 2, 30, 706, '40000'),
+(23, 2, 30, 706, '40.000');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_gallery`
+-- Table structure for table `tbl_gallery`
 --
 
-CREATE TABLE `tbl_gallery` (
-  `gallery_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `tbl_gallery`;
+CREATE TABLE IF NOT EXISTS `tbl_gallery` (
+  `gallery_id` int(11) NOT NULL AUTO_INCREMENT,
   `gallery_name` varchar(255) NOT NULL,
   `gallery_image` varchar(255) NOT NULL,
-  `product_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `product_id` int(11) NOT NULL,
+  PRIMARY KEY (`gallery_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_gallery`
+-- Dumping data for table `tbl_gallery`
 --
 
 INSERT INTO `tbl_gallery` (`gallery_id`, `gallery_name`, `gallery_image`, `product_id`) VALUES
@@ -373,93 +726,246 @@ INSERT INTO `tbl_gallery` (`gallery_id`, `gallery_name`, `gallery_image`, `produ
 (14, 'camo7.jpg', 'camo7.jpg', 27),
 (15, 'maydonhiptim21.jpg', 'maydonhiptim21.jpg', 29),
 (16, 'samsung80.jpg', 'samsung80.jpg', 30),
-(17, 'tải xuống (1)44.jpg', 'tải xuống (1)44.jpg', 31);
+(17, 'tải xuống (1)44.jpg', 'tải xuống (1)44.jpg', 31),
+(18, 'camo8.jpg', 'camo8.jpg', 26),
+(19, 'gao meihui79.jpg', 'gao meihui79.jpg', 31),
+(24, 'tai com co 60.jpg', '177.jpg', 32),
+(25, 'tai con meo co day12.jpg', 'tai con meo co day12.jpg', 32),
+(26, '2 - Copy5.jpg', '350.jpg', 33),
+(27, '173.jpg', '173.jpg', 33),
+(29, '297.jpg', '297.jpg', 33),
+(30, '380.jpg', '380.jpg', 33),
+(31, 'iphone586.jpg', 'iphone586.jpg', 34),
+(32, 'iphone 699.jpg', 'iphone 699.jpg', 35),
+(33, 'cho chi hong13.jpg', 'cho chi hong13.jpg', 35),
+(34, 'gao meihui64.jpg', 'gao meihui64.jpg', 35),
+(35, 'iphone 683.jpg', 'iphone 683.jpg', 35),
+(36, 'tai com co day4.jpg', 'tai com co day4.jpg', 35),
+(37, 'tai con meo co day94.jpg', 'tai con meo co day94.jpg', 35);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_infomation`
+-- Table structure for table `tbl_infomation`
 --
 
-CREATE TABLE `tbl_infomation` (
-  `info_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `tbl_infomation`;
+CREATE TABLE IF NOT EXISTS `tbl_infomation` (
+  `info_id` int(11) NOT NULL AUTO_INCREMENT,
   `info_contact` mediumtext NOT NULL,
   `info_map` text NOT NULL,
   `info_logo` varchar(255) NOT NULL,
-  `info_fanpage` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `info_fanpage` text NOT NULL,
+  PRIMARY KEY (`info_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_infomation`
+-- Dumping data for table `tbl_infomation`
 --
 
 INSERT INTO `tbl_infomation` (`info_id`, `info_contact`, `info_map`, `info_logo`, `info_fanpage`) VALUES
-(1, '<ul>\r\n	<li><span style=\"font-family:Courier New,Courier,monospace\"><span style=\"font-size:18px\"><strong>Địa chỉ 1: 760 Phan Văn Trị, G&ograve; Vấp, Th&agrave;nh phố Hồ Ch&iacute; Minh, Việt Nam</strong></span></span></li>\r\n	<li><span style=\"font-family:Courier New,Courier,monospace\"><span style=\"font-size:18px\"><strong>Địa chỉ 2: 850 L&ecirc; Quang Định, G&ograve; Vấp, Th&agrave;nh phố Hồ Ch&iacute; Minh, Việt Nam</strong></span></span></li>\r\n	<li><span style=\"font-family:Courier New,Courier,monospace\"><span style=\"font-size:18px\"><strong>Số điện thoại : 123456789 MrPh&uacute;&nbsp;- 093254125 MrsLan</strong></span></span></li>\r\n	<li><span style=\"font-family:Courier New,Courier,monospace\"><span style=\"font-size:18px\"><strong>Fanpage :&nbsp;<a href=\"https://www.facebook.com/BeautyplusUKCosmetics/\" target=\"_blank\">Beauty+ UK - Chuy&ecirc;n h&agrave;ng x&aacute;ch tay Anh Quốc</a></strong></span></span></li>\r\n</ul>', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.70344676037!2d106.6666079152604!3d10.833991361089867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752907670f0145%3A0xac444a6c11f72e81!2zNzYwIMSQLiBQaGFuIFbEg24gVHLhu4ssIFBoxrDhu51uZyAxMCwgR8OyIFbhuqVwLCBUaMOgbmggcGjhu5EgSOG7kyBDaMOtIE1pbmgsIFZpZXRuYW0!5e0!3m2!1sen!2s!4v1601101253074!5m2!1sen!2s\"  width=\"100%\" height=\"550\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\" aria-hidden=\"false\" tabindex=\"0\"></iframe>', 'blog-two94.jpg', '<div id=\"fb-root\"></div>\r\n            <script async defer crossorigin=\"anonymous\" src=\"https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v8.0&appId=2339123679735877&autoLogAppEvents=1\" nonce=\"2RfDRhZm\"></script>\r\n\r\n            <div class=\"fb-page\" data-href=\"https://www.facebook.com/BeautyplusUKCosmetics/\" data-tabs=\"timeline\" data-width=\"450px\" data-height=\"\" data-small-header=\"false\" data-adapt-container-width=\"true\" data-hide-cover=\"false\" data-show-facepile=\"true\"><blockquote cite=\"https://www.facebook.com/BeautyplusUKCosmetics/\" class=\"fb-xfbml-parse-ignore\"><a href=\"https://www.facebook.com/BeautyplusUKCosmetics/\">Beauty+ UK - Chuyên hàng xách tay Anh Quốc</a></blockquote></div>');
+(1, '<ul>\r\n	<li><span style=\"font-family:Courier New,Courier,monospace\"><span style=\"font-size:18px\"><strong>Địa chỉ 1: 36 Phan Văn Trị, G&ograve; Vấp, Th&agrave;nh phố Hồ Ch&iacute; Minh, Việt Nam</strong></span></span></li>\r\n	<li><span style=\"font-family:Courier New,Courier,monospace\"><span style=\"font-size:18px\"><strong>Địa chỉ 2: 850 L&ecirc; Quang Định, G&ograve; Vấp, Th&agrave;nh phố Hồ Ch&iacute; Minh, Việt Nam</strong></span></span></li>\r\n	<li><span style=\"font-family:Courier New,Courier,monospace\"><span style=\"font-size:18px\"><strong>Số điện thoại : 123456789 MrPh&uacute;&nbsp;- 093254125 MrsLan</strong></span></span></li>\r\n	<li><span style=\"font-family:Courier New,Courier,monospace\"><span style=\"font-size:18px\"><strong>Fanpage :&nbsp;<a href=\"https://www.facebook.com/BeautyplusUKCosmetics/\" target=\"_blank\">Beauty+ UK - Chuy&ecirc;n h&agrave;ng x&aacute;ch tay Anh Quốc</a></strong></span></span></li>\r\n</ul>', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1861.9940738826565!2d105.81054732488406!3d21.033160234454932!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab6b5a00449f%3A0xf4af3df3043ba077!2sMOMIZI%20BUSINESS%20HOTEL!5e0!3m2!1sen!2s!4v1606334198806!5m2!1sen!2s\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\" aria-hidden=\"false\" tabindex=\"0\"></iframe>', 'gao meihui49.jpg', '<div id=\"fb-root\"></div>\r\n            <script async defer crossorigin=\"anonymous\" src=\"https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v8.0&appId=2339123679735877&autoLogAppEvents=1\" nonce=\"2RfDRhZm\"></script>\r\n\r\n            <div class=\"fb-page\" data-href=\"https://www.facebook.com/BeautyplusUKCosmetics/\" data-tabs=\"timeline\" data-width=\"450px\" data-height=\"\" data-small-header=\"false\" data-adapt-container-width=\"true\" data-hide-cover=\"false\" data-show-facepile=\"true\"><blockquote cite=\"https://www.facebook.com/BeautyplusUKCosmetics/\" class=\"fb-xfbml-parse-ignore\"><a href=\"https://www.facebook.com/BeautyplusUKCosmetics/\">Beauty+ UK - Chuyên hàng xách tay Anh Quốc</a></blockquote></div>');
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_order`
+-- Table structure for table `tbl_lang`
 --
 
-CREATE TABLE `tbl_order` (
-  `order_id` bigint(20) UNSIGNED NOT NULL,
+DROP TABLE IF EXISTS `tbl_lang`;
+CREATE TABLE IF NOT EXISTS `tbl_lang` (
+  `id_lang` int(11) NOT NULL,
+  `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`id_lang`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_lang`
+--
+
+INSERT INTO `tbl_lang` (`id_lang`, `name`) VALUES
+(3, 'Viet'),
+(1, 'English'),
+(2, 'French');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_lang2`
+--
+
+DROP TABLE IF EXISTS `tbl_lang2`;
+CREATE TABLE IF NOT EXISTS `tbl_lang2` (
+  `id_lang` int(11) NOT NULL,
+  `name` varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`id_lang`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_lang2`
+--
+
+INSERT INTO `tbl_lang2` (`id_lang`, `name`) VALUES
+(3, 'Viet'),
+(1, 'English'),
+(2, 'French');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_order`
+--
+
+DROP TABLE IF EXISTS `tbl_order`;
+CREATE TABLE IF NOT EXISTS `tbl_order` (
+  `order_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `customer_id` int(11) NOT NULL,
   `shipping_id` int(11) NOT NULL,
   `order_status` int(20) NOT NULL,
-  `order_code` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `order_code` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `order_date` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`order_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_order`
+-- Dumping data for table `tbl_order`
 --
 
-INSERT INTO `tbl_order` (`order_id`, `customer_id`, `shipping_id`, `order_status`, `order_code`, `created_at`, `updated_at`) VALUES
-(18, 4, 19, 1, '1778b', '2020-08-08 08:54:34', NULL);
+INSERT INTO `tbl_order` (`order_id`, `customer_id`, `shipping_id`, `order_status`, `order_code`, `order_date`, `created_at`, `updated_at`) VALUES
+(23, 10, 24, 1, '4c5d1', '2020-11-23', '2020-11-23 05:39:41', NULL),
+(28, 10, 53, 2, '172e9', '2020-11-25', '2020-11-25 21:23:50', NULL),
+(30, 10, 55, 3, '6b67c', '2020-11-29', '2020-11-29 19:47:56', NULL),
+(31, 10, 56, 2, '54ae0', '2020-12-25', '2020-12-25 15:20:51', NULL),
+(32, 10, 57, 2, 'cb575', '2020-12-25', '2020-12-25 15:21:50', NULL),
+(33, 10, 58, 2, 'd7647', '2020-12-26', '2020-12-26 18:49:33', NULL),
+(34, 10, 59, 2, '92188', '2021-01-18', '2021-01-18 17:11:57', NULL),
+(35, 10, 60, 2, '91f65', '2021-01-23', '2021-01-23 11:25:17', NULL),
+(36, 10, 61, 2, 'd8925', '2021-01-23', '2021-01-23 12:07:02', NULL),
+(37, 10, 62, 1, 'abc03', '2021-01-23', '2021-01-23 12:54:49', NULL),
+(39, 10, 64, 2, '71c06', '2021-04-19', '2021-04-19 04:58:33', NULL),
+(40, 10, 65, 1, '4d583', '2021-04-19', '2021-04-19 09:04:50', NULL),
+(41, 10, 66, 2, '7208d', '2021-06-03', '2021-06-03 10:43:04', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_order_details`
+-- Table structure for table `tbl_order_details`
 --
 
-CREATE TABLE `tbl_order_details` (
-  `order_details_id` bigint(20) UNSIGNED NOT NULL,
-  `order_code` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+DROP TABLE IF EXISTS `tbl_order_details`;
+CREATE TABLE IF NOT EXISTS `tbl_order_details` (
+  `order_details_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `order_code` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `product_id` int(11) NOT NULL,
-  `product_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `product_price` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_price` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `product_sales_quantity` int(11) NOT NULL,
-  `product_coupon` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `product_feeship` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `product_coupon` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_feeship` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `order_date` varchar(15) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` datetime DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`order_details_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_order_details`
+-- Dumping data for table `tbl_order_details`
 --
 
-INSERT INTO `tbl_order_details` (`order_details_id`, `order_code`, `product_id`, `product_name`, `product_price`, `product_sales_quantity`, `product_coupon`, `product_feeship`, `created_at`, `updated_at`) VALUES
-(47, '3fc48', 6, 'Royal Canin Urinary Canine Dog 2kg - Dành cho chó bị sỏi thận-10kg', '431000', 5, 'COVID99', '50000', NULL, NULL),
-(48, '3fc48', 7, 'Thức ăn cho chó nhỏ trưởng thành Farmina N&D PUMPKIN vị heo, bí ngô và táo 3kg', '230000', 1, 'COVID99', '50000', NULL, NULL),
-(49, '3fc48', 8, 'Thức ăn cho chó nhỏ trưởng thành Farmina N&D PUMPKIN vị heo, bí ngô và táo 7kg', '135000', 1, 'COVID99', '50000', NULL, NULL),
-(50, '1778b', 24, 'Sách ngôn tình hồ ly tinh', '500000', 1, 'HDH375Y', '60000', NULL, NULL),
-(51, '1778b', 22, 'Máy PS4 slim Mega pack 2', '7550000', 1, 'HDH375Y', '60000', NULL, NULL),
-(52, '1778b', 20, 'Áo Thun Nam Y2010 Basic AI08', '286000', 1, 'HDH375Y', '60000', NULL, NULL),
-(53, '1778b', 7, 'Thức ăn cho chó nhỏ trưởng thành Farmina N&D PUMPKIN vị heo, bí ngô và táo 3kg', '230000', 1, 'HDH375Y', '60000', NULL, NULL),
-(54, '1778b', 6, 'Royal Canin Urinary Canine Dog 2kg - Dành cho chó bị sỏi thận-10kg', '431000', 1, 'HDH375Y', '60000', NULL, NULL);
+INSERT INTO `tbl_order_details` (`order_details_id`, `order_code`, `product_id`, `product_name`, `product_price`, `product_sales_quantity`, `product_coupon`, `product_feeship`, `order_date`, `created_at`, `updated_at`) VALUES
+(47, '3fc48', 6, 'Royal Canin Urinary Canine Dog 2kg - Dành cho chó bị sỏi thận-10kg', '431000', 5, 'COVID99', '50000', NULL, NULL, NULL),
+(48, '3fc48', 7, 'Thức ăn cho chó nhỏ trưởng thành Farmina N&D PUMPKIN vị heo, bí ngô và táo 3kg', '230000', 1, 'COVID99', '50000', NULL, NULL, NULL),
+(49, '3fc48', 8, 'Thức ăn cho chó nhỏ trưởng thành Farmina N&D PUMPKIN vị heo, bí ngô và táo 7kg', '135000', 1, 'COVID99', '50000', NULL, NULL, NULL),
+(50, '1778b', 24, 'Sách ngôn tình hồ ly tinh', '500000', 1, 'HDH375Y', '60000', NULL, NULL, NULL),
+(51, '1778b', 22, 'Máy PS4 slim Mega pack 2', '7550000', 1, 'HDH375Y', '60000', NULL, NULL, NULL),
+(52, '1778b', 20, 'Áo Thun Nam Y2010 Basic AI08', '286000', 1, 'HDH375Y', '60000', NULL, NULL, NULL),
+(53, '1778b', 7, 'Thức ăn cho chó nhỏ trưởng thành Farmina N&D PUMPKIN vị heo, bí ngô và táo 3kg', '230000', 1, 'HDH375Y', '60000', NULL, NULL, NULL),
+(54, '1778b', 6, 'Royal Canin Urinary Canine Dog 2kg - Dành cho chó bị sỏi thận-10kg', '431000', 1, 'HDH375Y', '60000', NULL, NULL, NULL),
+(55, 'ef784', 28, 'Máy đo nhịp tim Sonic-2k-K', '500000', 1, 'no', '10000', NULL, NULL, NULL),
+(60, 'cc1bb', 28, 'Máy đo nhịp tim Sonic-2k-K', '500000', 1, 'no', '10000', NULL, NULL, NULL),
+(66, '2651a', 14, 'Áo Thun Nam Y2010 Basic AI05', '135000', 66, 'no', '10000', '2020-11-24', '2020-11-24 20:15:20', NULL),
+(67, '2651a', 17, 'Áo Thun Nam Y2010 Basic AI03', '295000', 1, 'no', '10000', '2020-11-24', '2020-11-24 20:15:20', NULL),
+(68, '172e9', 19, 'Áo Thun Nam Y2010 Basic AI06', '285000', 5, 'no', '25000', '2020-11-25', '2020-11-25 21:23:50', NULL),
+(69, '172e9', 28, 'Máy đo nhịp tim Sonic-2k-K', '500000', 3, 'no', '25000', '2020-11-25', '2020-11-25 21:23:50', NULL),
+(70, '43736', 15, 'Áo Thun Nam Y2010 Basic AI01', '145000', 4, 'no', '25000', '2020-11-26', '2020-11-26 17:53:06', NULL),
+(71, '6b67c', 20, 'Áo Thun Nam Y2010 Basic AI08', '286000', 1, 'no', '10000', '2020-11-29', '2020-11-29 19:47:56', NULL),
+(72, '6b67c', 28, 'Máy đo nhịp tim Sonic-2k-K', '500000', 2, 'no', '10000', '2020-11-29', '2020-11-29 19:47:56', NULL),
+(73, '54ae0', 28, 'Máy đo nhịp tim Sonic-2k-K', '500000', 2, 'no', '25000', '2020-12-25', '2020-12-25 15:20:51', NULL),
+(74, 'cb575', 32, 'cho nhat cua chi hong', '1000000', 2, 'COVID99', '25000', '2020-12-25', '2020-12-25 15:21:50', NULL),
+(75, 'cb575', 28, 'Máy đo nhịp tim Sonic-2k-K', '500000', 3, 'COVID99', '25000', '2020-12-25', '2020-12-25 15:21:50', NULL),
+(76, 'd7647', 31, 'Tai nghe 5G đỏ', '500000', 10, 'COVID99', '35000', '2020-12-26', '2020-12-26 18:49:33', NULL),
+(77, 'd7647', 7, 'Thức ăn cho chó nhỏ trưởng thành Farmina N&D PUMPKIN vị heo, bí ngô và táo 3kg', '230000', 3, 'COVID99', '35000', '2020-12-26', '2020-12-26 18:49:33', NULL),
+(78, '92188', 18, 'Áo Thun Nam Y2010 Basic AI04', '395000', 5, 'no', '25000', '2021-01-18', '2021-01-18 17:11:57', NULL),
+(79, '92188', 21, 'Playstation 4 Pro 1TB USED', '6800000', 2, 'no', '25000', '2021-01-18', '2021-01-18 17:11:57', NULL),
+(80, '91f65', 6, 'Royal Canin Urinary Canine Dog 2kg - Dành cho chó bị sỏi thận-10kg', '431000', 2, 'no', '10000', '2021-01-23', '2021-01-23 11:25:17', NULL),
+(81, '91f65', 35, 'iphone 6', '7500000', 3, 'no', '10000', '2021-01-23', '2021-01-23 11:25:17', NULL),
+(82, '91f65', 34, 'iPhone 5 v20', '6000000', 1, 'no', '10000', '2021-01-23', '2021-01-23 11:25:17', NULL),
+(83, 'd8925', 33, 'kk t gghhjf', '5000', 1, 'no', '10000', '2021-01-23', '2021-01-23 12:07:02', NULL),
+(84, '71c06', 26, 'Máy Chơi Game ps4 pro 1Tb tặng thêm tay cầm và 3 game', '10999000', 2, 'no', '25000', NULL, '2021-04-19 04:58:33', NULL),
+(85, '71c06', 34, 'iPhone 5 v20', '6000000', 1, 'no', '25000', NULL, '2021-04-19 04:58:33', NULL),
+(86, '4d583', 14, 'Áo Thun Nam Y2010 Basic AI05', '135000', 2, 'no', '10000', NULL, '2021-04-19 09:04:50', NULL),
+(87, '7208d', 8, 'Thức ăn cho chó nhỏ trưởng thành Farmina N&D PUMPKIN vị heo, bí ngô và táo 7kg', '135000', 3, 'no', '10000', NULL, '2021-06-03 10:43:04', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_posts`
+-- Table structure for table `tbl_posts`
 --
 
-CREATE TABLE `tbl_posts` (
-  `post_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `tbl_posts`;
+CREATE TABLE IF NOT EXISTS `tbl_posts` (
+  `post_id` int(11) NOT NULL AUTO_INCREMENT,
+  `post_title` tinytext NOT NULL,
+  `post_views` int(11) DEFAULT NULL,
+  `post_slug` varchar(255) NOT NULL,
+  `post_desc` text NOT NULL,
+  `post_content` text NOT NULL,
+  `post_meta_desc` text NOT NULL,
+  `post_meta_keywords` varchar(255) NOT NULL,
+  `post_status` int(11) NOT NULL,
+  `post_image` varchar(200) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `cate_post_id` int(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`post_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_posts`
+--
+
+INSERT INTO `tbl_posts` (`post_id`, `post_title`, `post_views`, `post_slug`, `post_desc`, `post_content`, `post_meta_desc`, `post_meta_keywords`, `post_status`, `post_image`, `cate_post_id`) VALUES
+(1, 'Xiaomi Mi 10T Pro lộ ảnh thực tế với màn hình đục lỗ và 3 camera sau 108 MP?', 32, 'xiaomi-mi-10t-pro-lo-anh-thuc-te-voi-man-hinh-duc-lo-va-3-camera-sau-108-mp', '<p><span style=\"font-size:14px\"><span style=\"font-family:Arial,Helvetica,sans-serif\">D&ograve;ng smartphone h&agrave;ng đầu Mi 10 của Xiaomi bao gồm năm model: Mi 10, Mi 10 Pro, Mi 10 Lite, Mi 10 Lite Zoom v&agrave; Mi 10 Ultra mới ra mắt gần đ&acirc;y. B&acirc;y giờ, c&oacute; vẻ như Xiaomi sắp ra mắt th&ecirc;m hai model mới cũng thuộc d&ograve;ng Mi 10.</span></span></p>\r\n\r\n<ul>\r\n</ul>', '<h1>Chiếc smartphone n&agrave;y được cho l&agrave; Xiaomi Mi 10T Pro (nguồn ảnh: XDA-Developers)</h1>\r\n\r\n<h2>D&ograve;ng smartphone h&agrave;ng đầu Mi 10 của Xiaomi bao gồm năm model: Mi 10, Mi 10 Pro, Mi 10 Lite, Mi 10 Lite Zoom v&agrave; Mi 10 Ultra mới ra mắt gần đ&acirc;y. B&acirc;y giờ, c&oacute; vẻ như Xiaomi sắp ra mắt th&ecirc;m hai model mới cũng thuộc d&ograve;ng Mi 10.</h2>\r\n\r\n<p>Theo b&aacute;o c&aacute;o từ&nbsp;<a href=\"https://www.xda-developers.com/xiaomi-mi-10t-pro-flagship-smartphone-leak/\" rel=\"nofollow\" target=\"_blank\" title=\"This is Xiaomi upcoming Mi 10T Pro flagship smartphone\" type=\"This is Xiaomi upcoming Mi 10T Pro flagship smartphone\">XDA-Developers</a>, Xiaomi hiện đang chuẩn bị ra mắt Mi 10T (t&ecirc;n m&atilde; apollo) v&agrave;&nbsp;Mi 10T Pro (apollo pro), với năm số model:&nbsp;M2007J3SC, M2007J3SI, M2007J3SP, M2007J3SG v&agrave; M2007J3SY.</p>\r\n\r\n<p>Ri&ecirc;ng phi&ecirc;n bản&nbsp;Xiaomi Mi 10T Pro đ&atilde; bị r&ograve; rỉ h&igrave;nh ảnh thực tế với thiết kế m&agrave;n h&igrave;nh đục lỗ v&agrave; cụm ba camera mặt sau được đặt trong cấu tr&uacute;c h&igrave;nh chữ nhật nằm g&oacute;c tr&ecirc;n b&ecirc;n tr&aacute;i.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<ul>\r\n	<li><a href=\"javascript:void(0)\" rel=\"gallerynews1\"><img src=\"https://cdn.tgdd.vn/Files/2020/08/27/1284389/Gallery/5.jpg\" /></a></li>\r\n</ul>', 'Dòng smartphone hàng đầu Mi 10 của Xiaomi bao gồm năm model: Mi 10, Mi 10 Pro, Mi 10 Lite, Mi 10 Lite Zoom và Mi 10 Ultra mới ra mắt gần đây. Bây giờ, có vẻ như Xiaomi sắp ra mắt thêm hai model mới cũng thuộc dòng Mi 1', 'xiao mi,xaomi ,sản pham xiao mi', 0, 'xaiao19.jpg', 1),
+(2, 'Nhật Kim Anh chưa giành được quyền nuôi con', 54, 'nhat-kim-anh-chua-gianh-duoc-quyen-nuoi-con', '<p>Ng&agrave;y 28/8, trong phi&ecirc;n to&agrave; ph&uacute;c thẩm, hội đồng x&eacute;t xử tuy&ecirc;n hủy bản &aacute;n sơ thẩm tuy&ecirc;n diễn vi&ecirc;n Nhật Kim Anh được quyền nu&ocirc;i con do vi phạm tố tụng.</p>', '<p>Trước đ&oacute;, h&ocirc;m 23/3, to&agrave; sơ thẩm ra quyết định&nbsp;<a href=\"https://ngoisao.net/hau-truong/nhat-kim-anh-duoc-quyen-nuoi-con-4073395.html\" rel=\"dofollow\">giao quyền nu&ocirc;i con</a>&nbsp;cho Nhật Kim Anh. Tuy nhi&ecirc;n, phi&ecirc;n x&eacute;t xử vắng mặt bị đơn (doanh nh&acirc;n Trần Bửu Lộc) v&agrave; luật sư v&igrave; to&agrave; kh&ocirc;ng chấp nhận đơn xin ho&atilde;n x&eacute;t xử của bị đơn d&ugrave; được ph&aacute;p luật cho ph&eacute;p.</p>\r\n\r\n<p>Do đ&oacute;, tại phi&ecirc;n ph&uacute;c thẩm, theo luật sư của bị đơn, to&agrave; sơ thẩm x&eacute;t xử v&agrave; tuy&ecirc;n &aacute;n vắng mặt &ocirc;ng Lộc l&agrave; kh&ocirc;ng đảm bảo quyền v&agrave; lợi &iacute;ch hợp ph&aacute;p của cha đứa trẻ.</p>\r\n\r\n<p>Về ph&iacute;a Nhật Kim Anh, nữ diễn vi&ecirc;n tiếp tục tr&igrave;nh b&agrave;y c&ocirc; bị chồng cũ v&agrave; người th&acirc;n g&acirc;y kh&oacute; khăn trong việc thăm nom con trai. Ngược lại, doanh nh&acirc;n Trần Bửu Lộc tố vợ cũ &quot;cố t&igrave;nh d&agrave;n dựng chuyện, cho người ghi h&igrave;nh&quot; trong khi gia đ&igrave;nh anh đ&atilde; cố gắng tạo điều kiện hai mẹ con gặp gỡ nhau.</p>\r\n\r\n<table align=\"center\" border=\"0\" cellpadding=\"3\" cellspacing=\"0\">\r\n	<tbody>\r\n		<tr>\r\n			<td><img alt=\"Nhật Kim Anh và con trai Bửu Long dịp Tết 2020.\" src=\"https://i-ngoisao.vnecdn.net/2020/08/28/aa-9388-1598627858.jpg\" /></td>\r\n		</tr>\r\n		<tr>\r\n			<td>\r\n			<p>Nhật Kim Anh v&agrave; con trai Bửu Long dịp Tết 2020.</p>\r\n			</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>Sau khi lắng nghe tr&igrave;nh b&agrave;y của c&aacute;c b&ecirc;n đương sự, viện kiểm s&aacute;t v&agrave; kết th&uacute;c phần nghị &aacute;n, hội đồng x&eacute;t xử to&agrave; ph&uacute;c thẩm tuy&ecirc;n hủy bản &aacute;n sơ thẩm, giao TAND quận Ninh Kiều x&eacute;t xử lại từ đầu. Đặc biệt, việc nguy&ecirc;n đơn - Nhật Kim Anh - y&ecirc;u cầu thay đổi người trực tiếp nu&ocirc;i con phải được xem x&eacute;t đầy đủ mọi mặt. Qua đ&oacute;, bản &aacute;n c&oacute; thể đảm bảo tốt điều kiện vật chất, tinh thần cho b&eacute; Bửu Long. V&igrave; thế, Nhật Kim Anh v&agrave; Trần Bửu Lộc sẽ tiếp tục theo đuổi vụ kiện tranh chấp thay đổi người trực tiếp nu&ocirc;i con sau ly h&ocirc;n trong thời gian tới.</p>\r\n\r\n<p><em>Ngoisao.net&nbsp;</em>li&ecirc;n hệ Nhật Kim Anh về quyết định của t&ograve;a ph&uacute;c thẩm, song c&ocirc; từ chối trả lời v&igrave; đang mệt sau một ng&agrave;y tham dự phi&ecirc;n t&ograve;a.</p>\r\n\r\n<table align=\"center\" border=\"0\" cellpadding=\"3\" cellspacing=\"0\">\r\n	<tbody>\r\n		<tr>\r\n			<td><img alt=\"Nhật Kim Anh cùng chồng cũ tổ chức sinh nhật cho con trai vào tháng 9/2019.\" src=\"https://i-ngoisao.vnecdn.net/2020/08/28/aaa-1708-1598627858.jpg\" /></td>\r\n		</tr>\r\n		<tr>\r\n			<td>\r\n			<p>Nhật Kim Anh c&ugrave;ng chồng cũ tổ chức sinh nhật cho con trai v&agrave;o th&aacute;ng 9/2019.</p>\r\n			</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>Nhật Kim Anh sinh năm 1985, hoạt động trong vai tr&ograve; diễn vi&ecirc;n, ca sĩ v&agrave; kinh doanh mỹ phẩm. Năm 2019, c&ocirc; x&aacute;c nhận ly h&ocirc;n với doanh nh&acirc;n Bửu Lộc. Con trai c&ocirc; - Bửu Long - ở với ba v&agrave; &ocirc;ng b&agrave; nội. Sau đ&oacute;, v&igrave; nhiều lần bị ngăn gặp gỡ, c&ocirc; khởi kiện gi&agrave;nh quyền nu&ocirc;i con từ th&aacute;ng 7/2019, đến th&aacute;ng 3/2020 xử xong sơ thẩm,&nbsp;<a href=\"https://ngoisao.net/hau-truong/nhat-kim-anh-duoc-quyen-nuoi-con-4073395.html\" rel=\"dofollow\">trao quyền cho người mẹ</a>. Chưa kể, họ li&ecirc;n tục đấu tố nhau tr&ecirc;n mạng x&atilde; hội, đẩy c&acirc;u chuyện gi&agrave;nh quyền nu&ocirc;i con của nữ diễn vi&ecirc;n&nbsp;<em>Tiếng s&eacute;t trong mưa&nbsp;</em>trở n&ecirc;n nhiều ồn &agrave;o.</p>\r\n\r\n<p>Mới đ&acirc;y, nh&acirc;n&nbsp;<a href=\"https://ngoisao.net/hau-truong/nhat-kim-anh-doan-tu-con-trai-trong-sinh-nhat-4147540.html\" rel=\"dofollow\">sinh nhật tuổi 35</a>&nbsp;của Nhật Kim Anh, chồng cũ Bửu Lộc để con trai đo&agrave;n tụ với mẹ.</p>', 'Ngày 28/8, trong phiên toà phúc thẩm, hội đồng xét xử tuyên hủy bản án sơ thẩm tuyên diễn viên Nhật Kim Anh được quyền nuôi con do vi phạm tố tụng.', 'nhat kim anh ,nhật kim anh,tranh chấp nuôi con nhật kim anh', 0, 'aaa-1708-159862785859.jpg', 6),
+(3, 'Con gái út Hồ Hoài Anh muốn làm hoa hậu', 71, 'con-gai-ut-ho-hoai-anh-muon-lam-hoa-hau', '<p>Tr&ecirc;n k&ecirc;nh YouTube c&oacute; t&ecirc;n &quot;Gia đ&igrave;nh Giang Hồ&quot;, vợ chồng nhạc sĩ Hồ Ho&agrave;i Anh đăng tải những video ghi lại cuộc sống thường nhật của họ b&ecirc;n hai con g&aacute;i Mina v&agrave; Misu. Ở tập ph&aacute;t s&oacute;ng h&ocirc;m 27/8,&nbsp;</p>', '<h1 style=\"text-align:center\"><strong>M&agrave;n Q&amp;A của gia đ&igrave;nh Hồ Ho&agrave;i Anh</strong></h1>\r\n\r\n<p>Tr&ecirc;n k&ecirc;nh YouTube c&oacute; t&ecirc;n &quot;Gia đ&igrave;nh Giang Hồ&quot;, vợ chồng nhạc sĩ Hồ Ho&agrave;i Anh đăng tải những video ghi lại cuộc sống thường nhật của họ b&ecirc;n hai con g&aacute;i Mina v&agrave; Misu. Ở tập ph&aacute;t s&oacute;ng h&ocirc;m 27/8, cả nh&agrave; tham gia phần giao lưu với kh&aacute;n giả qua những c&acirc;u hỏi xoay quanh c&aacute;c th&agrave;nh vi&ecirc;n. Trong video, b&eacute; Mina, 9 tuổi, đ&oacute;ng vai tr&ograve; &quot;host&quot; (người dẫn dắt) v&agrave; li&ecirc;n tục giải đ&aacute;p những thắc mắc của người xem như t&ecirc;n thật của hai chị em l&agrave; g&igrave;, Mina v&agrave; Misu c&oacute; hay c&atilde;i nhau hay kh&ocirc;ng, Mina v&agrave; Misu th&iacute;ch l&agrave;m g&igrave; với bố mẹ nhất... Mina tiết lộ lớn l&ecirc;n sẽ mở tiệm cafe ch&oacute; m&egrave;o l&agrave;m nghề tay tr&aacute;i c&ograve;n em &uacute;t Mina muốn trở th&agrave;nh hoa hậu.</p>\r\n\r\n<p>Những c&acirc;u trả lời hồn nhi&ecirc;n của c&aacute;c b&eacute; khiến c&aacute;c kh&aacute;n giả th&iacute;ch th&uacute;. Một số nghệ sĩ trong đ&oacute; c&oacute; T&oacute;c Ti&ecirc;n, Đ&ocirc;ng Nhi, Ngọc Khu&ecirc;... trầm trồ trước sự đ&aacute;ng y&ecirc;u của hai b&eacute; Mina v&agrave; Misu. Nhạc sĩ Hồ Ho&agrave;i Anh chia sẻ những video n&agrave;y như cuốn nhật k&yacute; ghi lại h&agrave;nh tr&igrave;nh kh&ocirc;n lớn của hai con g&aacute;i anh. Tại đ&acirc;y, anh v&agrave; b&agrave; x&atilde; Lưu Hương Giang chỉ &quot;l&agrave;m nền&quot; c&ograve;n c&aacute;c con thỏa sức thể hiện suy nghĩ, quan điểm. Ở tập ph&aacute;t s&oacute;ng trước, hai b&eacute; đ&atilde; hồn nhi&ecirc;n &quot;tố c&aacute;o&quot; bố v&igrave; qu&aacute; bận rộn m&agrave; kh&ocirc;ng d&agrave;nh thời gian chơi c&ugrave;ng con. Misu thậm ch&iacute; dỗi v&agrave; bỏ ra h&agrave;nh lang b&aacute;n đồ h&agrave;ng một m&igrave;nh v&igrave; tủi th&acirc;n khi suốt 4 ng&agrave;y li&ecirc;n tục, Hồ Ho&agrave;i Anh mải m&ecirc; với c&aacute;c dự &aacute;n m&agrave; kh&ocirc;ng vui đ&ugrave;a c&ugrave;ng b&eacute;.</p>\r\n\r\n<table align=\"center\" border=\"0\" cellpadding=\"3\" cellspacing=\"0\">\r\n	<tbody>\r\n		<tr>\r\n			<td><img alt=\"Gia đình Hồ Hoài Anh và Lưu Hương Giang.\" src=\"https://i-ngoisao.vnecdn.net/2020/08/28/luu-huong-giang-5-2560-1598602451.jpg\" /></td>\r\n		</tr>\r\n		<tr>\r\n			<td>\r\n			<p>Gia đ&igrave;nh Hồ Ho&agrave;i Anh v&agrave; Lưu Hương Giang.</p>\r\n			</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>Nhạc sĩ Hồ Ho&agrave;i Anh kết h&ocirc;n c&ugrave;ng ca sĩ Lưu Hương Giang năm 2009 sau đ&oacute; lần lượt sinh hai con g&aacute;i l&agrave; Mina - Hồ Kh&aacute;nh H&agrave; v&agrave; Misu - Hồ T&uacute; Anh. Cặp vợ chồng từng trải qua một lần trục trặc c&aacute;ch đ&acirc;y kh&ocirc;ng l&acirc;u nhưng sau khi &quot;gương vỡ lại l&agrave;nh&quot; th&igrave; ng&agrave;y c&agrave;ng gắn b&oacute;. Qua c&aacute;c video tr&ecirc;n &quot;Gia đ&igrave;nh Giang Hồ&quot;, kh&aacute;n giả dễ h&igrave;nh dung ra cuộc sống giản dị, b&igrave;nh y&ecirc;n của cặp vợ chồng b&ecirc;n cạnh những thi&ecirc;n thần nhỏ. Cả hai nỗ lực x&acirc;y dựng cho con nền tảng gi&aacute;o dục tốt, khuyến kh&iacute;ch c&aacute;c ph&aacute;t triển c&aacute;c kỹ năng mềm b&ecirc;n cạnh bồi dưỡng năng khiếu nghệ thuật.</p>\r\n\r\n<p><iframe frameborder=\"0\" height=\"400\" src=\"https://www.youtube.com/embed/KkRdoYOwOAc\" width=\"100%\"></iframe></p>', 'Trên kênh YouTube có tên \"Gia đình Giang Hồ\", vợ chồng nhạc sĩ Hồ Hoài Anh đăng tải những video ghi lại cuộc sống thường nhật của họ bên hai con gái Mina và Misu.', 'Hồ Hoài Anh,hồ hoài anh', 0, 'luu-huong-giang-5-2560-159860245159.jpg', 6),
+(4, '\'Hoàn Châu cách cách\' tốn hơn 600.000 USD cho vai Hàm Hương', 94, 'hoan-chau-cach-cach-ton-hon-600000-usd-cho-vai-ham-huong', '<p>T&acirc;m huyết với H&agrave;m Hương trong kịch bản &#39;Ho&agrave;n Ch&acirc;u c&aacute;ch c&aacute;ch&#39;, nữ sĩ Quỳnh Dao đầu tư chi ph&iacute; lớn cho kỹ xảo đ&agrave;n bướm v&acirc;y quanh nh&acirc;n vật n&agrave;y.</p>', '<p>T&acirc;m huyết với H&agrave;m Hương trong kịch bản &#39;Ho&agrave;n Ch&acirc;u c&aacute;ch c&aacute;ch&#39;, nữ sĩ Quỳnh Dao đầu tư chi ph&iacute; lớn cho kỹ xảo đ&agrave;n bướm v&acirc;y quanh nh&acirc;n vật n&agrave;y.</p>\r\n\r\n<p>Kh&ocirc;ng được chiếu lại như th&ocirc;ng lệ nhiều m&ugrave;a h&egrave; trước,&nbsp;<em>Ho&agrave;n Ch&acirc;u c&aacute;ch c&aacute;ch&nbsp;</em>phi&ecirc;n bản gốc (Triệu Vy, L&acirc;m T&acirc;m Như, T&ocirc; Hữu Bằng đ&oacute;ng) năm nay vẫn l&agrave; đề t&agrave;i được d&acirc;n mạng Trung Quốc đem ra b&igrave;nh luận. Một nguồn tin gần đ&acirc;y tiết lộ về hậu trường đắt đỏ của c&aacute;c cảnh quay li&ecirc;n quan đến vai diễn Hương phi H&agrave;m Hương (Lưu Đan đ&oacute;ng).</p>\r\n\r\n<table align=\"center\" border=\"0\" cellpadding=\"3\" cellspacing=\"0\">\r\n	<tbody>\r\n		<tr>\r\n			<td><img alt=\"Một cảnh phim bướm vây quanh Hàm Hương khi nàng múa trong Hoàn Châu cách cách.\" src=\"https://i-ngoisao.vnecdn.net/2020/08/29/hoan-chau-cach-cach-5-9069-1598663784.jpg\" /></td>\r\n		</tr>\r\n		<tr>\r\n			<td>\r\n			<p>Một cảnh phim bướm v&acirc;y quanh H&agrave;m Hương khi n&agrave;ng m&uacute;a trong&nbsp;<em>Ho&agrave;n Ch&acirc;u c&aacute;ch c&aacute;ch.</em></p>\r\n			</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>Theo kịch bản, đ&uacute;ng như t&ecirc;n gọi của m&igrave;nh, H&agrave;m Hương sở hữu m&ugrave;i hương đặc biệt, thường thu h&uacute;t bướm v&acirc;y quanh. Nguồn tin cho hay tổng số cảnh kỹ xảo mi&ecirc;u tả điều n&agrave;y trong&nbsp;<em>Ho&agrave;n Ch&acirc;u c&aacute;ch c&aacute;ch&nbsp;</em>chỉ d&agrave;i khoảng 10 ph&uacute;t, nhưng ngốn tới 18 triệu T&acirc;n Đ&agrave;i Tệ (hơn 613.500 USD) năm 1999. Trung b&igrave;nh mỗi gi&acirc;y l&ecirc;n h&igrave;nh c&oacute; gi&aacute; khoảng 30.000 T&acirc;n Đ&agrave;i Tệ (hơn 1.000 USD).</p>\r\n\r\n<p>Từ l&uacute;c viết kịch bản, nh&agrave; văn - bi&ecirc;n kịch - nh&agrave; sản xuất Quỳnh Dao đ&atilde; rất t&acirc;m đắc vai diễn H&agrave;m Hương. B&agrave; li&ecirc;n hệ c&aacute;c c&ocirc;ng ty đồ họa v&agrave; kỹ xảo để hỏi liệu họ c&oacute; thể hiện thực h&oacute;a được c&aacute;c cảnh phim H&agrave;m Hương thu h&uacute;t ong bướm hay kh&ocirc;ng. Khi nhận được c&acirc;u trả lời chắc chắn, b&agrave; Quỳnh Dao viết chi tiết về h&igrave;nh ảnh bướm v&acirc;y quay H&agrave;m Hương từ nhỏ tới lớn, cả l&uacute;c n&agrave;ng đang say ngủ l&uacute;c l&acirc;m bệnh. Cảnh phim h&agrave;i hước Tiểu Yến Tử t&igrave;m c&aacute;ch thu h&uacute;t bướm nhưng cuối c&ugrave;ng chỉ dụ to&agrave;n ong v&agrave; bị ong đốt cũng được b&agrave; đưa th&ecirc;m v&agrave;o phim.</p>\r\n\r\n<table align=\"center\" border=\"0\" cellpadding=\"3\" cellspacing=\"0\">\r\n	<tbody>\r\n		<tr>\r\n			<td><img alt=\"Lâm Tâm Như, Lưu Đan, Triệu Vy (từ trái qua) ở hậu trường Hoàn Châu cách cách hơn 20 năm trước.\" src=\"https://i-ngoisao.vnecdn.net/2020/08/29/hoan-chau-cach-cach-7-5587-1598663784.jpg\" /></td>\r\n		</tr>\r\n		<tr>\r\n			<td>\r\n			<p>L&acirc;m T&acirc;m Như, Lưu Đan, Triệu Vy (từ tr&aacute;i qua) ở hậu trường&nbsp;<em>Ho&agrave;n Ch&acirc;u c&aacute;ch c&aacute;ch&nbsp;</em>hơn 20 năm trước.</p>\r\n			</td>\r\n		</tr>\r\n	</tbody>\r\n</table>', 'Tâm huyết với Hàm Hương trong kịch bản \'Hoàn Châu cách cách\', nữ sĩ Quỳnh Dao đầu tư chi phí lớn cho kỹ xảo đàn bướm vây quanh nhân vật này.', 'hàm hương,ham huong', 0, 'hon62.jpg', 6),
+(5, 'Messi chiếm ưu thế pháp lý so với Barca', 43, 'messi-chiem-uu-the-phap-ly-so-voi-barca', '<p>C&aacute;c kịch bản của chiến ph&aacute;p l&yacute; giữa Messi v&agrave; Barca được đ&agrave;i Cadena SER ph&acirc;n t&iacute;ch, với ưu thế hiện nằm ở ph&iacute;a si&ecirc;u sao người Argentina.</p>', '<p>C&aacute;c kịch bản của chiến ph&aacute;p l&yacute; giữa Messi v&agrave; Barca được đ&agrave;i Cadena SER ph&acirc;n t&iacute;ch, với ưu thế hiện nằm ở ph&iacute;a si&ecirc;u sao người Argentina.</p>\r\n\r\n<p><img alt=\"Một tấm áp phích phản đối Messi được treo ở sân Camp Nou. Ảnh: DPA.\" src=\"https://i1-thethao.vnecdn.net/2020/08/29/1598601332-779720-1598601761-n-4329-4681-1598663670.jpg?w=680&amp;h=0&amp;q=100&amp;dpr=1&amp;fit=crop&amp;s=7svxfzibagx_YvXoSHtJVQ\" /></p>\r\n\r\n<p>Một tấm &aacute;p ph&iacute;ch phản đối Messi được treo ở s&acirc;n Camp Nou. Ảnh:&nbsp;<em>DPA.</em></p>\r\n\r\n<p>Bản chất nghĩa đen của hợp đồng sẽ chiếm ưu thế trước t&ograve;a hơn l&agrave; tinh thần m&agrave; điều khoản đ&oacute; được soạn thảo. Nếu điều khoản 24 m&agrave;&nbsp;<a href=\"https://vnexpress.net/man-city-dung-goi-chuyen-nhuong-300-trieu-usd-doi-messi-4153994.html\" rel=\"dofollow\">Lionel Messi</a>&nbsp;viện dẫn ghi ch&iacute;nh x&aacute;c ng&agrave;y 10/6/2020 l&agrave; thời hạn cuối c&ugrave;ng để cầu thủ đơn phương chấm dứt hợp đồng, Messi c&oacute; rất &iacute;t cơ hội rời Barca m&agrave; kh&ocirc;ng bị phạt t&agrave;i ch&iacute;nh.</p>\r\n\r\n<p>Tuy nhi&ecirc;n, theo&nbsp;<em>Cadena Ser</em>, trong những điều khoản như thế n&agrave;y, th&ocirc;ng tin cụ thể về ng&agrave;y giờ sẽ kh&ocirc;ng được ghi ch&iacute;nh x&aacute;c. Khi ấy, theo điều 1281 Bộ luật D&acirc;n sự T&acirc;y Ban Nha, những điều khoản đ&oacute; sẽ được ưu ti&ecirc;n xem x&eacute;t trước, dựa tr&ecirc;n tinh thần l&agrave; Messi cần th&ocirc;ng b&aacute;o chấm dứt hợp đồng trong v&ograve;ng 10 ng&agrave;y kể từ khi hết m&ugrave;a.</p>\r\n\r\n<p>Nếu điều n&agrave;y xảy ra, Barca sẽ phải chứng minh được Messi đ&atilde; c&oacute; thời gian quyết định đủ l&acirc;u, t&iacute;nh từ l&uacute;c hết m&ugrave;a, trước khi quyết định c&oacute; tiếp tục thực hiện nốt năm cuối trong hợp đồng hay kh&ocirc;ng. Dựa tr&ecirc;n tinh thần khế ước, Messi c&oacute; nghĩa vụ phải ho&agrave;n th&agrave;nh nốt năm cuối v&agrave; Barca kh&ocirc;ng cần b&agrave;o chữa th&ecirc;m.</p>\r\n\r\n<p>Hai tổ chức ph&acirc;n xử vụ việc của Messi l&agrave; Ph&ograve;ng giải quyết tranh chấp của UEFA v&agrave; To&agrave; &aacute;n trọng t&agrave;i thể thao (CAS). Trong mọi trường hợp, hai tổ chức n&agrave;y đều ph&acirc;n xử dựa tr&ecirc;n hai nguy&ecirc;n tắc chung của điều ước quốc tế. Đ&oacute; l&agrave; &quot;pacta sunt servanda&quot; - c&aacute;c b&ecirc;n c&oacute; nghĩa vụ thực hiện một c&aacute;ch tự nguyện, đầy đủ v&agrave; c&oacute; thiện ch&iacute; c&aacute;c điều ước quốc tế đ&atilde; k&yacute;; v&agrave; &quot;rebus sic stantibus&quot; - điều kiện hợp ph&aacute;p để chấm dứt hiệu lực của điều ước quốc tế.</p>\r\n\r\n<p>Điều cơ bản, quyết định xem nghĩa đen của hợp đồng được ưu ti&ecirc;n hay kh&ocirc;ng, l&agrave; b&ecirc;n li&ecirc;n quan phải chứng minh được m&ugrave;a giải c&oacute; bị ảnh hưởng bởi Covid-19 hay kh&ocirc;ng. Messi c&oacute; vẻ chiếm lợi thế, bởi hầu như tất cả CLB v&agrave; giải đấu ch&acirc;u &Acirc;u đều bị ảnh hưởng trong m&ugrave;a giải 2019-2020. C&aacute;c giải đấu của La Liga thiệt hại 807 triệu USD, c&ograve;n hai cup ch&acirc;u &Acirc;u thiệt hại 3,9 tỷ USD. Real Madrid được tuy&ecirc;n v&ocirc; địch La Liga v&agrave;o 16/7, c&ograve;n Bayern Munich v&ocirc; địch Champions League v&agrave;o 23/8. Chi tiết quan trọng l&agrave; c&aacute;c giải đấu n&agrave;y đ&atilde; bị ho&atilde;n nhưng kh&ocirc;ng chấm dứt.</p>\r\n\r\n<p>Đ&acirc;y l&agrave; điểm mấu chốt ph&aacute;p l&yacute; m&agrave;&nbsp;<a href=\"https://vnexpress.net/messi-dung-thu-hai-chau-au-ve-do-trung-thanh-4153991.html\" rel=\"dofollow\">Messi&nbsp;</a>phải đối mặt Barca, bởi c&aacute;c luật sư của Messi cho rằng thời hạn thực hiện quyền đơn phương chấm dứt hợp đồng với gi&aacute; 0 đồng sẽ kết th&uacute;c một tuần sau khi Champions League kh&eacute;p lại. Dựa tr&ecirc;n những khuyến nghị của UEFA về c&aacute;c giải đấu tại ch&acirc;u &Acirc;u, c&oacute; vẻ hợp l&yacute; khi ph&aacute;n quyết cuối c&ugrave;ng nghi&ecirc;ng về Messi. Cơ quan c&oacute; quyền quyết định cao nhất - CAS - cũng nghi&ecirc;ng về phương &aacute;n n&agrave;y.</p>\r\n\r\n<p>Qu&aacute; tr&igrave;nh chuyển nhượng của Messi đến CLB kh&aacute;c c&oacute; thể được thực hiện trong một tuần, t&iacute;nh từ l&uacute;c ho&agrave;n thiện hồ sơ theo y&ecirc;u cầu c&aacute;c b&ecirc;n đến l&uacute;c x&aacute;c nhận bởi hệ thống gi&aacute;m s&aacute;t chuyển nhượng của&nbsp;<a href=\"https://vnexpress.net/fifa-co-the-dung-ve-phia-messi-4153414.html\" rel=\"dofollow\">FIFA</a>. Cũng theo c&aacute;c quy định của CAS, quyền l&agrave;m việc của cầu thủ chiếm ưu thế hơn so với c&aacute;c vụ&nbsp;<a href=\"https://vnexpress.net/barca-tu-choi-thuong-thao-voi-messi-4153996.html\" rel=\"dofollow\">kiện tụng ph&aacute;p l&yacute;</a>.</p>\r\n\r\n<p>UEFA cũng kh&ocirc;ng ngăn cản việc Messi rời Barca, miễn l&agrave; đội mua anh ấy tu&acirc;n thủ c&aacute;c quy tắc kinh tế được giới hạn bởi tiền lương v&agrave; luật c&ocirc;ng bằng t&agrave;i ch&iacute;nh.</p>\r\n\r\n<div class=\"ddict_btn\" style=\"left:831.781px; top:28px\"><img src=\"chrome-extension://bpggmmljdiliancllaapiggllnkbjocb/icon/16.png\" /></div>', 'Các kịch bản của chiến pháp lý giữa Messi và Barca được đài Cadena SER phân tích, với ưu thế hiện nằm ở phía siêu sao người Argentina.', 'messi,messi chuyển nhượng', 0, 'messi13.jpg', 4),
+(6, 'Djokovic đấu Raonic ở chung kết Cincinnati', 40, 'djokovic-dau-raonic-o-chung-ket-cincinnati', '<p>Novak Djokovic thắng ngược Roberto Bautista Agut 4-6, 6-4, 7-6(0) ở b&aacute;n kết Cincinnati Masters, tối 28/8.</p>', '<h1>Djokovic đấu Raonic ở chung kết Cincinnati</h1>\r\n\r\n<p>Novak Djokovic thắng ngược Roberto Bautista Agut 4-6, 6-4, 7-6(0) ở b&aacute;n kết Cincinnati Masters, tối 28/8.</p>\r\n\r\n<p>Sau 5 năm,&nbsp;<a href=\"https://vnexpress.net/chu-de/novak-djokovic-352\" rel=\"dofollow\">Djokovic</a>&nbsp;mới lại thắng Bautista Agut tr&ecirc;n s&acirc;n cứng. Chuỗi to&agrave;n thắng năm 2020 của tay vợt số một thế giới c&oacute; l&uacute;c bị đối thủ T&acirc;y Ban Nha đe dọa, nhưng Djokovic vẫn vượt qua kh&oacute; khăn để v&agrave;o chung kết giải đấu ở New York.</p>\r\n\r\n<p><img alt=\"Djokovic có 41 điểm winner và mắc 43 lỗi tự đánh hỏng cả trận. Ảnh: AP.\" src=\"https://i1-thethao.vnecdn.net/2020/08/29/VAE5SVSDAHUA62XEG4EDUWSVNU-8672-1598655398.jpg?w=680&amp;h=0&amp;q=100&amp;dpr=1&amp;fit=crop&amp;s=U-CM95Duhw9BDo_WlObKJA\" /></p>\r\n\r\n<p>Djokovic ghi 41 điểm winner v&agrave; mắc 43 lỗi tự đ&aacute;nh hỏng cả trận.<em>&nbsp;Ảnh: AP.</em></p>\r\n\r\n<p>Trong phần lớn trận đấu, Bautista Agut l&agrave;m điều m&agrave;&nbsp;<a href=\"https://vnexpress.net/chu-de/novak-djokovic-352\" rel=\"dofollow\">Djokovic&nbsp;</a>thường thực hiện với c&aacute;c tay vợt kh&aacute;c, cố gắng kh&oacute;a chặt cơ hội ghi điểm từ vạch cuối s&acirc;n của đối thủ. Hạt giống số t&aacute;m thắng set đầu 6-4 sau khi thắng hai game đỡ b&oacute;ng, trước khi gỡ h&ograve;a 4-4 ở set hai d&ugrave; bị dẫn 1-4. Ở thế kh&oacute;, Djokovic hưởng lợi khi trời mưa. Qu&atilde;ng nghỉ gi&uacute;p tay vợt Serbia lấy lại tinh thần. Anh thắng game giao của Bautista Agut ngay khi trận đấu trở lại, để đưa cuộc đọ sức v&agrave;o set ba.</p>\r\n\r\n<p>Sang set cuối, Djokovic mất game giao trước, nhưng thắng liền bốn game để dẫn lại 5-2. Nhưng trong một trận đấu m&agrave; hai tay vợt so k&egrave; ở từng pha b&oacute;ng bền, cục diện xoay chuyển nhanh ch&oacute;ng. Bautista Agut, ở thế ch&acirc;n tường, thắng liền bốn game để dẫn 6-5 v&agrave; cầm giao b&oacute;ng. Khi chỉ c&ograve;n c&aacute;ch chiến thắng hai điểm, tay vợt T&acirc;y Ban Nha lại kh&ocirc;ng tận dụng được thời cơ, v&agrave; để Djokovic k&eacute;o v&agrave;o loạt tie-break.</p>\r\n\r\n<p>Ở loạt đấu quyết định, Djokovic đạt phong độ cao nhất trong cả trận, thắng cả bảy điểm để kết th&uacute;c trận đấu. Trong 20 loạt tie-break gần nhất, Djokovic thắng tới 19. Chiến thắng 4-6, 6-4, 7-6 gi&uacute;p anh ngắt mạch ba trận thua s&acirc;n cứng trước Bautista Agut, v&agrave; n&acirc;ng chuỗi thắng li&ecirc;n tiếp tại ATP l&ecirc;n con số 25.</p>\r\n\r\n<p>Cũng giống&nbsp;<a href=\"https://vnexpress.net/djokovic-chan-thuong-trong-ngay-tro-lai-4151879.html\" rel=\"dofollow\">trận đấu ở v&ograve;ng hai</a>, trận n&agrave;y, Djokovic lại phải gọi chăm s&oacute;c y tế. Sau khi thua set đầu, Djokovic phải nhờ b&aacute;c sĩ trị liệu xoa b&oacute;p ở v&ugrave;ng cổ ở đầu set hai. Khi trở lại, anh chơi mạnh mẽ hơn v&agrave; bắt đầu nắm lợi thế trước Bautista Agut ở c&aacute;c loạt b&oacute;ng bền. Cuối trận, Djokovic c&oacute; dấu hiệu n&ocirc;n khan, nhưng vẫn nỗ lực để gi&agrave;nh chiến thắng thứ 22 trong năm 2020.</p>\r\n\r\n<p>Ở chung kết, Djokovic sẽ gặp Milos Raonic, người đ&aacute;nh bại Stefanos Tsitsipas 7-6, 6-3 ở b&aacute;n kết. Djokovic thắng Raonic ở cả 10 lần chạm tr&aacute;n trước đ&oacute;. Nếu hạ Raonic lần thứ 11, tay vợt số một thế giới sẽ c&acirc;n bằng kỷ lục gi&agrave;nh 35 Masters 1000 của Rafael Nadal.</p>', 'Sau 5 năm, Djokovic mới lại thắng Bautista Agut trên sân cứng. Chuỗi toàn thắng năm 2020 của tay vợt số một thế giới có lúc bị đối thủ Tây Ban Nha đe dọa, nhưng Djokovic vẫn vượt qua khó khăn để vào ', 'Djokovic,Djokovic đấu', 0, 'dio23.jpg', 4),
+(7, 'Ngoại hạng Anh công bố lịch đấu vòng 1', 72, 'ngoai-hang-anh-cong-bo-lich-dau-vong-1', '<p>Fulham - Arsenal l&agrave; trận đấu sớm nhất ở v&ograve;ng 1 Ngoại hạng Anh m&ugrave;a 2020-2021, theo lịch chi tiết được Ban tổ chức c&ocirc;ng bố h&ocirc;m 28/8.Trận đấu diễn ra l&uacute;c 12h30 thứ Bảy 12/9, giờ London (tức 18h30, giờ H&agrave; Nội).</p>', '<h1 style=\"text-align:center\">Ngoại hạng Anh c&ocirc;ng bố lịch đấu v&ograve;ng 1</h1>\r\n\r\n<p>Fulham - Arsenal l&agrave; trận đấu sớm nhất ở v&ograve;ng 1 Ngoại hạng Anh m&ugrave;a 2020-2021, theo lịch chi tiết được Ban tổ chức c&ocirc;ng bố h&ocirc;m 28/8.</p>\r\n\r\n<p>Trận đấu diễn ra l&uacute;c 12h30 thứ Bảy 12/9, giờ London (tức 18h30, giờ H&agrave; Nội).</p>\r\n\r\n<p><img alt=\"Trước khi gặp Fulham, Arsenal sẽ tranh Siêu Cup Anh với Liverpool. Ảnh: Reuters.\" src=\"https://i1-thethao.vnecdn.net/2020/08/29/aubameyang-arteta-7582-1598638677.jpg?w=680&amp;h=0&amp;q=100&amp;dpr=1&amp;fit=crop&amp;s=qoEUWmK7-AJVoMK2I7uXgA\" /></p>\r\n\r\n<p>Trước khi gặp Fulham, Arsenal sẽ tranh Si&ecirc;u Cup Anh với Liverpool. Ảnh:&nbsp;<em>Reuters.</em></p>\r\n\r\n<p>Kh&ocirc;ng ồn &agrave;o tr&ecirc;n thị trường chuyển nhượng như Man City hay Chelsea, nhưng&nbsp;<a href=\"https://vnexpress.net/arsenal-qua-mat-man-utd-trong-thuong-vu-gabriel-4151826.html\" rel=\"dofollow\">Arsenal cũng rất t&iacute;ch cực</a>&nbsp;n&acirc;ng cấp đội h&igrave;nh trong h&egrave; 2020. Họ đ&oacute;n trung vệ William Saliba, người vừa hết một năm cho mượn tại Saint-Etienne, b&ecirc;n cạnh việc chi&ecirc;u mộ cựu tiền đạo c&aacute;nh của Chelsea&nbsp;<a href=\"https://vnexpress.net/willian-toi-den-arsenal-de-vo-dich-champions-league-4150733.html\" rel=\"dofollow\">Willian&nbsp;</a>theo dạng tự do v&agrave; sắp gia hạn với đội trưởng&nbsp;<a href=\"https://vnexpress.net/arteta-aubameyang-ngang-hang-thierry-henry-4140714.html\" rel=\"dofollow\">Pierre-Emerick Aubameyang</a>.</p>\r\n\r\n<p>Trong khi đ&oacute;,&nbsp;<a href=\"https://vnexpress.net/fulham-thang-tran-cau-220-trieu-usd-4141400.html\" rel=\"dofollow\">Fulham</a>&nbsp;gi&agrave;nh quyền trở lại Ngoại hạng Anh, sau khi hạ Brentford ở trận play-off m&ugrave;a trước. Đội qu&acirc;n của HLV Scott Parker chỉ mua một t&acirc;n binh, l&agrave; hậu vệ tr&aacute;i Antonee Robinson, đồng thời k&iacute;ch hoạt điều khoản mua đứt với cầu thủ chạy c&aacute;nh mượn từ Brighton m&ugrave;a trước, Anthony Knockaert.</p>\r\n\r\n<p>Cũng thứ Bảy, đương kim v&ocirc; địch Liverpool gặp Leeds - đội mới trở lại Ngoại hạng Anh sau 16 năm, nhờ chiến thắng ở giải hạng Nhất m&ugrave;a trước.</p>\r\n\r\n<p>Do c&ugrave;ng tiến s&acirc;u ở hai Cup ch&acirc;u &Acirc;u m&ugrave;a trước, c&aacute;c trận v&ograve;ng một của Man City v&agrave; Man Utd được ho&atilde;n. Trận đầu ti&ecirc;n của thầy tr&ograve; Ole Gunnar Solskjaer l&agrave; cuộc tiếp đ&oacute;n Crystal Palace v&agrave;o thứ Bảy 19/9, trong khi đo&agrave;n qu&acirc;n của Pep Guardiola l&agrave;m kh&aacute;ch trước Wolverhampton Wanderers thứ Hai 21/9.</p>\r\n\r\n<p>Ban tổ chức chưa c&ocirc;ng bố lịch thi đấu c&aacute;c trận sau ng&agrave;y 24/10, do li&ecirc;n quan đến c&aacute;c giải đấu kh&aacute;c.</p>\r\n\r\n<div class=\"ddict_btn\" style=\"left:488.344px; top:29px\">&nbsp;</div>\r\n\r\n<div class=\"ddict_btn\" style=\"left:805.141px; top:92px\"><img src=\"chrome-extension://bpggmmljdiliancllaapiggllnkbjocb/icon/16.png\" /></div>', 'Fulham - Arsenal là trận đấu sớm nhất ở vòng 1 Ngoại hạng Anh mùa 2020-2021, theo lịch chi tiết được Ban tổ chức công bố hôm 28/8.Trận đấu diễn ra lúc 12h30 thứ Bảy 12/9, giờ London (tức 18h30, giờ Hà N', 'ngoai hang anh,ngoại hạng anh', 0, 'aubameyang-arteta-7582-159863867723.jpg', 4),
+(8, 'Bức tranh toàn cảnh thị trường smartphone quý 2', 32, 'buc-tranh-toan-canh-thi-truong-smartphone-quy-2', '<p>Do dịch COVID-19, ng&agrave;nh c&ocirc;ng nghiệp điện thoại th&ocirc;ng minh to&agrave;n cầu n&oacute;i chung đ&atilde; chậm lại khi c&aacute;c nh&agrave; m&aacute;y v&agrave; cửa h&agrave;ng b&aacute;n lẻ đ&oacute;ng cửa,</p>', '<h1>Bức tranh to&agrave;n cảnh thị trường smartphone qu&yacute; 2</h1>\r\n\r\n<h2>Ng&agrave;nh c&ocirc;ng nghiệp điện thoại th&ocirc;ng minh chứng kiến sự sụt giảm nghi&ecirc;m trọng trong qu&yacute; 2 năm 2020.</h2>\r\n\r\n<p>Sự kiện:&nbsp;<a href=\"https://www.24h.com.vn/iphone-se-2020-c407e5406.html\" title=\"iPhone SE 2020\">iPhone SE 2020</a>,&nbsp;<a href=\"https://www.24h.com.vn/dien-thoai-smartphone-c407e4053.html\" title=\"Điện thoại Smartphone\">Điện thoại Smartphone</a></p>\r\n\r\n<p>Do dịch COVID-19, ng&agrave;nh c&ocirc;ng nghiệp điện thoại th&ocirc;ng minh to&agrave;n cầu n&oacute;i chung đ&atilde; chậm lại khi c&aacute;c nh&agrave; m&aacute;y v&agrave; cửa h&agrave;ng b&aacute;n lẻ đ&oacute;ng cửa, g&acirc;y ra sự chậm trễ lớn trong chuỗi cung ứng v&agrave; đe dọa doanh số b&aacute;n h&agrave;ng. B&aacute;o c&aacute;o mới nhất từ ​​TrendForce ước t&iacute;nh&nbsp;sản lượng điện thoại th&ocirc;ng minh to&agrave;n cầu đạt 268 triệu chiếc trong qu&yacute; 2 năm 2020, giảm 16,7% so với c&ugrave;ng kỳ năm ngo&aacute;i.</p>\r\n\r\n<p><img alt=\"Bức tranh toàn cảnh thị trường smartphone quý 2 - 1\" src=\"https://cdn.24h.com.vn/upload/3-2020/images/2020-08-27/Buc-tranh-toan-canh-thi-truong-smartphone-quy-2-gsmarena_001-1598494738-493-width660height365.jpg\" /></p>\r\n\r\n<p>Ước t&iacute;nh lượng&nbsp;<a href=\"https://www.24h.com.vn/smartphone-c407e4053.html\" title=\"smartphone\">smartphone</a>&nbsp;xuất xưởng trong qu&yacute; 2 v&agrave; qu&yacute; 3 năm nay của 6 thương hiệu lớn nhất.</p>\r\n\r\n<p>Trong số s&aacute;u thương hiệu điện thoại th&ocirc;ng minh h&agrave;ng đầu tr&ecirc;n to&agrave;n cầu,&nbsp;<a href=\"https://www.24h.com.vn/samsung-c407e3988.html\" title=\"Samsung\">Samsung</a>&nbsp;l&agrave; thương hiệu duy nhất bị sụt giảm trong qu&yacute; 2 năm 2020. Tất nhi&ecirc;n, Samsung cũng l&agrave; thương hiệu &ldquo;b&aacute;n chạy&rdquo; nhất trong qu&yacute; n&agrave;y. Top 6 thương hiệu h&agrave;ng đầu lần lượt l&agrave;: Samsung, Huawei, Apple, Xiaomi, Oppo v&agrave; Vivo.</p>\r\n\r\n<p><img alt=\"Bức tranh toàn cảnh thị trường smartphone quý 2 - 2\" src=\"https://cdn.24h.com.vn/upload/3-2020/images/2020-08-27/Buc-tranh-toan-canh-thi-truong-smartphone-quy-2-gsmarena_002-1598494738-587-width660height434.jpg\" /></p>\r\n\r\n<p>Galaxy S20 Ultra, Galaxy Note 20 Ultra, Galaxy Note 10+.</p>\r\n\r\n<p>Sự sụt giảm của Samsung l&agrave; do doanh số b&aacute;n h&agrave;ng của h&atilde;ng giảm ở c&aacute;c thị trường bị ảnh hưởng nhiều nhất bởi COVID-19, bao gồm Ch&acirc;u &Acirc;u, Mỹ v&agrave; Ấn Độ. TrendForce dự đo&aacute;n Samsung sẽ lấy lại thị phần từ Huawei khi lệnh cấm của Mỹ v&agrave; căng thẳng gia tăng giữa Trung Quốc v&agrave; Ấn Độ tiếp tục g&acirc;y bất ổn cho hoạt động kinh doanh điện thoại th&ocirc;ng minh của Huawei.</p>\r\n\r\n<p><img alt=\"Bức tranh toàn cảnh thị trường smartphone quý 2 - 3\" src=\"https://cdn.24h.com.vn/upload/3-2020/images/2020-08-27/Buc-tranh-toan-canh-thi-truong-smartphone-quy-2-gsmarena_003-1598494738-49-width660height437.jpg\" /></p>\r\n\r\n<p>Huawei P40 Pro+.</p>\r\n\r\n<p>Huawei tiếp tục dựa v&agrave;o doanh số b&aacute;n h&agrave;ng tại thị trường qu&ecirc; nh&agrave; Trung Quốc với khoảng 52 triệu chiếc trong qu&yacute; 2 năm 2020. Huawei sẽ phải đối mặt với nhiều cạnh tranh hơn khi c&aacute;c thương hiệu kh&aacute;c sẽ giới thiệu những chiếc flagship từ nay đến cuối năm. Ở c&aacute;c thị trường ngo&agrave;i Trung Quốc, h&atilde;ng n&agrave;y cũng ghi nhận mức suy giảm do ảnh hưởng từ lệnh cấm của Ch&iacute;nh phủ Mỹ v&agrave;o năm 2019.</p>', 'Do dịch COVID-19, ngành công nghiệp điện thoại thông minh toàn cầu nói chung đã chậm lại khi các nhà máy và cửa hàng bán lẻ đóng cửa,', 'smartphone,điện thoại thông minh', 0, 'smartphone91.jpg', 1),
+(9, 'Tỷ giá USD hôm nay 29/8: USD và vàng cùng nhau lao dốc', 49, 'ty-gia-usd-hom-nay-298-usd-va-vang-cung-nhau-lao-doc', '<p>Rạng s&aacute;ng nay 29/8&nbsp;theo giờ Việt Nam, tỷ&nbsp;gi&aacute; USD tr&ecirc;n thị trường thế giới tiếp tục đi xuống.&nbsp;USD Index, thước đo sức mạnh của đồng bạc xanh so với c&aacute;c đồng bạc chủ chốt kh&aacute;c đạt&nbsp;92.287 điểm, giảm 0.704 điểm, tương đương để mất 0.76%.</p>', '<h1 style=\"text-align:center\">Tỷ gi&aacute; USD h&ocirc;m nay 29/8: USD v&agrave; v&agrave;ng c&ugrave;ng nhau lao dốc</h1>\r\n\r\n<p>Rạng s&aacute;ng nay 29/8&nbsp;theo giờ Việt Nam, tỷ&nbsp;gi&aacute; USD tr&ecirc;n thị trường thế giới tiếp tục đi xuống.&nbsp;USD Index, thước đo sức mạnh của đồng bạc xanh so với c&aacute;c đồng bạc chủ chốt kh&aacute;c đạt&nbsp;92.287 điểm, giảm 0.704 điểm, tương đương để mất 0.76%.</p>\r\n\r\n<p>Fed cho biết, sẽ đặt mức lạm ph&aacute;t trung b&igrave;nh h&agrave;ng năm l&agrave; 2% nhưng c&oacute; thể tăng l&ecirc;n tr&ecirc;n mức đ&oacute; trong một số điều kiện nhất định.</p>\r\n\r\n<p>C&aacute;c nh&agrave; ph&acirc;n t&iacute;ch cho rằng ch&iacute;nh s&aacute;ch mới của Fed c&oacute; thể khiến những người nghỉ hưu v&agrave; những người gửi tiết kiệm c&oacute; l&atilde;i suất tiền gửi ng&acirc;n h&agrave;ng sẽ ở mức gần 0.</p>\r\n\r\n<p>Trong khi đ&oacute;, Bộ Lao động Mỹ cho biết, số người Mỹ nộp đơn xin trợ cấp thất nghiệp lần đầu ti&ecirc;n v&agrave;o tuần trước l&agrave; 1 triệu người, đ&uacute;ng với dự đo&aacute;n. Con số n&agrave;y đ&aacute;nh dấu tuần thứ hai li&ecirc;n tiếp m&agrave; số đơn xin thất nghiệp h&agrave;ng tuần l&ecirc;n tới hơn 1 triệu.</p>\r\n\r\n<p>GDP qu&yacute; II đ&atilde; giảm31,7%, so với mức ước t&iacute;nh l&agrave; giảm 32,5%. Kết quả ban đầu v&agrave;o ng&agrave;y 30/7 cho thấy hoạt động kinh tế đ&atilde; sụt giảm 32,9%. Mặc d&ugrave; kết số liệu gần đ&acirc;y c&oacute; khả quan hơn một ch&uacute;t, nhưng n&oacute; vẫn đ&aacute;nh dấu mức giảm h&agrave;ng qu&yacute; lớn nhất được ghi nhận.</p>\r\n\r\n<p>Tr&ecirc;n thị trường v&agrave;ng thế giới, gi&aacute; v&agrave;ng giao ngay giảm 26,1 USD xuống 1.928,6 USD/ounce. Gi&aacute; v&agrave;ng tương lai giao th&aacute;ng 9 tr&ecirc;n s&agrave;n Comex New York tăng 10,2 USD l&ecirc;n 1.935,2 USD/ounce.</p>\r\n\r\n<p>Chỉ số đồng USD giảm 0,7% khiến v&agrave;ng rẻ hơn đối với c&aacute;c nh&agrave; đầu tư nắm giữ c&aacute;c loại tiền tệ kh&aacute;c.</p>\r\n\r\n<p>Ngo&agrave;i đồng USD, bất ổn ch&iacute;nh trị xung quanh việc thủ tướng Nhật Bản từ chức cũng sẽ hỗ trợ gi&aacute; v&agrave;ng.</p>\r\n\r\n<p><img alt=\"Tỷ giá USD hôm nay 29/8: USD và vàng cùng nhau lao dốc - 1\" src=\"https://cdn.24h.com.vn/upload/3-2020/images/2020-08-28/Ty-gia-USD-hom-nay-28-8-USD-tang-vang-lao-doc-sau-phat-bieu-cua-chu-tich-FED-pexels-photo-259027-1598608553-166-width500height333.jpeg\" /></p>\r\n\r\n<p>Đồng USD giảm gi&aacute;</p>\r\n\r\n<p>Tại thị trường Việt Nam, ng&agrave;y 28/8&nbsp;Ng&acirc;n h&agrave;ng Nh&agrave; nước (NHNN) ni&ecirc;m yết tỷ gi&aacute; trung t&acirc;m ở mức 23.205 VND/USD.</p>\r\n\r\n<p>Tỷ gi&aacute; tham khảo tại Sở giao dịch NHNN ở mức 22.175 - 23.851 VND/USD.</p>\r\n\r\n<p>Gi&aacute; mua USD tại c&aacute;c ng&acirc;n h&agrave;ng nằm trong khoảng từ 23.055 &ndash; 23.085 VND/USD, trong khi khoảng b&aacute;n ra ở mức 23.250 &ndash; 23.284 VND/USD.</p>\r\n\r\n<p>Gi&aacute; USD tự do ở mức 23.190 - 23.220 VND/USD.</p>', 'Rạng sáng nay 29/8 theo giờ Việt Nam, tỷ giá USD trên thị trường thế giới tiếp tục đi xuống. USD Index, thước đo sức mạnh của đồng bạc xanh so với các đồng bạc chủ chốt khác đạt 92.287 điểm, giảm 0.704 điểm, tương đương để mất 0.76%.', 'tỷ giá usd,tý giá', 0, 'ty gia70.jpeg', 2),
+(10, 'Giá vàng sáng nay 29/8: Lộn ngược dòng, tăng \"phi mã\" phiên cuối tuần', 45, 'gia-vang-sang-nay-298-lon-nguoc-dong-tang-phi-ma-phien-cuoi-tuan', '<p>Quy theo gi&aacute; USD ng&acirc;n h&agrave;ng, chưa t&iacute;nh thuế v&agrave; ph&iacute;, gi&aacute; v&agrave;ng thế giới hiện đang giao ngay ở mức&nbsp;54,71 triệu đồng/lượng, thấp hơn khoảng 2 triệu đồng/lượng so với gi&aacute; v&agrave;ng trong nước.</p>', '<h1>Gi&aacute; v&agrave;ng s&aacute;ng nay 29/8: Lộn ngược d&ograve;ng, tăng &quot;phi m&atilde;&quot; phi&ecirc;n cuối tuần</h1>\r\n\r\n<p>Thứ Bảy, ng&agrave;y 29/08/2020 08:44 AM (GMT+7)</p>\r\n\r\n<p>Sự kiện:&nbsp;<a href=\"https://www.24h.com.vn/gia-vang-c161e3047.html\" title=\"Giá vàng\">Gi&aacute; v&agrave;ng</a>&nbsp;</p>\r\n\r\n<p>L&uacute;c 8h s&aacute;ng nay (29/8), gi&aacute; v&agrave;ng thế giới giao ngay đứng ở mức 1.963,84 USD/Ounce, tăng khoảng 36 USD so với c&ugrave;ng thời điểm giao dịch s&aacute;ng qua 28/8.&nbsp;Gi&aacute; v&agrave;ng thế giới giao th&aacute;ng 10/2020 ghi nhận tr&ecirc;n s&agrave;n Comex thuộc New York Mercantile Exchanghe ở mức 1.965,7 USD/Ounce, tăng 40,7 USD/Ounce trong phi&ecirc;n.</p>\r\n\r\n<p>Quy theo gi&aacute; USD ng&acirc;n h&agrave;ng, chưa t&iacute;nh thuế v&agrave; ph&iacute;, gi&aacute; v&agrave;ng thế giới hiện đang giao ngay ở mức&nbsp;54,71 triệu đồng/lượng, thấp hơn khoảng 2 triệu đồng/lượng so với gi&aacute; v&agrave;ng trong nước.</p>\r\n\r\n<p><img alt=\"Giá vàng sáng nay 29/8: Lộn ngược dòng, tăng &amp;#34;phi mã&amp;#34; phiên cuối tuần - 1\" src=\"https://cdn.24h.com.vn/upload/3-2020/images/2020-08-29/Gia-vang-sang-nay-29-8-Lon-nguoc-dong-tang-6-1598663551-739-width660height440.jpg\" /></p>\r\n\r\n<p>V&agrave;ng thế giới bật tăng phi m&atilde;</p>\r\n\r\n<p>V&agrave;ng thế giới tăng dựng ngược s&aacute;ng nay chủ yếu do đồng USD lao dốc v&agrave; t&acirc;m l&yacute; bắt đ&aacute;y của nh&agrave; đầu tư khi v&agrave;ng xuống mức thấp trong phi&ecirc;n giao dịch s&aacute;ng qua.</p>\r\n\r\n<p>Đồng USD&nbsp;bất ngờ giảm gi&aacute; mạnh sau khi Chủ tịch Fed ph&aacute;t biểu về chiến lược mới li&ecirc;n quan tới ch&iacute;nh s&aacute;ch tiền tệ.&nbsp;Theo đ&oacute;, Chủ tịch Fed Jerome Powell th&ocirc;ng b&aacute;o thay đổi ch&iacute;nh s&aacute;ch v&agrave; sẽ để lạm ph&aacute;t gia tăng nhằm cho ph&eacute;p nền kinh tế tạo ra nhiều việc l&agrave;m hơn, mang lại lợi &iacute;ch cho người lao động, đặc biệt l&agrave; những người c&oacute; thu nhập thấp. Ng&acirc;n h&agrave;ng trung ương Mỹ sẽ t&igrave;m c&aacute;ch đạt được mức lạm ph&aacute;t trung b&igrave;nh 2% theo thời gian, b&ugrave; đắp c&aacute;c giai đoạn biến động trong thời gian trước.</p>\r\n\r\n<p>Mặt kh&aacute;c, c&aacute;c ng&acirc;n h&agrave;ng trung ương v&agrave; ch&iacute;nh phủ to&agrave;n cầu đ&atilde; bơm một lượng lớn k&iacute;ch th&iacute;ch v&agrave;o thị trường để hỗ trợ c&aacute;c nền kinh tế bị tổn thương do COVID-19. Đ&acirc;y l&agrave; yếu tố đẩy v&agrave;ng tăng gần 30% từ đầu năm đến nay.&nbsp;</p>\r\n\r\n<p>C&ugrave;ng với việc thực hiện thay đổi ch&iacute;nh s&aacute;ch tiền tệ, ch&iacute;nh phủ Mỹ ng&agrave;y 27/8 c&ocirc;ng bố số liệu cho thấy số người nộp đơn xin trợ cấp thất nghiệp lần đầu ở mức khoảng 1 triệu người trong tuần trước, cho thấy sự phục hồi của thị trường lao động đang chững lại khi dịch bệnh diễn biến phức tạp.</p>\r\n\r\n<p>Một nh&acirc;n tố kh&aacute;c khiến gi&aacute; v&agrave;ng ng&agrave;y 29/8 tăng vọt l&agrave; th&ocirc;ng tin nhập khẩu v&agrave;ng r&ograve;ng của Trung Quốc tiếp tục tăng mạnh trong th&aacute;ng 7/2020.</p>\r\n\r\n<p>Ở thị trường trong nước, l&uacute;c 8h s&aacute;ng 29/8, gi&aacute; v&agrave;ng SJC tại c&ocirc;ng ty v&agrave;ng bạc đ&aacute; qu&yacute; S&agrave;i G&ograve;n ni&ecirc;m yết cho thị trường TP.HCM với gi&aacute; 55,8-56,75 triệu đồng/lượng, tăng 450 ngh&igrave;n đồng/lượng chiều mua v&agrave;o v&agrave; 550 ngh&igrave;n đồng/lượng b&aacute;n ra so với c&ugrave;ng thời điểm s&aacute;ng qua 28/8.</p>\r\n\r\n<p>Gi&aacute; v&agrave;ng SJC tr&ecirc;n hệ thống Ph&uacute; Qu&yacute; đang đứng tại 55,9-56,6 triệu đồng/lượng, tăng 500 ngh&igrave;n đồng/lượng mỗi chiều so với s&aacute;ng qua.&nbsp;</p>\r\n\r\n<p>Tr&ecirc;n hệ thống Bảo T&iacute;n Minh Ch&acirc;u, gi&aacute; v&agrave;ng SJC ở mức 55,95-56,5 triệu đồng/lượng, tăng 350 ngh&igrave;n đồng/lượng chiều mỗi chiều. Gi&aacute; v&agrave;ng rồng Thăng Long của thương hiệu n&agrave;y cũng tăng mạnh v&agrave; đang giao dịch ở 53,53-54,28 triệu đồng/lượng.</p>\r\n\r\n<p>C&ograve;n gi&aacute; v&agrave;ng Doji tại thị trường H&agrave; Nội đứng ở 55,6-56,5 triệu đồng/lượng, tăng 200 ngh&igrave;n đồng/lượng chiều mua v&agrave;o, tăng 400 ngh&igrave;n đồng/lượng chiều b&aacute;n ra so với s&aacute;ng qua (29/8).</p>', 'Quy theo giá USD ngân hàng, chưa tính thuế và phí, giá vàng thế giới hiện đang giao ngay ở mức 54,71 triệu đồng/lượng, thấp hơn khoảng 2 triệu đồng/lượng so với giá vàng trong nước.', 'giá vàng,gia vang', 0, 'gia vang40.jpg', 2),
+(11, 'Viên đạn tố cáo goá phụ', 84, 'vien-dan-to-cao-goa-phu', '<p>Doanh nh&acirc;n Alan Helmick, 62 tuổi, tho&aacute;t chết sau lần chết hụt tr&ecirc;n chiếc xe bốc ch&aacute;y, nhưng 6 tuần sau tai hoạ lại ập đến.</p>', '<h1 style=\"text-align:center\">Vi&ecirc;n đạn tố c&aacute;o go&aacute; phụ</h1>\r\n\r\n<p>MỸDoanh nh&acirc;n Alan Helmick, 62 tuổi, tho&aacute;t chết sau lần chết hụt tr&ecirc;n chiếc xe bốc ch&aacute;y, nhưng 6 tuần sau tai hoạ lại ập đến.</p>\r\n\r\n<p>Trưa 10/6/2008, Alan bị ph&aacute;t hiện chết trong ph&ograve;ng l&agrave;m việc ở nh&agrave; ri&ecirc;ng tại hạt Mesa, bang Colorado, sau đầu c&oacute; vết đạn duy nhất. Gần thi thể l&agrave; vỏ đạn s&uacute;ng ngắn cỡ 6,35 mm.</p>\r\n\r\n<p>Người ph&aacute;t hiện thi thể l&agrave; vợ của Alan, Miriam Helmick, 51 tuổi. Miriam khai hai người hẹn ăn trưa tại nh&agrave; h&agrave;ng đồ ch&acirc;u &Aacute;. V&igrave; Alan lu&ocirc;n đ&uacute;ng giờ, Miriam dự cảm chẳng l&agrave;nh khi m&atilde;i kh&ocirc;ng thấy chồng tới. B&agrave; chạy về nh&agrave;.</p>\r\n\r\n<p>Hiện trường c&oacute; dấu vết như vụ cướp t&agrave;i sản. Nhiều ngăn k&eacute;o bị l&ocirc;i hết ra, trang sức trong hộp cũng mất hết. Tuy vậy, căn nh&agrave; lại kh&ocirc;ng c&oacute; dấu hiệu bị cậy ph&aacute; cửa, đồ đạc nguy&ecirc;n vị tr&iacute;. Cảnh s&aacute;t v&igrave; thế kh&ocirc;ng loại bỏ khả năng hiện trường bị ngụy tạo để che giấu mục đ&iacute;ch thật sự l&agrave; giết người.</p>\r\n\r\n<p>Do l&agrave; người t&igrave;m ra thi thể, Miriam bị kiểm tra dấu vết muội s&uacute;ng tr&ecirc;n b&agrave;n tay nhưng chuy&ecirc;n vi&ecirc;n kh&ocirc;ng thấy g&igrave;. L&uacute;c n&agrave;y, Miriam n&oacute;i vụ &aacute;n mạng c&oacute; thể li&ecirc;n quan tới sự việc xảy ra khoảng 6 tuần trước, ng&agrave;y 30/4/2008.</p>\r\n\r\n<p>H&ocirc;m đ&oacute;, vợ chồng Miriam đi mua đồ tại tạp h&oacute;a. Trong l&uacute;c ngồi tr&ecirc;n xe chờ vợ, Alan bỗng thấy đằng sau xe b&ugrave;ng ch&aacute;y v&agrave; vội tho&aacute;t ra ngo&agrave;i. Ngọn lửa được dập tắt, để lộ sợi bấc ch&aacute;y dở trong b&igrave;nh xăng. May mắn, xe chưa ph&aacute;t nổ.</p>\r\n\r\n<p>Do b&atilde;i gửi xe kh&ocirc;ng c&oacute; camera gi&aacute;m s&aacute;t, cảnh s&aacute;t kh&ocirc;ng thể biết ai đ&atilde; ch&acirc;m ng&ograve;i nổ. Khi được hỏi, Alan đặt nghi ngờ v&agrave;o gi&aacute;m đốc hoặc ph&oacute; gi&aacute;m đốc ng&acirc;n h&agrave;ng tiểu bang do hai người n&agrave;y đang x&iacute;ch m&iacute;ch với &ocirc;ng v&igrave; c&aacute;o buộc vay tiền tr&aacute;i ph&eacute;p. Tuy vậy, sự việc sau đ&oacute; cũng kh&ocirc;ng được điều tra th&ecirc;m.</p>\r\n\r\n<p><img alt=\"Phần ngòi nổ bằng dây bấc tự chế. Ảnh: Filmrise.\" src=\"https://i1-vnexpress.vnecdn.net/2020/08/28/1-JPG-7651-1598615523.jpg?w=680&amp;h=0&amp;q=100&amp;dpr=1&amp;fit=crop&amp;s=NzMmTc7S_E0Uhvqoq_ewSw\" /></p>\r\n\r\n<p>Phần ng&ograve;i nổ bằng d&acirc;y bấc tự chế. Ảnh:&nbsp;<em>Filmrise.</em></p>\r\n\r\n<p>Một tuần sau tang lễ, Miriam t&igrave;m gặp cảnh s&aacute;t v&agrave; cho biết t&igrave;m thấy tấm thiệp bị c&agrave;i dưới thảm trải s&agrave;n trước cửa nh&agrave;. Tấm thiệp b&ecirc;n ngo&agrave;i đề chữ &quot;gửi b&agrave; g&oacute;a đang kh&oacute;c chồng&quot;, b&ecirc;n trong l&agrave; lời đe dọa: &quot;Đầu ti&ecirc;n l&agrave; Allen, tiếp theo sẽ l&agrave; m&agrave;y, mau mau chạy đi&quot;. Nhiều chữ trong thiệp bị viết sai ch&iacute;nh tả, bao gồm t&ecirc;n của Alan.</p>\r\n\r\n<p>Phong b&igrave; đựng thiệp kh&ocirc;ng c&oacute; dấu bưu điện n&ecirc;n c&oacute; kẻ đ&atilde; trực tiếp đưa thư tới nh&agrave;. Đồng thời, phong b&igrave; cũng kh&ocirc;ng được ni&ecirc;m phong n&ecirc;n kh&ocirc;ng thể lấy mẫu nước bọt để gi&aacute;m định ADN. Chữ tr&ecirc;n thiệp được viết dưới dạng in hoa đơn giản n&ecirc;n kh&ocirc;ng thể d&ugrave;ng ph&acirc;n t&iacute;ch chữ viết tay. Phần m&atilde; vạch sau tấm thiệp bị cắt bỏ, c&oacute; vẻ như để ngăn bị truy dấu nguồn gốc. Người gửi cũng kh&ocirc;ng để lại dấu v&acirc;n tay.</p>\r\n\r\n<p>Tuy nhi&ecirc;n, tr&ecirc;n tấm thiệp vẫn c&ograve;n để lại th&ocirc;ng tin của c&ocirc;ng ty sản xuất. Khi được li&ecirc;n hệ, c&ocirc;ng ty cho biết đ&atilde; b&aacute;n loại thiệp n&agrave;y cho ba cửa h&agrave;ng địa phương. Tới lượt m&igrave;nh, ba cửa h&agrave;ng cho biết lần gần nhất c&oacute; người mua thiệp l&agrave; v&agrave;o bốn ng&agrave;y trước khi Miriam nhận được thiệp. Giao dịch n&agrave;y d&ugrave;ng tiền mặt, ph&aacute;t sinh tại cửa h&agrave;ng c&aacute;ch nh&agrave; nạn nh&acirc;n khoảng 13 dặm. Nhưng ngạc nhi&ecirc;n hơn cả, camera gi&aacute;m s&aacute;t cho thấy người mua thiệp l&agrave; Miriam Helmick.</p>\r\n\r\n<p>Trước chứng cứ mới, Miriam thừa nhận đ&atilde; đặt tấm thiệp ở nh&agrave; v&igrave; muốn cảnh s&aacute;t th&ecirc;m phần &quot;nhiệt t&igrave;nh&quot; v&agrave; tập trung t&igrave;m kẻ giết chồng m&igrave;nh. Lời giải th&iacute;ch n&agrave;y đương nhi&ecirc;n kh&ocirc;ng thể l&agrave;m giảm mức độ t&igrave;nh nghi với Miriam.</p>\r\n\r\n<p>Kh&aacute;m m&aacute;y t&iacute;nh c&aacute; nh&acirc;n, cảnh s&aacute;t ph&aacute;t hiện trước khi vụ &aacute;n mạng xảy ra, người vợ rất quan t&acirc;m tới th&ocirc;ng tin về c&aacute;c loại thuốc m&agrave; Alan đang sử dụng v&agrave; thường xuy&ecirc;n t&igrave;m kiếm về lượng thuốc g&acirc;y qu&aacute; liều. Ngo&agrave;i ra, nếu Alan chết, Miriam sẽ được hưởng nhiều bất động sản đ&aacute;ng gi&aacute; h&agrave;ng triệu USD n&ecirc;n b&agrave; ta bị nghi c&oacute; động cơ g&acirc;y &aacute;n.</p>\r\n\r\n<div class=\"ddict_btn\" style=\"left:935.781px; top:104px\">&nbsp;</div>\r\n\r\n<div class=\"ddict_btn\" style=\"left:935.781px; top:188px\"><img src=\"chrome-extension://bpggmmljdiliancllaapiggllnkbjocb/icon/16.png\" /></div>', 'Trưa 10/6/2008, Alan bị phát hiện chết trong phòng làm việc ở nhà riêng tại hạt Mesa, bang Colorado, sau đầu có vết đạn duy nhất. Gần thi thể là vỏ đạn súng ngắn cỡ 6,35 mm.', 'vien dan,viên đạn quá phụ', 0, '1-JPG-7651-159861552387.jpg', 5);
+INSERT INTO `tbl_posts` (`post_id`, `post_title`, `post_views`, `post_slug`, `post_desc`, `post_content`, `post_meta_desc`, `post_meta_keywords`, `post_status`, `post_image`, `cate_post_id`) VALUES
+(12, 'Được minh oan sau 37 năm ở tù', 62, 'duoc-minh-oan-sau-37-nam-o-tu', '<p>Ng&agrave;y 27/8, Duboise, 55 tuổi, ra khỏi c&aacute;nh cổng chăng d&acirc;y th&eacute;p gai của nh&agrave; t&ugrave; bang Florida v&agrave; bước v&agrave;o v&ograve;ng tay ch&agrave;o đ&oacute;n của mẹ, chị g&aacute;i, v&agrave; người luật sư đ&atilde; gi&uacute;p &ocirc;ng được tự do.</p>', '<h1 style=\"text-align:center\">Được minh oan sau 37 năm ở t&ugrave;</h1>\r\n\r\n<p>Robert Duboise bất ngờ được minh oan nhờ chứng cứ ADN, sau khi mất gần 37 năm sống sau song sắt.</p>\r\n\r\n<p>Ng&agrave;y 27/8, Duboise, 55 tuổi, ra khỏi c&aacute;nh cổng chăng d&acirc;y th&eacute;p gai của nh&agrave; t&ugrave; bang Florida v&agrave; bước v&agrave;o v&ograve;ng tay ch&agrave;o đ&oacute;n của mẹ, chị g&aacute;i, v&agrave; người luật sư đ&atilde; gi&uacute;p &ocirc;ng được tự do.</p>\r\n\r\n<p>Duboise n&oacute;i cảm thấy nhẹ nh&otilde;m kh&ocirc;n tả v&agrave; kh&ocirc;ng thấy bất m&atilde;n ch&uacute;t n&agrave;o. &quot;Nếu cứ giữ sự th&ugrave; hận v&agrave; chua x&oacute;t trong l&ograve;ng, bạn sẽ mất đi những niềm vui kh&aacute;c&quot;, Duboise chia sẻ. &Ocirc;ng th&uacute; thật kh&ocirc;ng biết tương lai sẽ ra sao nhưng đ&atilde; học nghề lắp điều h&ograve;a v&agrave; sửa ống nước trong thời gian ở t&ugrave;.</p>\r\n\r\n<p><img alt=\"Robert Duboise ôm mẹ già sau khi được tự do. Ảnh: Martha Asencio-Rhine/Tampa BayTimes.\" src=\"https://i1-vnexpress.vnecdn.net/2020/08/28/1-JPG-7757-1598629876.jpg?w=680&amp;h=0&amp;q=100&amp;dpr=1&amp;fit=crop&amp;s=gXlighvnDi6fXIfiIcg_hQ\" /></p>\r\n\r\n<p>Robert Duboise &ocirc;m mẹ gi&agrave; sau khi được tự do. Ảnh:&nbsp;<em>Martha Asencio-Rhine/Tampa BayTimes.</em></p>\r\n\r\n<p>Duboise ngồi t&ugrave; từ năm 1983 sau khi bị kết tội hiếp d&acirc;m v&agrave; s&aacute;t hại Barbara Grams, 19 tuổi, tr&ecirc;n đường c&ocirc; đi bộ về từ nơi l&agrave;m việc tại hạt Hillsborough, bang Florida.</p>\r\n\r\n<p>Chứng cứ buộc tội chủ yếu dựa v&agrave;o vết răng cắn, loại chứng cứ hiện bị nhận định l&agrave;&nbsp;<a href=\"https://vnexpress.net/sai-sot-trong-ky-thuat-phan-tich-vet-can-4092153.html\" rel=\"dofollow\">kh&ocirc;ng đ&aacute;ng tin cậy</a>, c&ugrave;ng với lời khai bất lợi của&nbsp;<a href=\"https://vnexpress.net/ke-lam-dac-tinh-trai-giam-hieu-qua-nhat-nuoc-my-4030227.html\" rel=\"dofollow\">đặc t&igrave;nh trại giam</a>, vốn cũng l&agrave; nh&acirc;n tố chung trong nhiều vụ &aacute;n oan. Ban đầu, Duboise l&atilde;nh &aacute;n tử h&igrave;nh nhưng được giảm xuống c&ograve;n chung th&acirc;n sau kh&aacute;ng c&aacute;o.</p>\r\n\r\n<p>Ngay từ đầu, Duboise lu&ocirc;n k&ecirc;u oan. Năm 2007, &ocirc;ng đệ đơn y&ecirc;u cầu gi&aacute;m định mẫu ADN lạ thu được từ tr&ecirc;n người nạn nh&acirc;n, nhưng chứng cứ được tr&igrave;nh ra trước t&ograve;a đ&atilde; bị ti&ecirc;u hủy từ năm 1990. Y&ecirc;u cầu của Duboise v&igrave; thế bị b&aacute;c bỏ</p>\r\n\r\n<div class=\"ddict_btn\" style=\"left:945.547px; top:158px\"><img src=\"chrome-extension://bpggmmljdiliancllaapiggllnkbjocb/icon/16.png\" /></div>', 'Ngày 27/8, Duboise, 55 tuổi, ra khỏi cánh cổng chăng dây thép gai của nhà tù bang Florida và bước vào vòng tay chào đón của mẹ, chị gái, và người luật sư đã giúp ông được tự do.', 'minh oan,được minh oan', 0, 'minh odna32.jpg', 5),
+(13, 'Người đàn bà bị sát hại trong nhà nghỉ', 61, 'nguoi-dan-ba-bi-sat-hai-trong-nha-nghi', '<p>Nguyễn Văn Hậu, 63 tuổi, bị bắt khi đang trốn tại B&agrave; Rịa - Vũng T&agrave;u sau một ng&agrave;y giết người t&igrave;nh trong nh&agrave; nghỉ v&igrave; &quot;m&oacute;n nợ 600 triệu đồng&quot;.</p>', '<h1 style=\"text-align:center\">Người đ&agrave;n b&agrave; bị s&aacute;t hại trong nh&agrave; nghỉ</h1>\r\n\r\n<p>Nguyễn Văn Hậu, 63 tuổi, bị bắt khi đang trốn tại B&agrave; Rịa - Vũng T&agrave;u sau một ng&agrave;y giết người t&igrave;nh trong nh&agrave; nghỉ v&igrave; &quot;m&oacute;n nợ 600 triệu đồng&quot;.</p>\r\n\r\n<p>Chiều 28/8, Hậu thừa nhận h&agrave;nh vi giết người t&igrave;nh 58 tuổi, qu&ecirc; L&acirc;m Đồng, cho l&agrave; v&igrave; b&agrave; n&agrave;y kh&ocirc;ng chịu trả số tiền đ&atilde; mượn trước đ&oacute;.</p>\r\n\r\n<p><img alt=\"Nghi can bị bắt giữ tại huyện Châu Đức, Bà Rịa - Vũng Tàu chiều 28/8. Ảnh: Thái Hà\" src=\"https://i1-vnexpress.vnecdn.net/2020/08/28/hau-2-3413-1598618304.jpg?w=680&amp;h=0&amp;q=100&amp;dpr=1&amp;fit=crop&amp;s=WNwcrbxahlOrqOEFh-eoKQ\" /></p>\r\n\r\n<p>Nguyễn Văn Hậu bị bắt tại huyện Ch&acirc;u Đức, B&agrave; Rịa - Vũng T&agrave;u, chiều 28/8. Ảnh:<em>&nbsp;Th&aacute;i H&agrave;.</em></p>\r\n\r\n<p>Hậu v&agrave; nạn nh&acirc;n đến thu&ecirc; ph&ograve;ng nh&agrave; nghỉ ở thị trấn Dầu Gi&acirc;y, huyện Thống Nhất trưa 27/8. Đến chiều, &ocirc;ng ta n&oacute;i với tiếp t&acirc;n l&agrave; ra ngo&agrave;i mua đồ ăn, rồi kh&ocirc;ng quay lại.</p>\r\n\r\n<p>Nh&acirc;n vi&ecirc;n nh&agrave; nghỉ l&ecirc;n ph&ograve;ng kiểm tra, ph&aacute;t hiện người phụ nữ đ&atilde; chết với nhiều vết thương.</p>\r\n\r\n<p>C&ocirc;ng an Đồng Nai x&aacute;c định Hậu l&agrave; nghi can, bắt được &ocirc;ng ta ở huyện Ch&acirc;u Đức, B&agrave; Rịa - Vũng T&agrave;u.</p>', 'Nguyễn Văn Hậu, 63 tuổi, bị bắt khi đang trốn tại Bà Rịa - Vũng Tàu sau một ngày giết người tình trong nhà nghỉ vì \"món nợ 600 triệu đồng\".', 'đồng nai,đồng nai án mạng', 0, 'hau-2-3413-159861830490.jpg', 5),
+(14, 'Ông Nguyễn Đức Chung bị bắt', 22, 'ong-nguyen-duc-chung-bi-bat', '<p>Bộ C&ocirc;ng an khởi tố, tạm giam 4 th&aacute;ng &ocirc;ng Nguyễn Đức Chung, Chủ tịch UBND th&agrave;nh phố, để điều tra c&aacute;o buộc phạm tội Chiếm đoạt t&agrave;i liệu b&iacute; mật nh&agrave; nước.</p>', '<h1 style=\"text-align:center\">&Ocirc;ng Nguyễn Đức Chung bị bắt</h1>\r\n\r\n<p>H&Agrave; NỘIBộ C&ocirc;ng an khởi tố, tạm giam 4 th&aacute;ng &ocirc;ng Nguyễn Đức Chung, Chủ tịch UBND th&agrave;nh phố, để điều tra c&aacute;o buộc phạm tội Chiếm đoạt t&agrave;i liệu b&iacute; mật nh&agrave; nước.</p>\r\n\r\n<p>&quot;Quyết định khởi tố, bắt &ocirc;ng Chung được Cơ quan An ninh điều tra Bộ C&ocirc;ng an ra ng&agrave;y 28/8&quot;, thiếu tướng T&ocirc; &Acirc;n X&ocirc;, Ch&aacute;nh văn ph&ograve;ng Bộ C&ocirc;ng an cho biết.</p>\r\n\r\n<p>VKSND Tối cao đ&atilde; ph&ecirc; chuẩn quyết định tố tụng tr&ecirc;n. Tối c&ugrave;ng ng&agrave;y, thực thi lệnh kh&aacute;m x&eacute;t chỗ ở của &ocirc;ng Chung, 10 c&ocirc;ng an v&agrave; kiểm s&aacute;t vi&ecirc;n mặc sắc phục đi v&agrave;o ng&ocirc;i nh&agrave; 4 tầng ở mặt phố Trung Liệt, Đống Đa, H&agrave; Nội. &Ocirc;ng Chung kh&ocirc;ng c&oacute; mặt. Một xe cứu thương v&agrave; xe 7 chỗ biển xanh 80A đỗ trước cửa. Gia đ&igrave;nh Chủ tịch H&agrave; Nội ở đ&acirc;y từ khi &ocirc;ng c&ograve;n c&ocirc;ng t&aacute;c tại C&ocirc;ng an H&agrave; Nội.</p>\r\n\r\n<p>Việc kh&aacute;m x&eacute;t nơi l&agrave;m việc của &ocirc;ng Chung tại trụ sở UBND H&agrave; Nội diễn ra c&ugrave;ng thời điểm khi bốn &ocirc;t&ocirc; c&ocirc;ng vụ đi cổng ch&iacute;nh ph&iacute;a đường L&ecirc; Lai. 21h30, cả hai địa điểm c&ugrave;ng dừng kh&aacute;m x&eacute;t.</p>\r\n\r\n<p><img alt=\"Điều tra viên bê nhiều thùng giấy ra khỏi nhà ông Chung. Hàng trăm người dân vây kín cổng nhà khiến cảnh sát vất vả dẹp trật tự. Ảnh: Giang Huy\" src=\"https://i1-vnexpress.vnecdn.net/2020/08/28/Untitled-1-8752-1598626827.jpg?w=680&amp;h=0&amp;q=100&amp;dpr=1&amp;fit=crop&amp;s=bNcEtoSPkFXptKEnW8lgBA\" /></p>\r\n\r\n<p>Điều tra vi&ecirc;n b&ecirc; nhiều th&ugrave;ng giấy ra khỏi nh&agrave; &ocirc;ng Chung. H&agrave;ng trăm người d&acirc;n v&acirc;y k&iacute;n cổng nh&agrave; khiến cảnh s&aacute;t vất vả dẹp trật tự. Ảnh:&nbsp;<em>Giang Huy</em></p>\r\n\r\n<p>17 ng&agrave;y trước, &ocirc;ng Chung, 53 tuổi, bị Thủ tướng đ&igrave;nh chỉ c&ocirc;ng t&aacute;c. Những ng&agrave;y qua, &ocirc;ng vẫn đi lại bằng xe c&ocirc;ng vụ v&agrave; thường xuy&ecirc;n c&oacute; mặt tại trụ sở UBND H&agrave; Nội. &Ocirc;ng tươi cười đ&aacute;p lại lời ch&agrave;o hỏi khi gặp c&aacute;c ph&oacute;ng vi&ecirc;n tại đ&acirc;y.</p>\r\n\r\n<p>Việc khởi tố &ocirc;ng Chung nhằm phục vụ điều tra vụ &aacute;n&nbsp;<em>Chiếm đoạt&nbsp;<a href=\"https://vnexpress.net/khoi-to-vu-an-chiem-doat-tai-lieu-bi-mat-nha-nuoc-4131535.html\" rel=\"dofollow\">t&agrave;i liệu b&iacute; mật</a>&nbsp;nh&agrave; nước</em>&nbsp;xảy ra khi điều tra vụ &aacute;n Nhật Cường. Cuối th&aacute;ng 7, ba nghi phạm đầu ti&ecirc;n của vụ &aacute;n n&agrave;y đ&atilde; bị khởi tố, bắt giam gồm: Nguyễn Ho&agrave;ng Trung, l&aacute;i xe của &ocirc;ng Chung; &ocirc;ng Nguyễn Anh Ngọc, 46 tuổi, Ph&oacute; trưởng Ph&ograve;ng thư k&yacute; bi&ecirc;n tập thuộc Văn ph&ograve;ng UBND H&agrave; Nội v&agrave; Phạm Quang Dũng, 37 tuổi, c&aacute;n bộ Cục Cảnh s&aacute;t điều tra tội phạm về kinh tế, tham nhũng, bu&ocirc;n lậu (C03, Bộ C&ocirc;ng an).</p>\r\n\r\n<div class=\"ddict_btn\" style=\"left:943.391px; top:103px\"><img src=\"chrome-extension://bpggmmljdiliancllaapiggllnkbjocb/icon/16.png\" /></div>', 'Bộ Công an khởi tố, tạm giam 4 tháng ông Nguyễn Đức Chung, Chủ tịch UBND thành phố, để điều tra cáo buộc phạm tội Chiếm đoạt tài liệu bí mật nhà nước.', 'nguyen duc chung,nguyễn đức chung', 0, 'C4-6926-15986200122.jpg', 5),
+(15, 'Những bài tập giúp nam giới có cơ ngực vạm vỡ', 21, 'nhung-bai-tap-giup-nam-gioi-co-co-nguc-vam-vo', '<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Cũng như mọi chị em kh&aacute;c th&iacute;ch&nbsp;ngực m&igrave;nh căng tr&ograve;n săn chắc đầy sức sống&nbsp;th&igrave; anh em ch&uacute;ng ta cũng muốn m&igrave;nh c&oacute; một bộ&nbsp;<a href=\"http://www.thehinh.com/tag/bai-tap-nguc-cho-nam\" rel=\"noopener noreferrer\" target=\"_blank\">ngực nở nang v&agrave; vạm vỡ&nbsp;</a>đ&uacute;ng kh&ocirc;ng n&agrave;o. Đ&oacute; cũng l&agrave; l&yacute; do nhiều anh ra ph&ograve;ng tập&nbsp;<a href=\"http://www.thehinh.com/tag/bai-tap-Gym\" rel=\"noopener noreferrer\" target=\"_blank\">Gym&nbsp;</a>để thỏa m&atilde;n mong muốn đ&oacute;. Điều đ&oacute; cũng hợp l&yacute; th&ocirc;i, v&igrave; n&oacute; thu h&uacute;t ph&aacute;i đẹp hơn hẳn, cũng như gi&uacute;p bạn tự tin hơn khi cần &ldquo;khoe body&rdquo;.</span></span></p>', '<div class=\"mucluc\">\r\n<h1>MỤC LỤC B&Agrave;I VIẾT</h1>\r\n</div>\r\n\r\n<div class=\"baiviet\">\r\n<ul>\r\n	<li><a href=\"#hitdat\">Động t&aacute;c h&iacute;t đất</a></li>\r\n	<li><a href=\"#keocap\">Động t&aacute;c k&eacute;o c&aacute;p</a></li>\r\n	<li><a href=\"#tadon\">Đẩy tạ đơn tr&ecirc;n ghế nghi&ecirc;ng l&ecirc;n</a></li>\r\n	<li><a href=\"#xakep\">Động t&aacute;c nh&uacute;ng x&agrave; k&eacute;p</a></li>\r\n</ul>\r\n</div>\r\n\r\n<h1><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Cũng như mọi chị em kh&aacute;c th&iacute;ch<a href=\"http://www.thehinh.com/tag/bai-tap-nguc-cho-nu\" rel=\"noopener noreferrer\" target=\"_blank\">&nbsp;ngực m&igrave;nh căng tr&ograve;n săn chắc đầy sức sống</a>&nbsp;th&igrave; anh em ch&uacute;ng ta cũng muốn m&igrave;nh c&oacute; một bộ&nbsp;<a href=\"http://www.thehinh.com/tag/bai-tap-nguc-cho-nam\" rel=\"noopener noreferrer\" target=\"_blank\">ngực nở nang v&agrave; vạm vỡ&nbsp;</a>đ&uacute;ng kh&ocirc;ng n&agrave;o. Đ&oacute; cũng l&agrave; l&yacute; do nhiều anh ra ph&ograve;ng tập&nbsp;<a href=\"http://www.thehinh.com/tag/bai-tap-Gym\" rel=\"noopener noreferrer\" target=\"_blank\">Gym&nbsp;</a>để thỏa m&atilde;n mong muốn đ&oacute;. Điều đ&oacute; cũng hợp l&yacute; th&ocirc;i, v&igrave; n&oacute; thu h&uacute;t ph&aacute;i đẹp hơn hẳn, cũng như gi&uacute;p bạn tự tin hơn khi cần &ldquo;khoe body&rdquo;.</span></span></h1>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><img alt=\"Những bài tập giúp nam giới có cơ ngực vạm vỡ\" height=\"400\" sizes=\"(max-width: 600px) 100vw, 600px\" src=\"http://cdn.thehinh.com/2015/12/huong-dan-tap-nguc.jpg\" srcset=\"http://cdn.thehinh.com/2015/12/huong-dan-tap-nguc.jpg 600w, http://cdn.thehinh.com/2015/12/huong-dan-tap-nguc-20x13.jpg 20w\" title=\"Những bài tập giúp nam giới có cơ ngực vạm vỡ\" width=\"600\" /><br />\r\nC&ugrave;ng&nbsp;<a href=\"http://www.thehinh.com/\" rel=\"noopener noreferrer\" target=\"_blank\">TheHinh.com</a>&nbsp;điểm qua một số&nbsp;<strong><a href=\"http://www.thehinh.com/tag/bai-tap-nguc\" rel=\"noopener noreferrer\" target=\"_blank\">b&agrave;i tập cơ ngực</a></strong>&nbsp;cho anh em, đặc biệt l&agrave; kh&ocirc;ng phải tốn qu&aacute; nhiều sức lực để tập luyện.</span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Xem th&ecirc;m:&nbsp;<a href=\"http://www.thehinh.com/2015/11/muon-nguc-san-chac-cac-anh-hay-ap-dung-6-bai-tap-sau.html\" rel=\"noopener noreferrer\" target=\"_blank\">Muốn ngực săn chắc, c&aacute;c anh h&atilde;y &aacute;p dụng 6 b&agrave;i tập sau</a></span></span></p>\r\n\r\n<h2><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><strong>Tập cho cơ ngực săn chắc, chị em m&ecirc; l&agrave; c&aacute;i chắc&nbsp;</strong></span></span></h2>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Nhiều anh em chỉ kho&aacute;i tập mấy động t&aacute;c nặng đ&ocirc; như l&agrave; đẩy tạ lớn để hi vọng hiệu quả nhanh hơn, tuy nhi&ecirc;n bạn cũng n&ecirc;n ch&uacute; &yacute; l&agrave; b&agrave;i tập đa dạng th&igrave; hiệu quả cao hơn nh&eacute;. H&atilde;y thay đổi c&aacute;c lịch luyện tập cơ ngực của m&igrave;nh đi, vừa đỡ ng&aacute;n m&agrave; c&ograve;n đem lại hiệu quả cao.</span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">&Agrave;, nếu bạn kh&ocirc;ng c&oacute; tạ đơn c&oacute; thể thay thế bằng c&aacute;c loại d&acirc;y kh&aacute;ng lực gi&uacute;p hiệu quả kh&ocirc;ng k&eacute;m đ&acirc;u nh&eacute;.</span></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<div id=\"hitdat\">\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><strong>Động t&aacute;c h&iacute;t đất</strong></span></span></p>\r\n</div>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><img alt=\"Hít đất\" height=\"400\" src=\"http://cdn.thehinh.com/2015/12/dong-tac-hit-dat.jpg\" title=\"Những bài tập giúp nam giới có cơ ngực vạm vỡ\" width=\"400\" /></span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">H&iacute;t đất </span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Đ&acirc;y l&agrave; động t&aacute;c tuy cơ bản nhưng kh&ocirc;ng &iacute;t người tập sai tư thế. Khi tập ch&uacute; &yacute; l&agrave; người lu&ocirc;n phải để cơ thể thẳng từ tr&ecirc;n xuống dưới, kh&ocirc;ng n&acirc;ng m&ocirc;ng qu&aacute; cao hay qu&aacute; thấp. Bạn bắt đầu căng cơ bụng, hạ thấp th&acirc;n người xuống c&agrave;ng thấp c&agrave;ng tốt (nếu c&oacute; thể h&atilde;y tập tr&ecirc;n 4 c&aacute;i ghế) sau đ&oacute; đẩy mạnh th&acirc;n người l&ecirc;n đến khi thẳng tay.</span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><img alt=\"Một bài nâng cao + Các nhóm cơ ảnh hưởng\" height=\"224\" src=\"http://cdn.thehinh.com/2015/12/hit-dat.gif\" title=\"Những bài tập giúp nam giới có cơ ngực vạm vỡ\" width=\"391\" /></span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Một b&agrave;i n&acirc;ng cao&nbsp;+ C&aacute;c nh&oacute;m cơ ảnh hưởng </span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">H&iacute;t c&agrave;ng nhanh c&agrave;ng nhiều th&igrave; c&agrave;ng tốt nh&eacute;. Cứ thực hiện nhiều nhất c&oacute; thể v&agrave; n&acirc;ng số lượng h&iacute;t l&ecirc;n từ từ. Cũng như l&agrave; c&aacute;c biến thể mới nặng hơn.</span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Xem th&ecirc;m:&nbsp;<a href=\"http://www.thehinh.com/2015/11/nhung-bai-tap-giup-co-nguc-san-chac.html\" rel=\"noopener noreferrer\" target=\"_blank\">Những b&agrave;i tập gi&uacute;p cơ ngực săn chắc hiệu quả nhất cho nam&nbsp;</a></span></span></p>\r\n\r\n<div id=\"keocap\">\r\n<h3><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><strong>Động t&aacute;c k&eacute;o c&aacute;p</strong></span></span></h3>\r\n</div>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><img alt=\"Động tác kéo cáp  \" height=\"400\" src=\"http://cdn.thehinh.com/2015/12/dong-tac-cap-bay.jpg\" title=\"Những bài tập giúp nam giới có cơ ngực vạm vỡ\" width=\"400\" /></span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Động t&aacute;c k&eacute;o c&aacute;p </span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Ch&uacute;ng ta sẽ nắm tay cầm của m&aacute;y k&eacute;o c&aacute;p. Hai tay thẳng, c&ugrave;i chỏ hơi cong. Bước 1 ch&acirc;n l&ecirc;n trước. Căng cơ thể v&agrave; k&eacute;o tay cầm nhẹ nh&agrave;ng xuống v&agrave; ch&eacute;o người cho đến khi n&agrave;o hai tay ch&eacute;o nhau. Từ từ trở lại vị tr&iacute; cũ.<br />\r\n<strong>Thực hiện 3 hiệp 8 lần.</strong></span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Nếu muốn tăng Level c&oacute; thể nằm &uacute;p tr&ecirc;n ghế v&agrave; thực hiện động t&aacute;c n&agrave;y.</span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><strong>Lưu &yacute;: N&ecirc;n tập tr&ecirc;n ghế nghi&ecirc;ng v&agrave; l&uacute;c k&eacute;o c&aacute;p kh&ocirc;ng được để tạ chạm s&aacute;t mặt đất, v&agrave; thực hiện động t&aacute;c chậm r&atilde;i.</strong></span></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<div id=\"tadon\">\r\n<h3><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><strong>Đẩy tạ đơn tr&ecirc;n ghế nghi&ecirc;ng l&ecirc;n</strong></span></span></h3>\r\n</div>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><img alt=\"Đẩy tạ đơn trên ghế nghiêng lên\" height=\"400\" src=\"http://cdn.thehinh.com/2015/12/dong-tac-day-ta-don-tren-ghe-nghieng.jpg\" title=\"Những bài tập giúp nam giới có cơ ngực vạm vỡ\" width=\"400\" /></span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Đẩy tạ đơn tr&ecirc;n ghế nghi&ecirc;ng l&ecirc;n </span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Nằm ngửa tr&ecirc;n ghế nghi&ecirc;ng 1 g&oacute;c 30 độ v&agrave; n&acirc;ng tạ l&ecirc;n ngang vai v&agrave; tất nhi&ecirc;n l&agrave; phải để l&ograve;ng b&agrave;n tay hướng l&ecirc;n nha. Đẩy tạ thẳng l&ecirc;n tr&ecirc;n đồng thời thở ra. Kh&oacute;a hai tay v&agrave; &eacute;p chặt ngực rồi mới từ từ trở lại vị tr&iacute; cũ.</span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><strong>Thực hiện 3 hiệp 8 lần, nghỉ 90 gi&acirc;y.</strong></span></span></p>\r\n\r\n<div id=\"xakep\">\r\n<h3><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><strong>Động t&aacute;c nh&uacute;n x&agrave; k&eacute;p</strong></span></span></h3>\r\n</div>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><img alt=\"Nhún xà kép\" height=\"400\" src=\"http://cdn.thehinh.com/2015/12/dong-tac-nhun.jpg\" title=\"Những bài tập giúp nam giới có cơ ngực vạm vỡ\" width=\"400\" /></span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Nh&uacute;n x&agrave; k&eacute;p </span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Hai tay nắm thanh x&agrave; của m&aacute;y tập, tay thẳng. Bắt đầu hạ thấp th&acirc;n người xuống đến khi khuỷu tay tạo th&agrave;nh g&oacute;c vu&ocirc;ng (như h&igrave;nh).</span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><img alt=\"Những bài tập giúp nam giới có cơ ngực vạm vỡ Thể Hình Channel\" src=\"http://cdn.thehinh.com/2015/12/hit-xa-kep.gif\" title=\"Những bài tập giúp nam giới có cơ ngực vạm vỡ\" /></span></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><strong>Lưu &yacute; l&agrave; c&ugrave;i chỏ lu&ocirc;n &aacute;p s&aacute;t th&acirc;n người, kh&ocirc;ng hướng ra ngo&agrave;i (tr&aacute;nh bị tổn thương). K&eacute;o th&acirc;n người ngược l&ecirc;n vị tr&iacute; cũ v&agrave; lặp lại</strong>.</span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><strong>Thực hiện 3 hiệp 10 lần. Nghỉ 90 gi&acirc;y mỗi hiệp.</strong></span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Xem th&ecirc;m:&nbsp;<a href=\"http://www.thehinh.com/2015/11/5-bai-tap-hinh-tang-co-nguc-cho-nam.html\" rel=\"noopener noreferrer\" target=\"_blank\">5 B&agrave;i tập thể h&igrave;nh tăng cơ ngực cho nam</a></span></span></p>\r\n\r\n<h3><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><strong>Động t&aacute;c đẩy tạ đơn tr&ecirc;n ghế nghi&ecirc;ng xuống</strong></span></span></h3>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><img alt=\"Đẩy tạ đơn trên ghế nghiêng xuống\" height=\"400\" src=\"http://cdn.thehinh.com/2015/12/dong-tac-nam-ghe-nghieng-xuong-day-ta-don.jpg\" title=\"Những bài tập giúp nam giới có cơ ngực vạm vỡ\" width=\"400\" /></span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Đẩy tạ đơn tr&ecirc;n ghế nghi&ecirc;ng xuống </span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Hai tay giữ 1 tạ đơn rộng hơn vai, l&ograve;ng b&agrave;n tay vẫn hướng l&ecirc;n tr&ecirc;n, nằm ngửa tr&ecirc;n ghế nghi&ecirc;ng xuống đất. Bắt đầu với tay để thẳng l&ecirc;n tr&ecirc;n, n&acirc;ng tạ khỏi gi&aacute; v&agrave; hạ chậm r&atilde;i xuống tr&ecirc;n ngực v&agrave; nhớ h&iacute;t v&agrave;o. Sau đ&oacute; n&acirc;ng lại thẳng l&ecirc;n tr&ecirc;n v&agrave; nhớ thở ra nh&eacute;. B&agrave;i n&agrave;y t&aacute;c động nhiều l&ecirc;n ngực dưới, lưng v&agrave; cơ tam đầu.<br />\r\n<strong>Thực hiện 3 hiệp 5 lần v&agrave; nghỉ 90 gi&acirc;y giữa c&aacute;c hiệp.</strong></span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><img alt=\"Những bài tập giúp nam giới có cơ ngực vạm vỡ Thể Hình Channel\" src=\"http://cdn.thehinh.com/2015/12/nam-ghe-nghieng-day-ta-don.gif\" title=\"Những bài tập giúp nam giới có cơ ngực vạm vỡ\" /></span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><strong>Động t&aacute;c nằm ghế đẩy tạ đơn</strong></span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><img alt=\"Nằm đẩy tạ đơn\" height=\"400\" src=\"http://cdn.thehinh.com/2015/12/dong-tac-nam-ghe-day-ta-don.jpg\" title=\"Những bài tập giúp nam giới có cơ ngực vạm vỡ\" width=\"400\" /></span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Nằm đẩy tạ đơn </span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Bạn nằm ngửa tr&ecirc;n ghế, bắt đầu với thanh tạ đơn, tay rộng hơn vai. Nhấc tạ l&ecirc;n khỏi gi&aacute; đỡ v&agrave; đẩy tạ qua ngực, ch&uacute; &yacute; n&acirc;ng l&ecirc;n tay phải thẳng. Từ từ với thế bắt đầu, h&iacute;t v&agrave;o v&agrave; hạ từ từ xuống tr&ecirc;n ngực. Thở ra v&agrave; đồng thời đẩy tả l&ecirc;n.<br />\r\n<strong>Thực hiện động t&aacute;c n&agrave;y trong 5 lần/Hiệp. Tập 3 hiệp v&agrave; nghỉ 90 gi&acirc;y.</strong></span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><strong>Lưu &yacute;: Ch&uacute; &yacute; sử dụng tạ vừa sức, tr&aacute;nh d&ugrave;ng tạ qu&aacute; nặng dễ g&acirc;y chấn thương đ&aacute;ng tiếc nh&eacute;. V&agrave; đặc biệt l&agrave; lu&ocirc;n bổ sung đầy đủ protein cho cơ thể hằng ng&agrave;y th&igrave; cơ bắp mới ph&aacute;t triển được bạn nha.</strong></span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Hi vọng với c&aacute;c b&agrave;i tập cho cơ ngực n&agrave;y c&aacute;c bạn sẽ c&oacute; th&ecirc;m nhiều danh s&aacute;ch b&agrave;i tập hơn, nhất l&agrave; với c&aacute;c bạn mới bắt đầu l&agrave;m quen với&nbsp;<a href=\"http://www.thehinh.com/tag/the-hinh\" rel=\"noopener noreferrer\" target=\"_blank\">thể h&igrave;nh</a>. Ch&uacute;c c&aacute;c bạn mau ch&oacute;ng l&ecirc;n cơ nh&eacute;.</span></span></p>', 'Cũng như mọi chị em khác thích ngực mình căng tròn săn chắc đầy sức sống thì anh em chúng ta cũng muốn mình có một bộ ngực nở nang và vạm vỡ đúng không nào. Đó cũng là lý do nhiều anh ra phòng tập Gym để thỏa mãn mong muốn đó. Điều đó cũng hợp lý thôi, vì nó thu hút phái đẹp hơn hẳn, cũng như giúp bạn tự tin hơn khi cần “khoe body”.', 'day nguc ,đẩy tạ đơn', 0, 'huong-dan-tap-nguc17.jpg', 4),
+(16, 'Bí quyết tập luyện giảm cân tại nhà để lấy lại vóc dáng [p2]', 44, 'bi-quyet-tap-luyen-giam-can-tai-nha-de-lay-lai-voc-dang-[p2]', '<p>Ở b&agrave;i viết&nbsp;<a href=\"http://www.thehinh.com/2017/07/bi-quyet-giam-can-nhanh-ngay-tai-nha-trong-1-tuan.html\">B&iacute; quyết giảm c&acirc;n nhanh ngay tại nh&agrave;</a>&nbsp;trước, ch&uacute;ng ta đ&atilde; đi qua phần dinh dưỡng v&agrave; ăn uống, ngay b&acirc;y giờ, ch&uacute;ng ta sẽ đi qua những&nbsp;<strong>b&iacute; quyết tập luyện giảm c&acirc;n tại nh&agrave;</strong>&nbsp;để ho&agrave;n tất c&ocirc;ng việc lấy lại v&oacute;c d&aacute;ng nh&eacute;.</p>', '<div class=\"mucluc\">\r\n<h1><strong>MỤC LỤC B&Agrave;I VIẾT</strong></h1>\r\n\r\n<div class=\"baiviet\">\r\n<ul>\r\n	<li><a href=\"#kithuattap\">Nghi&ecirc;n cứu kĩ thuật tập luyện</a></li>\r\n</ul>\r\n</div>\r\n\r\n<p>&nbsp;</p>\r\n</div>\r\n\r\n<p>Ở b&agrave;i viết&nbsp;<a href=\"http://www.thehinh.com/2017/07/bi-quyet-giam-can-nhanh-ngay-tai-nha-trong-1-tuan.html\">B&iacute; quyết giảm c&acirc;n nhanh ngay tại nh&agrave;</a>&nbsp;trước, ch&uacute;ng ta đ&atilde; đi qua phần dinh dưỡng v&agrave; ăn uống, ngay b&acirc;y giờ, ch&uacute;ng ta sẽ đi qua những&nbsp;<strong>b&iacute; quyết tập luyện giảm c&acirc;n tại nh&agrave;</strong>&nbsp;để ho&agrave;n tất c&ocirc;ng việc lấy lại v&oacute;c d&aacute;ng nh&eacute;.</p>\r\n\r\n<h2><strong><img alt=\"Bí quyết tập luyện giảm cân tại nhà để lấy lại vóc dáng [p2]\" height=\"366\" sizes=\"(max-width: 650px) 100vw, 650px\" src=\"http://cdn.thehinh.com/2017/07/BI-quyet-tap-luyen-tai-nh.jpg\" srcset=\"http://cdn.thehinh.com/2017/07/BI-quyet-tap-luyen-tai-nh.jpg 650w, http://cdn.thehinh.com/2017/07/BI-quyet-tap-luyen-tai-nh-300x169.jpg 300w\" title=\"Bí quyết tập luyện giảm cân tại nhà để lấy lại vóc dáng [p2]\" width=\"650\" />C&ugrave;ng xem qua những&nbsp;B&iacute; quyết tập luyện giảm c&acirc;n tại nh&agrave; ngay nha!</strong></h2>\r\n\r\n<h4><strong>Nghĩ về th&oacute;i quen tập luyện của m&igrave;nh</strong></h4>\r\n\r\n<p>H&atilde;y nghĩ về th&oacute;i quen tập luyện của bạn, một khi bạn x&acirc;y dựng được 1 th&oacute;i quen về c&aacute;i g&igrave; đ&oacute; như l&agrave;: Chạy buổi s&aacute;ng, hay l&agrave; 6 giờ l&agrave; đi tập gym&hellip;.Việc x&acirc;y dựng 1 th&oacute;i quen sẽ gi&uacute;p bạn thực hiện n&oacute; dễ d&agrave;ng hơn khi bạn thực hiện lại n&oacute;.</p>\r\n\r\n<p>Bạn c&oacute; thể kết hợp việc tập luyện của m&igrave;nh với những kế hoạch ở nh&agrave; của bạn chẳng hạn. Bạn thường c&oacute; 1 chương tr&igrave;nh y&ecirc;u th&iacute;ch v&agrave;o thứ 4. Vậy h&atilde;y thực hiện tập luyện c&ugrave;ng l&uacute;c khi xem chương tr&igrave;nh đ&oacute; lu&ocirc;n, 1 c&ocirc;ng 2 việc đ&uacute;ng kh&ocirc;ng n&agrave;o.</p>\r\n\r\n<p>Sản phẩm khuy&ecirc;n d&ugrave;ng</p>\r\n\r\n<p><img alt=\"Sữa Tăng Cơ Iso Cool 2.27kg\" src=\"https://product.hstatic.net/1000185761/product/ultimate-nutrition-isocool-vani-5lbs-2-27kg_compact.jpg\" title=\"Bí quyết tập luyện giảm cân tại nhà để lấy lại vóc dáng [p2]\" /></p>\r\n\r\n<p><a href=\"https://ifitness.vn/products/sua-tang-co-isocool-2-27kg?ref=thehinh&amp;utm_source=thehinhcom&amp;utm_medium=BaiViet&amp;utm_campaign=LinkTrongBaiViet&amp;utm_content=%27+%20fullurl%20+%20%27\" rel=\"noopener\" target=\"_blank\">Sữa Tăng Cơ Iso Cool 2.27kg</a></p>\r\n\r\n<p><a href=\"https://ifitness.vn/products/sua-tang-co-isocool-2-27kg?ref=thehinh&amp;utm_source=thehinhcom&amp;utm_medium=BaiViet&amp;utm_campaign=LinkTrongBaiViet&amp;utm_content=%27+%20fullurl%20+%20%27\" rel=\"noopener\" target=\"_blank\">Whey Protein Iso Cool cung cấp 23g Whey Protein Isolate gi&uacute;p k&iacute;ch th&iacute;ch cơ nạc ph&aacute;t triển, giảm mỡ hiệu quả v&agrave; chống mất cơ. Sản phẩm KH&Ocirc;NG chứa đường, chất b&eacute;o, lactose, Gluten, đường ho&aacute; học, ho&aacute; chất tạo m&agrave;u.</a></p>\r\n\r\n<p><a href=\"https://ifitness.vn/products/sua-tang-co-isocool-2-27kg?ref=thehinh&amp;utm_source=thehinhcom&amp;utm_medium=BaiViet&amp;utm_campaign=LinkTrongBaiViet&amp;utm_content=%27+%20fullurl%20+%20%27\" rel=\"noopener\" target=\"_blank\">T&Igrave;M HIỂU TH&Ecirc;M &raquo;</a></p>\r\n\r\n<h3><strong>Mua một &iacute;t tạ về để tập luyện</strong></h3>\r\n\r\n<p>Bạn kh&ocirc;ng cần phải mua nhiều tạ về nha, bạn chỉ cần mua 1 v&agrave;i cặp tạ ở c&aacute;c cửa h&agrave;ng thể thao. Hoặc mua cũ của ai đ&oacute; d&ugrave;ng rồi để tiết kiệm cho ph&iacute; hơn.</p>\r\n\r\n<p><img alt=\"Tạ Dumbbell\" height=\"500\" sizes=\"(max-width: 500px) 100vw, 500px\" src=\"http://cdn.thehinh.com/2017/07/ta-dumbbelll.jpg\" srcset=\"http://cdn.thehinh.com/2017/07/ta-dumbbelll.jpg 500w, http://cdn.thehinh.com/2017/07/ta-dumbbelll-300x300.jpg 300w, http://cdn.thehinh.com/2017/07/ta-dumbbelll-420x420.jpg 420w\" title=\"Bí quyết tập luyện giảm cân tại nhà để lấy lại vóc dáng [p2]\" width=\"500\" />H&atilde;y mua dựa v&agrave;o thể lực của bạn, đừng mua tạ nặng qu&aacute; sức của m&igrave;nh nh&eacute;,</p>\r\n\r\n<p>H&atilde;y n&acirc;ng mức tạ tập luyện l&ecirc;n đều đặn nếu c&oacute; thể, bạn n&acirc;ng mức tạ l&ecirc;n c&agrave;ng cao th&igrave; bạn tập c&agrave;ng hiệu quả. Bạn c&oacute; thể đầu tư tạ ở mức 1 &ndash; 2 &ndash; 5 k&yacute; để tập.</p>\r\n\r\n<div id=\"kithuattap\">\r\n<h3><strong>Nghi&ecirc;n cứu kĩ thuật tập luyện</strong></h3>\r\n</div>\r\n\r\n<p><img alt=\"Nghiên cứu kĩ thuật tập luyện\" height=\"334\" sizes=\"(max-width: 500px) 100vw, 500px\" src=\"http://cdn.thehinh.com/2017/07/nghien-cu-ki-thuat-tap.jpg\" srcset=\"http://cdn.thehinh.com/2017/07/nghien-cu-ki-thuat-tap.jpg 500w, http://cdn.thehinh.com/2017/07/nghien-cu-ki-thuat-tap-300x200.jpg 300w\" title=\"Bí quyết tập luyện giảm cân tại nhà để lấy lại vóc dáng [p2]\" width=\"500\" /></p>\r\n\r\n<p>Thể H&igrave;nh Channel l&agrave; 1 trang hướng dẫn tập thể h&igrave;nh uy t&iacute;n m&agrave; bạn c&oacute; thể nghi&ecirc;n cứu.</p>\r\n\r\n<p>Trước khi bắt đầu, h&atilde;y nghi&ecirc;n cứu những b&agrave;i tập m&igrave;nh đang cần, chỉ cần google t&iacute; như l&agrave; &ldquo;c&aacute;c b&agrave;i tập tay&rdquo; hay l&agrave; &ldquo;c&aacute;c b&agrave;i tập m&ocirc;ng tại nh&agrave;&rdquo;&hellip;.hay đơn giản hơn l&agrave; Thể H&igrave;nh Channel c&oacute; ph&acirc;n chia khu vực tập luyện sẵn tr&ecirc;n menu rồi, bạn chỉ cần truy cập v&ocirc; mục bạn cần để xem b&agrave;i tập l&agrave; xong.</p>\r\n\r\n<h3><strong>&Aacute;p dụng c&aacute;c b&agrave;i tập cuộn cho tay trước</strong></h3>\r\n\r\n<p>Bắt đầu với cặp tạ Dumbbell với tay trước. Giữ tạ ở 2 b&ecirc;n người, l&ograve;ng b&agrave;n tay hướng tới trước. Tư từ cuộn cẳng tay l&ecirc;n đến khi cao ngang vai. Ch&uacute; &yacute; l&agrave; kh&ocirc;ng di chuyển khuỷu tay của m&igrave;nh cũng như l&agrave; phần than tr&ecirc;n của bạn, thực hiện chậm r&atilde;i v&agrave; c&oacute; kiểm so&aacute;t.</p>\r\n\r\n<p><img alt=\"Dumbbell Bicep curls\" height=\"500\" sizes=\"(max-width: 500px) 100vw, 500px\" src=\"http://cdn.thehinh.com/2017/07/Bicep-curl.jpg\" srcset=\"http://cdn.thehinh.com/2017/07/Bicep-curl.jpg 500w, http://cdn.thehinh.com/2017/07/Bicep-curl-300x300.jpg 300w, http://cdn.thehinh.com/2017/07/Bicep-curl-420x420.jpg 420w\" title=\"Bí quyết tập luyện giảm cân tại nhà để lấy lại vóc dáng [p2]\" width=\"500\" /></p>\r\n\r\n<ul>\r\n	<li>Thực hiện b&agrave;i đẩy l&ecirc;n cao cho phần vai</li>\r\n	<li>Với cơ thể đứng thẳng, 2 tay cầm tạ dumbbell giữ cẳng tay hướng l&ecirc;n trần, cao ngang vai.</li>\r\n	<li>N&acirc;ng khuỷu tay của bạn l&ecirc;n cao qua đầu đến khi c&aacute;nh tay gần thẳng ho&agrave;n to&agrave;n th&igrave; giữ lại 1-2 gi&acirc;y.</li>\r\n	<li>Hạ tay xuống v&agrave; thực hiện lại động t&aacute;c 1 c&aacute;ch trơn tru, nhớ đừng giật lưng khi thực hiện, sẽ l&agrave;m bạn bị chấn thương đấy.</li>\r\n</ul>\r\n\r\n<h3><strong>Tập phần lưng với tạ đơn</strong></h3>\r\n\r\n<p>Giữ 1 cặp tạ ở 2 tay, l&ograve;ng b&agrave;n tay hướng v&agrave;o nhau, gập người tới trước 1 ch&uacute;t khoảng 30-45 độ. Giữ lưng thẳng kh&ocirc;ng cong l&ecirc;n hay cong xuống nh&eacute;.</p>\r\n\r\n<p><img alt=\"dumbbell row\" height=\"332\" src=\"http://cdn.thehinh.com/2017/07/dumbbell-row.gif\" title=\"Bí quyết tập luyện giảm cân tại nhà để lấy lại vóc dáng [p2]\" width=\"500\" />K&eacute;o khuỷu tay của bạn từ dưới l&ecirc;n cao đến khi khuỷu tay hơi cao hơn lưng của bạn 1 ch&uacute;t l&agrave; được. Giữ im 1-2 gi&acirc;y sau đ&oacute; hạ tay xuống vị tr&iacute; ban đầu.</p>\r\n\r\n<h3><strong>Sử dụng d&acirc;y co gi&atilde;n</strong></h3>\r\n\r\n<p>D&acirc;y co gi&atilde;n (resistance bands) được &aacute;p dụng v&ocirc; rất nhiều b&agrave;i tập kh&aacute;c nhau, n&oacute; c&oacute; thể n&acirc;ng cao khả năng tập luyện, đốt ch&aacute;y nhiều calo hơn v&agrave; chất b&eacute;o hơn v&agrave; lại rất gọn kh&ocirc;ng chiếm nhiều kh&ocirc;ng gian.</p>\r\n\r\n<p><img alt=\"Resistance Bands Row\" height=\"372\" src=\"http://cdn.thehinh.com/2017/07/Row.gif\" title=\"Bí quyết tập luyện giảm cân tại nhà để lấy lại vóc dáng [p2]\" width=\"500\" />N&oacute; c&oacute; thể thực hiện được tất cả b&agrave;i tập m&agrave; tạ tay c&oacute; thể l&agrave;m v&agrave; nhiều b&agrave;i m&agrave; tạ tay kh&ocirc;ng thể l&agrave;m nữa. V&igrave; thế đ&ocirc;i khi đầu tư 1 sợi d&acirc;y n&agrave;y mang lại rất nhiều lợi &iacute;ch cả về tập luyện lẫn chi ph&iacute;.</p>\r\n\r\n<p>Xem th&ecirc;m:&nbsp;<a href=\"http://www.thehinh.com/2016/10/5-dung-cu-tap-gym-tai-nha-cho-nu.html\">5 dụng cụ tập luyện tại nh&agrave; cho m&ocirc;ng đ&ugrave;i tốt nhất</a></p>\r\n\r\n<p><strong>Một số b&agrave;i m&agrave; bạn c&oacute; thể thực hiện với dụng cụ n&agrave;y&nbsp;</strong></p>\r\n\r\n<ul>\r\n	<li>Bicep curls (tập tay trước): 2 tay cầm v&agrave;o 2 đầu của d&acirc;y, 2 ch&acirc;n đạp giữ phần giữa của sợi d&acirc;y, b&acirc;y giờ bạn bắt đầu cuộn c&aacute;nh tay l&ecirc;n như khi tập với tạ đơn ở tr&ecirc;n th&ocirc;i.</li>\r\n	<li>Deltoid flies (tập vai): Đứng 2 ch&acirc;n rộng bằng vai, 2 tay vẫn cầm như b&agrave;i tr&ecirc;n. Người gập tới trước 30-45 độ. Mở rộng c&aacute;nh tay của bạn từ dưới l&ecirc;n tr&ecirc;n theo chiều ngang, đến khi song song với s&agrave;n th&igrave; dừng lại. Từ từ hạ xuống v&agrave; thực hiện lại động t&aacute;c.</li>\r\n	<li>Kneeling Crunches (tập bụng): Cột sợi d&acirc;y v&agrave;o một điểm cố định tr&ecirc;n cao (cột nh&agrave;, c&acirc;y cối&hellip;), bạn c&oacute; thể cầm một miếng thảm để quỳ l&ecirc;n cho khỏi đau gối. 2 tay giữ 2 đầu d&acirc;y ở ph&iacute;a trước ngực v&agrave; giữ cố định vị tr&iacute; n&agrave;y. Sau đ&oacute; gập người xuống c&agrave;ng s&acirc;u c&agrave;ng tốt. Giữ 1 gi&acirc;y v&agrave; trở lại vị tr&iacute; ban đầu.</li>\r\n</ul>\r\n\r\n<h3><strong>Tập m&ocirc;ng đ&ugrave;i với bức tường</strong></h3>\r\n\r\n<p>Mặc d&ugrave; bạn ho&agrave;n to&agrave;n c&oacute; thể thực hiện nhiều b&agrave;i tập m&ocirc;ng đ&ugrave;i nổi tiếng kh&aacute;c như&nbsp;<a href=\"http://www.thehinh.com/the-hinh/squat\">Squat</a>,&nbsp;<a href=\"http://www.thehinh.com/2016/08/41-bai-tap-cho-chan-thon-dai-lunge.html\">Lunge&nbsp;</a>hay&nbsp;<a href=\"http://www.thehinh.com/2016/08/huong-dan-tap-deadlift-chi-tiet.html\">Deadlift</a>&nbsp;tuy nhi&ecirc;n ở đ&acirc;y&nbsp;<a href=\"http://www.thehinh.com/\">Thể H&igrave;nh Channel</a>&nbsp;sẽ gợi &yacute; 1 b&agrave;i tập kh&aacute;c ph&ugrave; hợp với cả những người c&oacute; vấn đề về khớp gối đ&oacute; l&agrave; b&agrave;i Wall Sit.</p>\r\n\r\n<p>Đầu ti&ecirc;n c&aacute;c bạn đứng dựa lưng v&agrave;o tường. Sau đ&oacute; trượt người xuống đến khi đ&ugrave;i song song s&agrave;n nh&agrave; v&agrave; cẳng ch&acirc;n vu&ocirc;ng g&oacute;c 90 độ.</p>\r\n\r\n<p>Siết cơ bụng v&agrave; giữ nguy&ecirc;n vị tr&iacute; đ&oacute; trong 30-60 gi&acirc;y.</p>\r\n\r\n<h3><strong>Tập plank cho cơ bụng</strong></h3>\r\n\r\n<p>Plank th&igrave; qu&aacute; nổi tiếng rồi, nếu chưa biết h&atilde;y đọc b&agrave;i viết&nbsp;<a href=\"http://www.thehinh.com/2016/04/plank-la-gi-cach-tap-plank-dung-cach.html\">Plank l&agrave; g&igrave;</a>&nbsp;để hiểu r&otilde; thật kĩ hơn nh&eacute;.</p>\r\n\r\n<p><img alt=\"Tập Plank bị đau lưng vì 8 tư thế sai ai cũng mắc phải\" height=\"333\" sizes=\"(max-width: 499px) 100vw, 499px\" src=\"http://cdn.thehinh.com/2017/04/shutterstock_363953963.jpg\" srcset=\"http://cdn.thehinh.com/2017/04/shutterstock_363953963.jpg 499w, http://cdn.thehinh.com/2017/04/shutterstock_363953963-300x200.jpg 300w\" title=\"Bí quyết tập luyện giảm cân tại nhà để lấy lại vóc dáng [p2]\" width=\"499\" />Bạn c&oacute; thể tập Plank bất kỳ l&uacute;c n&agrave;o bạn th&iacute;ch, như l&agrave; trong khi chờ cơm ch&iacute;n, hay đang nghe nhạc&hellip;.thực hiện Plank đều đặn sẽ gi&uacute;p cho v&ugrave;ng bụng của bạn cực kỳ săn chắc.</p>\r\n\r\n<p><strong>Ch&uacute;ng ta xong ph&acirc;n tập luyện với tạ v&agrave; 1 số dụng cụ, để tiếp nối cho b&iacute; quyết tập luyện giảm c&acirc;n tại nh&agrave; th&igrave; kh&ocirc;ng thể kh&ocirc;ng nhắc đến Cardio, v&agrave; bạn cũng kh&ocirc;ng cần phải đi đ&acirc;u xa x&ocirc;i, bạn ho&agrave;n to&agrave;n c&oacute; thể tập được tại nh&agrave; của m&igrave;nh.</strong></p>\r\n\r\n<h3><strong>Thực hiện b&agrave;i tập Jumping Jack</strong></h3>\r\n\r\n<p>N&oacute;i về&nbsp;<a href=\"http://www.thehinh.com/2016/07/bai-tap-cardio-giam-can-cho-nam.html\">b&agrave;i tập cardio tại nh&agrave;</a>&nbsp;th&igrave;&nbsp;<a href=\"http://www.thehinh.com/2016/07/bung-1-khe-tap-jumping-jack-ngay.html\">Jumping Jack</a>&nbsp;l&agrave; trong những&nbsp;<a href=\"http://www.thehinh.com/tag/bai-tap-cardio\">b&agrave;i tập đốt mỡ hiệu quả nhất</a>&nbsp;m&agrave; bạn n&ecirc;n tập. N&oacute; sẽ khiến cơ thể bạn tăng khả năng bơm m&aacute;u mạnh mẽ, chỉ với động t&aacute;c tập luyện đơn giản.</p>\r\n\r\n<p><img alt=\"Động tác Jumping Jack\" height=\"345\" src=\"http://cdn.thehinh.com/2016/06/bai-tap-cardio-nhay-jacks.gif\" title=\"Bí quyết tập luyện giảm cân tại nhà để lấy lại vóc dáng [p2]\" width=\"306\" /></p>\r\n\r\n<p>Động t&aacute;c Jumping Jack</p>\r\n\r\n<ul>\r\n	<li>Đứng thẳng, 2 ch&acirc;n kh&eacute;p.</li>\r\n	<li>Bật nhảy 2 ch&acirc;n ra 2 b&ecirc;n đồng thời đ&aacute;nh tay l&ecirc;n cao qua đầu.</li>\r\n	<li>Bật nhảy lại về vị tr&iacute; cũ v&agrave; hạ tay xuống.</li>\r\n	<li>Thực hiện li&ecirc;n tục trong 30-60 gi&acirc;y với tốc độ cao nhất bạn c&oacute; thể.</li>\r\n</ul>\r\n\r\n<h3><strong>Tập Lunge cho th&acirc;n dưới</strong></h3>\r\n\r\n<p><img alt=\"Lunge - Bạn đồng hành cho vòng 3 bốc lửa đốt cháy mọi ánh mắt\" height=\"346\" sizes=\"(max-width: 610px) 100vw, 610px\" src=\"http://cdn.thehinh.com/2016/12/lunge-bai-tap-cho-vong-3-boc-lua.jpg\" srcset=\"http://cdn.thehinh.com/2016/12/lunge-bai-tap-cho-vong-3-boc-lua.jpg 610w, http://cdn.thehinh.com/2016/12/lunge-bai-tap-cho-vong-3-boc-lua-300x170.jpg 300w\" title=\"Bí quyết tập luyện giảm cân tại nhà để lấy lại vóc dáng [p2]\" width=\"610\" />Tập Lunge y&ecirc;u cầu rất nhiều&nbsp;<a href=\"http://www.thehinh.com/\">nh&oacute;m cơ</a>&nbsp;v&agrave; điều đ&oacute; c&oacute; nghĩa l&agrave; bạn đồng thời tập được nhiều hơn trong mỗi động t&aacute;c. Bạn c&oacute; thể tập với tạ hoặc tay kh&ocirc;ng đều được v&agrave; tập bất kể nơi n&agrave;o.</p>\r\n\r\n<ul>\r\n	<li>Đứng thẳng, 2 ch&acirc;n rộng bằng h&ocirc;ng.</li>\r\n	<li>Bước ch&acirc;n tr&aacute;i tới trước 1 bước đồng thời hạ thấp th&acirc;n người xuống theo chiều thẳng đứng đến khi đ&ugrave;i trước song song s&agrave;n, 2 ch&acirc;n tạo th&agrave;nh g&oacute;c 90 độ.</li>\r\n	<li>Đứng thẳng l&ecirc;n v&agrave; thực hiện lại hoặc bước tiếp ch&acirc;n phải tới trước v&agrave; thực hiện lại.</li>\r\n</ul>\r\n\r\n<h3><strong>Nhảy d&acirc;y</strong></h3>\r\n\r\n<p><img alt=\"Nhảy dây xoạc chân\" height=\"354\" src=\"http://cdn.thehinh.com/2016/08/nhay-day-giam-can-xoac-chan.gif\" title=\"Bí quyết tập luyện giảm cân tại nhà để lấy lại vóc dáng [p2]\" width=\"354\" /></p>\r\n\r\n<p>Nhảy d&acirc;y xoạc ch&acirc;n</p>\r\n\r\n<p>Nhảy d&acirc;y th&igrave; kh&ocirc;ng xa lạ g&igrave; với c&aacute;c bạn đ&uacute;ng kh&ocirc;ng n&agrave;o, con n&iacute;t cũng biết nhảy v&agrave; nhảy d&acirc;y cũng l&agrave; 1 b&agrave;i tập đốt mỡ tuyệt vời cho bạn khi ở nh&agrave;. Về c&aacute;ch nhảy th&igrave; m&igrave;nh cũng kh&ocirc;ng n&oacute;i g&igrave; th&ecirc;m v&igrave; cơ bản ai cũng biết rồi. H&atilde;y cố gắng nhảy thật nhanh v&agrave; l&acirc;u nhất c&oacute; thể nh&eacute;.</p>\r\n\r\n<p>Xem th&ecirc;m</p>\r\n\r\n<ul>\r\n	<li><a href=\"http://www.thehinh.com/2016/07/nhay-day-giam-can-nhanh-chong-tai-sao-lai-khong-tap.html\">Hướng dẫn thực hiện b&agrave;i tập nhảy d&acirc;y cơ bản</a></li>\r\n	<li><a href=\"http://www.thehinh.com/2016/08/tuyet-chieu-nhay-day-giam-can-hieu-qua.html\">Tuyệt chi&ecirc;u nhảy d&acirc;y giảm c&acirc;n tại nh&agrave; &iacute;t người biết</a></li>\r\n	<li><a href=\"http://www.thehinh.com/2016/03/50-kieu-nhay-day-de-dot-chay-mo-thua-hieu-qua.html\">50 kiểu nhảy d&acirc;y bạn nhất định phải thử qua</a></li>\r\n</ul>\r\n\r\n<h3><strong>H&atilde;y leo cầu thang nhiều hơn</strong></h3>\r\n\r\n<p>Nếu bạn ở nh&agrave; c&oacute; nhiều lầu th&igrave; cầu thang ch&iacute;nh l&agrave; nơi m&agrave; bạn c&oacute; thể tập luyện. H&atilde;y sử dụng cầu thang nhiều hơn, đừng d&ugrave;ng thang m&aacute;y nữa bạn c&oacute; thể vừa kết hợp leo cầu thang vừa tập luyện c&aacute;c b&agrave;i kh&aacute;c để tiết kiệm thời gian hơn.</p>\r\n\r\n<p>Xem th&ecirc;m:&nbsp;<a href=\"http://www.thehinh.com/2017/01/bai-tap-leo-cau-thang-giam-can-hieu-qua.html\">Những b&agrave;i tập leo cầu thang để bạn tập luyện mọi nơi</a></p>\r\n\r\n<h3><strong>Mở nhạc l&ecirc;n v&agrave; quẩy</strong></h3>\r\n\r\n<p>Nếu bạn th&iacute;ch nhảy m&uacute;a th&igrave; c&ograve;n chờ g&igrave; m&agrave; kh&ocirc;ng mở những b&agrave;i nhạc tập gym s&ocirc;i động l&ecirc;n v&agrave; bắt đầu nhảy m&uacute;a theo những kiểu bạn th&iacute;ch, hoặc kh&ocirc;ng th&igrave; h&atilde;y mở những clip hướng dẫn tập nhảy tr&ecirc;n Youtube để tập theo.</p>\r\n\r\n<h3><strong>Thực hiện b&agrave;i tập leo n&uacute;i tr&ecirc;n s&agrave;n nh&agrave;</strong></h3>\r\n\r\n<p><a href=\"http://www.thehinh.com/2016/06/huong-dan-tap-bai-plank-leo-nui.html\">B&agrave;i tập&nbsp;mountain climbers</a>&nbsp;cũng l&agrave; một trong những b&agrave;i tập cardio đốt mỡ cực mạnh, n&oacute; c&ograve;n gi&uacute;p cho phần bụng v&agrave; tay của bạn khỏe hơn nữa.</p>\r\n\r\n<p><img alt=\"Động tác leo núi Mountain Climbers\" height=\"261\" src=\"http://cdn.thehinh.com/2016/06/Mountain-Climbers.gif\" title=\"Bí quyết tập luyện giảm cân tại nhà để lấy lại vóc dáng [p2]\" width=\"500\" /></p>\r\n\r\n<p>Động t&aacute;c leo n&uacute;i Mountain Climbers</p>\r\n\r\n<ul>\r\n	<li>Đầu ti&ecirc;n v&agrave;o tư thế chống đẩy tr&ecirc;n s&agrave;n.</li>\r\n	<li>K&eacute;o đầu gối ch&acirc;n phải ra sau c&ugrave;i chỏ tay phải rồi đưa về vị tr&iacute; cũ</li>\r\n	<li>Thực hiện lại cho b&ecirc;n ch&acirc;n tr&aacute;i.</li>\r\n	<li>Giữ lưng thẳng v&agrave; thực hiện động t&aacute;c nhanh nhất c&oacute; thể.</li>\r\n</ul>\r\n\r\n<h3><strong>Một số mẹo cho bạn để thực hiện b&iacute; quyết tập luyện giảm c&acirc;n tại nh&agrave; tốt hơn</strong></h3>\r\n\r\n<ul>\r\n	<li>H&atilde;y chắc chắn tạo cho m&igrave;nh nhiều th&oacute;i quen tập luyện, bao gồm cả tập sức mạnh với tạ. Bạn tăng được c&agrave;ng nhiều cơ, bạn đốt mỡ c&agrave;ng nhanh. V&igrave; hệ trao đổi chất của bạn sẽ tăng l&ecirc;n v&agrave; n&oacute; sẽ đốt ch&aacute;y calo nhiều hơn ngay cả khi bạn ngủ.</li>\r\n	<li>C&oacute; thể sử dụng bao tay khi tập, n&oacute; gi&uacute;p bạn cầm nắm dễ hơn v&agrave; giảm chấn thương cho bạn, h&atilde;y thử n&oacute; trước khi mua nh&eacute;.</li>\r\n	<li>Tập sức mạnh kh&ocirc;ng l&agrave;m bạn cơ bắp được như bạn vẫn nghĩ. N&oacute; gi&uacute;p bạn c&oacute; nhiều cơ nhưng kh&ocirc;ng khiến bạn tr&ocirc;ng th&ocirc; hơn đ&acirc;u, h&atilde;y y&ecirc;n t&acirc;m m&agrave; tập.</li>\r\n	<li>C&oacute; thể đầu tư th&ecirc;m một chiếc ghế tập để bạn c&oacute; thể thưc hiện c&aacute;c b&agrave;i tập được chắc chắn hơn.</li>\r\n</ul>\r\n\r\n<p>Hi vọng, với&nbsp;<strong>b&iacute; quyết tập luyện giảm c&acirc;n tại nh&agrave;</strong>&nbsp;được hướng dẫn ở b&agrave;i viết n&agrave;y sẽ gi&uacute;p &iacute;ch cho bạn trong tập luyện, vẫn c&ograve;n nhiều c&aacute;ch tập luyện kh&aacute;c nữa. V&igrave; thế h&atilde;y thường xuy&ecirc;n gh&eacute; lại thehinh.com để xem th&ecirc;m nh&eacute;.</p>\r\n\r\n<p><em>C&oacute; thể bạn sẽ th&iacute;ch: Tập bụng tại nh&agrave; hiệu quả</em></p>\r\n\r\n<div class=\"ddict_btn\" style=\"left:229.859px; top:76px\"><img src=\"chrome-extension://bpggmmljdiliancllaapiggllnkbjocb/icon/16.png\" /></div>', 'Ở bài viết Bí quyết giảm cân nhanh ngay tại nhà trước, chúng ta đã đi qua phần dinh dưỡng và ăn uống, ngay bây giờ, chúng ta sẽ đi qua những bí quyết tập luyện giảm cân tại nhà để hoàn tất công việc lấy lại vóc dáng nhé.', 'ki thuat tap', 0, 'BI-quyet-tap-luyen-tai-nh31.jpg', 4);
+INSERT INTO `tbl_posts` (`post_id`, `post_title`, `post_views`, `post_slug`, `post_desc`, `post_content`, `post_meta_desc`, `post_meta_keywords`, `post_status`, `post_image`, `cate_post_id`) VALUES
+(17, 'dich covid tren vnexpress', 55, 'dich-covid-tren-vnexpress', '<p>C&aacute;c chuy&ecirc;n gia dịch tễ đ&aacute;nh gi&aacute; quy định &aacute;p dụng với Vietnam Airlines đủ chặt chẽ, nhưng tiếp vi&ecirc;n h&agrave;ng kh&ocirc;ng, &quot;bệnh nh&acirc;n 1342&quot;, thiếu &yacute; thức, g&acirc;y l&acirc;y lan nCoV.</p>', '<h1>Chuy&ecirc;n gia dịch tễ: &#39;Bệnh nh&acirc;n 1342&#39; thiếu &yacute; thức c&aacute;ch ly</h1>\r\n\r\n<p>C&aacute;c chuy&ecirc;n gia dịch tễ đ&aacute;nh gi&aacute; quy định &aacute;p dụng với Vietnam Airlines đủ chặt chẽ, nhưng tiếp vi&ecirc;n h&agrave;ng kh&ocirc;ng, &quot;bệnh nh&acirc;n 1342&quot;, thiếu &yacute; thức, g&acirc;y l&acirc;y lan nCoV.</p>\r\n\r\n<p><a href=\"https://vnexpress.net/them-hai-nguoi-nhap-canh-nhiem-ncov-4198851.html\" rel=\"dofollow\">&quot;Bệnh nh&acirc;n 1342&quot;</a>, tiếp vi&ecirc;n h&agrave;ng kh&ocirc;ng của Vietnam Airlines, đ&atilde; l&acirc;y nhiễm cho <a href=\"https://vnexpress.net/mot-thanh-nien-o-tp-hcm-nhiem-ncov-4199428.html\" rel=\"dofollow\">&quot;bệnh nh&acirc;n 1347&quot; </a>trong thời gian c&aacute;ch ly tại nh&agrave;. Ca l&acirc;y n&agrave;y chấm dứt 120 ng&agrave;y tại TP HCM v&agrave; 88 ng&agrave;y tr&ecirc;n cả nước kh&ocirc;ng ghi nhận l&acirc;y nhiễm nội địa. Bộ Y tế ph&acirc;n loại đ&acirc;y l&agrave; ca l&acirc;y nhiễm trong c&aacute;ch ly.</p>\r\n\r\n<p>&Ocirc;ng Trần Đắc Phu, Cố vấn cao cấp Trung t&acirc;m Đ&aacute;p ứng Khẩn cấp Sự kiện Y tế C&ocirc;ng cộng Việt Nam, nhận định quy định c&aacute;ch ly ri&ecirc;ng d&agrave;nh cho Vietnam Airlines l&agrave; &quot;chặt chẽ&quot;.</p>\r\n\r\n<p>Theo quy định, c&aacute;c th&agrave;nh vi&ecirc;n tổ bay (tiếp vi&ecirc;n, nh&acirc;n vi&ecirc;n kỹ thuật, mặt đất, điều phối bay) tr&ecirc;n c&aacute;c chuyến bay chở kh&aacute;ch về Việt Nam phải c&aacute;ch ly tập trung v&agrave; lấy mẫu x&eacute;t nghiệm. Nếu tất cả h&agrave;nh kh&aacute;ch v&agrave; th&agrave;nh vi&ecirc;n tổ bay c&oacute; kết quả x&eacute;t nghiệm &acirc;m t&iacute;nh lần một th&igrave; tiếp tục lấy mẫu lần hai với c&aacute;c th&agrave;nh vi&ecirc;n tổ bay. X&eacute;t nghiệm lần hai sau &iacute;t nhất 72 giờ kể từ lần lấy mẫu thứ nhất.</p>\r\n\r\n<p>Th&agrave;nh vi&ecirc;n tổ bay nếu x&eacute;t nghiệm lần hai &acirc;m t&iacute;nh sẽ được ph&eacute;p rời khỏi khu c&aacute;ch ly, tiếp tục c&aacute;ch ly tại nh&agrave; hoặc nơi cư tr&uacute; theo hướng dẫn của Bộ Y tế cho đến khi thực hiện nhiệm vụ quốc tế tiếp theo.</p>\r\n\r\n<p>&Ocirc;ng Phu cho rằng việc tiếp vi&ecirc;n tiếp x&uacute;c gần với bạn b&egrave; trong thời gian c&aacute;ch ly, l&acirc;y nhiễm sang người kh&aacute;c l&agrave; vi phạm quy định.</p>\r\n\r\n<p>&quot;&Yacute; thức c&aacute;ch ly tại nh&agrave; của tiếp vi&ecirc;n n&agrave;y kh&ocirc;ng tốt&quot;, &ocirc;ng Phu n&oacute;i.</p>\r\n\r\n<p>Tối 30/11, một l&atilde;nh đạo Đo&agrave;n Tiếp vi&ecirc;n Vietnam Airline cũng thừa nhận tiếp vi&ecirc;n &quot;bệnh nh&acirc;n 1342&quot; <a href=\"https://vnexpress.net/vietnam-airlines-tiep-vien-vi-pham-quy-dinh-cach-ly-ncov-4199466.html\" rel=\"dofollow\">vi phạm quy định c&aacute;ch ly</a>.</p>\r\n\r\n<p>B&aacute;c sĩ Phạm Quang Th&aacute;i, Ph&oacute; Trưởng khoa Kiểm so&aacute;t Bệnh truyền nhiễm, Viện Vệ sinh Dịch tễ Trung ương, đ&aacute;nh gi&aacute; quy định n&agrave;y đủ chặt chẽ v&agrave; việc c&aacute;ch ly c&oacute; t&aacute;c dụng trong ph&aacute;t triển kinh tế cũng như duy tr&igrave; tốt hoạt động của Vietnam Airlines.</p>\r\n\r\n<p>Tuy nhi&ecirc;n, &quot;c&ograve;n lỗ hổng khi &yacute; thức người c&aacute;ch ly chưa tốt&quot;, theo b&aacute;c sĩ Th&aacute;i.</p>\r\n\r\n<p>&quot;Cần xiết chặt lỗ hổng n&agrave;y bằng cam kết, chế t&agrave;i, gi&aacute;m s&aacute;t chủ động đối với khu c&aacute;ch ly v&agrave; người c&aacute;ch ly tại nh&agrave;, trong đ&oacute; c&oacute; vai tr&ograve; quản l&yacute; của địa phương. Khi c&aacute;c b&ecirc;n l&agrave;m tốt vai tr&ograve; của m&igrave;nh, việc c&aacute;ch ly mới được đảm bảo v&agrave; kiểm so&aacute;t dịch bệnh&quot;, b&aacute;c sĩ Th&aacute;i n&oacute;i.</p>\r\n\r\n<p>B&aacute;c sĩ Trương Hữu Khanh, Khoa Nhiễm - Thần kinh của Bệnh viện Nhi Đồng 1, TP HCM, cho rằng b&agrave;i học từ ca nhiễm n&agrave;y l&agrave; c&aacute;c b&ecirc;n cần xiết chặt những quy định, c&oacute; b&ecirc;n thứ ba kiểm so&aacute;t người c&aacute;ch ly tại nh&agrave;, kh&ocirc;ng n&ecirc;n ph&oacute; mặc tất cả cho &yacute; thức của người c&aacute;ch ly, tạo lỗ hổng l&agrave;m cho dịch bệnh l&acirc;y lan.</p>\r\n\r\n<div class=\"fig-picture\" style=\"padding-bottom:64.043915827996%; position:relative\"><img alt=\"Nhân viên y tế lấy mẫu xét nghiệm cho người dân. Ảnh: Đắc Thành.\" class=\"lazied lazy\" src=\"https://i1-suckhoe.vnecdn.net/2020/12/01/img-4171-1606801528-2303-1606802171.jpg?w=680&amp;h=0&amp;q=100&amp;dpr=1&amp;fit=crop&amp;s=7pEos1IU4KwseGzjEVljEQ\" style=\"left:0; position:absolute; width:100%\" /></div>\r\n\r\n<p>Nh&acirc;n vi&ecirc;n y tế lấy mẫu x&eacute;t nghiệm cho người d&acirc;n. Ảnh: <em>Đắc Th&agrave;nh.</em></p>\r\n\r\n<p>Theo <em>Hướng dẫn c&aacute;ch ly y tế tại nh&agrave;, nơi lưu tr&uacute; để ph&ograve;ng chống bệnh Covid-19</em>, Bộ Y tế, người được c&aacute;ch ly phải chấp h&agrave;nh việc tự c&aacute;ch ly tại nh&agrave;, nơi lưu tr&uacute; đ&uacute;ng thời gian quy định, tốt nhất c&aacute;ch ly ở một ph&ograve;ng ri&ecirc;ng. Trong trường hợp gia đ&igrave;nh, nơi lưu tr&uacute; kh&ocirc;ng c&oacute; ph&ograve;ng ri&ecirc;ng th&igrave; giường ngủ của người được c&aacute;ch ly n&ecirc;n c&aacute;ch xa giường ngủ của c&aacute;c th&agrave;nh vi&ecirc;n kh&aacute;c trong gia đ&igrave;nh &iacute;t nhất 2 m&eacute;t.</p>\r\n\r\n<p>H&agrave;ng ng&agrave;y, người c&aacute;ch ly cần hạn chế ra khỏi ph&ograve;ng ri&ecirc;ng, hạn chế tiếp x&uacute;c trực tiếp với người trong gia đ&igrave;nh, nơi lưu tr&uacute; cũng như những người kh&aacute;c; tự theo d&otilde;i sức khỏe; đeo khẩu trang. Kh&ocirc;ng ăn chung c&ugrave;ng với những người kh&aacute;c trong gia đ&igrave;nh, nơi lưu tr&uacute;.</p>\r\n\r\n<p>C&aacute;c th&agrave;nh vi&ecirc;n trong gia đ&igrave;nh, người l&agrave;m việc, quản l&yacute; nơi lưu tr&uacute; của người được c&aacute;ch ly, h&agrave;ng ng&agrave;y hạn chế tiếp x&uacute;c với người được c&aacute;ch ly. Đeo khẩu trang v&agrave; giữ khoảng c&aacute;ch tối thiểu 2 m&eacute;t khi cần tiếp x&uacute;c.</p>\r\n\r\n<p>Tối 30/11, Bộ Y tế ghi nhận &quot;bệnh nh&acirc;n 1347&quot;, gi&aacute;o vi&ecirc;n tiếng Anh, đ&atilde; l&acirc;y nhiễm nCoV từ &quot;bệnh nh&acirc;n 1342&quot;. Giao vi&ecirc;n n&agrave;y đến ở c&ugrave;ng với tiếp vi&ecirc;n h&agrave;ng kh&ocirc;ng khi anh ta đang trong thời gian c&aacute;ch ly tại nơi cư tr&uacute; ở quận T&acirc;n B&igrave;nh. Ngo&agrave;i ra, c&ograve;n hai người nữa gồm mẹ (tr&uacute; H&oacute;c M&ocirc;n) v&agrave; bạn (tr&uacute; B&igrave;nh Thạnh) tiếp x&uacute;c với nam tiếp vi&ecirc;n.</p>\r\n\r\n<p>Đến tối 30/11, x&aacute;c định được <a href=\"https://vnexpress.net/192-nguoi-tp-hcm-tiep-xuc-benh-nhan-1347-4199445.html\" rel=\"dofollow\">192 người tiếp x&uacute;c</a> &quot;bệnh nh&acirc;n 1347&quot;, trong đ&oacute; 73 người đ&atilde; lấy mẫu x&eacute;t nghiệm, chưa c&oacute; kết quả.</p>\r\n\r\n<p>S&aacute;ng nay, giới chức <a href=\"https://vnexpress.net/phong-toa-khu-dan-cu-noi-o-2-nguoi-nhiem-ncov-4199755.html\" rel=\"dofollow\">phong tỏa một số khu vực</a> l&agrave; nơi ở của hai bệnh nh&acirc;n. Hai trường tiểu học với hơn <a href=\"https://vnexpress.net/hon-2-000-hoc-sinh-nghi-phong-covid-19-4199745.html\" rel=\"dofollow\">2.000 học sinh phải nghỉ học</a> do c&oacute; gi&aacute;o vi&ecirc;n l&agrave; F1 của bệnh nh&acirc;n.</p>\r\n\r\n<p style=\"text-align:right\"><strong>L&ecirc; Nga - Chi L&ecirc;</strong></p>', 'covid lay lan vi thieu y thuc , hinh thuc xu phat', 'dich covid , hang khong , thieu y thuc , vietnam airlaines', 0, 'cho chi hong18.jpg', 8),
+(18, 'tinh hinh covid , xy ly benh nha 13421', 38, 'tinh-hinh-covid-xy-ly-benh-nha-13421', '<p>TP HCM nghi&ecirc;n cứu h&igrave;nh thức xử l&yacute; &#39;bệnh nh&acirc;n 1342&#39;</p>', '<h1>TP HCM nghi&ecirc;n cứu h&igrave;nh thức xử l&yacute; &#39;bệnh nh&acirc;n 1342&#39;</h1>\r\n\r\n<p>C&aacute;c cơ quan chức năng li&ecirc;n quan ph&aacute;p luật của TP HCM nghi&ecirc;n cứu c&aacute;c quy định, đặc biệt Luật ph&ograve;ng chống bệnh truyền nhiễm 2007 để xử l&yacute; &quot;bệnh nh&acirc;n 1342&quot;.</p>\r\n\r\n<p>Y&ecirc;u cầu được Chủ tịch UBND TP HCM Nguyễn Th&agrave;nh Phong đưa ra tại cuộc họp với c&aacute;c sở ng&agrave;nh v&agrave; quận huyện, chiều 1/12, khi đề cập đến &quot;bệnh nh&acirc;n 1342&quot;, 28 tuổi, l&agrave; tiếp vi&ecirc;n Vietnam Airlines đ&atilde; vi phạm c&aacute;c quy định ph&ograve;ng chống dịch.</p>\r\n\r\n<p>&quot;Tinh thần Chủ tịch UBND th&agrave;nh phố chỉ đạo l&agrave; vi phạm đến đ&acirc;u sẽ xử l&yacute; đến đấy. Đ&acirc;y cũng l&agrave; chỉ đạo của Thủ tướng, Ph&oacute; thủ tướng tại cuộc họp trực tuyến chiều nay&quot;, &ocirc;ng Từ Lương, Ph&oacute; gi&aacute;m đốc Sở Th&ocirc;ng tin - Truyền th&ocirc;ng TP HCM n&oacute;i khi đề cập đến y&ecirc;u cầu của l&atilde;nh đạo th&agrave;nh phố.</p>\r\n\r\n<div class=\"fig-picture\" style=\"padding-bottom:70.8%; position:relative\"><img alt=\"Phó giám đốc Sở Thông tin - Truyền thông Từ Lương cung cấp thêm thông tin tại cuộc họp của UBND TP HCM với các sở ngành, quận huyện chiều nay. Ảnh: Hữu Công\" class=\"lazied lazy\" src=\"https://i1-vnexpress.vnecdn.net/2020/12/01/tu-luong-2495-1606824356.jpg?w=680&amp;h=0&amp;q=100&amp;dpr=1&amp;fit=crop&amp;s=sa8IKROaDH4JmsYWAPcaWA\" style=\"left:0; position:absolute; width:100%\" />\r\n<div class=\"embed-container\" style=\"bottom:0px; display:block; height:100px; margin-bottom:0px !important; padding-bottom:0px !important; position:absolute; width:100%\">&nbsp;</div>\r\n</div>\r\n\r\n<p>Ph&oacute; gi&aacute;m đốc Sở Th&ocirc;ng tin - Truyền th&ocirc;ng Từ Lương cung cấp th&ocirc;ng tin tại cuộc họp của UBND TP HCM với c&aacute;c sở ng&agrave;nh, quận huyện chiều 1/12. Ảnh: <em>Hữu C&ocirc;ng.</em></p>\r\n\r\n<p>N&oacute;i th&ecirc;m vi phạm của &quot;bệnh nh&acirc;n 1342&quot;, Gi&aacute;m đốc Sở Y tế th&agrave;nh phố Nguyễn Tấn Bỉnh cho biết theo quy định, phi h&agrave;nh đo&agrave;n mỗi chuyến bay được c&aacute;ch ly ở một khu ri&ecirc;ng. Tuy nhi&ecirc;n, trong qu&aacute; tr&igrave;nh ở khu c&aacute;ch ly tập trung, &quot;bệnh nh&acirc;n 1342&quot; đi qua khu kh&aacute;c v&agrave; bị nhiễm nCoV từ &quot;bệnh nh&acirc;n 1325&quot; (chuyến bay từ Rumani về Việt Nam).</p>\r\n\r\n<p>&quot;Điều n&agrave;y thể hiện sự lỏng lẻo trong quản l&yacute; ở khu c&aacute;ch ly tập trung của Vietnam Airlines&quot;, &ocirc;ng Bỉnh n&oacute;i v&agrave; khẳng định c&aacute;c khu c&aacute;ch ly tập trung đều được thẩm định bởi cơ sở y tế, bảo đảm c&aacute;c quy định về chống dịch mới được tiếp nhận người c&aacute;ch ly.</p>\r\n\r\n<p>&Ocirc;ng Bỉnh cho biết theo chỉ đạo của Bộ Y tế, th&agrave;nh phố đ&atilde; đ&oacute;ng cửa khu c&aacute;ch ly tập trung của Vietnam Airlines ở đường Hồng H&agrave;, phường 2, quận T&acirc;n B&igrave;nh.</p>\r\n\r\n<p>Chủ tịch UBND th&agrave;nh phố y&ecirc;u cầu ch&iacute;nh quyền c&aacute;c <strong>quận 6, T&acirc;n B&igrave;nh, B&igrave;nh T&acirc;n chủ động xem x&eacute;t đề xuất UBND th&agrave;nh phố quyết định nếu thấy cần thiết gi&atilde;n c&aacute;ch khu vực</strong>. &quot;Việc n&agrave;y thực hiện theo tinh thần chỉ đạo của Ch&iacute;nh phủ l&agrave; kh&ocirc;ng gi&atilde;n c&aacute;ch x&atilde; hội tr&ecirc;n địa b&agrave;n rộng lớn, chỉ xem x&eacute;t với những khu vực nhỏ nhưng c&oacute; nguy cơ cao&quot;, &ocirc;ng Từ Lương n&oacute;i.</p>\r\n\r\n<p>Th&agrave;nh phố cũng y&ecirc;u cầu người d&acirc;n chấp h&agrave;nh đeo khẩu trang nơi c&ocirc;ng cộng, nhất l&agrave; bệnh viện, trường học, chợ... C&aacute;c cơ quan, tổ chức, cơ sở kinh doanh được y&ecirc;u cầu thực hiện nghi&ecirc;m 8 bộ ti&ecirc;u ch&iacute; ng&agrave;nh nghề m&agrave; th&agrave;nh phố đ&atilde; ban h&agrave;nh.</p>\r\n\r\n<div class=\"fig-picture\" style=\"padding-bottom:63.868613138686%; position:relative\"><img alt=\"Hẻm trên đường Phạm Văn Chí, quận 6, nơi gia đình bé trai một tuổi nhiễm nCoV bị phong tỏa tối 1/12. Ảnh: Đình Văn.\" class=\"lazied lazy\" src=\"https://i1-vnexpress.vnecdn.net/2020/12/01/128746581-1018788495286520-916-3053-4648-1606828681.jpg?w=680&amp;h=0&amp;q=100&amp;dpr=1&amp;fit=crop&amp;s=qRPfLREwcZYPrIAV7ssgbA\" style=\"left:0; position:absolute; width:100%\" /></div>\r\n\r\n<p>Hẻm tr&ecirc;n đường Phạm Văn Ch&iacute;, quận 6, nơi gia đ&igrave;nh b&eacute; trai một tuổi nhiễm nCoV bị phong tỏa tối 1/12. Ảnh: <em>Đ&igrave;nh Văn.</em></p>\r\n\r\n<p>C&aacute;c quận 1,3, 6, 10, 11, Ph&uacute; Nhuận, B&igrave;nh T&acirc;n, T&acirc;n B&igrave;nh, T&acirc;n Ph&uacute; - những nơi &quot;bệnh nh&acirc;n 1347&quot; (nam, 32 tuổi, gi&aacute;o vi&ecirc;n tiếng Anh, nhiễm nCoV từ <a href=\"https://vnexpress.net/them-hai-nguoi-nhap-canh-nhiem-ncov-4198851.html\" rel=\"dofollow\">&quot;bệnh nh&acirc;n 1342&quot;</a>) đ&atilde; c&oacute; mặt, được y&ecirc;u cầu phải r&agrave; so&aacute;t kỹ. Cơ sở n&agrave;o c&oacute; nguy cơ, dấu hiệu kh&ocirc;ng an to&agrave;n phải đ&oacute;ng cửa.</p>\r\n\r\n<p>&quot;Bệnh nh&acirc;n 1342&quot; từ Nhật Bản nhập cảnh về Việt Nam h&ocirc;m 14/11, lưu tại khu c&aacute;ch ly do Vietnam Airlines quản l&yacute; ở số 115 Hồng H&agrave;, phường 2, quận T&acirc;n B&igrave;nh, từ ng&agrave;y 14 đến 18/11.</p>\r\n\r\n<p>Sau khi x&eacute;t nghiệm hai lần kết quả &acirc;m t&iacute;nh, tiếp vi&ecirc;n n&agrave;y về c&aacute;ch ly tại nh&agrave; trọ ở đường Bạch Đằng, phường 2, quận T&acirc;n B&igrave;nh. Trong qu&aacute; tr&igrave;nh c&aacute;ch ly, anh tiếp x&uacute;c trực tiếp với mẹ (ở H&oacute;c M&ocirc;n), một bạn nữ (tr&uacute; B&igrave;nh Thạnh) v&agrave; bạn nam (ở quận 6). Trong đ&oacute;, bạn nam l&agrave;m nghề gi&aacute;o vi&ecirc;n tiếng Anh tới nh&agrave; trọ sống c&ugrave;ng.</p>\r\n\r\n<p>Ng&agrave;y 28/11, tiếp vi&ecirc;n x&eacute;t nghiệm dương t&iacute;nh. Ba người tiếp x&uacute;c với anh ta được c&aacute;ch ly v&agrave; x&eacute;t nghiệm. Gi&aacute;o vi&ecirc;n tiếng Anh dương t&iacute;nh nCoV, trở th&agrave;nh &quot;bệnh nh&acirc;n 1347&quot;.</p>\r\n\r\n<p>Ca nhiễm n&agrave;y chấm dứt chuỗi 120 ng&agrave;y TP HCM kh&ocirc;ng ghi nhận l&acirc;y nhiễm trong cộng đồng. Ca nhiễm cuối được ghi nhận v&agrave;o 4 th&aacute;ng trước, h&ocirc;m 2/8.</p>\r\n\r\n<p>&quot;Bệnh nh&acirc;n 1347&quot; cũng khiến hai trường hợp ở quận 6 nhiễm Covid-19 l&agrave; b&eacute; trai một tuổi - &quot;<a href=\"https://vnexpress.net/hai-ca-nhiem-moi-trong-cong-dong-tai-tp-hcm-4199933.html\" rel=\"dofollow\">bệnh nh&acirc;n 1348</a>&quot; v&agrave; nữ học vi&ecirc;n Trung t&acirc;m Anh ngữ Key English, 28 tuổi - &quot;bệnh nh&acirc;n 1349&quot; được Bộ Y tế c&ocirc;ng bố chiều 1/12.</p>\r\n\r\n<p>TP HCM đ&atilde; ghi nhận 139 người nhiễm nCoV, trong đ&oacute; 102 người điều trị khỏi, 37 người đang điều trị. Số người c&aacute;ch ly tại c&aacute;c khu tập trung l&agrave; 1.437 người, tại nh&agrave; l&agrave; 29 người.</p>\r\n\r\n<p style=\"text-align:right\"><strong>Hữu C&ocirc;ng</strong></p>', 'xu ly co vid', 'xu ly co vid', 0, 'IMG8057-1606805136-1119-160680641794.jpg', 8),
+(19, 'bai post 1', 28, 'bai-post-1', '<p>tom tat 1</p>', '<p>noi dung 1</p>', 'meta 1', 'tu khoa 1', 0, NULL, 8);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_post_lang`
+--
+
+DROP TABLE IF EXISTS `tbl_post_lang`;
+CREATE TABLE IF NOT EXISTS `tbl_post_lang` (
+  `post_id` int(11) NOT NULL AUTO_INCREMENT,
   `post_title` tinytext NOT NULL,
   `post_slug` varchar(255) NOT NULL,
   `post_desc` text NOT NULL,
@@ -468,14 +974,15 @@ CREATE TABLE `tbl_posts` (
   `post_meta_keywords` varchar(255) NOT NULL,
   `post_status` int(11) NOT NULL,
   `post_image` varchar(200) NOT NULL,
-  `cate_post_id` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `cate_post_id` int(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`post_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_posts`
+-- Dumping data for table `tbl_post_lang`
 --
 
-INSERT INTO `tbl_posts` (`post_id`, `post_title`, `post_slug`, `post_desc`, `post_content`, `post_meta_desc`, `post_meta_keywords`, `post_status`, `post_image`, `cate_post_id`) VALUES
+INSERT INTO `tbl_post_lang` (`post_id`, `post_title`, `post_slug`, `post_desc`, `post_content`, `post_meta_desc`, `post_meta_keywords`, `post_status`, `post_image`, `cate_post_id`) VALUES
 (1, 'Xiaomi Mi 10T Pro lộ ảnh thực tế với màn hình đục lỗ và 3 camera sau 108 MP?', 'xiaomi-mi-10t-pro-lo-anh-thuc-te-voi-man-hinh-duc-lo-va-3-camera-sau-108-mp', '<p><span style=\"font-size:14px\"><span style=\"font-family:Arial,Helvetica,sans-serif\">D&ograve;ng smartphone h&agrave;ng đầu Mi 10 của Xiaomi bao gồm năm model: Mi 10, Mi 10 Pro, Mi 10 Lite, Mi 10 Lite Zoom v&agrave; Mi 10 Ultra mới ra mắt gần đ&acirc;y. B&acirc;y giờ, c&oacute; vẻ như Xiaomi sắp ra mắt th&ecirc;m hai model mới cũng thuộc d&ograve;ng Mi 10.</span></span></p>\r\n\r\n<ul>\r\n</ul>', '<h1>Chiếc smartphone n&agrave;y được cho l&agrave; Xiaomi Mi 10T Pro (nguồn ảnh: XDA-Developers)</h1>\r\n\r\n<h2>D&ograve;ng smartphone h&agrave;ng đầu Mi 10 của Xiaomi bao gồm năm model: Mi 10, Mi 10 Pro, Mi 10 Lite, Mi 10 Lite Zoom v&agrave; Mi 10 Ultra mới ra mắt gần đ&acirc;y. B&acirc;y giờ, c&oacute; vẻ như Xiaomi sắp ra mắt th&ecirc;m hai model mới cũng thuộc d&ograve;ng Mi 10.</h2>\r\n\r\n<p>Theo b&aacute;o c&aacute;o từ&nbsp;<a href=\"https://www.xda-developers.com/xiaomi-mi-10t-pro-flagship-smartphone-leak/\" rel=\"nofollow\" target=\"_blank\" title=\"This is Xiaomi upcoming Mi 10T Pro flagship smartphone\" type=\"This is Xiaomi upcoming Mi 10T Pro flagship smartphone\">XDA-Developers</a>, Xiaomi hiện đang chuẩn bị ra mắt Mi 10T (t&ecirc;n m&atilde; apollo) v&agrave;&nbsp;Mi 10T Pro (apollo pro), với năm số model:&nbsp;M2007J3SC, M2007J3SI, M2007J3SP, M2007J3SG v&agrave; M2007J3SY.</p>\r\n\r\n<p>Ri&ecirc;ng phi&ecirc;n bản&nbsp;Xiaomi Mi 10T Pro đ&atilde; bị r&ograve; rỉ h&igrave;nh ảnh thực tế với thiết kế m&agrave;n h&igrave;nh đục lỗ v&agrave; cụm ba camera mặt sau được đặt trong cấu tr&uacute;c h&igrave;nh chữ nhật nằm g&oacute;c tr&ecirc;n b&ecirc;n tr&aacute;i.</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<ul>\r\n	<li><a href=\"javascript:void(0)\" rel=\"gallerynews1\"><img src=\"https://cdn.tgdd.vn/Files/2020/08/27/1284389/Gallery/5.jpg\" /></a></li>\r\n</ul>', 'Dòng smartphone hàng đầu Mi 10 của Xiaomi bao gồm năm model: Mi 10, Mi 10 Pro, Mi 10 Lite, Mi 10 Lite Zoom và Mi 10 Ultra mới ra mắt gần đây. Bây giờ, có vẻ như Xiaomi sắp ra mắt thêm hai model mới cũng thuộc dòng Mi 1', 'xiao mi,xaomi ,sản pham xiao mi', 0, 'xaiao19.jpg', 1),
 (2, 'Nhật Kim Anh chưa giành được quyền nuôi con', 'nhat-kim-anh-chua-gianh-duoc-quyen-nuoi-con', '<p>Ng&agrave;y 28/8, trong phi&ecirc;n to&agrave; ph&uacute;c thẩm, hội đồng x&eacute;t xử tuy&ecirc;n hủy bản &aacute;n sơ thẩm tuy&ecirc;n diễn vi&ecirc;n Nhật Kim Anh được quyền nu&ocirc;i con do vi phạm tố tụng.</p>', '<p>Trước đ&oacute;, h&ocirc;m 23/3, to&agrave; sơ thẩm ra quyết định&nbsp;<a href=\"https://ngoisao.net/hau-truong/nhat-kim-anh-duoc-quyen-nuoi-con-4073395.html\" rel=\"dofollow\">giao quyền nu&ocirc;i con</a>&nbsp;cho Nhật Kim Anh. Tuy nhi&ecirc;n, phi&ecirc;n x&eacute;t xử vắng mặt bị đơn (doanh nh&acirc;n Trần Bửu Lộc) v&agrave; luật sư v&igrave; to&agrave; kh&ocirc;ng chấp nhận đơn xin ho&atilde;n x&eacute;t xử của bị đơn d&ugrave; được ph&aacute;p luật cho ph&eacute;p.</p>\r\n\r\n<p>Do đ&oacute;, tại phi&ecirc;n ph&uacute;c thẩm, theo luật sư của bị đơn, to&agrave; sơ thẩm x&eacute;t xử v&agrave; tuy&ecirc;n &aacute;n vắng mặt &ocirc;ng Lộc l&agrave; kh&ocirc;ng đảm bảo quyền v&agrave; lợi &iacute;ch hợp ph&aacute;p của cha đứa trẻ.</p>\r\n\r\n<p>Về ph&iacute;a Nhật Kim Anh, nữ diễn vi&ecirc;n tiếp tục tr&igrave;nh b&agrave;y c&ocirc; bị chồng cũ v&agrave; người th&acirc;n g&acirc;y kh&oacute; khăn trong việc thăm nom con trai. Ngược lại, doanh nh&acirc;n Trần Bửu Lộc tố vợ cũ &quot;cố t&igrave;nh d&agrave;n dựng chuyện, cho người ghi h&igrave;nh&quot; trong khi gia đ&igrave;nh anh đ&atilde; cố gắng tạo điều kiện hai mẹ con gặp gỡ nhau.</p>\r\n\r\n<table align=\"center\" border=\"0\" cellpadding=\"3\" cellspacing=\"0\">\r\n	<tbody>\r\n		<tr>\r\n			<td><img alt=\"Nhật Kim Anh và con trai Bửu Long dịp Tết 2020.\" src=\"https://i-ngoisao.vnecdn.net/2020/08/28/aa-9388-1598627858.jpg\" /></td>\r\n		</tr>\r\n		<tr>\r\n			<td>\r\n			<p>Nhật Kim Anh v&agrave; con trai Bửu Long dịp Tết 2020.</p>\r\n			</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>Sau khi lắng nghe tr&igrave;nh b&agrave;y của c&aacute;c b&ecirc;n đương sự, viện kiểm s&aacute;t v&agrave; kết th&uacute;c phần nghị &aacute;n, hội đồng x&eacute;t xử to&agrave; ph&uacute;c thẩm tuy&ecirc;n hủy bản &aacute;n sơ thẩm, giao TAND quận Ninh Kiều x&eacute;t xử lại từ đầu. Đặc biệt, việc nguy&ecirc;n đơn - Nhật Kim Anh - y&ecirc;u cầu thay đổi người trực tiếp nu&ocirc;i con phải được xem x&eacute;t đầy đủ mọi mặt. Qua đ&oacute;, bản &aacute;n c&oacute; thể đảm bảo tốt điều kiện vật chất, tinh thần cho b&eacute; Bửu Long. V&igrave; thế, Nhật Kim Anh v&agrave; Trần Bửu Lộc sẽ tiếp tục theo đuổi vụ kiện tranh chấp thay đổi người trực tiếp nu&ocirc;i con sau ly h&ocirc;n trong thời gian tới.</p>\r\n\r\n<p><em>Ngoisao.net&nbsp;</em>li&ecirc;n hệ Nhật Kim Anh về quyết định của t&ograve;a ph&uacute;c thẩm, song c&ocirc; từ chối trả lời v&igrave; đang mệt sau một ng&agrave;y tham dự phi&ecirc;n t&ograve;a.</p>\r\n\r\n<table align=\"center\" border=\"0\" cellpadding=\"3\" cellspacing=\"0\">\r\n	<tbody>\r\n		<tr>\r\n			<td><img alt=\"Nhật Kim Anh cùng chồng cũ tổ chức sinh nhật cho con trai vào tháng 9/2019.\" src=\"https://i-ngoisao.vnecdn.net/2020/08/28/aaa-1708-1598627858.jpg\" /></td>\r\n		</tr>\r\n		<tr>\r\n			<td>\r\n			<p>Nhật Kim Anh c&ugrave;ng chồng cũ tổ chức sinh nhật cho con trai v&agrave;o th&aacute;ng 9/2019.</p>\r\n			</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>Nhật Kim Anh sinh năm 1985, hoạt động trong vai tr&ograve; diễn vi&ecirc;n, ca sĩ v&agrave; kinh doanh mỹ phẩm. Năm 2019, c&ocirc; x&aacute;c nhận ly h&ocirc;n với doanh nh&acirc;n Bửu Lộc. Con trai c&ocirc; - Bửu Long - ở với ba v&agrave; &ocirc;ng b&agrave; nội. Sau đ&oacute;, v&igrave; nhiều lần bị ngăn gặp gỡ, c&ocirc; khởi kiện gi&agrave;nh quyền nu&ocirc;i con từ th&aacute;ng 7/2019, đến th&aacute;ng 3/2020 xử xong sơ thẩm,&nbsp;<a href=\"https://ngoisao.net/hau-truong/nhat-kim-anh-duoc-quyen-nuoi-con-4073395.html\" rel=\"dofollow\">trao quyền cho người mẹ</a>. Chưa kể, họ li&ecirc;n tục đấu tố nhau tr&ecirc;n mạng x&atilde; hội, đẩy c&acirc;u chuyện gi&agrave;nh quyền nu&ocirc;i con của nữ diễn vi&ecirc;n&nbsp;<em>Tiếng s&eacute;t trong mưa&nbsp;</em>trở n&ecirc;n nhiều ồn &agrave;o.</p>\r\n\r\n<p>Mới đ&acirc;y, nh&acirc;n&nbsp;<a href=\"https://ngoisao.net/hau-truong/nhat-kim-anh-doan-tu-con-trai-trong-sinh-nhat-4147540.html\" rel=\"dofollow\">sinh nhật tuổi 35</a>&nbsp;của Nhật Kim Anh, chồng cũ Bửu Lộc để con trai đo&agrave;n tụ với mẹ.</p>', 'Ngày 28/8, trong phiên toà phúc thẩm, hội đồng xét xử tuyên hủy bản án sơ thẩm tuyên diễn viên Nhật Kim Anh được quyền nuôi con do vi phạm tố tụng.', 'nhat kim anh ,nhật kim anh,tranh chấp nuôi con nhật kim anh', 0, 'aaa-1708-159862785859.jpg', 6),
 (3, 'Con gái út Hồ Hoài Anh muốn làm hoa hậu', 'con-gai-ut-ho-hoai-anh-muon-lam-hoa-hau', '<p>Tr&ecirc;n k&ecirc;nh YouTube c&oacute; t&ecirc;n &quot;Gia đ&igrave;nh Giang Hồ&quot;, vợ chồng nhạc sĩ Hồ Ho&agrave;i Anh đăng tải những video ghi lại cuộc sống thường nhật của họ b&ecirc;n hai con g&aacute;i Mina v&agrave; Misu. Ở tập ph&aacute;t s&oacute;ng h&ocirc;m 27/8,&nbsp;</p>', '<h1 style=\"text-align:center\"><strong>M&agrave;n Q&amp;A của gia đ&igrave;nh Hồ Ho&agrave;i Anh</strong></h1>\r\n\r\n<p>Tr&ecirc;n k&ecirc;nh YouTube c&oacute; t&ecirc;n &quot;Gia đ&igrave;nh Giang Hồ&quot;, vợ chồng nhạc sĩ Hồ Ho&agrave;i Anh đăng tải những video ghi lại cuộc sống thường nhật của họ b&ecirc;n hai con g&aacute;i Mina v&agrave; Misu. Ở tập ph&aacute;t s&oacute;ng h&ocirc;m 27/8, cả nh&agrave; tham gia phần giao lưu với kh&aacute;n giả qua những c&acirc;u hỏi xoay quanh c&aacute;c th&agrave;nh vi&ecirc;n. Trong video, b&eacute; Mina, 9 tuổi, đ&oacute;ng vai tr&ograve; &quot;host&quot; (người dẫn dắt) v&agrave; li&ecirc;n tục giải đ&aacute;p những thắc mắc của người xem như t&ecirc;n thật của hai chị em l&agrave; g&igrave;, Mina v&agrave; Misu c&oacute; hay c&atilde;i nhau hay kh&ocirc;ng, Mina v&agrave; Misu th&iacute;ch l&agrave;m g&igrave; với bố mẹ nhất... Mina tiết lộ lớn l&ecirc;n sẽ mở tiệm cafe ch&oacute; m&egrave;o l&agrave;m nghề tay tr&aacute;i c&ograve;n em &uacute;t Mina muốn trở th&agrave;nh hoa hậu.</p>\r\n\r\n<p>Những c&acirc;u trả lời hồn nhi&ecirc;n của c&aacute;c b&eacute; khiến c&aacute;c kh&aacute;n giả th&iacute;ch th&uacute;. Một số nghệ sĩ trong đ&oacute; c&oacute; T&oacute;c Ti&ecirc;n, Đ&ocirc;ng Nhi, Ngọc Khu&ecirc;... trầm trồ trước sự đ&aacute;ng y&ecirc;u của hai b&eacute; Mina v&agrave; Misu. Nhạc sĩ Hồ Ho&agrave;i Anh chia sẻ những video n&agrave;y như cuốn nhật k&yacute; ghi lại h&agrave;nh tr&igrave;nh kh&ocirc;n lớn của hai con g&aacute;i anh. Tại đ&acirc;y, anh v&agrave; b&agrave; x&atilde; Lưu Hương Giang chỉ &quot;l&agrave;m nền&quot; c&ograve;n c&aacute;c con thỏa sức thể hiện suy nghĩ, quan điểm. Ở tập ph&aacute;t s&oacute;ng trước, hai b&eacute; đ&atilde; hồn nhi&ecirc;n &quot;tố c&aacute;o&quot; bố v&igrave; qu&aacute; bận rộn m&agrave; kh&ocirc;ng d&agrave;nh thời gian chơi c&ugrave;ng con. Misu thậm ch&iacute; dỗi v&agrave; bỏ ra h&agrave;nh lang b&aacute;n đồ h&agrave;ng một m&igrave;nh v&igrave; tủi th&acirc;n khi suốt 4 ng&agrave;y li&ecirc;n tục, Hồ Ho&agrave;i Anh mải m&ecirc; với c&aacute;c dự &aacute;n m&agrave; kh&ocirc;ng vui đ&ugrave;a c&ugrave;ng b&eacute;.</p>\r\n\r\n<table align=\"center\" border=\"0\" cellpadding=\"3\" cellspacing=\"0\">\r\n	<tbody>\r\n		<tr>\r\n			<td><img alt=\"Gia đình Hồ Hoài Anh và Lưu Hương Giang.\" src=\"https://i-ngoisao.vnecdn.net/2020/08/28/luu-huong-giang-5-2560-1598602451.jpg\" /></td>\r\n		</tr>\r\n		<tr>\r\n			<td>\r\n			<p>Gia đ&igrave;nh Hồ Ho&agrave;i Anh v&agrave; Lưu Hương Giang.</p>\r\n			</td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>Nhạc sĩ Hồ Ho&agrave;i Anh kết h&ocirc;n c&ugrave;ng ca sĩ Lưu Hương Giang năm 2009 sau đ&oacute; lần lượt sinh hai con g&aacute;i l&agrave; Mina - Hồ Kh&aacute;nh H&agrave; v&agrave; Misu - Hồ T&uacute; Anh. Cặp vợ chồng từng trải qua một lần trục trặc c&aacute;ch đ&acirc;y kh&ocirc;ng l&acirc;u nhưng sau khi &quot;gương vỡ lại l&agrave;nh&quot; th&igrave; ng&agrave;y c&agrave;ng gắn b&oacute;. Qua c&aacute;c video tr&ecirc;n &quot;Gia đ&igrave;nh Giang Hồ&quot;, kh&aacute;n giả dễ h&igrave;nh dung ra cuộc sống giản dị, b&igrave;nh y&ecirc;n của cặp vợ chồng b&ecirc;n cạnh những thi&ecirc;n thần nhỏ. Cả hai nỗ lực x&acirc;y dựng cho con nền tảng gi&aacute;o dục tốt, khuyến kh&iacute;ch c&aacute;c ph&aacute;t triển c&aacute;c kỹ năng mềm b&ecirc;n cạnh bồi dưỡng năng khiếu nghệ thuật.</p>\r\n\r\n<p><iframe frameborder=\"0\" height=\"400\" src=\"https://www.youtube.com/embed/KkRdoYOwOAc\" width=\"100%\"></iframe></p>', 'Trên kênh YouTube có tên \"Gia đình Giang Hồ\", vợ chồng nhạc sĩ Hồ Hoài Anh đăng tải những video ghi lại cuộc sống thường nhật của họ bên hai con gái Mina và Misu.', 'Hồ Hoài Anh,hồ hoài anh', 0, 'luu-huong-giang-5-2560-159860245159.jpg', 6),
@@ -487,83 +994,97 @@ INSERT INTO `tbl_posts` (`post_id`, `post_title`, `post_slug`, `post_desc`, `pos
 (9, 'Tỷ giá USD hôm nay 29/8: USD và vàng cùng nhau lao dốc', 'ty-gia-usd-hom-nay-298-usd-va-vang-cung-nhau-lao-doc', '<p>Rạng s&aacute;ng nay 29/8&nbsp;theo giờ Việt Nam, tỷ&nbsp;gi&aacute; USD tr&ecirc;n thị trường thế giới tiếp tục đi xuống.&nbsp;USD Index, thước đo sức mạnh của đồng bạc xanh so với c&aacute;c đồng bạc chủ chốt kh&aacute;c đạt&nbsp;92.287 điểm, giảm 0.704 điểm, tương đương để mất 0.76%.</p>', '<h1 style=\"text-align:center\">Tỷ gi&aacute; USD h&ocirc;m nay 29/8: USD v&agrave; v&agrave;ng c&ugrave;ng nhau lao dốc</h1>\r\n\r\n<p>Rạng s&aacute;ng nay 29/8&nbsp;theo giờ Việt Nam, tỷ&nbsp;gi&aacute; USD tr&ecirc;n thị trường thế giới tiếp tục đi xuống.&nbsp;USD Index, thước đo sức mạnh của đồng bạc xanh so với c&aacute;c đồng bạc chủ chốt kh&aacute;c đạt&nbsp;92.287 điểm, giảm 0.704 điểm, tương đương để mất 0.76%.</p>\r\n\r\n<p>Fed cho biết, sẽ đặt mức lạm ph&aacute;t trung b&igrave;nh h&agrave;ng năm l&agrave; 2% nhưng c&oacute; thể tăng l&ecirc;n tr&ecirc;n mức đ&oacute; trong một số điều kiện nhất định.</p>\r\n\r\n<p>C&aacute;c nh&agrave; ph&acirc;n t&iacute;ch cho rằng ch&iacute;nh s&aacute;ch mới của Fed c&oacute; thể khiến những người nghỉ hưu v&agrave; những người gửi tiết kiệm c&oacute; l&atilde;i suất tiền gửi ng&acirc;n h&agrave;ng sẽ ở mức gần 0.</p>\r\n\r\n<p>Trong khi đ&oacute;, Bộ Lao động Mỹ cho biết, số người Mỹ nộp đơn xin trợ cấp thất nghiệp lần đầu ti&ecirc;n v&agrave;o tuần trước l&agrave; 1 triệu người, đ&uacute;ng với dự đo&aacute;n. Con số n&agrave;y đ&aacute;nh dấu tuần thứ hai li&ecirc;n tiếp m&agrave; số đơn xin thất nghiệp h&agrave;ng tuần l&ecirc;n tới hơn 1 triệu.</p>\r\n\r\n<p>GDP qu&yacute; II đ&atilde; giảm31,7%, so với mức ước t&iacute;nh l&agrave; giảm 32,5%. Kết quả ban đầu v&agrave;o ng&agrave;y 30/7 cho thấy hoạt động kinh tế đ&atilde; sụt giảm 32,9%. Mặc d&ugrave; kết số liệu gần đ&acirc;y c&oacute; khả quan hơn một ch&uacute;t, nhưng n&oacute; vẫn đ&aacute;nh dấu mức giảm h&agrave;ng qu&yacute; lớn nhất được ghi nhận.</p>\r\n\r\n<p>Tr&ecirc;n thị trường v&agrave;ng thế giới, gi&aacute; v&agrave;ng giao ngay giảm 26,1 USD xuống 1.928,6 USD/ounce. Gi&aacute; v&agrave;ng tương lai giao th&aacute;ng 9 tr&ecirc;n s&agrave;n Comex New York tăng 10,2 USD l&ecirc;n 1.935,2 USD/ounce.</p>\r\n\r\n<p>Chỉ số đồng USD giảm 0,7% khiến v&agrave;ng rẻ hơn đối với c&aacute;c nh&agrave; đầu tư nắm giữ c&aacute;c loại tiền tệ kh&aacute;c.</p>\r\n\r\n<p>Ngo&agrave;i đồng USD, bất ổn ch&iacute;nh trị xung quanh việc thủ tướng Nhật Bản từ chức cũng sẽ hỗ trợ gi&aacute; v&agrave;ng.</p>\r\n\r\n<p><img alt=\"Tỷ giá USD hôm nay 29/8: USD và vàng cùng nhau lao dốc - 1\" src=\"https://cdn.24h.com.vn/upload/3-2020/images/2020-08-28/Ty-gia-USD-hom-nay-28-8-USD-tang-vang-lao-doc-sau-phat-bieu-cua-chu-tich-FED-pexels-photo-259027-1598608553-166-width500height333.jpeg\" /></p>\r\n\r\n<p>Đồng USD giảm gi&aacute;</p>\r\n\r\n<p>Tại thị trường Việt Nam, ng&agrave;y 28/8&nbsp;Ng&acirc;n h&agrave;ng Nh&agrave; nước (NHNN) ni&ecirc;m yết tỷ gi&aacute; trung t&acirc;m ở mức 23.205 VND/USD.</p>\r\n\r\n<p>Tỷ gi&aacute; tham khảo tại Sở giao dịch NHNN ở mức 22.175 - 23.851 VND/USD.</p>\r\n\r\n<p>Gi&aacute; mua USD tại c&aacute;c ng&acirc;n h&agrave;ng nằm trong khoảng từ 23.055 &ndash; 23.085 VND/USD, trong khi khoảng b&aacute;n ra ở mức 23.250 &ndash; 23.284 VND/USD.</p>\r\n\r\n<p>Gi&aacute; USD tự do ở mức 23.190 - 23.220 VND/USD.</p>', 'Rạng sáng nay 29/8 theo giờ Việt Nam, tỷ giá USD trên thị trường thế giới tiếp tục đi xuống. USD Index, thước đo sức mạnh của đồng bạc xanh so với các đồng bạc chủ chốt khác đạt 92.287 điểm, giảm 0.704 điểm, tương đương để mất 0.76%.', 'tỷ giá usd,tý giá', 0, 'ty gia70.jpeg', 2),
 (10, 'Giá vàng sáng nay 29/8: Lộn ngược dòng, tăng \"phi mã\" phiên cuối tuần', 'gia-vang-sang-nay-298-lon-nguoc-dong-tang-phi-ma-phien-cuoi-tuan', '<p>Quy theo gi&aacute; USD ng&acirc;n h&agrave;ng, chưa t&iacute;nh thuế v&agrave; ph&iacute;, gi&aacute; v&agrave;ng thế giới hiện đang giao ngay ở mức&nbsp;54,71 triệu đồng/lượng, thấp hơn khoảng 2 triệu đồng/lượng so với gi&aacute; v&agrave;ng trong nước.</p>', '<h1>Gi&aacute; v&agrave;ng s&aacute;ng nay 29/8: Lộn ngược d&ograve;ng, tăng &quot;phi m&atilde;&quot; phi&ecirc;n cuối tuần</h1>\r\n\r\n<p>Thứ Bảy, ng&agrave;y 29/08/2020 08:44 AM (GMT+7)</p>\r\n\r\n<p>Sự kiện:&nbsp;<a href=\"https://www.24h.com.vn/gia-vang-c161e3047.html\" title=\"Giá vàng\">Gi&aacute; v&agrave;ng</a>&nbsp;</p>\r\n\r\n<p>L&uacute;c 8h s&aacute;ng nay (29/8), gi&aacute; v&agrave;ng thế giới giao ngay đứng ở mức 1.963,84 USD/Ounce, tăng khoảng 36 USD so với c&ugrave;ng thời điểm giao dịch s&aacute;ng qua 28/8.&nbsp;Gi&aacute; v&agrave;ng thế giới giao th&aacute;ng 10/2020 ghi nhận tr&ecirc;n s&agrave;n Comex thuộc New York Mercantile Exchanghe ở mức 1.965,7 USD/Ounce, tăng 40,7 USD/Ounce trong phi&ecirc;n.</p>\r\n\r\n<p>Quy theo gi&aacute; USD ng&acirc;n h&agrave;ng, chưa t&iacute;nh thuế v&agrave; ph&iacute;, gi&aacute; v&agrave;ng thế giới hiện đang giao ngay ở mức&nbsp;54,71 triệu đồng/lượng, thấp hơn khoảng 2 triệu đồng/lượng so với gi&aacute; v&agrave;ng trong nước.</p>\r\n\r\n<p><img alt=\"Giá vàng sáng nay 29/8: Lộn ngược dòng, tăng &amp;#34;phi mã&amp;#34; phiên cuối tuần - 1\" src=\"https://cdn.24h.com.vn/upload/3-2020/images/2020-08-29/Gia-vang-sang-nay-29-8-Lon-nguoc-dong-tang-6-1598663551-739-width660height440.jpg\" /></p>\r\n\r\n<p>V&agrave;ng thế giới bật tăng phi m&atilde;</p>\r\n\r\n<p>V&agrave;ng thế giới tăng dựng ngược s&aacute;ng nay chủ yếu do đồng USD lao dốc v&agrave; t&acirc;m l&yacute; bắt đ&aacute;y của nh&agrave; đầu tư khi v&agrave;ng xuống mức thấp trong phi&ecirc;n giao dịch s&aacute;ng qua.</p>\r\n\r\n<p>Đồng USD&nbsp;bất ngờ giảm gi&aacute; mạnh sau khi Chủ tịch Fed ph&aacute;t biểu về chiến lược mới li&ecirc;n quan tới ch&iacute;nh s&aacute;ch tiền tệ.&nbsp;Theo đ&oacute;, Chủ tịch Fed Jerome Powell th&ocirc;ng b&aacute;o thay đổi ch&iacute;nh s&aacute;ch v&agrave; sẽ để lạm ph&aacute;t gia tăng nhằm cho ph&eacute;p nền kinh tế tạo ra nhiều việc l&agrave;m hơn, mang lại lợi &iacute;ch cho người lao động, đặc biệt l&agrave; những người c&oacute; thu nhập thấp. Ng&acirc;n h&agrave;ng trung ương Mỹ sẽ t&igrave;m c&aacute;ch đạt được mức lạm ph&aacute;t trung b&igrave;nh 2% theo thời gian, b&ugrave; đắp c&aacute;c giai đoạn biến động trong thời gian trước.</p>\r\n\r\n<p>Mặt kh&aacute;c, c&aacute;c ng&acirc;n h&agrave;ng trung ương v&agrave; ch&iacute;nh phủ to&agrave;n cầu đ&atilde; bơm một lượng lớn k&iacute;ch th&iacute;ch v&agrave;o thị trường để hỗ trợ c&aacute;c nền kinh tế bị tổn thương do COVID-19. Đ&acirc;y l&agrave; yếu tố đẩy v&agrave;ng tăng gần 30% từ đầu năm đến nay.&nbsp;</p>\r\n\r\n<p>C&ugrave;ng với việc thực hiện thay đổi ch&iacute;nh s&aacute;ch tiền tệ, ch&iacute;nh phủ Mỹ ng&agrave;y 27/8 c&ocirc;ng bố số liệu cho thấy số người nộp đơn xin trợ cấp thất nghiệp lần đầu ở mức khoảng 1 triệu người trong tuần trước, cho thấy sự phục hồi của thị trường lao động đang chững lại khi dịch bệnh diễn biến phức tạp.</p>\r\n\r\n<p>Một nh&acirc;n tố kh&aacute;c khiến gi&aacute; v&agrave;ng ng&agrave;y 29/8 tăng vọt l&agrave; th&ocirc;ng tin nhập khẩu v&agrave;ng r&ograve;ng của Trung Quốc tiếp tục tăng mạnh trong th&aacute;ng 7/2020.</p>\r\n\r\n<p>Ở thị trường trong nước, l&uacute;c 8h s&aacute;ng 29/8, gi&aacute; v&agrave;ng SJC tại c&ocirc;ng ty v&agrave;ng bạc đ&aacute; qu&yacute; S&agrave;i G&ograve;n ni&ecirc;m yết cho thị trường TP.HCM với gi&aacute; 55,8-56,75 triệu đồng/lượng, tăng 450 ngh&igrave;n đồng/lượng chiều mua v&agrave;o v&agrave; 550 ngh&igrave;n đồng/lượng b&aacute;n ra so với c&ugrave;ng thời điểm s&aacute;ng qua 28/8.</p>\r\n\r\n<p>Gi&aacute; v&agrave;ng SJC tr&ecirc;n hệ thống Ph&uacute; Qu&yacute; đang đứng tại 55,9-56,6 triệu đồng/lượng, tăng 500 ngh&igrave;n đồng/lượng mỗi chiều so với s&aacute;ng qua.&nbsp;</p>\r\n\r\n<p>Tr&ecirc;n hệ thống Bảo T&iacute;n Minh Ch&acirc;u, gi&aacute; v&agrave;ng SJC ở mức 55,95-56,5 triệu đồng/lượng, tăng 350 ngh&igrave;n đồng/lượng chiều mỗi chiều. Gi&aacute; v&agrave;ng rồng Thăng Long của thương hiệu n&agrave;y cũng tăng mạnh v&agrave; đang giao dịch ở 53,53-54,28 triệu đồng/lượng.</p>\r\n\r\n<p>C&ograve;n gi&aacute; v&agrave;ng Doji tại thị trường H&agrave; Nội đứng ở 55,6-56,5 triệu đồng/lượng, tăng 200 ngh&igrave;n đồng/lượng chiều mua v&agrave;o, tăng 400 ngh&igrave;n đồng/lượng chiều b&aacute;n ra so với s&aacute;ng qua (29/8).</p>', 'Quy theo giá USD ngân hàng, chưa tính thuế và phí, giá vàng thế giới hiện đang giao ngay ở mức 54,71 triệu đồng/lượng, thấp hơn khoảng 2 triệu đồng/lượng so với giá vàng trong nước.', 'giá vàng,gia vang', 0, 'gia vang40.jpg', 2),
 (11, 'Viên đạn tố cáo goá phụ', 'vien-dan-to-cao-goa-phu', '<p>Doanh nh&acirc;n Alan Helmick, 62 tuổi, tho&aacute;t chết sau lần chết hụt tr&ecirc;n chiếc xe bốc ch&aacute;y, nhưng 6 tuần sau tai hoạ lại ập đến.</p>', '<h1 style=\"text-align:center\">Vi&ecirc;n đạn tố c&aacute;o go&aacute; phụ</h1>\r\n\r\n<p>MỸDoanh nh&acirc;n Alan Helmick, 62 tuổi, tho&aacute;t chết sau lần chết hụt tr&ecirc;n chiếc xe bốc ch&aacute;y, nhưng 6 tuần sau tai hoạ lại ập đến.</p>\r\n\r\n<p>Trưa 10/6/2008, Alan bị ph&aacute;t hiện chết trong ph&ograve;ng l&agrave;m việc ở nh&agrave; ri&ecirc;ng tại hạt Mesa, bang Colorado, sau đầu c&oacute; vết đạn duy nhất. Gần thi thể l&agrave; vỏ đạn s&uacute;ng ngắn cỡ 6,35 mm.</p>\r\n\r\n<p>Người ph&aacute;t hiện thi thể l&agrave; vợ của Alan, Miriam Helmick, 51 tuổi. Miriam khai hai người hẹn ăn trưa tại nh&agrave; h&agrave;ng đồ ch&acirc;u &Aacute;. V&igrave; Alan lu&ocirc;n đ&uacute;ng giờ, Miriam dự cảm chẳng l&agrave;nh khi m&atilde;i kh&ocirc;ng thấy chồng tới. B&agrave; chạy về nh&agrave;.</p>\r\n\r\n<p>Hiện trường c&oacute; dấu vết như vụ cướp t&agrave;i sản. Nhiều ngăn k&eacute;o bị l&ocirc;i hết ra, trang sức trong hộp cũng mất hết. Tuy vậy, căn nh&agrave; lại kh&ocirc;ng c&oacute; dấu hiệu bị cậy ph&aacute; cửa, đồ đạc nguy&ecirc;n vị tr&iacute;. Cảnh s&aacute;t v&igrave; thế kh&ocirc;ng loại bỏ khả năng hiện trường bị ngụy tạo để che giấu mục đ&iacute;ch thật sự l&agrave; giết người.</p>\r\n\r\n<p>Do l&agrave; người t&igrave;m ra thi thể, Miriam bị kiểm tra dấu vết muội s&uacute;ng tr&ecirc;n b&agrave;n tay nhưng chuy&ecirc;n vi&ecirc;n kh&ocirc;ng thấy g&igrave;. L&uacute;c n&agrave;y, Miriam n&oacute;i vụ &aacute;n mạng c&oacute; thể li&ecirc;n quan tới sự việc xảy ra khoảng 6 tuần trước, ng&agrave;y 30/4/2008.</p>\r\n\r\n<p>H&ocirc;m đ&oacute;, vợ chồng Miriam đi mua đồ tại tạp h&oacute;a. Trong l&uacute;c ngồi tr&ecirc;n xe chờ vợ, Alan bỗng thấy đằng sau xe b&ugrave;ng ch&aacute;y v&agrave; vội tho&aacute;t ra ngo&agrave;i. Ngọn lửa được dập tắt, để lộ sợi bấc ch&aacute;y dở trong b&igrave;nh xăng. May mắn, xe chưa ph&aacute;t nổ.</p>\r\n\r\n<p>Do b&atilde;i gửi xe kh&ocirc;ng c&oacute; camera gi&aacute;m s&aacute;t, cảnh s&aacute;t kh&ocirc;ng thể biết ai đ&atilde; ch&acirc;m ng&ograve;i nổ. Khi được hỏi, Alan đặt nghi ngờ v&agrave;o gi&aacute;m đốc hoặc ph&oacute; gi&aacute;m đốc ng&acirc;n h&agrave;ng tiểu bang do hai người n&agrave;y đang x&iacute;ch m&iacute;ch với &ocirc;ng v&igrave; c&aacute;o buộc vay tiền tr&aacute;i ph&eacute;p. Tuy vậy, sự việc sau đ&oacute; cũng kh&ocirc;ng được điều tra th&ecirc;m.</p>\r\n\r\n<p><img alt=\"Phần ngòi nổ bằng dây bấc tự chế. Ảnh: Filmrise.\" src=\"https://i1-vnexpress.vnecdn.net/2020/08/28/1-JPG-7651-1598615523.jpg?w=680&amp;h=0&amp;q=100&amp;dpr=1&amp;fit=crop&amp;s=NzMmTc7S_E0Uhvqoq_ewSw\" /></p>\r\n\r\n<p>Phần ng&ograve;i nổ bằng d&acirc;y bấc tự chế. Ảnh:&nbsp;<em>Filmrise.</em></p>\r\n\r\n<p>Một tuần sau tang lễ, Miriam t&igrave;m gặp cảnh s&aacute;t v&agrave; cho biết t&igrave;m thấy tấm thiệp bị c&agrave;i dưới thảm trải s&agrave;n trước cửa nh&agrave;. Tấm thiệp b&ecirc;n ngo&agrave;i đề chữ &quot;gửi b&agrave; g&oacute;a đang kh&oacute;c chồng&quot;, b&ecirc;n trong l&agrave; lời đe dọa: &quot;Đầu ti&ecirc;n l&agrave; Allen, tiếp theo sẽ l&agrave; m&agrave;y, mau mau chạy đi&quot;. Nhiều chữ trong thiệp bị viết sai ch&iacute;nh tả, bao gồm t&ecirc;n của Alan.</p>\r\n\r\n<p>Phong b&igrave; đựng thiệp kh&ocirc;ng c&oacute; dấu bưu điện n&ecirc;n c&oacute; kẻ đ&atilde; trực tiếp đưa thư tới nh&agrave;. Đồng thời, phong b&igrave; cũng kh&ocirc;ng được ni&ecirc;m phong n&ecirc;n kh&ocirc;ng thể lấy mẫu nước bọt để gi&aacute;m định ADN. Chữ tr&ecirc;n thiệp được viết dưới dạng in hoa đơn giản n&ecirc;n kh&ocirc;ng thể d&ugrave;ng ph&acirc;n t&iacute;ch chữ viết tay. Phần m&atilde; vạch sau tấm thiệp bị cắt bỏ, c&oacute; vẻ như để ngăn bị truy dấu nguồn gốc. Người gửi cũng kh&ocirc;ng để lại dấu v&acirc;n tay.</p>\r\n\r\n<p>Tuy nhi&ecirc;n, tr&ecirc;n tấm thiệp vẫn c&ograve;n để lại th&ocirc;ng tin của c&ocirc;ng ty sản xuất. Khi được li&ecirc;n hệ, c&ocirc;ng ty cho biết đ&atilde; b&aacute;n loại thiệp n&agrave;y cho ba cửa h&agrave;ng địa phương. Tới lượt m&igrave;nh, ba cửa h&agrave;ng cho biết lần gần nhất c&oacute; người mua thiệp l&agrave; v&agrave;o bốn ng&agrave;y trước khi Miriam nhận được thiệp. Giao dịch n&agrave;y d&ugrave;ng tiền mặt, ph&aacute;t sinh tại cửa h&agrave;ng c&aacute;ch nh&agrave; nạn nh&acirc;n khoảng 13 dặm. Nhưng ngạc nhi&ecirc;n hơn cả, camera gi&aacute;m s&aacute;t cho thấy người mua thiệp l&agrave; Miriam Helmick.</p>\r\n\r\n<p>Trước chứng cứ mới, Miriam thừa nhận đ&atilde; đặt tấm thiệp ở nh&agrave; v&igrave; muốn cảnh s&aacute;t th&ecirc;m phần &quot;nhiệt t&igrave;nh&quot; v&agrave; tập trung t&igrave;m kẻ giết chồng m&igrave;nh. Lời giải th&iacute;ch n&agrave;y đương nhi&ecirc;n kh&ocirc;ng thể l&agrave;m giảm mức độ t&igrave;nh nghi với Miriam.</p>\r\n\r\n<p>Kh&aacute;m m&aacute;y t&iacute;nh c&aacute; nh&acirc;n, cảnh s&aacute;t ph&aacute;t hiện trước khi vụ &aacute;n mạng xảy ra, người vợ rất quan t&acirc;m tới th&ocirc;ng tin về c&aacute;c loại thuốc m&agrave; Alan đang sử dụng v&agrave; thường xuy&ecirc;n t&igrave;m kiếm về lượng thuốc g&acirc;y qu&aacute; liều. Ngo&agrave;i ra, nếu Alan chết, Miriam sẽ được hưởng nhiều bất động sản đ&aacute;ng gi&aacute; h&agrave;ng triệu USD n&ecirc;n b&agrave; ta bị nghi c&oacute; động cơ g&acirc;y &aacute;n.</p>\r\n\r\n<div class=\"ddict_btn\" style=\"left:935.781px; top:104px\">&nbsp;</div>\r\n\r\n<div class=\"ddict_btn\" style=\"left:935.781px; top:188px\"><img src=\"chrome-extension://bpggmmljdiliancllaapiggllnkbjocb/icon/16.png\" /></div>', 'Trưa 10/6/2008, Alan bị phát hiện chết trong phòng làm việc ở nhà riêng tại hạt Mesa, bang Colorado, sau đầu có vết đạn duy nhất. Gần thi thể là vỏ đạn súng ngắn cỡ 6,35 mm.', 'vien dan,viên đạn quá phụ', 0, '1-JPG-7651-159861552387.jpg', 5);
-INSERT INTO `tbl_posts` (`post_id`, `post_title`, `post_slug`, `post_desc`, `post_content`, `post_meta_desc`, `post_meta_keywords`, `post_status`, `post_image`, `cate_post_id`) VALUES
+INSERT INTO `tbl_post_lang` (`post_id`, `post_title`, `post_slug`, `post_desc`, `post_content`, `post_meta_desc`, `post_meta_keywords`, `post_status`, `post_image`, `cate_post_id`) VALUES
 (12, 'Được minh oan sau 37 năm ở tù', 'duoc-minh-oan-sau-37-nam-o-tu', '<p>Ng&agrave;y 27/8, Duboise, 55 tuổi, ra khỏi c&aacute;nh cổng chăng d&acirc;y th&eacute;p gai của nh&agrave; t&ugrave; bang Florida v&agrave; bước v&agrave;o v&ograve;ng tay ch&agrave;o đ&oacute;n của mẹ, chị g&aacute;i, v&agrave; người luật sư đ&atilde; gi&uacute;p &ocirc;ng được tự do.</p>', '<h1 style=\"text-align:center\">Được minh oan sau 37 năm ở t&ugrave;</h1>\r\n\r\n<p>Robert Duboise bất ngờ được minh oan nhờ chứng cứ ADN, sau khi mất gần 37 năm sống sau song sắt.</p>\r\n\r\n<p>Ng&agrave;y 27/8, Duboise, 55 tuổi, ra khỏi c&aacute;nh cổng chăng d&acirc;y th&eacute;p gai của nh&agrave; t&ugrave; bang Florida v&agrave; bước v&agrave;o v&ograve;ng tay ch&agrave;o đ&oacute;n của mẹ, chị g&aacute;i, v&agrave; người luật sư đ&atilde; gi&uacute;p &ocirc;ng được tự do.</p>\r\n\r\n<p>Duboise n&oacute;i cảm thấy nhẹ nh&otilde;m kh&ocirc;n tả v&agrave; kh&ocirc;ng thấy bất m&atilde;n ch&uacute;t n&agrave;o. &quot;Nếu cứ giữ sự th&ugrave; hận v&agrave; chua x&oacute;t trong l&ograve;ng, bạn sẽ mất đi những niềm vui kh&aacute;c&quot;, Duboise chia sẻ. &Ocirc;ng th&uacute; thật kh&ocirc;ng biết tương lai sẽ ra sao nhưng đ&atilde; học nghề lắp điều h&ograve;a v&agrave; sửa ống nước trong thời gian ở t&ugrave;.</p>\r\n\r\n<p><img alt=\"Robert Duboise ôm mẹ già sau khi được tự do. Ảnh: Martha Asencio-Rhine/Tampa BayTimes.\" src=\"https://i1-vnexpress.vnecdn.net/2020/08/28/1-JPG-7757-1598629876.jpg?w=680&amp;h=0&amp;q=100&amp;dpr=1&amp;fit=crop&amp;s=gXlighvnDi6fXIfiIcg_hQ\" /></p>\r\n\r\n<p>Robert Duboise &ocirc;m mẹ gi&agrave; sau khi được tự do. Ảnh:&nbsp;<em>Martha Asencio-Rhine/Tampa BayTimes.</em></p>\r\n\r\n<p>Duboise ngồi t&ugrave; từ năm 1983 sau khi bị kết tội hiếp d&acirc;m v&agrave; s&aacute;t hại Barbara Grams, 19 tuổi, tr&ecirc;n đường c&ocirc; đi bộ về từ nơi l&agrave;m việc tại hạt Hillsborough, bang Florida.</p>\r\n\r\n<p>Chứng cứ buộc tội chủ yếu dựa v&agrave;o vết răng cắn, loại chứng cứ hiện bị nhận định l&agrave;&nbsp;<a href=\"https://vnexpress.net/sai-sot-trong-ky-thuat-phan-tich-vet-can-4092153.html\" rel=\"dofollow\">kh&ocirc;ng đ&aacute;ng tin cậy</a>, c&ugrave;ng với lời khai bất lợi của&nbsp;<a href=\"https://vnexpress.net/ke-lam-dac-tinh-trai-giam-hieu-qua-nhat-nuoc-my-4030227.html\" rel=\"dofollow\">đặc t&igrave;nh trại giam</a>, vốn cũng l&agrave; nh&acirc;n tố chung trong nhiều vụ &aacute;n oan. Ban đầu, Duboise l&atilde;nh &aacute;n tử h&igrave;nh nhưng được giảm xuống c&ograve;n chung th&acirc;n sau kh&aacute;ng c&aacute;o.</p>\r\n\r\n<p>Ngay từ đầu, Duboise lu&ocirc;n k&ecirc;u oan. Năm 2007, &ocirc;ng đệ đơn y&ecirc;u cầu gi&aacute;m định mẫu ADN lạ thu được từ tr&ecirc;n người nạn nh&acirc;n, nhưng chứng cứ được tr&igrave;nh ra trước t&ograve;a đ&atilde; bị ti&ecirc;u hủy từ năm 1990. Y&ecirc;u cầu của Duboise v&igrave; thế bị b&aacute;c bỏ</p>\r\n\r\n<div class=\"ddict_btn\" style=\"left:945.547px; top:158px\"><img src=\"chrome-extension://bpggmmljdiliancllaapiggllnkbjocb/icon/16.png\" /></div>', 'Ngày 27/8, Duboise, 55 tuổi, ra khỏi cánh cổng chăng dây thép gai của nhà tù bang Florida và bước vào vòng tay chào đón của mẹ, chị gái, và người luật sư đã giúp ông được tự do.', 'minh oan,được minh oan', 0, 'minh odna32.jpg', 5),
 (13, 'Người đàn bà bị sát hại trong nhà nghỉ', 'nguoi-dan-ba-bi-sat-hai-trong-nha-nghi', '<p>Nguyễn Văn Hậu, 63 tuổi, bị bắt khi đang trốn tại B&agrave; Rịa - Vũng T&agrave;u sau một ng&agrave;y giết người t&igrave;nh trong nh&agrave; nghỉ v&igrave; &quot;m&oacute;n nợ 600 triệu đồng&quot;.</p>', '<h1 style=\"text-align:center\">Người đ&agrave;n b&agrave; bị s&aacute;t hại trong nh&agrave; nghỉ</h1>\r\n\r\n<p>Nguyễn Văn Hậu, 63 tuổi, bị bắt khi đang trốn tại B&agrave; Rịa - Vũng T&agrave;u sau một ng&agrave;y giết người t&igrave;nh trong nh&agrave; nghỉ v&igrave; &quot;m&oacute;n nợ 600 triệu đồng&quot;.</p>\r\n\r\n<p>Chiều 28/8, Hậu thừa nhận h&agrave;nh vi giết người t&igrave;nh 58 tuổi, qu&ecirc; L&acirc;m Đồng, cho l&agrave; v&igrave; b&agrave; n&agrave;y kh&ocirc;ng chịu trả số tiền đ&atilde; mượn trước đ&oacute;.</p>\r\n\r\n<p><img alt=\"Nghi can bị bắt giữ tại huyện Châu Đức, Bà Rịa - Vũng Tàu chiều 28/8. Ảnh: Thái Hà\" src=\"https://i1-vnexpress.vnecdn.net/2020/08/28/hau-2-3413-1598618304.jpg?w=680&amp;h=0&amp;q=100&amp;dpr=1&amp;fit=crop&amp;s=WNwcrbxahlOrqOEFh-eoKQ\" /></p>\r\n\r\n<p>Nguyễn Văn Hậu bị bắt tại huyện Ch&acirc;u Đức, B&agrave; Rịa - Vũng T&agrave;u, chiều 28/8. Ảnh:<em>&nbsp;Th&aacute;i H&agrave;.</em></p>\r\n\r\n<p>Hậu v&agrave; nạn nh&acirc;n đến thu&ecirc; ph&ograve;ng nh&agrave; nghỉ ở thị trấn Dầu Gi&acirc;y, huyện Thống Nhất trưa 27/8. Đến chiều, &ocirc;ng ta n&oacute;i với tiếp t&acirc;n l&agrave; ra ngo&agrave;i mua đồ ăn, rồi kh&ocirc;ng quay lại.</p>\r\n\r\n<p>Nh&acirc;n vi&ecirc;n nh&agrave; nghỉ l&ecirc;n ph&ograve;ng kiểm tra, ph&aacute;t hiện người phụ nữ đ&atilde; chết với nhiều vết thương.</p>\r\n\r\n<p>C&ocirc;ng an Đồng Nai x&aacute;c định Hậu l&agrave; nghi can, bắt được &ocirc;ng ta ở huyện Ch&acirc;u Đức, B&agrave; Rịa - Vũng T&agrave;u.</p>', 'Nguyễn Văn Hậu, 63 tuổi, bị bắt khi đang trốn tại Bà Rịa - Vũng Tàu sau một ngày giết người tình trong nhà nghỉ vì \"món nợ 600 triệu đồng\".', 'đồng nai,đồng nai án mạng', 0, 'hau-2-3413-159861830490.jpg', 5),
 (14, 'Ông Nguyễn Đức Chung bị bắt', 'ong-nguyen-duc-chung-bi-bat', '<p>Bộ C&ocirc;ng an khởi tố, tạm giam 4 th&aacute;ng &ocirc;ng Nguyễn Đức Chung, Chủ tịch UBND th&agrave;nh phố, để điều tra c&aacute;o buộc phạm tội Chiếm đoạt t&agrave;i liệu b&iacute; mật nh&agrave; nước.</p>', '<h1 style=\"text-align:center\">&Ocirc;ng Nguyễn Đức Chung bị bắt</h1>\r\n\r\n<p>H&Agrave; NỘIBộ C&ocirc;ng an khởi tố, tạm giam 4 th&aacute;ng &ocirc;ng Nguyễn Đức Chung, Chủ tịch UBND th&agrave;nh phố, để điều tra c&aacute;o buộc phạm tội Chiếm đoạt t&agrave;i liệu b&iacute; mật nh&agrave; nước.</p>\r\n\r\n<p>&quot;Quyết định khởi tố, bắt &ocirc;ng Chung được Cơ quan An ninh điều tra Bộ C&ocirc;ng an ra ng&agrave;y 28/8&quot;, thiếu tướng T&ocirc; &Acirc;n X&ocirc;, Ch&aacute;nh văn ph&ograve;ng Bộ C&ocirc;ng an cho biết.</p>\r\n\r\n<p>VKSND Tối cao đ&atilde; ph&ecirc; chuẩn quyết định tố tụng tr&ecirc;n. Tối c&ugrave;ng ng&agrave;y, thực thi lệnh kh&aacute;m x&eacute;t chỗ ở của &ocirc;ng Chung, 10 c&ocirc;ng an v&agrave; kiểm s&aacute;t vi&ecirc;n mặc sắc phục đi v&agrave;o ng&ocirc;i nh&agrave; 4 tầng ở mặt phố Trung Liệt, Đống Đa, H&agrave; Nội. &Ocirc;ng Chung kh&ocirc;ng c&oacute; mặt. Một xe cứu thương v&agrave; xe 7 chỗ biển xanh 80A đỗ trước cửa. Gia đ&igrave;nh Chủ tịch H&agrave; Nội ở đ&acirc;y từ khi &ocirc;ng c&ograve;n c&ocirc;ng t&aacute;c tại C&ocirc;ng an H&agrave; Nội.</p>\r\n\r\n<p>Việc kh&aacute;m x&eacute;t nơi l&agrave;m việc của &ocirc;ng Chung tại trụ sở UBND H&agrave; Nội diễn ra c&ugrave;ng thời điểm khi bốn &ocirc;t&ocirc; c&ocirc;ng vụ đi cổng ch&iacute;nh ph&iacute;a đường L&ecirc; Lai. 21h30, cả hai địa điểm c&ugrave;ng dừng kh&aacute;m x&eacute;t.</p>\r\n\r\n<p><img alt=\"Điều tra viên bê nhiều thùng giấy ra khỏi nhà ông Chung. Hàng trăm người dân vây kín cổng nhà khiến cảnh sát vất vả dẹp trật tự. Ảnh: Giang Huy\" src=\"https://i1-vnexpress.vnecdn.net/2020/08/28/Untitled-1-8752-1598626827.jpg?w=680&amp;h=0&amp;q=100&amp;dpr=1&amp;fit=crop&amp;s=bNcEtoSPkFXptKEnW8lgBA\" /></p>\r\n\r\n<p>Điều tra vi&ecirc;n b&ecirc; nhiều th&ugrave;ng giấy ra khỏi nh&agrave; &ocirc;ng Chung. H&agrave;ng trăm người d&acirc;n v&acirc;y k&iacute;n cổng nh&agrave; khiến cảnh s&aacute;t vất vả dẹp trật tự. Ảnh:&nbsp;<em>Giang Huy</em></p>\r\n\r\n<p>17 ng&agrave;y trước, &ocirc;ng Chung, 53 tuổi, bị Thủ tướng đ&igrave;nh chỉ c&ocirc;ng t&aacute;c. Những ng&agrave;y qua, &ocirc;ng vẫn đi lại bằng xe c&ocirc;ng vụ v&agrave; thường xuy&ecirc;n c&oacute; mặt tại trụ sở UBND H&agrave; Nội. &Ocirc;ng tươi cười đ&aacute;p lại lời ch&agrave;o hỏi khi gặp c&aacute;c ph&oacute;ng vi&ecirc;n tại đ&acirc;y.</p>\r\n\r\n<p>Việc khởi tố &ocirc;ng Chung nhằm phục vụ điều tra vụ &aacute;n&nbsp;<em>Chiếm đoạt&nbsp;<a href=\"https://vnexpress.net/khoi-to-vu-an-chiem-doat-tai-lieu-bi-mat-nha-nuoc-4131535.html\" rel=\"dofollow\">t&agrave;i liệu b&iacute; mật</a>&nbsp;nh&agrave; nước</em>&nbsp;xảy ra khi điều tra vụ &aacute;n Nhật Cường. Cuối th&aacute;ng 7, ba nghi phạm đầu ti&ecirc;n của vụ &aacute;n n&agrave;y đ&atilde; bị khởi tố, bắt giam gồm: Nguyễn Ho&agrave;ng Trung, l&aacute;i xe của &ocirc;ng Chung; &ocirc;ng Nguyễn Anh Ngọc, 46 tuổi, Ph&oacute; trưởng Ph&ograve;ng thư k&yacute; bi&ecirc;n tập thuộc Văn ph&ograve;ng UBND H&agrave; Nội v&agrave; Phạm Quang Dũng, 37 tuổi, c&aacute;n bộ Cục Cảnh s&aacute;t điều tra tội phạm về kinh tế, tham nhũng, bu&ocirc;n lậu (C03, Bộ C&ocirc;ng an).</p>\r\n\r\n<div class=\"ddict_btn\" style=\"left:943.391px; top:103px\"><img src=\"chrome-extension://bpggmmljdiliancllaapiggllnkbjocb/icon/16.png\" /></div>', 'Bộ Công an khởi tố, tạm giam 4 tháng ông Nguyễn Đức Chung, Chủ tịch UBND thành phố, để điều tra cáo buộc phạm tội Chiếm đoạt tài liệu bí mật nhà nước.', 'nguyen duc chung,nguyễn đức chung', 0, 'C4-6926-15986200122.jpg', 5),
 (15, 'Những bài tập giúp nam giới có cơ ngực vạm vỡ', 'nhung-bai-tap-giup-nam-gioi-co-co-nguc-vam-vo', '<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Cũng như mọi chị em kh&aacute;c th&iacute;ch&nbsp;ngực m&igrave;nh căng tr&ograve;n săn chắc đầy sức sống&nbsp;th&igrave; anh em ch&uacute;ng ta cũng muốn m&igrave;nh c&oacute; một bộ&nbsp;<a href=\"http://www.thehinh.com/tag/bai-tap-nguc-cho-nam\" rel=\"noopener noreferrer\" target=\"_blank\">ngực nở nang v&agrave; vạm vỡ&nbsp;</a>đ&uacute;ng kh&ocirc;ng n&agrave;o. Đ&oacute; cũng l&agrave; l&yacute; do nhiều anh ra ph&ograve;ng tập&nbsp;<a href=\"http://www.thehinh.com/tag/bai-tap-Gym\" rel=\"noopener noreferrer\" target=\"_blank\">Gym&nbsp;</a>để thỏa m&atilde;n mong muốn đ&oacute;. Điều đ&oacute; cũng hợp l&yacute; th&ocirc;i, v&igrave; n&oacute; thu h&uacute;t ph&aacute;i đẹp hơn hẳn, cũng như gi&uacute;p bạn tự tin hơn khi cần &ldquo;khoe body&rdquo;.</span></span></p>', '<div class=\"mucluc\">\r\n<h1>MỤC LỤC B&Agrave;I VIẾT</h1>\r\n</div>\r\n\r\n<div class=\"baiviet\">\r\n<ul>\r\n	<li><a href=\"#hitdat\">Động t&aacute;c h&iacute;t đất</a></li>\r\n	<li><a href=\"#keocap\">Động t&aacute;c k&eacute;o c&aacute;p</a></li>\r\n	<li><a href=\"#tadon\">Đẩy tạ đơn tr&ecirc;n ghế nghi&ecirc;ng l&ecirc;n</a></li>\r\n	<li><a href=\"#xakep\">Động t&aacute;c nh&uacute;ng x&agrave; k&eacute;p</a></li>\r\n</ul>\r\n</div>\r\n\r\n<h1><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Cũng như mọi chị em kh&aacute;c th&iacute;ch<a href=\"http://www.thehinh.com/tag/bai-tap-nguc-cho-nu\" rel=\"noopener noreferrer\" target=\"_blank\">&nbsp;ngực m&igrave;nh căng tr&ograve;n săn chắc đầy sức sống</a>&nbsp;th&igrave; anh em ch&uacute;ng ta cũng muốn m&igrave;nh c&oacute; một bộ&nbsp;<a href=\"http://www.thehinh.com/tag/bai-tap-nguc-cho-nam\" rel=\"noopener noreferrer\" target=\"_blank\">ngực nở nang v&agrave; vạm vỡ&nbsp;</a>đ&uacute;ng kh&ocirc;ng n&agrave;o. Đ&oacute; cũng l&agrave; l&yacute; do nhiều anh ra ph&ograve;ng tập&nbsp;<a href=\"http://www.thehinh.com/tag/bai-tap-Gym\" rel=\"noopener noreferrer\" target=\"_blank\">Gym&nbsp;</a>để thỏa m&atilde;n mong muốn đ&oacute;. Điều đ&oacute; cũng hợp l&yacute; th&ocirc;i, v&igrave; n&oacute; thu h&uacute;t ph&aacute;i đẹp hơn hẳn, cũng như gi&uacute;p bạn tự tin hơn khi cần &ldquo;khoe body&rdquo;.</span></span></h1>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><img alt=\"Những bài tập giúp nam giới có cơ ngực vạm vỡ\" height=\"400\" sizes=\"(max-width: 600px) 100vw, 600px\" src=\"http://cdn.thehinh.com/2015/12/huong-dan-tap-nguc.jpg\" srcset=\"http://cdn.thehinh.com/2015/12/huong-dan-tap-nguc.jpg 600w, http://cdn.thehinh.com/2015/12/huong-dan-tap-nguc-20x13.jpg 20w\" title=\"Những bài tập giúp nam giới có cơ ngực vạm vỡ\" width=\"600\" /><br />\r\nC&ugrave;ng&nbsp;<a href=\"http://www.thehinh.com/\" rel=\"noopener noreferrer\" target=\"_blank\">TheHinh.com</a>&nbsp;điểm qua một số&nbsp;<strong><a href=\"http://www.thehinh.com/tag/bai-tap-nguc\" rel=\"noopener noreferrer\" target=\"_blank\">b&agrave;i tập cơ ngực</a></strong>&nbsp;cho anh em, đặc biệt l&agrave; kh&ocirc;ng phải tốn qu&aacute; nhiều sức lực để tập luyện.</span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Xem th&ecirc;m:&nbsp;<a href=\"http://www.thehinh.com/2015/11/muon-nguc-san-chac-cac-anh-hay-ap-dung-6-bai-tap-sau.html\" rel=\"noopener noreferrer\" target=\"_blank\">Muốn ngực săn chắc, c&aacute;c anh h&atilde;y &aacute;p dụng 6 b&agrave;i tập sau</a></span></span></p>\r\n\r\n<h2><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><strong>Tập cho cơ ngực săn chắc, chị em m&ecirc; l&agrave; c&aacute;i chắc&nbsp;</strong></span></span></h2>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Nhiều anh em chỉ kho&aacute;i tập mấy động t&aacute;c nặng đ&ocirc; như l&agrave; đẩy tạ lớn để hi vọng hiệu quả nhanh hơn, tuy nhi&ecirc;n bạn cũng n&ecirc;n ch&uacute; &yacute; l&agrave; b&agrave;i tập đa dạng th&igrave; hiệu quả cao hơn nh&eacute;. H&atilde;y thay đổi c&aacute;c lịch luyện tập cơ ngực của m&igrave;nh đi, vừa đỡ ng&aacute;n m&agrave; c&ograve;n đem lại hiệu quả cao.</span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">&Agrave;, nếu bạn kh&ocirc;ng c&oacute; tạ đơn c&oacute; thể thay thế bằng c&aacute;c loại d&acirc;y kh&aacute;ng lực gi&uacute;p hiệu quả kh&ocirc;ng k&eacute;m đ&acirc;u nh&eacute;.</span></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<div id=\"hitdat\">\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><strong>Động t&aacute;c h&iacute;t đất</strong></span></span></p>\r\n</div>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><img alt=\"Hít đất\" height=\"400\" src=\"http://cdn.thehinh.com/2015/12/dong-tac-hit-dat.jpg\" title=\"Những bài tập giúp nam giới có cơ ngực vạm vỡ\" width=\"400\" /></span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">H&iacute;t đất </span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Đ&acirc;y l&agrave; động t&aacute;c tuy cơ bản nhưng kh&ocirc;ng &iacute;t người tập sai tư thế. Khi tập ch&uacute; &yacute; l&agrave; người lu&ocirc;n phải để cơ thể thẳng từ tr&ecirc;n xuống dưới, kh&ocirc;ng n&acirc;ng m&ocirc;ng qu&aacute; cao hay qu&aacute; thấp. Bạn bắt đầu căng cơ bụng, hạ thấp th&acirc;n người xuống c&agrave;ng thấp c&agrave;ng tốt (nếu c&oacute; thể h&atilde;y tập tr&ecirc;n 4 c&aacute;i ghế) sau đ&oacute; đẩy mạnh th&acirc;n người l&ecirc;n đến khi thẳng tay.</span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><img alt=\"Một bài nâng cao + Các nhóm cơ ảnh hưởng\" height=\"224\" src=\"http://cdn.thehinh.com/2015/12/hit-dat.gif\" title=\"Những bài tập giúp nam giới có cơ ngực vạm vỡ\" width=\"391\" /></span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Một b&agrave;i n&acirc;ng cao&nbsp;+ C&aacute;c nh&oacute;m cơ ảnh hưởng </span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">H&iacute;t c&agrave;ng nhanh c&agrave;ng nhiều th&igrave; c&agrave;ng tốt nh&eacute;. Cứ thực hiện nhiều nhất c&oacute; thể v&agrave; n&acirc;ng số lượng h&iacute;t l&ecirc;n từ từ. Cũng như l&agrave; c&aacute;c biến thể mới nặng hơn.</span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Xem th&ecirc;m:&nbsp;<a href=\"http://www.thehinh.com/2015/11/nhung-bai-tap-giup-co-nguc-san-chac.html\" rel=\"noopener noreferrer\" target=\"_blank\">Những b&agrave;i tập gi&uacute;p cơ ngực săn chắc hiệu quả nhất cho nam&nbsp;</a></span></span></p>\r\n\r\n<div id=\"keocap\">\r\n<h3><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><strong>Động t&aacute;c k&eacute;o c&aacute;p</strong></span></span></h3>\r\n</div>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><img alt=\"Động tác kéo cáp  \" height=\"400\" src=\"http://cdn.thehinh.com/2015/12/dong-tac-cap-bay.jpg\" title=\"Những bài tập giúp nam giới có cơ ngực vạm vỡ\" width=\"400\" /></span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Động t&aacute;c k&eacute;o c&aacute;p </span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Ch&uacute;ng ta sẽ nắm tay cầm của m&aacute;y k&eacute;o c&aacute;p. Hai tay thẳng, c&ugrave;i chỏ hơi cong. Bước 1 ch&acirc;n l&ecirc;n trước. Căng cơ thể v&agrave; k&eacute;o tay cầm nhẹ nh&agrave;ng xuống v&agrave; ch&eacute;o người cho đến khi n&agrave;o hai tay ch&eacute;o nhau. Từ từ trở lại vị tr&iacute; cũ.<br />\r\n<strong>Thực hiện 3 hiệp 8 lần.</strong></span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Nếu muốn tăng Level c&oacute; thể nằm &uacute;p tr&ecirc;n ghế v&agrave; thực hiện động t&aacute;c n&agrave;y.</span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><strong>Lưu &yacute;: N&ecirc;n tập tr&ecirc;n ghế nghi&ecirc;ng v&agrave; l&uacute;c k&eacute;o c&aacute;p kh&ocirc;ng được để tạ chạm s&aacute;t mặt đất, v&agrave; thực hiện động t&aacute;c chậm r&atilde;i.</strong></span></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<div id=\"tadon\">\r\n<h3><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><strong>Đẩy tạ đơn tr&ecirc;n ghế nghi&ecirc;ng l&ecirc;n</strong></span></span></h3>\r\n</div>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><img alt=\"Đẩy tạ đơn trên ghế nghiêng lên\" height=\"400\" src=\"http://cdn.thehinh.com/2015/12/dong-tac-day-ta-don-tren-ghe-nghieng.jpg\" title=\"Những bài tập giúp nam giới có cơ ngực vạm vỡ\" width=\"400\" /></span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Đẩy tạ đơn tr&ecirc;n ghế nghi&ecirc;ng l&ecirc;n </span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Nằm ngửa tr&ecirc;n ghế nghi&ecirc;ng 1 g&oacute;c 30 độ v&agrave; n&acirc;ng tạ l&ecirc;n ngang vai v&agrave; tất nhi&ecirc;n l&agrave; phải để l&ograve;ng b&agrave;n tay hướng l&ecirc;n nha. Đẩy tạ thẳng l&ecirc;n tr&ecirc;n đồng thời thở ra. Kh&oacute;a hai tay v&agrave; &eacute;p chặt ngực rồi mới từ từ trở lại vị tr&iacute; cũ.</span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><strong>Thực hiện 3 hiệp 8 lần, nghỉ 90 gi&acirc;y.</strong></span></span></p>\r\n\r\n<div id=\"xakep\">\r\n<h3><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><strong>Động t&aacute;c nh&uacute;n x&agrave; k&eacute;p</strong></span></span></h3>\r\n</div>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><img alt=\"Nhún xà kép\" height=\"400\" src=\"http://cdn.thehinh.com/2015/12/dong-tac-nhun.jpg\" title=\"Những bài tập giúp nam giới có cơ ngực vạm vỡ\" width=\"400\" /></span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Nh&uacute;n x&agrave; k&eacute;p </span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Hai tay nắm thanh x&agrave; của m&aacute;y tập, tay thẳng. Bắt đầu hạ thấp th&acirc;n người xuống đến khi khuỷu tay tạo th&agrave;nh g&oacute;c vu&ocirc;ng (như h&igrave;nh).</span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><img alt=\"Những bài tập giúp nam giới có cơ ngực vạm vỡ Thể Hình Channel\" src=\"http://cdn.thehinh.com/2015/12/hit-xa-kep.gif\" title=\"Những bài tập giúp nam giới có cơ ngực vạm vỡ\" /></span></span></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><strong>Lưu &yacute; l&agrave; c&ugrave;i chỏ lu&ocirc;n &aacute;p s&aacute;t th&acirc;n người, kh&ocirc;ng hướng ra ngo&agrave;i (tr&aacute;nh bị tổn thương). K&eacute;o th&acirc;n người ngược l&ecirc;n vị tr&iacute; cũ v&agrave; lặp lại</strong>.</span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><strong>Thực hiện 3 hiệp 10 lần. Nghỉ 90 gi&acirc;y mỗi hiệp.</strong></span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Xem th&ecirc;m:&nbsp;<a href=\"http://www.thehinh.com/2015/11/5-bai-tap-hinh-tang-co-nguc-cho-nam.html\" rel=\"noopener noreferrer\" target=\"_blank\">5 B&agrave;i tập thể h&igrave;nh tăng cơ ngực cho nam</a></span></span></p>\r\n\r\n<h3><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><strong>Động t&aacute;c đẩy tạ đơn tr&ecirc;n ghế nghi&ecirc;ng xuống</strong></span></span></h3>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><img alt=\"Đẩy tạ đơn trên ghế nghiêng xuống\" height=\"400\" src=\"http://cdn.thehinh.com/2015/12/dong-tac-nam-ghe-nghieng-xuong-day-ta-don.jpg\" title=\"Những bài tập giúp nam giới có cơ ngực vạm vỡ\" width=\"400\" /></span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Đẩy tạ đơn tr&ecirc;n ghế nghi&ecirc;ng xuống </span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Hai tay giữ 1 tạ đơn rộng hơn vai, l&ograve;ng b&agrave;n tay vẫn hướng l&ecirc;n tr&ecirc;n, nằm ngửa tr&ecirc;n ghế nghi&ecirc;ng xuống đất. Bắt đầu với tay để thẳng l&ecirc;n tr&ecirc;n, n&acirc;ng tạ khỏi gi&aacute; v&agrave; hạ chậm r&atilde;i xuống tr&ecirc;n ngực v&agrave; nhớ h&iacute;t v&agrave;o. Sau đ&oacute; n&acirc;ng lại thẳng l&ecirc;n tr&ecirc;n v&agrave; nhớ thở ra nh&eacute;. B&agrave;i n&agrave;y t&aacute;c động nhiều l&ecirc;n ngực dưới, lưng v&agrave; cơ tam đầu.<br />\r\n<strong>Thực hiện 3 hiệp 5 lần v&agrave; nghỉ 90 gi&acirc;y giữa c&aacute;c hiệp.</strong></span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><img alt=\"Những bài tập giúp nam giới có cơ ngực vạm vỡ Thể Hình Channel\" src=\"http://cdn.thehinh.com/2015/12/nam-ghe-nghieng-day-ta-don.gif\" title=\"Những bài tập giúp nam giới có cơ ngực vạm vỡ\" /></span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><strong>Động t&aacute;c nằm ghế đẩy tạ đơn</strong></span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><img alt=\"Nằm đẩy tạ đơn\" height=\"400\" src=\"http://cdn.thehinh.com/2015/12/dong-tac-nam-ghe-day-ta-don.jpg\" title=\"Những bài tập giúp nam giới có cơ ngực vạm vỡ\" width=\"400\" /></span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Nằm đẩy tạ đơn </span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Bạn nằm ngửa tr&ecirc;n ghế, bắt đầu với thanh tạ đơn, tay rộng hơn vai. Nhấc tạ l&ecirc;n khỏi gi&aacute; đỡ v&agrave; đẩy tạ qua ngực, ch&uacute; &yacute; n&acirc;ng l&ecirc;n tay phải thẳng. Từ từ với thế bắt đầu, h&iacute;t v&agrave;o v&agrave; hạ từ từ xuống tr&ecirc;n ngực. Thở ra v&agrave; đồng thời đẩy tả l&ecirc;n.<br />\r\n<strong>Thực hiện động t&aacute;c n&agrave;y trong 5 lần/Hiệp. Tập 3 hiệp v&agrave; nghỉ 90 gi&acirc;y.</strong></span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\"><strong>Lưu &yacute;: Ch&uacute; &yacute; sử dụng tạ vừa sức, tr&aacute;nh d&ugrave;ng tạ qu&aacute; nặng dễ g&acirc;y chấn thương đ&aacute;ng tiếc nh&eacute;. V&agrave; đặc biệt l&agrave; lu&ocirc;n bổ sung đầy đủ protein cho cơ thể hằng ng&agrave;y th&igrave; cơ bắp mới ph&aacute;t triển được bạn nha.</strong></span></span></p>\r\n\r\n<p><span style=\"font-family:Arial,Helvetica,sans-serif\"><span style=\"font-size:16px\">Hi vọng với c&aacute;c b&agrave;i tập cho cơ ngực n&agrave;y c&aacute;c bạn sẽ c&oacute; th&ecirc;m nhiều danh s&aacute;ch b&agrave;i tập hơn, nhất l&agrave; với c&aacute;c bạn mới bắt đầu l&agrave;m quen với&nbsp;<a href=\"http://www.thehinh.com/tag/the-hinh\" rel=\"noopener noreferrer\" target=\"_blank\">thể h&igrave;nh</a>. Ch&uacute;c c&aacute;c bạn mau ch&oacute;ng l&ecirc;n cơ nh&eacute;.</span></span></p>', 'Cũng như mọi chị em khác thích ngực mình căng tròn săn chắc đầy sức sống thì anh em chúng ta cũng muốn mình có một bộ ngực nở nang và vạm vỡ đúng không nào. Đó cũng là lý do nhiều anh ra phòng tập Gym để thỏa mãn mong muốn đó. Điều đó cũng hợp lý thôi, vì nó thu hút phái đẹp hơn hẳn, cũng như giúp bạn tự tin hơn khi cần “khoe body”.', 'day nguc ,đẩy tạ đơn', 0, 'huong-dan-tap-nguc17.jpg', 4),
 (16, 'Bí quyết tập luyện giảm cân tại nhà để lấy lại vóc dáng [p2]', 'bi-quyet-tap-luyen-giam-can-tai-nha-de-lay-lai-voc-dang-[p2]', '<p>Ở b&agrave;i viết&nbsp;<a href=\"http://www.thehinh.com/2017/07/bi-quyet-giam-can-nhanh-ngay-tai-nha-trong-1-tuan.html\">B&iacute; quyết giảm c&acirc;n nhanh ngay tại nh&agrave;</a>&nbsp;trước, ch&uacute;ng ta đ&atilde; đi qua phần dinh dưỡng v&agrave; ăn uống, ngay b&acirc;y giờ, ch&uacute;ng ta sẽ đi qua những&nbsp;<strong>b&iacute; quyết tập luyện giảm c&acirc;n tại nh&agrave;</strong>&nbsp;để ho&agrave;n tất c&ocirc;ng việc lấy lại v&oacute;c d&aacute;ng nh&eacute;.</p>', '<div class=\"mucluc\">\r\n<h1><strong>MỤC LỤC B&Agrave;I VIẾT</strong></h1>\r\n\r\n<div class=\"baiviet\">\r\n<ul>\r\n	<li><a href=\"#kithuattap\">Nghi&ecirc;n cứu kĩ thuật tập luyện</a></li>\r\n</ul>\r\n</div>\r\n\r\n<p>&nbsp;</p>\r\n</div>\r\n\r\n<p>Ở b&agrave;i viết&nbsp;<a href=\"http://www.thehinh.com/2017/07/bi-quyet-giam-can-nhanh-ngay-tai-nha-trong-1-tuan.html\">B&iacute; quyết giảm c&acirc;n nhanh ngay tại nh&agrave;</a>&nbsp;trước, ch&uacute;ng ta đ&atilde; đi qua phần dinh dưỡng v&agrave; ăn uống, ngay b&acirc;y giờ, ch&uacute;ng ta sẽ đi qua những&nbsp;<strong>b&iacute; quyết tập luyện giảm c&acirc;n tại nh&agrave;</strong>&nbsp;để ho&agrave;n tất c&ocirc;ng việc lấy lại v&oacute;c d&aacute;ng nh&eacute;.</p>\r\n\r\n<h2><strong><img alt=\"Bí quyết tập luyện giảm cân tại nhà để lấy lại vóc dáng [p2]\" height=\"366\" sizes=\"(max-width: 650px) 100vw, 650px\" src=\"http://cdn.thehinh.com/2017/07/BI-quyet-tap-luyen-tai-nh.jpg\" srcset=\"http://cdn.thehinh.com/2017/07/BI-quyet-tap-luyen-tai-nh.jpg 650w, http://cdn.thehinh.com/2017/07/BI-quyet-tap-luyen-tai-nh-300x169.jpg 300w\" title=\"Bí quyết tập luyện giảm cân tại nhà để lấy lại vóc dáng [p2]\" width=\"650\" />C&ugrave;ng xem qua những&nbsp;B&iacute; quyết tập luyện giảm c&acirc;n tại nh&agrave; ngay nha!</strong></h2>\r\n\r\n<h4><strong>Nghĩ về th&oacute;i quen tập luyện của m&igrave;nh</strong></h4>\r\n\r\n<p>H&atilde;y nghĩ về th&oacute;i quen tập luyện của bạn, một khi bạn x&acirc;y dựng được 1 th&oacute;i quen về c&aacute;i g&igrave; đ&oacute; như l&agrave;: Chạy buổi s&aacute;ng, hay l&agrave; 6 giờ l&agrave; đi tập gym&hellip;.Việc x&acirc;y dựng 1 th&oacute;i quen sẽ gi&uacute;p bạn thực hiện n&oacute; dễ d&agrave;ng hơn khi bạn thực hiện lại n&oacute;.</p>\r\n\r\n<p>Bạn c&oacute; thể kết hợp việc tập luyện của m&igrave;nh với những kế hoạch ở nh&agrave; của bạn chẳng hạn. Bạn thường c&oacute; 1 chương tr&igrave;nh y&ecirc;u th&iacute;ch v&agrave;o thứ 4. Vậy h&atilde;y thực hiện tập luyện c&ugrave;ng l&uacute;c khi xem chương tr&igrave;nh đ&oacute; lu&ocirc;n, 1 c&ocirc;ng 2 việc đ&uacute;ng kh&ocirc;ng n&agrave;o.</p>\r\n\r\n<p>Sản phẩm khuy&ecirc;n d&ugrave;ng</p>\r\n\r\n<p><img alt=\"Sữa Tăng Cơ Iso Cool 2.27kg\" src=\"https://product.hstatic.net/1000185761/product/ultimate-nutrition-isocool-vani-5lbs-2-27kg_compact.jpg\" title=\"Bí quyết tập luyện giảm cân tại nhà để lấy lại vóc dáng [p2]\" /></p>\r\n\r\n<p><a href=\"https://ifitness.vn/products/sua-tang-co-isocool-2-27kg?ref=thehinh&amp;utm_source=thehinhcom&amp;utm_medium=BaiViet&amp;utm_campaign=LinkTrongBaiViet&amp;utm_content=%27+%20fullurl%20+%20%27\" rel=\"noopener\" target=\"_blank\">Sữa Tăng Cơ Iso Cool 2.27kg</a></p>\r\n\r\n<p><a href=\"https://ifitness.vn/products/sua-tang-co-isocool-2-27kg?ref=thehinh&amp;utm_source=thehinhcom&amp;utm_medium=BaiViet&amp;utm_campaign=LinkTrongBaiViet&amp;utm_content=%27+%20fullurl%20+%20%27\" rel=\"noopener\" target=\"_blank\">Whey Protein Iso Cool cung cấp 23g Whey Protein Isolate gi&uacute;p k&iacute;ch th&iacute;ch cơ nạc ph&aacute;t triển, giảm mỡ hiệu quả v&agrave; chống mất cơ. Sản phẩm KH&Ocirc;NG chứa đường, chất b&eacute;o, lactose, Gluten, đường ho&aacute; học, ho&aacute; chất tạo m&agrave;u.</a></p>\r\n\r\n<p><a href=\"https://ifitness.vn/products/sua-tang-co-isocool-2-27kg?ref=thehinh&amp;utm_source=thehinhcom&amp;utm_medium=BaiViet&amp;utm_campaign=LinkTrongBaiViet&amp;utm_content=%27+%20fullurl%20+%20%27\" rel=\"noopener\" target=\"_blank\">T&Igrave;M HIỂU TH&Ecirc;M &raquo;</a></p>\r\n\r\n<h3><strong>Mua một &iacute;t tạ về để tập luyện</strong></h3>\r\n\r\n<p>Bạn kh&ocirc;ng cần phải mua nhiều tạ về nha, bạn chỉ cần mua 1 v&agrave;i cặp tạ ở c&aacute;c cửa h&agrave;ng thể thao. Hoặc mua cũ của ai đ&oacute; d&ugrave;ng rồi để tiết kiệm cho ph&iacute; hơn.</p>\r\n\r\n<p><img alt=\"Tạ Dumbbell\" height=\"500\" sizes=\"(max-width: 500px) 100vw, 500px\" src=\"http://cdn.thehinh.com/2017/07/ta-dumbbelll.jpg\" srcset=\"http://cdn.thehinh.com/2017/07/ta-dumbbelll.jpg 500w, http://cdn.thehinh.com/2017/07/ta-dumbbelll-300x300.jpg 300w, http://cdn.thehinh.com/2017/07/ta-dumbbelll-420x420.jpg 420w\" title=\"Bí quyết tập luyện giảm cân tại nhà để lấy lại vóc dáng [p2]\" width=\"500\" />H&atilde;y mua dựa v&agrave;o thể lực của bạn, đừng mua tạ nặng qu&aacute; sức của m&igrave;nh nh&eacute;,</p>\r\n\r\n<p>H&atilde;y n&acirc;ng mức tạ tập luyện l&ecirc;n đều đặn nếu c&oacute; thể, bạn n&acirc;ng mức tạ l&ecirc;n c&agrave;ng cao th&igrave; bạn tập c&agrave;ng hiệu quả. Bạn c&oacute; thể đầu tư tạ ở mức 1 &ndash; 2 &ndash; 5 k&yacute; để tập.</p>\r\n\r\n<div id=\"kithuattap\">\r\n<h3><strong>Nghi&ecirc;n cứu kĩ thuật tập luyện</strong></h3>\r\n</div>\r\n\r\n<p><img alt=\"Nghiên cứu kĩ thuật tập luyện\" height=\"334\" sizes=\"(max-width: 500px) 100vw, 500px\" src=\"http://cdn.thehinh.com/2017/07/nghien-cu-ki-thuat-tap.jpg\" srcset=\"http://cdn.thehinh.com/2017/07/nghien-cu-ki-thuat-tap.jpg 500w, http://cdn.thehinh.com/2017/07/nghien-cu-ki-thuat-tap-300x200.jpg 300w\" title=\"Bí quyết tập luyện giảm cân tại nhà để lấy lại vóc dáng [p2]\" width=\"500\" /></p>\r\n\r\n<p>Thể H&igrave;nh Channel l&agrave; 1 trang hướng dẫn tập thể h&igrave;nh uy t&iacute;n m&agrave; bạn c&oacute; thể nghi&ecirc;n cứu.</p>\r\n\r\n<p>Trước khi bắt đầu, h&atilde;y nghi&ecirc;n cứu những b&agrave;i tập m&igrave;nh đang cần, chỉ cần google t&iacute; như l&agrave; &ldquo;c&aacute;c b&agrave;i tập tay&rdquo; hay l&agrave; &ldquo;c&aacute;c b&agrave;i tập m&ocirc;ng tại nh&agrave;&rdquo;&hellip;.hay đơn giản hơn l&agrave; Thể H&igrave;nh Channel c&oacute; ph&acirc;n chia khu vực tập luyện sẵn tr&ecirc;n menu rồi, bạn chỉ cần truy cập v&ocirc; mục bạn cần để xem b&agrave;i tập l&agrave; xong.</p>\r\n\r\n<h3><strong>&Aacute;p dụng c&aacute;c b&agrave;i tập cuộn cho tay trước</strong></h3>\r\n\r\n<p>Bắt đầu với cặp tạ Dumbbell với tay trước. Giữ tạ ở 2 b&ecirc;n người, l&ograve;ng b&agrave;n tay hướng tới trước. Tư từ cuộn cẳng tay l&ecirc;n đến khi cao ngang vai. Ch&uacute; &yacute; l&agrave; kh&ocirc;ng di chuyển khuỷu tay của m&igrave;nh cũng như l&agrave; phần than tr&ecirc;n của bạn, thực hiện chậm r&atilde;i v&agrave; c&oacute; kiểm so&aacute;t.</p>\r\n\r\n<p><img alt=\"Dumbbell Bicep curls\" height=\"500\" sizes=\"(max-width: 500px) 100vw, 500px\" src=\"http://cdn.thehinh.com/2017/07/Bicep-curl.jpg\" srcset=\"http://cdn.thehinh.com/2017/07/Bicep-curl.jpg 500w, http://cdn.thehinh.com/2017/07/Bicep-curl-300x300.jpg 300w, http://cdn.thehinh.com/2017/07/Bicep-curl-420x420.jpg 420w\" title=\"Bí quyết tập luyện giảm cân tại nhà để lấy lại vóc dáng [p2]\" width=\"500\" /></p>\r\n\r\n<ul>\r\n	<li>Thực hiện b&agrave;i đẩy l&ecirc;n cao cho phần vai</li>\r\n	<li>Với cơ thể đứng thẳng, 2 tay cầm tạ dumbbell giữ cẳng tay hướng l&ecirc;n trần, cao ngang vai.</li>\r\n	<li>N&acirc;ng khuỷu tay của bạn l&ecirc;n cao qua đầu đến khi c&aacute;nh tay gần thẳng ho&agrave;n to&agrave;n th&igrave; giữ lại 1-2 gi&acirc;y.</li>\r\n	<li>Hạ tay xuống v&agrave; thực hiện lại động t&aacute;c 1 c&aacute;ch trơn tru, nhớ đừng giật lưng khi thực hiện, sẽ l&agrave;m bạn bị chấn thương đấy.</li>\r\n</ul>\r\n\r\n<h3><strong>Tập phần lưng với tạ đơn</strong></h3>\r\n\r\n<p>Giữ 1 cặp tạ ở 2 tay, l&ograve;ng b&agrave;n tay hướng v&agrave;o nhau, gập người tới trước 1 ch&uacute;t khoảng 30-45 độ. Giữ lưng thẳng kh&ocirc;ng cong l&ecirc;n hay cong xuống nh&eacute;.</p>\r\n\r\n<p><img alt=\"dumbbell row\" height=\"332\" src=\"http://cdn.thehinh.com/2017/07/dumbbell-row.gif\" title=\"Bí quyết tập luyện giảm cân tại nhà để lấy lại vóc dáng [p2]\" width=\"500\" />K&eacute;o khuỷu tay của bạn từ dưới l&ecirc;n cao đến khi khuỷu tay hơi cao hơn lưng của bạn 1 ch&uacute;t l&agrave; được. Giữ im 1-2 gi&acirc;y sau đ&oacute; hạ tay xuống vị tr&iacute; ban đầu.</p>\r\n\r\n<h3><strong>Sử dụng d&acirc;y co gi&atilde;n</strong></h3>\r\n\r\n<p>D&acirc;y co gi&atilde;n (resistance bands) được &aacute;p dụng v&ocirc; rất nhiều b&agrave;i tập kh&aacute;c nhau, n&oacute; c&oacute; thể n&acirc;ng cao khả năng tập luyện, đốt ch&aacute;y nhiều calo hơn v&agrave; chất b&eacute;o hơn v&agrave; lại rất gọn kh&ocirc;ng chiếm nhiều kh&ocirc;ng gian.</p>\r\n\r\n<p><img alt=\"Resistance Bands Row\" height=\"372\" src=\"http://cdn.thehinh.com/2017/07/Row.gif\" title=\"Bí quyết tập luyện giảm cân tại nhà để lấy lại vóc dáng [p2]\" width=\"500\" />N&oacute; c&oacute; thể thực hiện được tất cả b&agrave;i tập m&agrave; tạ tay c&oacute; thể l&agrave;m v&agrave; nhiều b&agrave;i m&agrave; tạ tay kh&ocirc;ng thể l&agrave;m nữa. V&igrave; thế đ&ocirc;i khi đầu tư 1 sợi d&acirc;y n&agrave;y mang lại rất nhiều lợi &iacute;ch cả về tập luyện lẫn chi ph&iacute;.</p>\r\n\r\n<p>Xem th&ecirc;m:&nbsp;<a href=\"http://www.thehinh.com/2016/10/5-dung-cu-tap-gym-tai-nha-cho-nu.html\">5 dụng cụ tập luyện tại nh&agrave; cho m&ocirc;ng đ&ugrave;i tốt nhất</a></p>\r\n\r\n<p><strong>Một số b&agrave;i m&agrave; bạn c&oacute; thể thực hiện với dụng cụ n&agrave;y&nbsp;</strong></p>\r\n\r\n<ul>\r\n	<li>Bicep curls (tập tay trước): 2 tay cầm v&agrave;o 2 đầu của d&acirc;y, 2 ch&acirc;n đạp giữ phần giữa của sợi d&acirc;y, b&acirc;y giờ bạn bắt đầu cuộn c&aacute;nh tay l&ecirc;n như khi tập với tạ đơn ở tr&ecirc;n th&ocirc;i.</li>\r\n	<li>Deltoid flies (tập vai): Đứng 2 ch&acirc;n rộng bằng vai, 2 tay vẫn cầm như b&agrave;i tr&ecirc;n. Người gập tới trước 30-45 độ. Mở rộng c&aacute;nh tay của bạn từ dưới l&ecirc;n tr&ecirc;n theo chiều ngang, đến khi song song với s&agrave;n th&igrave; dừng lại. Từ từ hạ xuống v&agrave; thực hiện lại động t&aacute;c.</li>\r\n	<li>Kneeling Crunches (tập bụng): Cột sợi d&acirc;y v&agrave;o một điểm cố định tr&ecirc;n cao (cột nh&agrave;, c&acirc;y cối&hellip;), bạn c&oacute; thể cầm một miếng thảm để quỳ l&ecirc;n cho khỏi đau gối. 2 tay giữ 2 đầu d&acirc;y ở ph&iacute;a trước ngực v&agrave; giữ cố định vị tr&iacute; n&agrave;y. Sau đ&oacute; gập người xuống c&agrave;ng s&acirc;u c&agrave;ng tốt. Giữ 1 gi&acirc;y v&agrave; trở lại vị tr&iacute; ban đầu.</li>\r\n</ul>\r\n\r\n<h3><strong>Tập m&ocirc;ng đ&ugrave;i với bức tường</strong></h3>\r\n\r\n<p>Mặc d&ugrave; bạn ho&agrave;n to&agrave;n c&oacute; thể thực hiện nhiều b&agrave;i tập m&ocirc;ng đ&ugrave;i nổi tiếng kh&aacute;c như&nbsp;<a href=\"http://www.thehinh.com/the-hinh/squat\">Squat</a>,&nbsp;<a href=\"http://www.thehinh.com/2016/08/41-bai-tap-cho-chan-thon-dai-lunge.html\">Lunge&nbsp;</a>hay&nbsp;<a href=\"http://www.thehinh.com/2016/08/huong-dan-tap-deadlift-chi-tiet.html\">Deadlift</a>&nbsp;tuy nhi&ecirc;n ở đ&acirc;y&nbsp;<a href=\"http://www.thehinh.com/\">Thể H&igrave;nh Channel</a>&nbsp;sẽ gợi &yacute; 1 b&agrave;i tập kh&aacute;c ph&ugrave; hợp với cả những người c&oacute; vấn đề về khớp gối đ&oacute; l&agrave; b&agrave;i Wall Sit.</p>\r\n\r\n<p>Đầu ti&ecirc;n c&aacute;c bạn đứng dựa lưng v&agrave;o tường. Sau đ&oacute; trượt người xuống đến khi đ&ugrave;i song song s&agrave;n nh&agrave; v&agrave; cẳng ch&acirc;n vu&ocirc;ng g&oacute;c 90 độ.</p>\r\n\r\n<p>Siết cơ bụng v&agrave; giữ nguy&ecirc;n vị tr&iacute; đ&oacute; trong 30-60 gi&acirc;y.</p>\r\n\r\n<h3><strong>Tập plank cho cơ bụng</strong></h3>\r\n\r\n<p>Plank th&igrave; qu&aacute; nổi tiếng rồi, nếu chưa biết h&atilde;y đọc b&agrave;i viết&nbsp;<a href=\"http://www.thehinh.com/2016/04/plank-la-gi-cach-tap-plank-dung-cach.html\">Plank l&agrave; g&igrave;</a>&nbsp;để hiểu r&otilde; thật kĩ hơn nh&eacute;.</p>\r\n\r\n<p><img alt=\"Tập Plank bị đau lưng vì 8 tư thế sai ai cũng mắc phải\" height=\"333\" sizes=\"(max-width: 499px) 100vw, 499px\" src=\"http://cdn.thehinh.com/2017/04/shutterstock_363953963.jpg\" srcset=\"http://cdn.thehinh.com/2017/04/shutterstock_363953963.jpg 499w, http://cdn.thehinh.com/2017/04/shutterstock_363953963-300x200.jpg 300w\" title=\"Bí quyết tập luyện giảm cân tại nhà để lấy lại vóc dáng [p2]\" width=\"499\" />Bạn c&oacute; thể tập Plank bất kỳ l&uacute;c n&agrave;o bạn th&iacute;ch, như l&agrave; trong khi chờ cơm ch&iacute;n, hay đang nghe nhạc&hellip;.thực hiện Plank đều đặn sẽ gi&uacute;p cho v&ugrave;ng bụng của bạn cực kỳ săn chắc.</p>\r\n\r\n<p><strong>Ch&uacute;ng ta xong ph&acirc;n tập luyện với tạ v&agrave; 1 số dụng cụ, để tiếp nối cho b&iacute; quyết tập luyện giảm c&acirc;n tại nh&agrave; th&igrave; kh&ocirc;ng thể kh&ocirc;ng nhắc đến Cardio, v&agrave; bạn cũng kh&ocirc;ng cần phải đi đ&acirc;u xa x&ocirc;i, bạn ho&agrave;n to&agrave;n c&oacute; thể tập được tại nh&agrave; của m&igrave;nh.</strong></p>\r\n\r\n<h3><strong>Thực hiện b&agrave;i tập Jumping Jack</strong></h3>\r\n\r\n<p>N&oacute;i về&nbsp;<a href=\"http://www.thehinh.com/2016/07/bai-tap-cardio-giam-can-cho-nam.html\">b&agrave;i tập cardio tại nh&agrave;</a>&nbsp;th&igrave;&nbsp;<a href=\"http://www.thehinh.com/2016/07/bung-1-khe-tap-jumping-jack-ngay.html\">Jumping Jack</a>&nbsp;l&agrave; trong những&nbsp;<a href=\"http://www.thehinh.com/tag/bai-tap-cardio\">b&agrave;i tập đốt mỡ hiệu quả nhất</a>&nbsp;m&agrave; bạn n&ecirc;n tập. N&oacute; sẽ khiến cơ thể bạn tăng khả năng bơm m&aacute;u mạnh mẽ, chỉ với động t&aacute;c tập luyện đơn giản.</p>\r\n\r\n<p><img alt=\"Động tác Jumping Jack\" height=\"345\" src=\"http://cdn.thehinh.com/2016/06/bai-tap-cardio-nhay-jacks.gif\" title=\"Bí quyết tập luyện giảm cân tại nhà để lấy lại vóc dáng [p2]\" width=\"306\" /></p>\r\n\r\n<p>Động t&aacute;c Jumping Jack</p>\r\n\r\n<ul>\r\n	<li>Đứng thẳng, 2 ch&acirc;n kh&eacute;p.</li>\r\n	<li>Bật nhảy 2 ch&acirc;n ra 2 b&ecirc;n đồng thời đ&aacute;nh tay l&ecirc;n cao qua đầu.</li>\r\n	<li>Bật nhảy lại về vị tr&iacute; cũ v&agrave; hạ tay xuống.</li>\r\n	<li>Thực hiện li&ecirc;n tục trong 30-60 gi&acirc;y với tốc độ cao nhất bạn c&oacute; thể.</li>\r\n</ul>\r\n\r\n<h3><strong>Tập Lunge cho th&acirc;n dưới</strong></h3>\r\n\r\n<p><img alt=\"Lunge - Bạn đồng hành cho vòng 3 bốc lửa đốt cháy mọi ánh mắt\" height=\"346\" sizes=\"(max-width: 610px) 100vw, 610px\" src=\"http://cdn.thehinh.com/2016/12/lunge-bai-tap-cho-vong-3-boc-lua.jpg\" srcset=\"http://cdn.thehinh.com/2016/12/lunge-bai-tap-cho-vong-3-boc-lua.jpg 610w, http://cdn.thehinh.com/2016/12/lunge-bai-tap-cho-vong-3-boc-lua-300x170.jpg 300w\" title=\"Bí quyết tập luyện giảm cân tại nhà để lấy lại vóc dáng [p2]\" width=\"610\" />Tập Lunge y&ecirc;u cầu rất nhiều&nbsp;<a href=\"http://www.thehinh.com/\">nh&oacute;m cơ</a>&nbsp;v&agrave; điều đ&oacute; c&oacute; nghĩa l&agrave; bạn đồng thời tập được nhiều hơn trong mỗi động t&aacute;c. Bạn c&oacute; thể tập với tạ hoặc tay kh&ocirc;ng đều được v&agrave; tập bất kể nơi n&agrave;o.</p>\r\n\r\n<ul>\r\n	<li>Đứng thẳng, 2 ch&acirc;n rộng bằng h&ocirc;ng.</li>\r\n	<li>Bước ch&acirc;n tr&aacute;i tới trước 1 bước đồng thời hạ thấp th&acirc;n người xuống theo chiều thẳng đứng đến khi đ&ugrave;i trước song song s&agrave;n, 2 ch&acirc;n tạo th&agrave;nh g&oacute;c 90 độ.</li>\r\n	<li>Đứng thẳng l&ecirc;n v&agrave; thực hiện lại hoặc bước tiếp ch&acirc;n phải tới trước v&agrave; thực hiện lại.</li>\r\n</ul>\r\n\r\n<h3><strong>Nhảy d&acirc;y</strong></h3>\r\n\r\n<p><img alt=\"Nhảy dây xoạc chân\" height=\"354\" src=\"http://cdn.thehinh.com/2016/08/nhay-day-giam-can-xoac-chan.gif\" title=\"Bí quyết tập luyện giảm cân tại nhà để lấy lại vóc dáng [p2]\" width=\"354\" /></p>\r\n\r\n<p>Nhảy d&acirc;y xoạc ch&acirc;n</p>\r\n\r\n<p>Nhảy d&acirc;y th&igrave; kh&ocirc;ng xa lạ g&igrave; với c&aacute;c bạn đ&uacute;ng kh&ocirc;ng n&agrave;o, con n&iacute;t cũng biết nhảy v&agrave; nhảy d&acirc;y cũng l&agrave; 1 b&agrave;i tập đốt mỡ tuyệt vời cho bạn khi ở nh&agrave;. Về c&aacute;ch nhảy th&igrave; m&igrave;nh cũng kh&ocirc;ng n&oacute;i g&igrave; th&ecirc;m v&igrave; cơ bản ai cũng biết rồi. H&atilde;y cố gắng nhảy thật nhanh v&agrave; l&acirc;u nhất c&oacute; thể nh&eacute;.</p>\r\n\r\n<p>Xem th&ecirc;m</p>\r\n\r\n<ul>\r\n	<li><a href=\"http://www.thehinh.com/2016/07/nhay-day-giam-can-nhanh-chong-tai-sao-lai-khong-tap.html\">Hướng dẫn thực hiện b&agrave;i tập nhảy d&acirc;y cơ bản</a></li>\r\n	<li><a href=\"http://www.thehinh.com/2016/08/tuyet-chieu-nhay-day-giam-can-hieu-qua.html\">Tuyệt chi&ecirc;u nhảy d&acirc;y giảm c&acirc;n tại nh&agrave; &iacute;t người biết</a></li>\r\n	<li><a href=\"http://www.thehinh.com/2016/03/50-kieu-nhay-day-de-dot-chay-mo-thua-hieu-qua.html\">50 kiểu nhảy d&acirc;y bạn nhất định phải thử qua</a></li>\r\n</ul>\r\n\r\n<h3><strong>H&atilde;y leo cầu thang nhiều hơn</strong></h3>\r\n\r\n<p>Nếu bạn ở nh&agrave; c&oacute; nhiều lầu th&igrave; cầu thang ch&iacute;nh l&agrave; nơi m&agrave; bạn c&oacute; thể tập luyện. H&atilde;y sử dụng cầu thang nhiều hơn, đừng d&ugrave;ng thang m&aacute;y nữa bạn c&oacute; thể vừa kết hợp leo cầu thang vừa tập luyện c&aacute;c b&agrave;i kh&aacute;c để tiết kiệm thời gian hơn.</p>\r\n\r\n<p>Xem th&ecirc;m:&nbsp;<a href=\"http://www.thehinh.com/2017/01/bai-tap-leo-cau-thang-giam-can-hieu-qua.html\">Những b&agrave;i tập leo cầu thang để bạn tập luyện mọi nơi</a></p>\r\n\r\n<h3><strong>Mở nhạc l&ecirc;n v&agrave; quẩy</strong></h3>\r\n\r\n<p>Nếu bạn th&iacute;ch nhảy m&uacute;a th&igrave; c&ograve;n chờ g&igrave; m&agrave; kh&ocirc;ng mở những b&agrave;i nhạc tập gym s&ocirc;i động l&ecirc;n v&agrave; bắt đầu nhảy m&uacute;a theo những kiểu bạn th&iacute;ch, hoặc kh&ocirc;ng th&igrave; h&atilde;y mở những clip hướng dẫn tập nhảy tr&ecirc;n Youtube để tập theo.</p>\r\n\r\n<h3><strong>Thực hiện b&agrave;i tập leo n&uacute;i tr&ecirc;n s&agrave;n nh&agrave;</strong></h3>\r\n\r\n<p><a href=\"http://www.thehinh.com/2016/06/huong-dan-tap-bai-plank-leo-nui.html\">B&agrave;i tập&nbsp;mountain climbers</a>&nbsp;cũng l&agrave; một trong những b&agrave;i tập cardio đốt mỡ cực mạnh, n&oacute; c&ograve;n gi&uacute;p cho phần bụng v&agrave; tay của bạn khỏe hơn nữa.</p>\r\n\r\n<p><img alt=\"Động tác leo núi Mountain Climbers\" height=\"261\" src=\"http://cdn.thehinh.com/2016/06/Mountain-Climbers.gif\" title=\"Bí quyết tập luyện giảm cân tại nhà để lấy lại vóc dáng [p2]\" width=\"500\" /></p>\r\n\r\n<p>Động t&aacute;c leo n&uacute;i Mountain Climbers</p>\r\n\r\n<ul>\r\n	<li>Đầu ti&ecirc;n v&agrave;o tư thế chống đẩy tr&ecirc;n s&agrave;n.</li>\r\n	<li>K&eacute;o đầu gối ch&acirc;n phải ra sau c&ugrave;i chỏ tay phải rồi đưa về vị tr&iacute; cũ</li>\r\n	<li>Thực hiện lại cho b&ecirc;n ch&acirc;n tr&aacute;i.</li>\r\n	<li>Giữ lưng thẳng v&agrave; thực hiện động t&aacute;c nhanh nhất c&oacute; thể.</li>\r\n</ul>\r\n\r\n<h3><strong>Một số mẹo cho bạn để thực hiện b&iacute; quyết tập luyện giảm c&acirc;n tại nh&agrave; tốt hơn</strong></h3>\r\n\r\n<ul>\r\n	<li>H&atilde;y chắc chắn tạo cho m&igrave;nh nhiều th&oacute;i quen tập luyện, bao gồm cả tập sức mạnh với tạ. Bạn tăng được c&agrave;ng nhiều cơ, bạn đốt mỡ c&agrave;ng nhanh. V&igrave; hệ trao đổi chất của bạn sẽ tăng l&ecirc;n v&agrave; n&oacute; sẽ đốt ch&aacute;y calo nhiều hơn ngay cả khi bạn ngủ.</li>\r\n	<li>C&oacute; thể sử dụng bao tay khi tập, n&oacute; gi&uacute;p bạn cầm nắm dễ hơn v&agrave; giảm chấn thương cho bạn, h&atilde;y thử n&oacute; trước khi mua nh&eacute;.</li>\r\n	<li>Tập sức mạnh kh&ocirc;ng l&agrave;m bạn cơ bắp được như bạn vẫn nghĩ. N&oacute; gi&uacute;p bạn c&oacute; nhiều cơ nhưng kh&ocirc;ng khiến bạn tr&ocirc;ng th&ocirc; hơn đ&acirc;u, h&atilde;y y&ecirc;n t&acirc;m m&agrave; tập.</li>\r\n	<li>C&oacute; thể đầu tư th&ecirc;m một chiếc ghế tập để bạn c&oacute; thể thưc hiện c&aacute;c b&agrave;i tập được chắc chắn hơn.</li>\r\n</ul>\r\n\r\n<p>Hi vọng, với&nbsp;<strong>b&iacute; quyết tập luyện giảm c&acirc;n tại nh&agrave;</strong>&nbsp;được hướng dẫn ở b&agrave;i viết n&agrave;y sẽ gi&uacute;p &iacute;ch cho bạn trong tập luyện, vẫn c&ograve;n nhiều c&aacute;ch tập luyện kh&aacute;c nữa. V&igrave; thế h&atilde;y thường xuy&ecirc;n gh&eacute; lại thehinh.com để xem th&ecirc;m nh&eacute;.</p>\r\n\r\n<p><em>C&oacute; thể bạn sẽ th&iacute;ch: Tập bụng tại nh&agrave; hiệu quả</em></p>\r\n\r\n<div class=\"ddict_btn\" style=\"left:229.859px; top:76px\"><img src=\"chrome-extension://bpggmmljdiliancllaapiggllnkbjocb/icon/16.png\" /></div>', 'Ở bài viết Bí quyết giảm cân nhanh ngay tại nhà trước, chúng ta đã đi qua phần dinh dưỡng và ăn uống, ngay bây giờ, chúng ta sẽ đi qua những bí quyết tập luyện giảm cân tại nhà để hoàn tất công việc lấy lại vóc dáng nhé.', 'ki thuat tap', 0, 'BI-quyet-tap-luyen-tai-nh31.jpg', 4);
+INSERT INTO `tbl_post_lang` (`post_id`, `post_title`, `post_slug`, `post_desc`, `post_content`, `post_meta_desc`, `post_meta_keywords`, `post_status`, `post_image`, `cate_post_id`) VALUES
+(17, 'dich covid tren vnexpress', 'dich-covid-tren-vnexpress', '<p>C&aacute;c chuy&ecirc;n gia dịch tễ đ&aacute;nh gi&aacute; quy định &aacute;p dụng với Vietnam Airlines đủ chặt chẽ, nhưng tiếp vi&ecirc;n h&agrave;ng kh&ocirc;ng, &quot;bệnh nh&acirc;n 1342&quot;, thiếu &yacute; thức, g&acirc;y l&acirc;y lan nCoV.</p>', '<h1>Chuy&ecirc;n gia dịch tễ: &#39;Bệnh nh&acirc;n 1342&#39; thiếu &yacute; thức c&aacute;ch ly</h1>\r\n\r\n<p>C&aacute;c chuy&ecirc;n gia dịch tễ đ&aacute;nh gi&aacute; quy định &aacute;p dụng với Vietnam Airlines đủ chặt chẽ, nhưng tiếp vi&ecirc;n h&agrave;ng kh&ocirc;ng, &quot;bệnh nh&acirc;n 1342&quot;, thiếu &yacute; thức, g&acirc;y l&acirc;y lan nCoV.</p>\r\n\r\n<p><a href=\"https://vnexpress.net/them-hai-nguoi-nhap-canh-nhiem-ncov-4198851.html\" rel=\"dofollow\">&quot;Bệnh nh&acirc;n 1342&quot;</a>, tiếp vi&ecirc;n h&agrave;ng kh&ocirc;ng của Vietnam Airlines, đ&atilde; l&acirc;y nhiễm cho <a href=\"https://vnexpress.net/mot-thanh-nien-o-tp-hcm-nhiem-ncov-4199428.html\" rel=\"dofollow\">&quot;bệnh nh&acirc;n 1347&quot; </a>trong thời gian c&aacute;ch ly tại nh&agrave;. Ca l&acirc;y n&agrave;y chấm dứt 120 ng&agrave;y tại TP HCM v&agrave; 88 ng&agrave;y tr&ecirc;n cả nước kh&ocirc;ng ghi nhận l&acirc;y nhiễm nội địa. Bộ Y tế ph&acirc;n loại đ&acirc;y l&agrave; ca l&acirc;y nhiễm trong c&aacute;ch ly.</p>\r\n\r\n<p>&Ocirc;ng Trần Đắc Phu, Cố vấn cao cấp Trung t&acirc;m Đ&aacute;p ứng Khẩn cấp Sự kiện Y tế C&ocirc;ng cộng Việt Nam, nhận định quy định c&aacute;ch ly ri&ecirc;ng d&agrave;nh cho Vietnam Airlines l&agrave; &quot;chặt chẽ&quot;.</p>\r\n\r\n<p>Theo quy định, c&aacute;c th&agrave;nh vi&ecirc;n tổ bay (tiếp vi&ecirc;n, nh&acirc;n vi&ecirc;n kỹ thuật, mặt đất, điều phối bay) tr&ecirc;n c&aacute;c chuyến bay chở kh&aacute;ch về Việt Nam phải c&aacute;ch ly tập trung v&agrave; lấy mẫu x&eacute;t nghiệm. Nếu tất cả h&agrave;nh kh&aacute;ch v&agrave; th&agrave;nh vi&ecirc;n tổ bay c&oacute; kết quả x&eacute;t nghiệm &acirc;m t&iacute;nh lần một th&igrave; tiếp tục lấy mẫu lần hai với c&aacute;c th&agrave;nh vi&ecirc;n tổ bay. X&eacute;t nghiệm lần hai sau &iacute;t nhất 72 giờ kể từ lần lấy mẫu thứ nhất.</p>\r\n\r\n<p>Th&agrave;nh vi&ecirc;n tổ bay nếu x&eacute;t nghiệm lần hai &acirc;m t&iacute;nh sẽ được ph&eacute;p rời khỏi khu c&aacute;ch ly, tiếp tục c&aacute;ch ly tại nh&agrave; hoặc nơi cư tr&uacute; theo hướng dẫn của Bộ Y tế cho đến khi thực hiện nhiệm vụ quốc tế tiếp theo.</p>\r\n\r\n<p>&Ocirc;ng Phu cho rằng việc tiếp vi&ecirc;n tiếp x&uacute;c gần với bạn b&egrave; trong thời gian c&aacute;ch ly, l&acirc;y nhiễm sang người kh&aacute;c l&agrave; vi phạm quy định.</p>\r\n\r\n<p>&quot;&Yacute; thức c&aacute;ch ly tại nh&agrave; của tiếp vi&ecirc;n n&agrave;y kh&ocirc;ng tốt&quot;, &ocirc;ng Phu n&oacute;i.</p>\r\n\r\n<p>Tối 30/11, một l&atilde;nh đạo Đo&agrave;n Tiếp vi&ecirc;n Vietnam Airline cũng thừa nhận tiếp vi&ecirc;n &quot;bệnh nh&acirc;n 1342&quot; <a href=\"https://vnexpress.net/vietnam-airlines-tiep-vien-vi-pham-quy-dinh-cach-ly-ncov-4199466.html\" rel=\"dofollow\">vi phạm quy định c&aacute;ch ly</a>.</p>\r\n\r\n<p>B&aacute;c sĩ Phạm Quang Th&aacute;i, Ph&oacute; Trưởng khoa Kiểm so&aacute;t Bệnh truyền nhiễm, Viện Vệ sinh Dịch tễ Trung ương, đ&aacute;nh gi&aacute; quy định n&agrave;y đủ chặt chẽ v&agrave; việc c&aacute;ch ly c&oacute; t&aacute;c dụng trong ph&aacute;t triển kinh tế cũng như duy tr&igrave; tốt hoạt động của Vietnam Airlines.</p>\r\n\r\n<p>Tuy nhi&ecirc;n, &quot;c&ograve;n lỗ hổng khi &yacute; thức người c&aacute;ch ly chưa tốt&quot;, theo b&aacute;c sĩ Th&aacute;i.</p>\r\n\r\n<p>&quot;Cần xiết chặt lỗ hổng n&agrave;y bằng cam kết, chế t&agrave;i, gi&aacute;m s&aacute;t chủ động đối với khu c&aacute;ch ly v&agrave; người c&aacute;ch ly tại nh&agrave;, trong đ&oacute; c&oacute; vai tr&ograve; quản l&yacute; của địa phương. Khi c&aacute;c b&ecirc;n l&agrave;m tốt vai tr&ograve; của m&igrave;nh, việc c&aacute;ch ly mới được đảm bảo v&agrave; kiểm so&aacute;t dịch bệnh&quot;, b&aacute;c sĩ Th&aacute;i n&oacute;i.</p>\r\n\r\n<p>B&aacute;c sĩ Trương Hữu Khanh, Khoa Nhiễm - Thần kinh của Bệnh viện Nhi Đồng 1, TP HCM, cho rằng b&agrave;i học từ ca nhiễm n&agrave;y l&agrave; c&aacute;c b&ecirc;n cần xiết chặt những quy định, c&oacute; b&ecirc;n thứ ba kiểm so&aacute;t người c&aacute;ch ly tại nh&agrave;, kh&ocirc;ng n&ecirc;n ph&oacute; mặc tất cả cho &yacute; thức của người c&aacute;ch ly, tạo lỗ hổng l&agrave;m cho dịch bệnh l&acirc;y lan.</p>\r\n\r\n<div class=\"fig-picture\" style=\"padding-bottom:64.043915827996%; position:relative\"><img alt=\"Nhân viên y tế lấy mẫu xét nghiệm cho người dân. Ảnh: Đắc Thành.\" class=\"lazied lazy\" src=\"https://i1-suckhoe.vnecdn.net/2020/12/01/img-4171-1606801528-2303-1606802171.jpg?w=680&amp;h=0&amp;q=100&amp;dpr=1&amp;fit=crop&amp;s=7pEos1IU4KwseGzjEVljEQ\" style=\"left:0; position:absolute; width:100%\" /></div>\r\n\r\n<p>Nh&acirc;n vi&ecirc;n y tế lấy mẫu x&eacute;t nghiệm cho người d&acirc;n. Ảnh: <em>Đắc Th&agrave;nh.</em></p>\r\n\r\n<p>Theo <em>Hướng dẫn c&aacute;ch ly y tế tại nh&agrave;, nơi lưu tr&uacute; để ph&ograve;ng chống bệnh Covid-19</em>, Bộ Y tế, người được c&aacute;ch ly phải chấp h&agrave;nh việc tự c&aacute;ch ly tại nh&agrave;, nơi lưu tr&uacute; đ&uacute;ng thời gian quy định, tốt nhất c&aacute;ch ly ở một ph&ograve;ng ri&ecirc;ng. Trong trường hợp gia đ&igrave;nh, nơi lưu tr&uacute; kh&ocirc;ng c&oacute; ph&ograve;ng ri&ecirc;ng th&igrave; giường ngủ của người được c&aacute;ch ly n&ecirc;n c&aacute;ch xa giường ngủ của c&aacute;c th&agrave;nh vi&ecirc;n kh&aacute;c trong gia đ&igrave;nh &iacute;t nhất 2 m&eacute;t.</p>\r\n\r\n<p>H&agrave;ng ng&agrave;y, người c&aacute;ch ly cần hạn chế ra khỏi ph&ograve;ng ri&ecirc;ng, hạn chế tiếp x&uacute;c trực tiếp với người trong gia đ&igrave;nh, nơi lưu tr&uacute; cũng như những người kh&aacute;c; tự theo d&otilde;i sức khỏe; đeo khẩu trang. Kh&ocirc;ng ăn chung c&ugrave;ng với những người kh&aacute;c trong gia đ&igrave;nh, nơi lưu tr&uacute;.</p>\r\n\r\n<p>C&aacute;c th&agrave;nh vi&ecirc;n trong gia đ&igrave;nh, người l&agrave;m việc, quản l&yacute; nơi lưu tr&uacute; của người được c&aacute;ch ly, h&agrave;ng ng&agrave;y hạn chế tiếp x&uacute;c với người được c&aacute;ch ly. Đeo khẩu trang v&agrave; giữ khoảng c&aacute;ch tối thiểu 2 m&eacute;t khi cần tiếp x&uacute;c.</p>\r\n\r\n<p>Tối 30/11, Bộ Y tế ghi nhận &quot;bệnh nh&acirc;n 1347&quot;, gi&aacute;o vi&ecirc;n tiếng Anh, đ&atilde; l&acirc;y nhiễm nCoV từ &quot;bệnh nh&acirc;n 1342&quot;. Giao vi&ecirc;n n&agrave;y đến ở c&ugrave;ng với tiếp vi&ecirc;n h&agrave;ng kh&ocirc;ng khi anh ta đang trong thời gian c&aacute;ch ly tại nơi cư tr&uacute; ở quận T&acirc;n B&igrave;nh. Ngo&agrave;i ra, c&ograve;n hai người nữa gồm mẹ (tr&uacute; H&oacute;c M&ocirc;n) v&agrave; bạn (tr&uacute; B&igrave;nh Thạnh) tiếp x&uacute;c với nam tiếp vi&ecirc;n.</p>\r\n\r\n<p>Đến tối 30/11, x&aacute;c định được <a href=\"https://vnexpress.net/192-nguoi-tp-hcm-tiep-xuc-benh-nhan-1347-4199445.html\" rel=\"dofollow\">192 người tiếp x&uacute;c</a> &quot;bệnh nh&acirc;n 1347&quot;, trong đ&oacute; 73 người đ&atilde; lấy mẫu x&eacute;t nghiệm, chưa c&oacute; kết quả.</p>\r\n\r\n<p>S&aacute;ng nay, giới chức <a href=\"https://vnexpress.net/phong-toa-khu-dan-cu-noi-o-2-nguoi-nhiem-ncov-4199755.html\" rel=\"dofollow\">phong tỏa một số khu vực</a> l&agrave; nơi ở của hai bệnh nh&acirc;n. Hai trường tiểu học với hơn <a href=\"https://vnexpress.net/hon-2-000-hoc-sinh-nghi-phong-covid-19-4199745.html\" rel=\"dofollow\">2.000 học sinh phải nghỉ học</a> do c&oacute; gi&aacute;o vi&ecirc;n l&agrave; F1 của bệnh nh&acirc;n.</p>\r\n\r\n<p style=\"text-align:right\"><strong>L&ecirc; Nga - Chi L&ecirc;</strong></p>', 'covid lay lan vi thieu y thuc , hinh thuc xu phat', 'dich covid , hang khong , thieu y thuc , vietnam airlaines', 0, 'cho chi hong18.jpg', 8),
+(18, 'tinh hinh covid , xy ly benh nha 13421', 'tinh-hinh-covid-xy-ly-benh-nha-13421', '<p>TP HCM nghi&ecirc;n cứu h&igrave;nh thức xử l&yacute; &#39;bệnh nh&acirc;n 1342&#39;</p>', '<h1>TP HCM nghi&ecirc;n cứu h&igrave;nh thức xử l&yacute; &#39;bệnh nh&acirc;n 1342&#39;</h1>\r\n\r\n<p>C&aacute;c cơ quan chức năng li&ecirc;n quan ph&aacute;p luật của TP HCM nghi&ecirc;n cứu c&aacute;c quy định, đặc biệt Luật ph&ograve;ng chống bệnh truyền nhiễm 2007 để xử l&yacute; &quot;bệnh nh&acirc;n 1342&quot;.</p>\r\n\r\n<p>Y&ecirc;u cầu được Chủ tịch UBND TP HCM Nguyễn Th&agrave;nh Phong đưa ra tại cuộc họp với c&aacute;c sở ng&agrave;nh v&agrave; quận huyện, chiều 1/12, khi đề cập đến &quot;bệnh nh&acirc;n 1342&quot;, 28 tuổi, l&agrave; tiếp vi&ecirc;n Vietnam Airlines đ&atilde; vi phạm c&aacute;c quy định ph&ograve;ng chống dịch.</p>\r\n\r\n<p>&quot;Tinh thần Chủ tịch UBND th&agrave;nh phố chỉ đạo l&agrave; vi phạm đến đ&acirc;u sẽ xử l&yacute; đến đấy. Đ&acirc;y cũng l&agrave; chỉ đạo của Thủ tướng, Ph&oacute; thủ tướng tại cuộc họp trực tuyến chiều nay&quot;, &ocirc;ng Từ Lương, Ph&oacute; gi&aacute;m đốc Sở Th&ocirc;ng tin - Truyền th&ocirc;ng TP HCM n&oacute;i khi đề cập đến y&ecirc;u cầu của l&atilde;nh đạo th&agrave;nh phố.</p>\r\n\r\n<div class=\"fig-picture\" style=\"padding-bottom:70.8%; position:relative\"><img alt=\"Phó giám đốc Sở Thông tin - Truyền thông Từ Lương cung cấp thêm thông tin tại cuộc họp của UBND TP HCM với các sở ngành, quận huyện chiều nay. Ảnh: Hữu Công\" class=\"lazied lazy\" src=\"https://i1-vnexpress.vnecdn.net/2020/12/01/tu-luong-2495-1606824356.jpg?w=680&amp;h=0&amp;q=100&amp;dpr=1&amp;fit=crop&amp;s=sa8IKROaDH4JmsYWAPcaWA\" style=\"left:0; position:absolute; width:100%\" />\r\n<div class=\"embed-container\" style=\"bottom:0px; display:block; height:100px; margin-bottom:0px !important; padding-bottom:0px !important; position:absolute; width:100%\">&nbsp;</div>\r\n</div>\r\n\r\n<p>Ph&oacute; gi&aacute;m đốc Sở Th&ocirc;ng tin - Truyền th&ocirc;ng Từ Lương cung cấp th&ocirc;ng tin tại cuộc họp của UBND TP HCM với c&aacute;c sở ng&agrave;nh, quận huyện chiều 1/12. Ảnh: <em>Hữu C&ocirc;ng.</em></p>\r\n\r\n<p>N&oacute;i th&ecirc;m vi phạm của &quot;bệnh nh&acirc;n 1342&quot;, Gi&aacute;m đốc Sở Y tế th&agrave;nh phố Nguyễn Tấn Bỉnh cho biết theo quy định, phi h&agrave;nh đo&agrave;n mỗi chuyến bay được c&aacute;ch ly ở một khu ri&ecirc;ng. Tuy nhi&ecirc;n, trong qu&aacute; tr&igrave;nh ở khu c&aacute;ch ly tập trung, &quot;bệnh nh&acirc;n 1342&quot; đi qua khu kh&aacute;c v&agrave; bị nhiễm nCoV từ &quot;bệnh nh&acirc;n 1325&quot; (chuyến bay từ Rumani về Việt Nam).</p>\r\n\r\n<p>&quot;Điều n&agrave;y thể hiện sự lỏng lẻo trong quản l&yacute; ở khu c&aacute;ch ly tập trung của Vietnam Airlines&quot;, &ocirc;ng Bỉnh n&oacute;i v&agrave; khẳng định c&aacute;c khu c&aacute;ch ly tập trung đều được thẩm định bởi cơ sở y tế, bảo đảm c&aacute;c quy định về chống dịch mới được tiếp nhận người c&aacute;ch ly.</p>\r\n\r\n<p>&Ocirc;ng Bỉnh cho biết theo chỉ đạo của Bộ Y tế, th&agrave;nh phố đ&atilde; đ&oacute;ng cửa khu c&aacute;ch ly tập trung của Vietnam Airlines ở đường Hồng H&agrave;, phường 2, quận T&acirc;n B&igrave;nh.</p>\r\n\r\n<p>Chủ tịch UBND th&agrave;nh phố y&ecirc;u cầu ch&iacute;nh quyền c&aacute;c <strong>quận 6, T&acirc;n B&igrave;nh, B&igrave;nh T&acirc;n chủ động xem x&eacute;t đề xuất UBND th&agrave;nh phố quyết định nếu thấy cần thiết gi&atilde;n c&aacute;ch khu vực</strong>. &quot;Việc n&agrave;y thực hiện theo tinh thần chỉ đạo của Ch&iacute;nh phủ l&agrave; kh&ocirc;ng gi&atilde;n c&aacute;ch x&atilde; hội tr&ecirc;n địa b&agrave;n rộng lớn, chỉ xem x&eacute;t với những khu vực nhỏ nhưng c&oacute; nguy cơ cao&quot;, &ocirc;ng Từ Lương n&oacute;i.</p>\r\n\r\n<p>Th&agrave;nh phố cũng y&ecirc;u cầu người d&acirc;n chấp h&agrave;nh đeo khẩu trang nơi c&ocirc;ng cộng, nhất l&agrave; bệnh viện, trường học, chợ... C&aacute;c cơ quan, tổ chức, cơ sở kinh doanh được y&ecirc;u cầu thực hiện nghi&ecirc;m 8 bộ ti&ecirc;u ch&iacute; ng&agrave;nh nghề m&agrave; th&agrave;nh phố đ&atilde; ban h&agrave;nh.</p>\r\n\r\n<div class=\"fig-picture\" style=\"padding-bottom:63.868613138686%; position:relative\"><img alt=\"Hẻm trên đường Phạm Văn Chí, quận 6, nơi gia đình bé trai một tuổi nhiễm nCoV bị phong tỏa tối 1/12. Ảnh: Đình Văn.\" class=\"lazied lazy\" src=\"https://i1-vnexpress.vnecdn.net/2020/12/01/128746581-1018788495286520-916-3053-4648-1606828681.jpg?w=680&amp;h=0&amp;q=100&amp;dpr=1&amp;fit=crop&amp;s=qRPfLREwcZYPrIAV7ssgbA\" style=\"left:0; position:absolute; width:100%\" /></div>\r\n\r\n<p>Hẻm tr&ecirc;n đường Phạm Văn Ch&iacute;, quận 6, nơi gia đ&igrave;nh b&eacute; trai một tuổi nhiễm nCoV bị phong tỏa tối 1/12. Ảnh: <em>Đ&igrave;nh Văn.</em></p>\r\n\r\n<p>C&aacute;c quận 1,3, 6, 10, 11, Ph&uacute; Nhuận, B&igrave;nh T&acirc;n, T&acirc;n B&igrave;nh, T&acirc;n Ph&uacute; - những nơi &quot;bệnh nh&acirc;n 1347&quot; (nam, 32 tuổi, gi&aacute;o vi&ecirc;n tiếng Anh, nhiễm nCoV từ <a href=\"https://vnexpress.net/them-hai-nguoi-nhap-canh-nhiem-ncov-4198851.html\" rel=\"dofollow\">&quot;bệnh nh&acirc;n 1342&quot;</a>) đ&atilde; c&oacute; mặt, được y&ecirc;u cầu phải r&agrave; so&aacute;t kỹ. Cơ sở n&agrave;o c&oacute; nguy cơ, dấu hiệu kh&ocirc;ng an to&agrave;n phải đ&oacute;ng cửa.</p>\r\n\r\n<p>&quot;Bệnh nh&acirc;n 1342&quot; từ Nhật Bản nhập cảnh về Việt Nam h&ocirc;m 14/11, lưu tại khu c&aacute;ch ly do Vietnam Airlines quản l&yacute; ở số 115 Hồng H&agrave;, phường 2, quận T&acirc;n B&igrave;nh, từ ng&agrave;y 14 đến 18/11.</p>\r\n\r\n<p>Sau khi x&eacute;t nghiệm hai lần kết quả &acirc;m t&iacute;nh, tiếp vi&ecirc;n n&agrave;y về c&aacute;ch ly tại nh&agrave; trọ ở đường Bạch Đằng, phường 2, quận T&acirc;n B&igrave;nh. Trong qu&aacute; tr&igrave;nh c&aacute;ch ly, anh tiếp x&uacute;c trực tiếp với mẹ (ở H&oacute;c M&ocirc;n), một bạn nữ (tr&uacute; B&igrave;nh Thạnh) v&agrave; bạn nam (ở quận 6). Trong đ&oacute;, bạn nam l&agrave;m nghề gi&aacute;o vi&ecirc;n tiếng Anh tới nh&agrave; trọ sống c&ugrave;ng.</p>\r\n\r\n<p>Ng&agrave;y 28/11, tiếp vi&ecirc;n x&eacute;t nghiệm dương t&iacute;nh. Ba người tiếp x&uacute;c với anh ta được c&aacute;ch ly v&agrave; x&eacute;t nghiệm. Gi&aacute;o vi&ecirc;n tiếng Anh dương t&iacute;nh nCoV, trở th&agrave;nh &quot;bệnh nh&acirc;n 1347&quot;.</p>\r\n\r\n<p>Ca nhiễm n&agrave;y chấm dứt chuỗi 120 ng&agrave;y TP HCM kh&ocirc;ng ghi nhận l&acirc;y nhiễm trong cộng đồng. Ca nhiễm cuối được ghi nhận v&agrave;o 4 th&aacute;ng trước, h&ocirc;m 2/8.</p>\r\n\r\n<p>&quot;Bệnh nh&acirc;n 1347&quot; cũng khiến hai trường hợp ở quận 6 nhiễm Covid-19 l&agrave; b&eacute; trai một tuổi - &quot;<a href=\"https://vnexpress.net/hai-ca-nhiem-moi-trong-cong-dong-tai-tp-hcm-4199933.html\" rel=\"dofollow\">bệnh nh&acirc;n 1348</a>&quot; v&agrave; nữ học vi&ecirc;n Trung t&acirc;m Anh ngữ Key English, 28 tuổi - &quot;bệnh nh&acirc;n 1349&quot; được Bộ Y tế c&ocirc;ng bố chiều 1/12.</p>\r\n\r\n<p>TP HCM đ&atilde; ghi nhận 139 người nhiễm nCoV, trong đ&oacute; 102 người điều trị khỏi, 37 người đang điều trị. Số người c&aacute;ch ly tại c&aacute;c khu tập trung l&agrave; 1.437 người, tại nh&agrave; l&agrave; 29 người.</p>\r\n\r\n<p style=\"text-align:right\"><strong>Hữu C&ocirc;ng</strong></p>', 'xu ly co vid', 'xu ly co vid', 0, 'IMG8057-1606805136-1119-160680641794.jpg', 8);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_product`
+-- Table structure for table `tbl_product`
 --
 
-CREATE TABLE `tbl_product` (
-  `product_id` int(10) UNSIGNED NOT NULL,
-  `product_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `product_tags` text COLLATE utf8mb4_unicode_ci,
-  `product_quantity` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+DROP TABLE IF EXISTS `tbl_product`;
+CREATE TABLE IF NOT EXISTS `tbl_product` (
+  `product_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `product_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_tags` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `product_quantity` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `product_sold` int(11) DEFAULT NULL,
-  `product_slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_slug` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `category_id` int(11) UNSIGNED NOT NULL,
   `brand_id` int(11) UNSIGNED NOT NULL,
-  `product_desc` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `product_content` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `product_price` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `product_image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_desc` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_content` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_price` int(100) NOT NULL,
+  `price_cost` int(11) NOT NULL,
+  `product_image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `product_file` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `product_views` int(11) DEFAULT NULL,
   `product_status` int(11) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`product_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_product`
+-- Dumping data for table `tbl_product`
 --
 
-INSERT INTO `tbl_product` (`product_id`, `product_name`, `product_tags`, `product_quantity`, `product_sold`, `product_slug`, `category_id`, `brand_id`, `product_desc`, `product_content`, `product_price`, `product_image`, `product_status`, `created_at`, `updated_at`) VALUES
-(6, 'Royal Canin Urinary Canine Dog 2kg - Dành cho chó bị sỏi thận-10kg', '', '40', 10, 'royal-canin-urinary-canine-dog-2kg-danh-cho-cho-bi-soi-than-10kg', 8, 8, '<p>&nbsp;</p>\r\n\r\n<p>Royal Canin Urinary Canine Dog 2kg - D&agrave;nh cho ch&oacute; bị sỏi thận</p>', '<p><strong>Nguy&ecirc;n liệu</strong></p>\r\n\r\n<p>Bột bắp, gạo, chất b&eacute;o động vật, protein gia cầm, gluten bắp, kho&aacute;ng chất, protein động vật, xơ thực vật, dầu đậu n&agrave;nh, dầu c&aacute;, fructo-oligo-sacarit, monoglycerit v&agrave; diglycerit của axit palmitic v&agrave; stearic từ phản ứng este h&oacute;a với axit citric, chiết xuất c&uacute;c vạn thọ (nguồn lutein).<br />\r\nNguồn protein: protein gia cầm, gluten bắp, protein động vật.</p>\r\n\r\n<p>Phụ gia dinh dưỡng: Vitamin A, Vitamin D3, E1(Sắt), E2 (I ốt), E4 (Đồng), E5 (Mangan), E6 (Kẽm), E8 (Selen), Chất axit h&oacute;a nước tiểu: Canxi Sunfat (0.88%). Chất chống oxi h&oacute;a.</p>\r\n\r\n<p><strong>Th&agrave;nh phần dinh dưỡng</strong></p>\r\n\r\n<p><img alt=\"\" src=\"https://www.petcity.vn/media/lib/4372_Thnhphndinhdng.jpg\" /></p>\r\n\r\n<p><strong>Đặc t&iacute;nh nổi bật</strong></p>\r\n\r\n<p><img alt=\"\" src=\"https://www.petcity.vn/media/lib/4372_ctnhnibt.jpg\" /></p>\r\n\r\n<p><strong>Khẩu phần ăn chuẩn</strong>&nbsp;</p>\r\n\r\n<p><img alt=\"\" src=\"https://www.petcity.vn/media/lib/4372_Bngnthamkho.jpg\" /></p>', '431000', '250_4341_ava66.jpg', 0, NULL, NULL),
-(7, 'Thức ăn cho chó nhỏ trưởng thành Farmina N&D PUMPKIN vị heo, bí ngô và táo 3kg', '', '98', 2, 'thuc-an-cho-cho-nho-truong-thanh-farmina-nd-pumpkin-vi-heo-bi-ngo-va-tao-3kg', 8, 8, '<p>Thức ăn cho ch&oacute; nhỏ trưởng th&agrave;nh Farmina N&amp;D PUMPKIN vị heo, b&iacute; ng&ocirc; v&agrave; t&aacute;o 3kg</p>', '<h3>Farmina - N&amp;D PUMPKIN DOG boar, apple mini adult</h3>\r\n\r\n<p>(d&agrave;nh cho ch&oacute; nhỏ tr&ecirc;n 10 th&aacute;ng tuổi)</p>\r\n\r\n<p>Vị heo, b&iacute; ng&ocirc; v&agrave; t&aacute;o</p>\r\n\r\n<figure class=\"easyimage easyimage-full\"><img alt=\"\" src=\"blob:http://localhost/78cb3d06-bf55-435e-bdf7-33be79a67da8\" width=\"250\" />\r\n<figcaption></figcaption>\r\n</figure>\r\n\r\n<p><strong>Th&agrave;nh phần&nbsp;</strong></p>\r\n\r\n<p>Thịt lợn rừng kh&ocirc;ng xương (24%), protein thịt lợn mất nước (22%), tinh bột đậu (20%), mỡ g&agrave;, b&iacute; ng&ocirc; khử nước (5%), trứng khử nước, dầu c&aacute;, chất xơ thực vật, c&agrave; rốt kh&ocirc;, cỏ linh lăng kh&ocirc;, inulin, fructooligosacarit, mannanoligosacarit, t&aacute;o khử nước (0,5%), bột rau bina, psyllium (0,3%), bột lựu, bột blackcurrant, cam ngọt, nước ngọt , chondroitin sulphate, chiết xuất c&uacute;c vạn thọ (nguồn lutein)</p>', '230000', '250_4343_ava69.jpg', 0, NULL, NULL),
-(8, 'Thức ăn cho chó nhỏ trưởng thành Farmina N&D PUMPKIN vị heo, bí ngô và táo 7kg', '', '98', 2, 'thuc-an-cho-cho-nho-truong-thanh-farmina-nd-pumpkin-vi-heo-bi-ngo-va-tao-7kg', 8, 8, '<p>Thức ăn cho ch&oacute; nhỏ trưởng th&agrave;nh Farmina N&amp;D PUMPKIN vị heo, b&iacute; ng&ocirc; v&agrave; t&aacute;o 7kg</p>', '<h3>Farmina - N&amp;D PUMPKIN DOG boar, apple mini adult</h3>\r\n\r\n<p>(d&agrave;nh cho ch&oacute; nhỏ tr&ecirc;n 10 th&aacute;ng tuổi)</p>\r\n\r\n<p>Vị heo, b&iacute; ng&ocirc; v&agrave; t&aacute;o</p>\r\n\r\n<figure class=\"easyimage easyimage-full\"><img alt=\"\" src=\"blob:http://localhost/78cb3d06-bf55-435e-bdf7-33be79a67da8\" width=\"250\" />\r\n<figcaption></figcaption>\r\n</figure>\r\n\r\n<p><strong>Th&agrave;nh phần&nbsp;</strong></p>\r\n\r\n<p>Thịt lợn rừng kh&ocirc;ng xương (24%), protein thịt lợn mất nước (22%), tinh bột đậu (20%), mỡ g&agrave;, b&iacute; ng&ocirc; khử nước (5%), trứng khử nước, dầu c&aacute;, chất xơ thực vật, c&agrave; rốt kh&ocirc;, cỏ linh lăng kh&ocirc;, inulin, fructooligosacarit, mannanoligosacarit, t&aacute;o khử nước (0,5%), bột rau bina, psyllium (0,3%), bột lựu, bột blackcurrant, cam ngọt, nước ngọt , chondroitin sulphate, chiết xuất c&uacute;c vạn thọ (nguồn lutein)</p>', '135000', '250_4343_ava69.jpg', 0, NULL, NULL),
-(9, 'Royal Canin Urinary Canine Dog 2kg - Dành cho chó bị sỏi thận', '', '60', NULL, 'royal-canin-urinary-canine-dog-2kg-danh-cho-cho-bi-soi-than', 8, 8, '<p>Royal Canin Urinary Canine Dog 2kg - D&agrave;nh cho ch&oacute; bị sỏi thận</p>', '<h3>Farmina - N&amp;D PUMPKIN DOG boar, apple mini adult</h3>\r\n\r\n<p>(d&agrave;nh cho ch&oacute; nhỏ tr&ecirc;n 10 th&aacute;ng tuổi)</p>\r\n\r\n<p>Vị heo, b&iacute; ng&ocirc; v&agrave; t&aacute;o</p>\r\n\r\n<p><strong>Th&agrave;nh phần&nbsp;</strong></p>\r\n\r\n<p>Thịt lợn rừng kh&ocirc;ng xương (24%), protein thịt lợn mất nước (22%), tinh bột đậu (20%), mỡ g&agrave;, b&iacute; ng&ocirc; khử nước (5%), trứng khử nước, dầu c&aacute;, chất xơ thực vật, c&agrave; rốt kh&ocirc;, cỏ linh lăng kh&ocirc;, inulin, fructooligosacarit, mannanoligosacarit, t&aacute;o khử nước (0,5%), bột rau bina, psyllium (0,3%), bột lựu, bột blackcurrant, cam ngọt, nước ngọt , chondroitin sulphate, chiết xuất c&uacute;c vạn thọ (nguồn lutein)</p>\r\n\r\n<p><strong>Bảng ăn tham khảo</strong></p>\r\n\r\n<p><img alt=\"\" src=\"https://www.petcity.vn/media/lib/4284_bngn.png\" /></p>', '450000', '1444_SmartheartPuppy54.jpg', 0, NULL, NULL),
-(10, 'Thức ăn cho chó nhỏ trưởng thành Farmina - N&D PUMPKIN vị gà, bí ngô, công thức lựu', '', '100', NULL, 'thuc-an-cho-cho-nho-truong-thanh-farmina-nd-pumpkin-vi-ga-bi-ngo-cong-thuc-luu', 8, 8, '<p>Thức ăn cho ch&oacute; nhỏ trưởng th&agrave;nh Farmina - N&amp;D PUMPKIN vị g&agrave;, b&iacute; ng&ocirc;, c&ocirc;ng thức lựu&nbsp;</p>', '<h3>Farmina - N&amp;D PUMPKIN DOG chicken mini adult</h3>\r\n\r\n<p>(d&agrave;nh cho ch&oacute; nhỏ tr&ecirc;n 10 th&aacute;ng tuổi)</p>\r\n\r\n<p>Vị g&agrave;, b&iacute; ng&ocirc;, c&ocirc;ng thức lựu</p>\r\n\r\n<p><strong>Th&agrave;nh phần</strong></p>\r\n\r\n<p>G&agrave; kh&ocirc;ng xương (24%), protein g&agrave; mất nước (22%), tinh bột đậu (20%), mỡ g&agrave;, b&iacute; ng&ocirc; khử nước (5%), trứng khử nước, c&aacute; tr&iacute;ch, protein c&aacute; tr&iacute;ch mất nước, dầu c&aacute;, xơ thực vật, sấy kh&ocirc; c&agrave; rốt, cỏ linh lăng kh&ocirc;, inulin, fructooligosacarit, mannanoligosacarit, bột lựu (0,5%), t&aacute;o khử nước, bột rau bina, psyllium (0,3%), bột blackcurrant, cam kh&ocirc;, bột ngọt 0,2%), glucosamine, chondroitin sulphate, chiết xuất c&uacute;c vạn thọ (nguồn lutein)</p>\r\n\r\n<p><strong>Bảng ăn tham khảo</strong></p>\r\n\r\n<p>&nbsp;<img alt=\"\" src=\"https://www.petcity.vn/media/lib/4283_ntk.png\" /></p>', '125000', '12315.jpg', 1, NULL, NULL),
-(11, 'Thức ăn ướt Me-o Delite vị cá ngừ và thịt gà xé 70gr', '', '100', NULL, 'thuc-an-uot-me-o-delite-vi-ca-ngu-va-thit-ga-xe-70gr', 8, 8, '<p>Thức ăn ướt Me-o Delite vị c&aacute; ngừ v&agrave; thịt g&agrave; x&eacute; 70gr</p>', '<p><strong>Thức ăn ướt Me-o Delite vị c&aacute; ngừ v&agrave; thịt g&agrave; x&eacute;</strong></p>\r\n\r\n<p><strong>Nguy&ecirc;n Liệu Ch&iacute;nh:</strong>&nbsp;C&aacute; ngừ tươi, thịt g&agrave; x&eacute;, chất tạo đ&ocirc;ng, chất điều vị, taurin, c&aacute;c vitamin v&agrave; kho&aacute;ng chất.</p>\r\n\r\n<p><strong>Th&agrave;nh phần dinh dưỡng&nbsp;</strong></p>\r\n\r\n<p>Chất đạm : 8%</p>\r\n\r\n<p>Chất b&eacute;o : 0.3%&nbsp;</p>\r\n\r\n<p>Chất xơ : 1%</p>\r\n\r\n<p>Độ ẩm : 90%</p>\r\n\r\n<p><strong>Điểm nổi bật&nbsp;</strong></p>\r\n\r\n<ul>\r\n	<li>Được l&agrave;m từ c&aacute; thật</li>\r\n	<li>Taurine: Tăng cường hệ miễn dịch v&agrave; thị gi&aacute;c.</li>\r\n	<li>Biotin/ Zinc: Gi&uacute;p l&agrave;n da v&agrave; bộ long khỏe mạnh.</li>\r\n	<li>Vitamin C: Gi&uacute;p tăng cường hệ miễn dịch.</li>\r\n</ul>\r\n\r\n<p><strong>Bảo quản:</strong>&nbsp;Nơi kh&ocirc; r&aacute;o tho&aacute;ng m&aacute;t</p>', '25000', '12342.jpg', 0, NULL, NULL),
-(12, 'Whiskas - Pate Tuna junior 85g', '', '90', NULL, 'whiskas-pate-tuna-junior-85g', 8, 8, '<p>Whiskas - Pate Tuna junior 85g</p>', '<p>Whiskas - Pate Tuna junior 85g</p>', '10000', '1251_790_royal_canin_indoor_2726.jpg', 0, NULL, NULL),
-(13, 'Súp thưởng Ciao vị cá ngừ và sò điệp cho mèo (14g*20)', 'vị cá ngừ,cá ngừ sup,súp cá ngừ,vị sò diệp,vị,sò điệp', '100', NULL, 'sup-thuong-ciao-vi-ca-ngu-va-so-diep-cho-meo-14g20', 8, 8, '<p>S&uacute;p thưởng Ciao vị c&aacute; ngừ v&agrave; s&ograve; điệp cho m&egrave;o (14g*20)</p>', '<p><strong>S&uacute;p thưởng Ciao vị c&aacute; ngừ v&agrave; s&ograve; điệp</strong></p>\r\n\r\n<p><strong>Th&agrave;nh phần</strong></p>\r\n\r\n<p>C&aacute; ngừ, s&ograve; điệp, tinh bột biến t&iacute;nh, chất tạo m&ugrave;i, Guar Gum, chiết xuất s&ograve; điệp, Vitamin E, Carrageenan, bột tr&agrave; xanh, Fructooligosaccharides.</p>\r\n\r\n<p><strong>Th&agrave;nh phần dinh dưỡng&nbsp;</strong></p>\r\n\r\n<p>Độ ẩm &le; 93,0 %; Protein th&ocirc; &ge; 7,0 %; B&eacute;o th&ocirc; &ge; 0,2 %; Xơ th&ocirc; &le; 1,0 %; Kho&aacute;ng tổng số &le; 2,0 %</p>\r\n\r\n<p><strong>Sử dụng</strong></p>\r\n\r\n<p>Cho ăn trực tiếp &ndash; D&ugrave;ng như b&aacute;nh thưởng.</p>\r\n\r\n<p>Khẩu phần: 56g/ ng&agrave;y.</p>\r\n\r\n<p>Sản phẩm n&agrave;y kh&ocirc;ng d&ugrave;ng thay thế bữa ăn ch&iacute;nh. Lu&ocirc;n giữ cung cấp nước sạch thường xuy&ecirc;n.</p>', '138000', '250_4370_ciao_g_____c___ng___7.png', 0, NULL, NULL),
-(14, 'Áo Thun Nam Y2010 Basic AI05', '', '60', NULL, 'ao-thun-nam-y2010-basic-ai05', 3, 4, '<p>&Aacute;o Thun Nam Y2010 Basic AI05</p>', '<h5>Tiết kiệm&nbsp;-37,000 đ</h5>\r\n\r\n<table>\r\n	<tbody>\r\n		<tr>\r\n			<td>0019492001</td>\r\n			<td>Đen, M</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại CH</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td>0019492002</td>\r\n			<td>Đen, L</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại CH</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td>0019492003</td>\r\n			<td>Đen, XL</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại C</strong></td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<figure class=\"easyimage easyimage-full\"><img alt=\"\" src=\"blob:http://localhost/dded5595-6630-4325-a8f7-dbc35a0b7bf6\" width=\"500\" />\r\n<figcaption></figcaption>\r\n</figure>\r\n\r\n<p>&nbsp;</p>', '135000', 'd84OO5_simg_de2fe0_500x500_maxb59.jpg', 0, NULL, NULL),
-(15, 'Áo Thun Nam Y2010 Basic AI01', '', '60', NULL, 'ao-thun-nam-y2010-basic-ai01', 3, 8, '<p>&Aacute;o Thun Nam Y2010 Basic AI05</p>', '<h5>Tiết kiệm&nbsp;-37,000 đ</h5>\r\n\r\n<table>\r\n	<tbody>\r\n		<tr>\r\n			<td>0019492001</td>\r\n			<td>Đen, M</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại CH</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td>0019492002</td>\r\n			<td>Đen, L</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại CH</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td>0019492003</td>\r\n			<td>Đen, XL</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại C</strong></td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<figure class=\"easyimage easyimage-full\"><img alt=\"\" src=\"blob:http://localhost/dded5595-6630-4325-a8f7-dbc35a0b7bf6\" width=\"500\" />\r\n<figcaption></figcaption>\r\n</figure>\r\n\r\n<p>&nbsp;</p>', '145000', 'ao787.jpg', 0, NULL, NULL),
-(16, 'Áo Thun Nam Y2010 Basic AI02', '', '70', NULL, 'ao-thun-nam-y2010-basic-ai02', 3, 4, '<p>&Aacute;o Thun Nam Y2010 Basic AI05</p>', '<h5>Tiết kiệm&nbsp;-37,000 đ</h5>\r\n\r\n<table>\r\n	<tbody>\r\n		<tr>\r\n			<td>0019492001</td>\r\n			<td>Đen, M</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại CH</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td>0019492002</td>\r\n			<td>Đen, L</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại CH</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td>0019492003</td>\r\n			<td>Đen, XL</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại C</strong></td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<figure class=\"easyimage easyimage-full\"><img alt=\"\" src=\"blob:http://localhost/dded5595-6630-4325-a8f7-dbc35a0b7bf6\" width=\"500\" />\r\n<figcaption></figcaption>\r\n</figure>\r\n\r\n<p>&nbsp;</p>', '195000', 'd84OO5_simg_de2fe0_500x500_maxb59.jpg', 0, NULL, NULL),
-(17, 'Áo Thun Nam Y2010 Basic AI03', '', '80', NULL, 'ao-thun-nam-y2010-basic-ai03', 3, 8, '<p>&Aacute;o Thun Nam Y2010 Basic AI05</p>', '<h5>Tiết kiệm&nbsp;-37,000 đ</h5>\r\n\r\n<table>\r\n	<tbody>\r\n		<tr>\r\n			<td>0019492001</td>\r\n			<td>Đen, M</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại CH</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td>0019492002</td>\r\n			<td>Đen, L</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại CH</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td>0019492003</td>\r\n			<td>Đen, XL</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại C</strong></td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<figure class=\"easyimage easyimage-full\"><img alt=\"\" src=\"blob:http://localhost/dded5595-6630-4325-a8f7-dbc35a0b7bf6\" width=\"500\" />\r\n<figcaption></figcaption>\r\n</figure>\r\n\r\n<p>&nbsp;</p>', '295000', 'ao423.jpg', 0, NULL, NULL),
-(18, 'Áo Thun Nam Y2010 Basic AI04', '', '80', NULL, 'ao-thun-nam-y2010-basic-ai04', 3, 8, '<p>&Aacute;o Thun Nam Y2010 Basic AI05</p>', '<h5>Tiết kiệm&nbsp;-37,000 đ</h5>\r\n\r\n<table>\r\n	<tbody>\r\n		<tr>\r\n			<td>0019492001</td>\r\n			<td>Đen, M</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại CH</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td>0019492002</td>\r\n			<td>Đen, L</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại CH</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td>0019492003</td>\r\n			<td>Đen, XL</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại C</strong></td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<figure class=\"easyimage easyimage-full\"><img alt=\"\" src=\"blob:http://localhost/dded5595-6630-4325-a8f7-dbc35a0b7bf6\" width=\"500\" />\r\n<figcaption></figcaption>\r\n</figure>\r\n\r\n<p>&nbsp;</p>', '395000', 'ao345.jpg', 0, NULL, NULL),
-(19, 'Áo Thun Nam Y2010 Basic AI06', '', '25', NULL, 'ao-thun-nam-y2010-basic-ai06', 3, 8, '<p>&Aacute;o Thun Nam Y2010 Basic AI05</p>', '<h5>Tiết kiệm&nbsp;-37,000 đ</h5>\r\n\r\n<table>\r\n	<tbody>\r\n		<tr>\r\n			<td>0019492001</td>\r\n			<td>Đen, M</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại CH</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td>0019492002</td>\r\n			<td>Đen, L</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại CH</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td>0019492003</td>\r\n			<td>Đen, XL</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại C</strong></td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<figure class=\"easyimage easyimage-full\"><img alt=\"\" src=\"blob:http://localhost/dded5595-6630-4325-a8f7-dbc35a0b7bf6\" width=\"500\" />\r\n<figcaption></figcaption>\r\n</figure>\r\n\r\n<p>&nbsp;</p>', '285000', 'ao214.jpg', 0, NULL, NULL),
-(20, 'Áo Thun Nam Y2010 Basic AI08', 'ao thun,áo thun,thun nam,thun thời trang,thun basic,basic thun', '36', NULL, 'ao-thun-nam-y2010-basic-ai08', 3, 8, '<p>&Aacute;o Thun Nam Y2010 Basic AI05</p>', '<h5>Tiết kiệm&nbsp;-37,000 đ</h5>\r\n\r\n<table>\r\n	<tbody>\r\n		<tr>\r\n			<td>0019492001</td>\r\n			<td>Đen, M</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại CH</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td>0019492002</td>\r\n			<td>Đen, L</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại CH</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td>0019492003</td>\r\n			<td>Đen, XL</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại C</strong></td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<figure class=\"easyimage easyimage-full\"><img alt=\"\" src=\"blob:http://localhost/dded5595-6630-4325-a8f7-dbc35a0b7bf6\" width=\"500\" />\r\n<figcaption></figcaption>\r\n</figure>\r\n\r\n<p>&nbsp;</p>', '286000', 'ao163.jpg', 0, NULL, NULL),
-(21, 'Playstation 4 Pro 1TB USED', '', '60', NULL, 'playstation-4-pro-1tb-used', 2, 8, '<p>Playstation 4 Pro 1TB đ&atilde; qua sử dụng</p>\r\n\r\n<div class=\"ddict_btn\" style=\"left:185px; top:28px\"><img src=\"chrome-extension://bpggmmljdiliancllaapiggllnkbjocb/icon/16.png\" /></div>', '<table>\r\n	<thead>\r\n		<tr>\r\n			<td colspan=\"2\"><strong>CẤU H&Igrave;NH CHI TIẾT</strong></td>\r\n		</tr>\r\n	</thead>\r\n	<tbody>\r\n		<tr>\r\n			<td>M&atilde; sản phẩm</td>\r\n			<td>CUH-7218B series</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Chi tiết CPU</td>\r\n			<td>x86-64 AMD &quot;Jaguar&quot;, 8 nh&acirc;n</td>\r\n		</tr>\r\n		<tr>\r\n			<td>GPU</td>\r\n			<td>4.20 TFLOPS, đồ họa nền tảng AMD Radeon</td>\r\n		</tr>\r\n		<tr>\r\n			<td>RAM</td>\r\n			<td>GDDR5 8GB</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Bộ nhớ trong</td>\r\n			<td>1TB</td>\r\n		</tr>\r\n	</tbody>\r\n	<thead>\r\n		<tr>\r\n			<td colspan=\"2\"><strong>KẾT NỐI DỮ LIỆU</strong></td>\r\n		</tr>\r\n	</thead>\r\n	<tbody>\r\n		<tr>\r\n			<td>Ổ đĩa BD/DVD (chỉ đọc)</td>\r\n			<td>BD x 6 CAV, DVD x 8 CAV</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Đường v&agrave;o / ra</td>\r\n			<td>3x Cổng USB tốc độ cao (USB 3.1 thế hệ 1), 1x Cổng AUX</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Cổng ra AV</td>\r\n			<td>HDMI out port (hỗ trợ 4K/HDR), Cổng quang (OPTICAL port)</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Kết nối mạng</td>\r\n			<td>C&aacute;p mạng Ethernet (10BASE-T, 100BASE-TX, 1000BASE-T)x1 Wi-Fi IEEE 802.11 a/b/g/n/ac. Bluetooth 4.0 (năng lượng thấp)</td>\r\n		</tr>\r\n	</tbody>\r\n	<thead>\r\n		<tr>\r\n			<td colspan=\"2\"><strong>TH&Ocirc;NG SỐ VẬT L&Yacute;</strong></td>\r\n		</tr>\r\n	</thead>\r\n	<tbody>\r\n		<tr>\r\n			<td>M&agrave;u sắc sản phẩm</td>\r\n			<td>Jet Black</td>\r\n		</tr>\r\n		<tr>\r\n			<td>K&iacute;ch thước</td>\r\n			<td>295 x 55 x 327 mm (rộng x d&agrave;i x cao)</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Trọng lượng</td>\r\n			<td>3.3 kg</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Nguồn điện</td>\r\n			<td>Xoay chiều, 100-240V, 50/60Hz</td>\r\n		</tr>\r\n		<tr>\r\n			<td>C&ocirc;ng suất ti&ecirc;u thụ</td>\r\n			<td>Tối đa 310W</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Nhiệt độ l&agrave;m việc</td>\r\n			<td>5&ordm;C - 35&ordm;C</td>\r\n		</tr>\r\n	</tbody>\r\n</table>', '6800000', 'mayps179.jpg', 0, NULL, NULL),
-(22, 'Máy PS4 slim Mega pack 2', '', '90', NULL, 'may-ps4-slim-mega-pack-2-jetblack', 2, 1, '<p>M&aacute;y PS4 slim Mega pack 2</p>', '<p>M&aacute;y PS4 slim mega pack h&agrave;ng ch&iacute;nh h&atilde;ng Sony Việt Nam. Bảo h&agrave;nh h&atilde;ng 01 năm. Miễn ph&iacute; lắp đặt n&ocirc;i th&agrave;nh H&agrave; nội. Ship COD to&agrave;n quốc. Hỗ trợ trả g&oacute;p l&atilde;i xuất 0%</p>\r\n\r\n<p>Bộ sản phẩm gồm :</p>\r\n\r\n<p>- 01 bộ m&aacute;y PS4 slim ổ cứng 1T đời mới nhất cuh 2218 ( đ&atilde; c&oacute; 01 tay theo m&aacute;y )</p>\r\n\r\n<p>- 03 đĩa game mới nguy&ecirc;n seal: God of war 4, Horizon complete edition v&agrave; GTA 5</p>\r\n\r\n<p>KH&Ocirc;NG LẤY QU&Agrave; TẶNG VUI L&Ograve;NG INBOX SHOP HOẶC GỌI HOTLINE 0936011022</p>\r\n\r\n<p><img alt=\"Máy PS4 slim mega pack hàng chính hãng Sony Việt Nam\" src=\"https://bucket.nhanh.vn/store/24046/psCT/20191126/18323327/ps4_slim_mega_pack_.jpg\" /></p>', '7550000', 'mayps381.jpg', 0, NULL, NULL),
-(23, 'Combo Máy PS4 slim 1T kèm 2 tay và đĩa PES 20', 'máy ps4,máy cầm tay,ps4,ps4 slim,đĩa pes,ps4 1TB slim,playstation 4,pes', '90', NULL, 'combo-may-ps4-slim-1t-kem-2-tay-va-dia-pes-20', 2, 8, '<p>Combo M&aacute;y PS4 slim 1T k&egrave;m 2 tay v&agrave; đĩa PES 20</p>', '<p>M&aacute;y Ps4 pro b&aacute;n bởi Hotgamestore - Đại l&yacute; ch&iacute;nh h&atilde;ng Playstation của Sony tại Việt Nam - l&agrave; m&aacute;y nhập khẩu ch&iacute;nh h&atilde;ng, bảo h&agrave;nh tại Trung t&acirc;m hỗ trợ bảo h&agrave;nh Sony to&agrave;n Việt Nam. M&aacute;y Ps4 pro được k&iacute;ch hoạt bảo h&agrave;nh ngay khi kh&aacute;ch h&agrave;ng&nbsp;mua m&aacute;y, qu&yacute; kh&aacute;ch kh&ocirc;ng cần bất cứ giấy tờ g&igrave; khi mang m&aacute;y Ps4 pro đi bảo h&agrave;nh .</p>', '8090000', '12344468.jpg', 0, NULL, NULL),
-(24, 'Sách ngôn tình hồ ly tinh', 'sách ngôn tình bán chạy,sách,ngôn tình,truyện ngôn tình,sách ngôn tình hồ ly,truyện hồ ly', '10', NULL, 'sach-ngon-tinh-ho-ly-tinh', 6, 9, '<table>\r\n	<tbody>\r\n		<tr>\r\n			<th>M&atilde; h&agrave;ng</th>\r\n			<td>8936117742491</td>\r\n		</tr>\r\n		<tr>\r\n			<th>T&ecirc;n Nh&agrave; Cung Cấp</th>\r\n			<td><a href=\"https://www.fahasa.com/bao-zgroup\">ZGROUP</a></td>\r\n		</tr>\r\n		<tr>\r\n			<th>T&aacute;c giả</th>\r\n			<td>Mặc Hương Đồng Khứu</td>\r\n		</tr>\r\n		<tr>\r\n			<th>Người Dịch</th>\r\n			<td>Thanh Du</td>\r\n		</tr>\r\n		<tr>\r\n			<th>NXB</th>\r\n			<td>NXB H&agrave; Nội</td>\r\n		</tr>\r\n		<tr>\r\n			<th>Năm XB</th>\r\n			<td>2020</td>\r\n		</tr>\r\n		<tr>\r\n			<th>Ng&ocirc;n Ngữ</th>\r\n			<td>Tiếng Việt</td>\r\n		</tr>\r\n		<tr>\r\n			<th>Trọng lượng (gr)</th>\r\n			<td>450</td>\r\n		</tr>\r\n		<tr>\r\n			<th>K&iacute;ch thước</th>\r\n			<td>20.5 x 14 cm</td>\r\n		</tr>\r\n		<tr>\r\n			<th>Số trang</th>\r\n			<td>456</td>\r\n		</tr>\r\n		<tr>\r\n			<th>H&igrave;nh thức</th>\r\n			<td>B&igrave;a Mềm</td>\r\n		</tr>\r\n		<tr>\r\n			<th>Sản phẩm hiển thị trong</th>\r\n			<td>\r\n			<ul>\r\n				<li><a href=\"https://www.fahasa.com/bao-zgroup?fhs_campaign=INTERNAL_LINKING\">ZGROUP</a></li>\r\n			</ul>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<th>Sản phẩm b&aacute;n chạy nhất</th>\r\n			<td><a href=\"https://www.fahasa.com/sach-trong-nuoc/van-hoc-trong-nuoc/ngon-tinh/sort-by/num_orders_month/sort-direction/asc.html\">Top 100 sản phẩm Ng&ocirc;n T&igrave;nh b&aacute;n chạy của th&aacute;ng</a></td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<div class=\"ddict_btn\" style=\"left:955px; top:555px\"><img src=\"chrome-extension://bpggmmljdiliancllaapiggllnkbjocb/icon/16.png\" /></div>', '<p>Chuyện bắt đầu từ t&aacute;m trăm năm trước...</p>\r\n\r\n<p>Một th&aacute;i tử điện hạ được vạn người ngưỡng vọng, phi thăng th&agrave;nh ti&ecirc;n. Những tưởng thế l&agrave; mỹ m&atilde;n, n&agrave;o ngờ y phi thăng hai lần th&igrave; hai lần bị đ&aacute;nh xuống trần, từ thần tướng tay hoa tay kiếm mu&ocirc;n d&acirc;n thờ phụng trở th&agrave;nh ti&ecirc;n nh&acirc;n đồng n&aacute;t lang thang khắp ng&otilde; hẻm hang c&ugrave;ng, kh&ocirc;ng c&oacute; lấy một ng&ocirc;i miếu thờ, từ giai thoại th&agrave;nh tr&ograve; cười của tam giới. Đến lần n&agrave;y, sau t&aacute;m trăm năm, y rốt cuộc cũng phi thăng lần thứ ba, một lần nữa trở lại Thi&ecirc;n đ&igrave;nh.</p>\r\n\r\n<p>Gặp lại bao người xưa, những chuyện cũ cũng lần lượt được v&eacute;n l&ecirc;n.</p>\r\n\r\n<p>T&aacute;m trăm năm qua lưu lạc hồng trần, y đ&atilde; trải qua những khổ nạn g&igrave;? Rốt cuộc l&agrave; ai đ&atilde; đẩy y đến thảm cảnh ấy?</p>', '500000', 'sachngontinh68.jpg', 0, NULL, NULL),
-(26, 'Máy Chơi Game ps4 pro 1Tb tặng thêm tay cầm và 3 game', 'may choi game,máy chơi game,máy game,máy cầm tay đáng mua 2020,game máy 2020,máy chơi game tốt nhất 2020,máy ps4 chính hãng,mua ps4 pro,mua ps4 jetblack,máy ps4 slim,máy ps4 pro 1gb,mua ps4 chính hãng,mua sp4 giá rẻ,mua ps4 cũ,mua sp4 99%', '1000', NULL, 'may-choi-game-ps4-pro-1tb-tang-them-tay-cam-va-3-game', 2, 9, '<p>M&aacute;y Chơi Game ps4 pro 1Tb tặng th&ecirc;m tay cầm v&agrave; 3 game</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>', '<p><img alt=\"\" src=\"http://localhost/tutorial_youtube/shopbanhanglaravel/public/uploads/ckeditor/gallery2_1601215815.jpg\" style=\"height:183px; width:207px\" /></p>\r\n\r\n<p><strong>Tay Cầm PS4 Pro Slim&nbsp;2020</strong></p>\r\n\r\n<p><img alt=\"\" src=\"blob:http://localhost/776756d2-65d6-4108-a946-6df271a9c24c\" style=\"width:250px\" /><img alt=\"\" src=\"http://localhost/tutorial_youtube/shopbanhanglaravel/public/uploads/product/mayps343.jpg\" style=\"height:539px; width:539px\" /></p>\r\n\r\n<p><strong>Tay Cầm PS4 Pro</strong></p>\r\n\r\n<p>DualShock&reg;4 l&agrave; tay cầm PS4 thế hệ mới được Sony ph&aacute;t triển d&agrave;nh ri&ecirc;ng cho m&aacute;y&nbsp;<a href=\"https://gamestation.vn/may-ps4.html\"><strong>Playstation 4</strong></a>&nbsp;nhằm định nghĩa c&aacute;ch m&agrave; c&aacute;c game tr&ecirc;n hệ m&aacute;y Next-Gen n&ecirc;n được điều khiển, tay cầm PS4 l&agrave; sự kết hợp của những t&iacute;nh năng mới cộng với cơ chế điều khiển tự do ch&iacute;nh x&aacute;c. C&aacute;c cần angalog được cải tiến v&agrave; cac n&uacute;t c&ograve; cho ph&eacute;p người chơi thao t&aacute;c với độ ch&iacute;nh x&aacute;c cực cao, trong khi đ&oacute; c&aacute;c c&ocirc;ng nghệ ti&ecirc;n tiến mới như touch pad đa điểm, loa v&agrave; đ&egrave;n t&iacute;ch hợp cho ph&eacute;p người chơi c&oacute; những c&aacute;ch trải nghiệm v&agrave; tương t&aacute;c mới mẻ với những tựa game Next-Gen. Chưa kể tới việc th&ecirc;m v&agrave;o n&uacute;t Share cho ph&eacute;p bạn ăn mừng v&agrave; Upload c&aacute;c gi&acirc;y ph&uacute;t tuyệt vời của bạn tr&ecirc;n m&aacute;y PS4 chỉ với một n&uacute;t bấm.</p>\r\n\r\n<p><img alt=\"\" src=\"https://ichef.bbci.co.uk/news/976/cpsprodpb/13729/production/_112375697_1331db7a-17c0-4401-8cac-6a2309ff49b6.jpg\" style=\"height:169px; width:300px\" /></p>\r\n\r\n<p><iframe frameborder=\"0\" height=\"350\" src=\"https://www.youtube.com/embed/Hywo2vnQLOY\" width=\"100%\"></iframe></p>\r\n\r\n<p><strong>+ Khả năng điều khiển ch&iacute;nh x&aacute;c</strong></p>\r\n\r\n<p>Cảm nhận, h&igrave;nh d&aacute;ng, v&agrave; độ nhạy của c&aacute;c cần analog v&agrave; n&uacute;t c&ograve; tay cầm PS4 đ&atilde; được n&acirc;ng cấp nhằm cho ph&eacute;p người chơi khả năng điều khiển tuyệt đối với c&aacute;c game tr&ecirc;n PS4. Đ&egrave;n t&iacute;ch hợp ở trong tay cầm ngo&agrave;i việc cho đẹp c&ograve;n c&oacute; t&aacute;c dụng thể hiện c&aacute;c th&ocirc;ng số trong một số&nbsp;<a href=\"https://www.facebook.com/GameStation.vn/\">game</a>, ngo&agrave;i ra đ&egrave;n n&agrave;y c&ograve;n đ&oacute;ng vai tr&ograve; thay thế cho PSmove trong việc tương t&aacute;c với c&aacute;c ứng dụng hoặc game.</p>\r\n\r\n<p><strong>+ Khả năng chia sẻ trong tầm tay</strong></p>\r\n\r\n<p>Việc th&ecirc;m v&agrave;o n&uacute;t Share khiến việc chia sẻ những khoảnh khắc tuyệt vời đơn giản chỉ với một n&uacute;t bấm. Upload c&aacute;c đoạn gameplay v&agrave; screenshots trực tiếp từ m&aacute;y PS4 hoặc live-stream c&aacute;c đoạn gameplay của bạn, tất cả trở n&ecirc;n thật đơn giản v&agrave; quan trọng nhất l&agrave; n&oacute; kh&ocirc;ng l&agrave;m gi&aacute;n đoạn qu&aacute; tr&igrave;nh chơi của bạn.<br />\r\n&nbsp;</p>\r\n\r\n<p><img alt=\"\" src=\"https://gamestation.vn/cdn/images/ps4sharejpg-b34637.jpg\" style=\"height:450px; width:800px\" /></p>\r\n\r\n<p><strong>+ Mang lại một trải nghiệm mới</strong></p>\r\n\r\n<p>C&aacute;c t&iacute;nh năng mang t&iacute;nh đột ph&aacute; như touch pad, đ&egrave;n v&agrave; loa t&iacute;ch hợp mang lại người chơi những trải nghiệm mới mẽ v&agrave; tr&ecirc;n tay cầm c&oacute; t&iacute;ch hợp jack cắm headset cộng với jack 3.5mm cho cung cấp cho người chơi một c&aacute;ch thức giao tiếp tiện nghi trong c&aacute;c trận chi&ecirc;n đ&ocirc;ng thới cung cấp giải ph&aacute;p &acirc;mt hanh cho c&aacute;c game thủ muốn trải nghiệm game một c&aacute;ch ri&ecirc;ng tư m&agrave; kh&ocirc;ng bị ai quấy rầy. Nhưng bạn phải lưu &yacute; khả năng chat voice chỉ c&oacute; thể hoạt động tốt nhất với headset k&egrave;m theo v&agrave; c&oacute; thể kh&ocirc;ng tương th&iacute;ch với một số tai nghe nhất định.<br />\r\n&nbsp;</p>\r\n\r\n<p><img alt=\"\" src=\"https://gamestation.vn/cdn/images/PS4-Sony-DualShock-4-PSN-cash-876707.jpg\" style=\"height:475px; width:800px\" /></p>\r\n\r\n<p><strong>+ Sạc hiệu quả</strong></p>\r\n\r\n<p>Tay cầm PS4 c&oacute; thể dễ d&agrave;ng sạc bằng c&aacute;ch cấm v&agrave;o m&aacute;y PS4, tay cầm sẽ được sạc ngay cả khi m&aacute;y ở trong chế độ Standby, hoặc bạn c&oacute; thể kết nối tay cầm với bất kỳ c&aacute;c cổng USB kh&aacute;c để sạc chỉ với một sợi&nbsp;<a href=\"https://gamestation.vn/phu-kien-game/day-sac-tay-cam-ps4-xbox-one-hang-zin.html\">d&acirc;y mico-USB</a>.</p>', '10999000', 'mayps343.jpg', 0, NULL, NULL),
-(27, 'Tai nghe 5G', 'Tai nghe 5G', '1000', NULL, 'tai-nghe-5g', 11, 9, '<p>Tai nghe 5G</p>', '<p>Tai nghe 5G</p>', '1650000', 'tainghe80.jpg', 0, NULL, NULL),
-(28, 'Máy đo nhịp tim Sonic-2k-K', 'Máy đo nhịp tim Sonic-2k', '1000', NULL, 'may-do-nhip-tim-sonic-2k', 12, 9, '<p>M&aacute;y đo nhịp tim Sonic-2k</p>', '<p>M&aacute;y đo nhịp tim Sonic-2k</p>', '500000', 'maydo26.jpg', 0, NULL, NULL),
-(29, 'Máy đo nhịp tim Sonic-2k', 'Máy đo nhịp tim Sonic-2k', '2000', NULL, 'may-do-nhip-tim-sonic-2k', 12, 1, '<p>M&aacute;y đo nhịp tim Sonic-2k</p>', '<p>M&aacute;y đo nhịp tim Sonic-2k</p>', '500000', 'maydonhiptim21.jpg', 0, NULL, NULL),
-(30, 'Samsung Galaxy ultra 20', 'Samsung Galaxy ultra 20', '1000', NULL, 'samsung-galaxy-ultra-20', 13, 2, '<p>Samsung Galaxy ultra 20</p>', '<p>Samsung Galaxy ultra 20</p>', '500000', 'samsung80.jpg', 0, NULL, NULL),
-(31, 'Tai nghe 5G đỏ', 'Tai nghe 5G đỏ', '1000', NULL, 'tai-nghe-5g-do', 11, 9, '<p>Tai nghe 5G đỏ</p>', '<p>Tai nghe 5G đỏ</p>', '500000', 'big_262372_product265108437.jpg', 0, NULL, NULL);
+INSERT INTO `tbl_product` (`product_id`, `product_name`, `product_tags`, `product_quantity`, `product_sold`, `product_slug`, `category_id`, `brand_id`, `product_desc`, `product_content`, `product_price`, `price_cost`, `product_image`, `product_file`, `product_views`, `product_status`, `created_at`, `updated_at`) VALUES
+(6, 'Royal Canin Urinary Canine Dog 2kg - Dành cho chó bị sỏi thận-10kg', '', '38', 12, 'royal-canin-urinary-canine-dog-2kg-danh-cho-cho-bi-soi-than-10kg', 8, 8, '<p>&nbsp;</p>\r\n\r\n<p>Royal Canin Urinary Canine Dog 2kg - D&agrave;nh cho ch&oacute; bị sỏi thận</p>', '<p><strong>Nguy&ecirc;n liệu</strong></p>\r\n\r\n<p>Bột bắp, gạo, chất b&eacute;o động vật, protein gia cầm, gluten bắp, kho&aacute;ng chất, protein động vật, xơ thực vật, dầu đậu n&agrave;nh, dầu c&aacute;, fructo-oligo-sacarit, monoglycerit v&agrave; diglycerit của axit palmitic v&agrave; stearic từ phản ứng este h&oacute;a với axit citric, chiết xuất c&uacute;c vạn thọ (nguồn lutein).<br />\r\nNguồn protein: protein gia cầm, gluten bắp, protein động vật.</p>\r\n\r\n<p>Phụ gia dinh dưỡng: Vitamin A, Vitamin D3, E1(Sắt), E2 (I ốt), E4 (Đồng), E5 (Mangan), E6 (Kẽm), E8 (Selen), Chất axit h&oacute;a nước tiểu: Canxi Sunfat (0.88%). Chất chống oxi h&oacute;a.</p>\r\n\r\n<p><strong>Th&agrave;nh phần dinh dưỡng</strong></p>\r\n\r\n<p><img alt=\"\" src=\"https://www.petcity.vn/media/lib/4372_Thnhphndinhdng.jpg\" /></p>\r\n\r\n<p><strong>Đặc t&iacute;nh nổi bật</strong></p>\r\n\r\n<p><img alt=\"\" src=\"https://www.petcity.vn/media/lib/4372_ctnhnibt.jpg\" /></p>\r\n\r\n<p><strong>Khẩu phần ăn chuẩn</strong>&nbsp;</p>\r\n\r\n<p><img alt=\"\" src=\"https://www.petcity.vn/media/lib/4372_Bngnthamkho.jpg\" /></p>', 431000, 244996, '250_4341_ava66.jpg', NULL, 113, 0, NULL, NULL),
+(7, 'Thức ăn cho chó nhỏ trưởng thành Farmina N&D PUMPKIN vị heo, bí ngô và táo 3kg', '', '95', 5, 'thuc-an-cho-cho-nho-truong-thanh-farmina-nd-pumpkin-vi-heo-bi-ngo-va-tao-3kg', 8, 8, '<p>Thức ăn cho ch&oacute; nhỏ trưởng th&agrave;nh Farmina N&amp;D PUMPKIN vị heo, b&iacute; ng&ocirc; v&agrave; t&aacute;o 3kg</p>', '<h3>Farmina - N&amp;D PUMPKIN DOG boar, apple mini adult</h3>\r\n\r\n<p>(d&agrave;nh cho ch&oacute; nhỏ tr&ecirc;n 10 th&aacute;ng tuổi)</p>\r\n\r\n<p>Vị heo, b&iacute; ng&ocirc; v&agrave; t&aacute;o</p>\r\n\r\n<figure class=\"easyimage easyimage-full\"><img alt=\"\" src=\"blob:http://localhost/78cb3d06-bf55-435e-bdf7-33be79a67da8\" width=\"250\" />\r\n<figcaption></figcaption>\r\n</figure>\r\n\r\n<p><strong>Th&agrave;nh phần&nbsp;</strong></p>\r\n\r\n<p>Thịt lợn rừng kh&ocirc;ng xương (24%), protein thịt lợn mất nước (22%), tinh bột đậu (20%), mỡ g&agrave;, b&iacute; ng&ocirc; khử nước (5%), trứng khử nước, dầu c&aacute;, chất xơ thực vật, c&agrave; rốt kh&ocirc;, cỏ linh lăng kh&ocirc;, inulin, fructooligosacarit, mannanoligosacarit, t&aacute;o khử nước (0,5%), bột rau bina, psyllium (0,3%), bột lựu, bột blackcurrant, cam ngọt, nước ngọt , chondroitin sulphate, chiết xuất c&uacute;c vạn thọ (nguồn lutein)</p>', 230000, 129780, '250_4343_ava69.jpg', NULL, 117, 0, NULL, NULL),
+(8, 'Thức ăn cho chó nhỏ trưởng thành Farmina N&D PUMPKIN vị heo, bí ngô và táo 7kg', '', '95', 5, 'thuc-an-cho-cho-nho-truong-thanh-farmina-nd-pumpkin-vi-heo-bi-ngo-va-tao-7kg', 8, 8, '<p>Thức ăn cho ch&oacute; nhỏ trưởng th&agrave;nh Farmina N&amp;D PUMPKIN vị heo, b&iacute; ng&ocirc; v&agrave; t&aacute;o 7kg</p>', '<h3>Farmina - N&amp;D PUMPKIN DOG boar, apple mini adult</h3>\r\n\r\n<p>(d&agrave;nh cho ch&oacute; nhỏ tr&ecirc;n 10 th&aacute;ng tuổi)</p>\r\n\r\n<p>Vị heo, b&iacute; ng&ocirc; v&agrave; t&aacute;o</p>\r\n\r\n<figure class=\"easyimage easyimage-full\"><img alt=\"\" src=\"blob:http://localhost/78cb3d06-bf55-435e-bdf7-33be79a67da8\" width=\"250\" />\r\n<figcaption></figcaption>\r\n</figure>\r\n\r\n<p><strong>Th&agrave;nh phần&nbsp;</strong></p>\r\n\r\n<p>Thịt lợn rừng kh&ocirc;ng xương (24%), protein thịt lợn mất nước (22%), tinh bột đậu (20%), mỡ g&agrave;, b&iacute; ng&ocirc; khử nước (5%), trứng khử nước, dầu c&aacute;, chất xơ thực vật, c&agrave; rốt kh&ocirc;, cỏ linh lăng kh&ocirc;, inulin, fructooligosacarit, mannanoligosacarit, t&aacute;o khử nước (0,5%), bột rau bina, psyllium (0,3%), bột lựu, bột blackcurrant, cam ngọt, nước ngọt , chondroitin sulphate, chiết xuất c&uacute;c vạn thọ (nguồn lutein)</p>', 135000, 83161, '250_4343_ava69.jpg', NULL, 35, 0, NULL, NULL),
+(9, 'Royal Canin Urinary Canine Dog 2kg - Dành cho chó bị sỏi thận', '', '60', NULL, 'royal-canin-urinary-canine-dog-2kg-danh-cho-cho-bi-soi-than', 8, 8, '<p>Royal Canin Urinary Canine Dog 2kg - D&agrave;nh cho ch&oacute; bị sỏi thận</p>', '<h3>Farmina - N&amp;D PUMPKIN DOG boar, apple mini adult</h3>\r\n\r\n<p>(d&agrave;nh cho ch&oacute; nhỏ tr&ecirc;n 10 th&aacute;ng tuổi)</p>\r\n\r\n<p>Vị heo, b&iacute; ng&ocirc; v&agrave; t&aacute;o</p>\r\n\r\n<p><strong>Th&agrave;nh phần&nbsp;</strong></p>\r\n\r\n<p>Thịt lợn rừng kh&ocirc;ng xương (24%), protein thịt lợn mất nước (22%), tinh bột đậu (20%), mỡ g&agrave;, b&iacute; ng&ocirc; khử nước (5%), trứng khử nước, dầu c&aacute;, chất xơ thực vật, c&agrave; rốt kh&ocirc;, cỏ linh lăng kh&ocirc;, inulin, fructooligosacarit, mannanoligosacarit, t&aacute;o khử nước (0,5%), bột rau bina, psyllium (0,3%), bột lựu, bột blackcurrant, cam ngọt, nước ngọt , chondroitin sulphate, chiết xuất c&uacute;c vạn thọ (nguồn lutein)</p>\r\n\r\n<p><strong>Bảng ăn tham khảo</strong></p>\r\n\r\n<p><img alt=\"\" src=\"https://www.petcity.vn/media/lib/4284_bngn.png\" /></p>', 450000, 309269, '1444_SmartheartPuppy54.jpg', NULL, 7, 0, NULL, NULL),
+(10, 'Thức ăn cho chó nhỏ trưởng thành Farmina - N&D PUMPKIN vị gà, bí ngô, công thức lựu', '', '100', NULL, 'thuc-an-cho-cho-nho-truong-thanh-farmina-nd-pumpkin-vi-ga-bi-ngo-cong-thuc-luu', 8, 8, '<p>Thức ăn cho ch&oacute; nhỏ trưởng th&agrave;nh Farmina - N&amp;D PUMPKIN vị g&agrave;, b&iacute; ng&ocirc;, c&ocirc;ng thức lựu&nbsp;</p>', '<h3>Farmina - N&amp;D PUMPKIN DOG chicken mini adult</h3>\r\n\r\n<p>(d&agrave;nh cho ch&oacute; nhỏ tr&ecirc;n 10 th&aacute;ng tuổi)</p>\r\n\r\n<p>Vị g&agrave;, b&iacute; ng&ocirc;, c&ocirc;ng thức lựu</p>\r\n\r\n<p><strong>Th&agrave;nh phần</strong></p>\r\n\r\n<p>G&agrave; kh&ocirc;ng xương (24%), protein g&agrave; mất nước (22%), tinh bột đậu (20%), mỡ g&agrave;, b&iacute; ng&ocirc; khử nước (5%), trứng khử nước, c&aacute; tr&iacute;ch, protein c&aacute; tr&iacute;ch mất nước, dầu c&aacute;, xơ thực vật, sấy kh&ocirc; c&agrave; rốt, cỏ linh lăng kh&ocirc;, inulin, fructooligosacarit, mannanoligosacarit, bột lựu (0,5%), t&aacute;o khử nước, bột rau bina, psyllium (0,3%), bột blackcurrant, cam kh&ocirc;, bột ngọt 0,2%), glucosamine, chondroitin sulphate, chiết xuất c&uacute;c vạn thọ (nguồn lutein)</p>\r\n\r\n<p><strong>Bảng ăn tham khảo</strong></p>\r\n\r\n<p>&nbsp;<img alt=\"\" src=\"https://www.petcity.vn/media/lib/4283_ntk.png\" /></p>', 125000, 86036, '12315.jpg', NULL, 149, 1, NULL, NULL),
+(11, 'Thức ăn ướt Me-o Delite vị cá ngừ và thịt gà xé 70gr', '', '100', NULL, 'thuc-an-uot-me-o-delite-vi-ca-ngu-va-thit-ga-xe-70gr', 8, 8, '<p>Thức ăn ướt Me-o Delite vị c&aacute; ngừ v&agrave; thịt g&agrave; x&eacute; 70gr</p>', '<p><strong>Thức ăn ướt Me-o Delite vị c&aacute; ngừ v&agrave; thịt g&agrave; x&eacute;</strong></p>\r\n\r\n<p><strong>Nguy&ecirc;n Liệu Ch&iacute;nh:</strong>&nbsp;C&aacute; ngừ tươi, thịt g&agrave; x&eacute;, chất tạo đ&ocirc;ng, chất điều vị, taurin, c&aacute;c vitamin v&agrave; kho&aacute;ng chất.</p>\r\n\r\n<p><strong>Th&agrave;nh phần dinh dưỡng&nbsp;</strong></p>\r\n\r\n<p>Chất đạm : 8%</p>\r\n\r\n<p>Chất b&eacute;o : 0.3%&nbsp;</p>\r\n\r\n<p>Chất xơ : 1%</p>\r\n\r\n<p>Độ ẩm : 90%</p>\r\n\r\n<p><strong>Điểm nổi bật&nbsp;</strong></p>\r\n\r\n<ul>\r\n	<li>Được l&agrave;m từ c&aacute; thật</li>\r\n	<li>Taurine: Tăng cường hệ miễn dịch v&agrave; thị gi&aacute;c.</li>\r\n	<li>Biotin/ Zinc: Gi&uacute;p l&agrave;n da v&agrave; bộ long khỏe mạnh.</li>\r\n	<li>Vitamin C: Gi&uacute;p tăng cường hệ miễn dịch.</li>\r\n</ul>\r\n\r\n<p><strong>Bảo quản:</strong>&nbsp;Nơi kh&ocirc; r&aacute;o tho&aacute;ng m&aacute;t</p>', 25000, 16991, '12342.jpg', NULL, 117, 0, NULL, NULL),
+(12, 'Whiskas - Pate Tuna junior 85g', '', '90', NULL, 'whiskas-pate-tuna-junior-85g', 8, 8, '<p>Whiskas - Pate Tuna junior 85g</p>', '<p>Whiskas - Pate Tuna junior 85g</p>', 10000, 6334, '1251_790_royal_canin_indoor_2726.jpg', NULL, 145, 0, NULL, NULL),
+(13, 'Súp thưởng Ciao vị cá ngừ và sò điệp cho mèo (14g*20)', 'vị cá ngừ,cá ngừ sup,súp cá ngừ,vị sò diệp,vị,sò điệp', '100', NULL, 'sup-thuong-ciao-vi-ca-ngu-va-so-diep-cho-meo-14g20', 8, 8, '<p>S&uacute;p thưởng Ciao vị c&aacute; ngừ v&agrave; s&ograve; điệp cho m&egrave;o (14g*20)</p>', '<p><strong>S&uacute;p thưởng Ciao vị c&aacute; ngừ v&agrave; s&ograve; điệp</strong></p>\r\n\r\n<p><strong>Th&agrave;nh phần</strong></p>\r\n\r\n<p>C&aacute; ngừ, s&ograve; điệp, tinh bột biến t&iacute;nh, chất tạo m&ugrave;i, Guar Gum, chiết xuất s&ograve; điệp, Vitamin E, Carrageenan, bột tr&agrave; xanh, Fructooligosaccharides.</p>\r\n\r\n<p><strong>Th&agrave;nh phần dinh dưỡng&nbsp;</strong></p>\r\n\r\n<p>Độ ẩm &le; 93,0 %; Protein th&ocirc; &ge; 7,0 %; B&eacute;o th&ocirc; &ge; 0,2 %; Xơ th&ocirc; &le; 1,0 %; Kho&aacute;ng tổng số &le; 2,0 %</p>\r\n\r\n<p><strong>Sử dụng</strong></p>\r\n\r\n<p>Cho ăn trực tiếp &ndash; D&ugrave;ng như b&aacute;nh thưởng.</p>\r\n\r\n<p>Khẩu phần: 56g/ ng&agrave;y.</p>\r\n\r\n<p>Sản phẩm n&agrave;y kh&ocirc;ng d&ugrave;ng thay thế bữa ăn ch&iacute;nh. Lu&ocirc;n giữ cung cấp nước sạch thường xuy&ecirc;n.</p>', 138000, 86717, '250_4370_ciao_g_____c___ng___7.png', NULL, 191, 0, NULL, NULL),
+(14, 'Áo Thun Nam Y2010 Basic AI05', '', '60', 0, 'ao-thun-nam-y2010-basic-ai05', 3, 4, '<p>&Aacute;o Thun Nam Y2010 Basic AI05</p>', '<h5>Tiết kiệm&nbsp;-37,000 đ</h5>\r\n\r\n<table>\r\n	<tbody>\r\n		<tr>\r\n			<td>0019492001</td>\r\n			<td>Đen, M</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại CH</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td>0019492002</td>\r\n			<td>Đen, L</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại CH</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td>0019492003</td>\r\n			<td>Đen, XL</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại C</strong></td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<figure class=\"easyimage easyimage-full\"><img alt=\"\" src=\"blob:http://localhost/dded5595-6630-4325-a8f7-dbc35a0b7bf6\" width=\"500\" />\r\n<figcaption></figcaption>\r\n</figure>\r\n\r\n<p>&nbsp;</p>', 135000, 73102, 'd84OO5_simg_de2fe0_500x500_maxb59.jpg', NULL, 14, 0, NULL, NULL),
+(15, 'Áo Thun Nam Y2010 Basic AI01', '', '60', NULL, 'ao-thun-nam-y2010-basic-ai01', 3, 8, '<p>&Aacute;o Thun Nam Y2010 Basic AI05</p>', '<h5>Tiết kiệm&nbsp;-37,000 đ</h5>\r\n\r\n<table>\r\n	<tbody>\r\n		<tr>\r\n			<td>0019492001</td>\r\n			<td>Đen, M</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại CH</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td>0019492002</td>\r\n			<td>Đen, L</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại CH</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td>0019492003</td>\r\n			<td>Đen, XL</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại C</strong></td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<figure class=\"easyimage easyimage-full\"><img alt=\"\" src=\"blob:http://localhost/dded5595-6630-4325-a8f7-dbc35a0b7bf6\" width=\"500\" />\r\n<figcaption></figcaption>\r\n</figure>\r\n\r\n<p>&nbsp;</p>', 145000, 75736, 'ao787.jpg', NULL, 154, 0, NULL, NULL),
+(16, 'Áo Thun Nam Y2010 Basic AI02', '', '70', NULL, 'ao-thun-nam-y2010-basic-ai02', 3, 4, '<p>&Aacute;o Thun Nam Y2010 Basic AI05</p>', '<h5>Tiết kiệm&nbsp;-37,000 đ</h5>\r\n\r\n<table>\r\n	<tbody>\r\n		<tr>\r\n			<td>0019492001</td>\r\n			<td>Đen, M</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại CH</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td>0019492002</td>\r\n			<td>Đen, L</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại CH</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td>0019492003</td>\r\n			<td>Đen, XL</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại C</strong></td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<figure class=\"easyimage easyimage-full\"><img alt=\"\" src=\"blob:http://localhost/dded5595-6630-4325-a8f7-dbc35a0b7bf6\" width=\"500\" />\r\n<figcaption></figcaption>\r\n</figure>\r\n\r\n<p>&nbsp;</p>', 195000, 133988, 'd84OO5_simg_de2fe0_500x500_maxb59.jpg', NULL, 135, 0, NULL, NULL),
+(17, 'Áo Thun Nam Y2010 Basic AI03', '', '79', 1, 'ao-thun-nam-y2010-basic-ai03', 3, 8, '<p>&Aacute;o Thun Nam Y2010 Basic AI05</p>', '<h5>Tiết kiệm&nbsp;-37,000 đ</h5>\r\n\r\n<table>\r\n	<tbody>\r\n		<tr>\r\n			<td>0019492001</td>\r\n			<td>Đen, M</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại CH</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td>0019492002</td>\r\n			<td>Đen, L</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại CH</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td>0019492003</td>\r\n			<td>Đen, XL</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại C</strong></td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<figure class=\"easyimage easyimage-full\"><img alt=\"\" src=\"blob:http://localhost/dded5595-6630-4325-a8f7-dbc35a0b7bf6\" width=\"500\" />\r\n<figcaption></figcaption>\r\n</figure>\r\n\r\n<p>&nbsp;</p>', 295000, 167749, 'ao423.jpg', NULL, 202, 0, NULL, NULL),
+(18, 'Áo Thun Nam Y2010 Basic AI04', '', '70', 10, 'ao-thun-nam-y2010-basic-ai04', 3, 8, '<p>&Aacute;o Thun Nam Y2010 Basic AI05</p>', '<h5>Tiết kiệm&nbsp;-37,000 đ</h5>\r\n\r\n<table>\r\n	<tbody>\r\n		<tr>\r\n			<td>0019492001</td>\r\n			<td>Đen, M</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại CH</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td>0019492002</td>\r\n			<td>Đen, L</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại CH</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td>0019492003</td>\r\n			<td>Đen, XL</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại C</strong></td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<figure class=\"easyimage easyimage-full\"><img alt=\"\" src=\"blob:http://localhost/dded5595-6630-4325-a8f7-dbc35a0b7bf6\" width=\"500\" />\r\n<figcaption></figcaption>\r\n</figure>\r\n\r\n<p>&nbsp;</p>', 395000, 269327, 'ao345.jpg', NULL, 201, 0, NULL, NULL),
+(19, 'Áo Thun Nam Y2010 Basic AI06', '', '20', 5, 'ao-thun-nam-y2010-basic-ai06', 3, 8, '<p>&Aacute;o Thun Nam Y2010 Basic AI05</p>', '<h5>Tiết kiệm&nbsp;-37,000 đ</h5>\r\n\r\n<table>\r\n	<tbody>\r\n		<tr>\r\n			<td>0019492001</td>\r\n			<td>Đen, M</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại CH</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td>0019492002</td>\r\n			<td>Đen, L</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại CH</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td>0019492003</td>\r\n			<td>Đen, XL</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại C</strong></td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<figure class=\"easyimage easyimage-full\"><img alt=\"\" src=\"blob:http://localhost/dded5595-6630-4325-a8f7-dbc35a0b7bf6\" width=\"500\" />\r\n<figcaption></figcaption>\r\n</figure>\r\n\r\n<p>&nbsp;</p>', 285000, 171935, 'ao214.jpg', NULL, 5, 0, NULL, NULL),
+(20, 'Áo Thun Nam Y2010 Basic AI08', 'ao thun,áo thun,thun nam,thun thời trang,thun basic,basic thun', '35', 1, 'ao-thun-nam-y2010-basic-ai08', 3, 8, '<p>&Aacute;o Thun Nam Y2010 Basic AI05</p>', '<h5>Tiết kiệm&nbsp;-37,000 đ</h5>\r\n\r\n<table>\r\n	<tbody>\r\n		<tr>\r\n			<td>0019492001</td>\r\n			<td>Đen, M</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại CH</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td>0019492002</td>\r\n			<td>Đen, L</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại CH</strong></td>\r\n		</tr>\r\n		<tr>\r\n			<td>0019492003</td>\r\n			<td>Đen, XL</td>\r\n			<td><a href=\"javascript:void(0);\" title=\"\"><strong>37</strong>&nbsp;CH c&ograve;n</a></td>\r\n			<td>Sale đ&nbsp;<strong>148,000</strong>&nbsp;&nbsp;&nbsp;&nbsp;<strong>B&aacute;n tại C</strong></td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<figure class=\"easyimage easyimage-full\"><img alt=\"\" src=\"blob:http://localhost/dded5595-6630-4325-a8f7-dbc35a0b7bf6\" width=\"500\" />\r\n<figcaption></figcaption>\r\n</figure>\r\n\r\n<p>&nbsp;</p>', 286000, 191871, 'ao163.jpg', NULL, 14, 0, NULL, NULL),
+(21, 'Playstation 4 Pro 1TB USED', '', '56', 4, 'playstation-4-pro-1tb-used', 2, 8, '<p>Playstation 4 Pro 1TB đ&atilde; qua sử dụng</p>\r\n\r\n<div class=\"ddict_btn\" style=\"left:185px; top:28px\"><img src=\"chrome-extension://bpggmmljdiliancllaapiggllnkbjocb/icon/16.png\" /></div>', '<table>\r\n	<thead>\r\n		<tr>\r\n			<td colspan=\"2\"><strong>CẤU H&Igrave;NH CHI TIẾT</strong></td>\r\n		</tr>\r\n	</thead>\r\n	<tbody>\r\n		<tr>\r\n			<td>M&atilde; sản phẩm</td>\r\n			<td>CUH-7218B series</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Chi tiết CPU</td>\r\n			<td>x86-64 AMD &quot;Jaguar&quot;, 8 nh&acirc;n</td>\r\n		</tr>\r\n		<tr>\r\n			<td>GPU</td>\r\n			<td>4.20 TFLOPS, đồ họa nền tảng AMD Radeon</td>\r\n		</tr>\r\n		<tr>\r\n			<td>RAM</td>\r\n			<td>GDDR5 8GB</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Bộ nhớ trong</td>\r\n			<td>1TB</td>\r\n		</tr>\r\n	</tbody>\r\n	<thead>\r\n		<tr>\r\n			<td colspan=\"2\"><strong>KẾT NỐI DỮ LIỆU</strong></td>\r\n		</tr>\r\n	</thead>\r\n	<tbody>\r\n		<tr>\r\n			<td>Ổ đĩa BD/DVD (chỉ đọc)</td>\r\n			<td>BD x 6 CAV, DVD x 8 CAV</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Đường v&agrave;o / ra</td>\r\n			<td>3x Cổng USB tốc độ cao (USB 3.1 thế hệ 1), 1x Cổng AUX</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Cổng ra AV</td>\r\n			<td>HDMI out port (hỗ trợ 4K/HDR), Cổng quang (OPTICAL port)</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Kết nối mạng</td>\r\n			<td>C&aacute;p mạng Ethernet (10BASE-T, 100BASE-TX, 1000BASE-T)x1 Wi-Fi IEEE 802.11 a/b/g/n/ac. Bluetooth 4.0 (năng lượng thấp)</td>\r\n		</tr>\r\n	</tbody>\r\n	<thead>\r\n		<tr>\r\n			<td colspan=\"2\"><strong>TH&Ocirc;NG SỐ VẬT L&Yacute;</strong></td>\r\n		</tr>\r\n	</thead>\r\n	<tbody>\r\n		<tr>\r\n			<td>M&agrave;u sắc sản phẩm</td>\r\n			<td>Jet Black</td>\r\n		</tr>\r\n		<tr>\r\n			<td>K&iacute;ch thước</td>\r\n			<td>295 x 55 x 327 mm (rộng x d&agrave;i x cao)</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Trọng lượng</td>\r\n			<td>3.3 kg</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Nguồn điện</td>\r\n			<td>Xoay chiều, 100-240V, 50/60Hz</td>\r\n		</tr>\r\n		<tr>\r\n			<td>C&ocirc;ng suất ti&ecirc;u thụ</td>\r\n			<td>Tối đa 310W</td>\r\n		</tr>\r\n		<tr>\r\n			<td>Nhiệt độ l&agrave;m việc</td>\r\n			<td>5&ordm;C - 35&ordm;C</td>\r\n		</tr>\r\n	</tbody>\r\n</table>', 6800000, 4383021, 'mayps179.jpg', NULL, 30, 0, NULL, NULL),
+(22, 'Máy PS4 slim Mega pack 2', '', '90', NULL, 'may-ps4-slim-mega-pack-2-jetblack', 2, 1, '<p>M&aacute;y PS4 slim Mega pack 2</p>', '<p>M&aacute;y PS4 slim mega pack h&agrave;ng ch&iacute;nh h&atilde;ng Sony Việt Nam. Bảo h&agrave;nh h&atilde;ng 01 năm. Miễn ph&iacute; lắp đặt n&ocirc;i th&agrave;nh H&agrave; nội. Ship COD to&agrave;n quốc. Hỗ trợ trả g&oacute;p l&atilde;i xuất 0%</p>\r\n\r\n<p>Bộ sản phẩm gồm :</p>\r\n\r\n<p>- 01 bộ m&aacute;y PS4 slim ổ cứng 1T đời mới nhất cuh 2218 ( đ&atilde; c&oacute; 01 tay theo m&aacute;y )</p>\r\n\r\n<p>- 03 đĩa game mới nguy&ecirc;n seal: God of war 4, Horizon complete edition v&agrave; GTA 5</p>\r\n\r\n<p>KH&Ocirc;NG LẤY QU&Agrave; TẶNG VUI L&Ograve;NG INBOX SHOP HOẶC GỌI HOTLINE 0936011022</p>\r\n\r\n<p><img alt=\"Máy PS4 slim mega pack hàng chính hãng Sony Việt Nam\" src=\"https://bucket.nhanh.vn/store/24046/psCT/20191126/18323327/ps4_slim_mega_pack_.jpg\" /></p>', 7550000, 3851764, 'mayps381.jpg', NULL, 109, 0, NULL, NULL),
+(23, 'Combo Máy PS4 slim 1T kèm 2 tay và đĩa PES 20', 'máy ps4,máy cầm tay,ps4,ps4 slim,đĩa pes,ps4 1TB slim,playstation 4,pes', '90', NULL, 'combo-may-ps4-slim-1t-kem-2-tay-va-dia-pes-20', 2, 8, '<p>Combo M&aacute;y PS4 slim 1T k&egrave;m 2 tay v&agrave; đĩa PES 20</p>', '<p>M&aacute;y Ps4 pro b&aacute;n bởi Hotgamestore - Đại l&yacute; ch&iacute;nh h&atilde;ng Playstation của Sony tại Việt Nam - l&agrave; m&aacute;y nhập khẩu ch&iacute;nh h&atilde;ng, bảo h&agrave;nh tại Trung t&acirc;m hỗ trợ bảo h&agrave;nh Sony to&agrave;n Việt Nam. M&aacute;y Ps4 pro được k&iacute;ch hoạt bảo h&agrave;nh ngay khi kh&aacute;ch h&agrave;ng&nbsp;mua m&aacute;y, qu&yacute; kh&aacute;ch kh&ocirc;ng cần bất cứ giấy tờ g&igrave; khi mang m&aacute;y Ps4 pro đi bảo h&agrave;nh .</p>', 8090000, 4183755, '12344468.jpg', NULL, 71, 0, NULL, NULL),
+(24, 'Sách ngôn tình hồ ly tinh', 'sách ngôn tình bán chạy,sách,ngôn tình,truyện ngôn tình,sách ngôn tình hồ ly,truyện hồ ly', '10', NULL, 'sach-ngon-tinh-ho-ly-tinh', 6, 9, '<table>\r\n	<tbody>\r\n		<tr>\r\n			<th>M&atilde; h&agrave;ng</th>\r\n			<td>8936117742491</td>\r\n		</tr>\r\n		<tr>\r\n			<th>T&ecirc;n Nh&agrave; Cung Cấp</th>\r\n			<td><a href=\"https://www.fahasa.com/bao-zgroup\">ZGROUP</a></td>\r\n		</tr>\r\n		<tr>\r\n			<th>T&aacute;c giả</th>\r\n			<td>Mặc Hương Đồng Khứu</td>\r\n		</tr>\r\n		<tr>\r\n			<th>Người Dịch</th>\r\n			<td>Thanh Du</td>\r\n		</tr>\r\n		<tr>\r\n			<th>NXB</th>\r\n			<td>NXB H&agrave; Nội</td>\r\n		</tr>\r\n		<tr>\r\n			<th>Năm XB</th>\r\n			<td>2020</td>\r\n		</tr>\r\n		<tr>\r\n			<th>Ng&ocirc;n Ngữ</th>\r\n			<td>Tiếng Việt</td>\r\n		</tr>\r\n		<tr>\r\n			<th>Trọng lượng (gr)</th>\r\n			<td>450</td>\r\n		</tr>\r\n		<tr>\r\n			<th>K&iacute;ch thước</th>\r\n			<td>20.5 x 14 cm</td>\r\n		</tr>\r\n		<tr>\r\n			<th>Số trang</th>\r\n			<td>456</td>\r\n		</tr>\r\n		<tr>\r\n			<th>H&igrave;nh thức</th>\r\n			<td>B&igrave;a Mềm</td>\r\n		</tr>\r\n		<tr>\r\n			<th>Sản phẩm hiển thị trong</th>\r\n			<td>\r\n			<ul>\r\n				<li><a href=\"https://www.fahasa.com/bao-zgroup?fhs_campaign=INTERNAL_LINKING\">ZGROUP</a></li>\r\n			</ul>\r\n			</td>\r\n		</tr>\r\n		<tr>\r\n			<th>Sản phẩm b&aacute;n chạy nhất</th>\r\n			<td><a href=\"https://www.fahasa.com/sach-trong-nuoc/van-hoc-trong-nuoc/ngon-tinh/sort-by/num_orders_month/sort-direction/asc.html\">Top 100 sản phẩm Ng&ocirc;n T&igrave;nh b&aacute;n chạy của th&aacute;ng</a></td>\r\n		</tr>\r\n	</tbody>\r\n</table>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<div class=\"ddict_btn\" style=\"left:955px; top:555px\"><img src=\"chrome-extension://bpggmmljdiliancllaapiggllnkbjocb/icon/16.png\" /></div>', '<p>Chuyện bắt đầu từ t&aacute;m trăm năm trước...</p>\r\n\r\n<p>Một th&aacute;i tử điện hạ được vạn người ngưỡng vọng, phi thăng th&agrave;nh ti&ecirc;n. Những tưởng thế l&agrave; mỹ m&atilde;n, n&agrave;o ngờ y phi thăng hai lần th&igrave; hai lần bị đ&aacute;nh xuống trần, từ thần tướng tay hoa tay kiếm mu&ocirc;n d&acirc;n thờ phụng trở th&agrave;nh ti&ecirc;n nh&acirc;n đồng n&aacute;t lang thang khắp ng&otilde; hẻm hang c&ugrave;ng, kh&ocirc;ng c&oacute; lấy một ng&ocirc;i miếu thờ, từ giai thoại th&agrave;nh tr&ograve; cười của tam giới. Đến lần n&agrave;y, sau t&aacute;m trăm năm, y rốt cuộc cũng phi thăng lần thứ ba, một lần nữa trở lại Thi&ecirc;n đ&igrave;nh.</p>\r\n\r\n<p>Gặp lại bao người xưa, những chuyện cũ cũng lần lượt được v&eacute;n l&ecirc;n.</p>\r\n\r\n<p>T&aacute;m trăm năm qua lưu lạc hồng trần, y đ&atilde; trải qua những khổ nạn g&igrave;? Rốt cuộc l&agrave; ai đ&atilde; đẩy y đến thảm cảnh ấy?</p>', 500000, 277627, 'sachngontinh68.jpg', NULL, 29, 0, NULL, NULL),
+(26, 'Máy Chơi Game ps4 pro 1Tb tặng thêm tay cầm và 3 game', 'may choi game,máy chơi game,máy game,máy cầm tay đáng mua 2020,game máy 2020,máy chơi game tốt nhất 2020,máy ps4 chính hãng,mua ps4 pro,mua ps4 jetblack,máy ps4 slim,máy ps4 pro 1gb,mua ps4 chính hãng,mua sp4 giá rẻ,mua ps4 cũ,mua sp4 99%', '998', 2, 'may-choi-game-ps4-pro-1tb-tang-them-tay-cam-va-3-game', 2, 9, '<p>M&aacute;y Chơi Game ps4 pro 1Tb tặng th&ecirc;m tay cầm v&agrave; 3 game</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;</p>', '<p><img alt=\"\" src=\"http://localhost/tutorial_youtube/shopbanhanglaravel/public/uploads/ckeditor/gallery2_1601215815.jpg\" style=\"height:183px; width:207px\" /></p>\r\n\r\n<p><strong>Tay Cầm PS4 Pro Slim&nbsp;2020</strong></p>\r\n\r\n<p><img alt=\"\" src=\"blob:http://localhost/776756d2-65d6-4108-a946-6df271a9c24c\" style=\"width:250px\" /><img alt=\"\" src=\"http://localhost/tutorial_youtube/shopbanhanglaravel/public/uploads/product/mayps343.jpg\" style=\"height:539px; width:539px\" /></p>\r\n\r\n<p><strong>Tay Cầm PS4 Pro</strong></p>\r\n\r\n<p>DualShock&reg;4 l&agrave; tay cầm PS4 thế hệ mới được Sony ph&aacute;t triển d&agrave;nh ri&ecirc;ng cho m&aacute;y&nbsp;<a href=\"https://gamestation.vn/may-ps4.html\"><strong>Playstation 4</strong></a>&nbsp;nhằm định nghĩa c&aacute;ch m&agrave; c&aacute;c game tr&ecirc;n hệ m&aacute;y Next-Gen n&ecirc;n được điều khiển, tay cầm PS4 l&agrave; sự kết hợp của những t&iacute;nh năng mới cộng với cơ chế điều khiển tự do ch&iacute;nh x&aacute;c. C&aacute;c cần angalog được cải tiến v&agrave; cac n&uacute;t c&ograve; cho ph&eacute;p người chơi thao t&aacute;c với độ ch&iacute;nh x&aacute;c cực cao, trong khi đ&oacute; c&aacute;c c&ocirc;ng nghệ ti&ecirc;n tiến mới như touch pad đa điểm, loa v&agrave; đ&egrave;n t&iacute;ch hợp cho ph&eacute;p người chơi c&oacute; những c&aacute;ch trải nghiệm v&agrave; tương t&aacute;c mới mẻ với những tựa game Next-Gen. Chưa kể tới việc th&ecirc;m v&agrave;o n&uacute;t Share cho ph&eacute;p bạn ăn mừng v&agrave; Upload c&aacute;c gi&acirc;y ph&uacute;t tuyệt vời của bạn tr&ecirc;n m&aacute;y PS4 chỉ với một n&uacute;t bấm.</p>\r\n\r\n<p><img alt=\"\" src=\"https://ichef.bbci.co.uk/news/976/cpsprodpb/13729/production/_112375697_1331db7a-17c0-4401-8cac-6a2309ff49b6.jpg\" style=\"height:169px; width:300px\" /></p>\r\n\r\n<p><iframe frameborder=\"0\" height=\"350\" src=\"https://www.youtube.com/embed/Hywo2vnQLOY\" width=\"100%\"></iframe></p>\r\n\r\n<p><strong>+ Khả năng điều khiển ch&iacute;nh x&aacute;c</strong></p>\r\n\r\n<p>Cảm nhận, h&igrave;nh d&aacute;ng, v&agrave; độ nhạy của c&aacute;c cần analog v&agrave; n&uacute;t c&ograve; tay cầm PS4 đ&atilde; được n&acirc;ng cấp nhằm cho ph&eacute;p người chơi khả năng điều khiển tuyệt đối với c&aacute;c game tr&ecirc;n PS4. Đ&egrave;n t&iacute;ch hợp ở trong tay cầm ngo&agrave;i việc cho đẹp c&ograve;n c&oacute; t&aacute;c dụng thể hiện c&aacute;c th&ocirc;ng số trong một số&nbsp;<a href=\"https://www.facebook.com/GameStation.vn/\">game</a>, ngo&agrave;i ra đ&egrave;n n&agrave;y c&ograve;n đ&oacute;ng vai tr&ograve; thay thế cho PSmove trong việc tương t&aacute;c với c&aacute;c ứng dụng hoặc game.</p>\r\n\r\n<p><strong>+ Khả năng chia sẻ trong tầm tay</strong></p>\r\n\r\n<p>Việc th&ecirc;m v&agrave;o n&uacute;t Share khiến việc chia sẻ những khoảnh khắc tuyệt vời đơn giản chỉ với một n&uacute;t bấm. Upload c&aacute;c đoạn gameplay v&agrave; screenshots trực tiếp từ m&aacute;y PS4 hoặc live-stream c&aacute;c đoạn gameplay của bạn, tất cả trở n&ecirc;n thật đơn giản v&agrave; quan trọng nhất l&agrave; n&oacute; kh&ocirc;ng l&agrave;m gi&aacute;n đoạn qu&aacute; tr&igrave;nh chơi của bạn.<br />\r\n&nbsp;</p>\r\n\r\n<p><img alt=\"\" src=\"https://gamestation.vn/cdn/images/ps4sharejpg-b34637.jpg\" style=\"height:450px; width:800px\" /></p>\r\n\r\n<p><strong>+ Mang lại một trải nghiệm mới</strong></p>\r\n\r\n<p>C&aacute;c t&iacute;nh năng mang t&iacute;nh đột ph&aacute; như touch pad, đ&egrave;n v&agrave; loa t&iacute;ch hợp mang lại người chơi những trải nghiệm mới mẽ v&agrave; tr&ecirc;n tay cầm c&oacute; t&iacute;ch hợp jack cắm headset cộng với jack 3.5mm cho cung cấp cho người chơi một c&aacute;ch thức giao tiếp tiện nghi trong c&aacute;c trận chi&ecirc;n đ&ocirc;ng thới cung cấp giải ph&aacute;p &acirc;mt hanh cho c&aacute;c game thủ muốn trải nghiệm game một c&aacute;ch ri&ecirc;ng tư m&agrave; kh&ocirc;ng bị ai quấy rầy. Nhưng bạn phải lưu &yacute; khả năng chat voice chỉ c&oacute; thể hoạt động tốt nhất với headset k&egrave;m theo v&agrave; c&oacute; thể kh&ocirc;ng tương th&iacute;ch với một số tai nghe nhất định.<br />\r\n&nbsp;</p>\r\n\r\n<p><img alt=\"\" src=\"https://gamestation.vn/cdn/images/PS4-Sony-DualShock-4-PSN-cash-876707.jpg\" style=\"height:475px; width:800px\" /></p>\r\n\r\n<p><strong>+ Sạc hiệu quả</strong></p>\r\n\r\n<p>Tay cầm PS4 c&oacute; thể dễ d&agrave;ng sạc bằng c&aacute;ch cấm v&agrave;o m&aacute;y PS4, tay cầm sẽ được sạc ngay cả khi m&aacute;y ở trong chế độ Standby, hoặc bạn c&oacute; thể kết nối tay cầm với bất kỳ c&aacute;c cổng USB kh&aacute;c để sạc chỉ với một sợi&nbsp;<a href=\"https://gamestation.vn/phu-kien-game/day-sac-tay-cam-ps4-xbox-one-hang-zin.html\">d&acirc;y mico-USB</a>.</p>', 10999000, 5772482, 'mayps343.jpg', NULL, 173, 0, NULL, NULL),
+(27, 'Tai nghe 5G', 'Tai nghe 5G', '1000', NULL, 'tai-nghe-5g', 11, 9, '<p>Tai nghe 5G</p>', '<p>Tai nghe 5G</p>', 1650000, 1086245, 'tainghe80.jpg', NULL, 88, 0, NULL, NULL),
+(28, 'Máy đo nhịp tim Sonic-2k-K', 'Máy đo nhịp tim Sonic-2k', '990', 10, 'may-do-nhip-tim-sonic-2k', 12, 9, '<p>M&aacute;y đo nhịp tim Sonic-2k</p>', '<p>M&aacute;y đo nhịp tim Sonic-2k</p>', 500000, 308597, 'maydo26.jpg', NULL, 107, 0, NULL, NULL),
+(29, 'Máy đo nhịp tim Sonic-2k', 'Máy đo nhịp tim Sonic-2k', '2000', NULL, 'may-do-nhip-tim-sonic-2k', 12, 1, '<p>M&aacute;y đo nhịp tim Sonic-2k</p>', '<p>M&aacute;y đo nhịp tim Sonic-2k</p>', 500000, 305492, 'maydonhiptim21.jpg', NULL, 47, 0, NULL, NULL),
+(30, 'Samsung Galaxy ultra 20', 'Samsung Galaxy ultra 20', '1000', NULL, 'samsung-galaxy-ultra-20', 13, 2, '<p>Samsung Galaxy ultra 20</p>', '<p>Samsung Galaxy ultra 20</p>', 500000, 251671, 'samsung80.jpg', NULL, 130, 0, NULL, NULL),
+(31, 'Tai nghe 5G đỏ', 'Tai nghe 5G đỏ', '990', 10, 'tai-nghe-5g-do', 11, 9, '<p>Tai nghe 5G đỏ</p>', '<p>Tai nghe 5G đỏ</p>', 500000, 291879, 'tai nghe xanh78.jpg', NULL, 107, 0, NULL, NULL),
+(32, 'cho nhat cua chi hong', 'cho , nhat ban', '8', 2, 'cho-nhat-cua-chi-hong', 8, 7, '<p>cho nhat cua khach san</p>', '<p>cho nhat , lam thit cho canh</p>', 1000000, 508761, 'cho chi hong31.jpg', NULL, 144, 0, NULL, NULL),
+(33, 'kk t gghhjf', NULL, '3', 1, 'kk-t-gghhjf', 21, 9, '<p>kkkk</p>', '<p>hhhhj</p>', 5000, 3462, '2 - Copy5.jpg', NULL, 178, 0, NULL, NULL),
+(34, 'iPhone 5 v20', 'iPhone , dien thoai, di dong', '398', 2, 'iphone-5-v20', 21, 9, '<p>iPhone 5</p>', '<p>ko co noi dung iphone</p>', 6000000, 3818320, 'iphone586.jpg', 'brouillon73.pdf', 5, 0, NULL, NULL),
+(35, 'iphone 6', 'iphone , apple', '497', 3, 'iphone-6', 21, 9, '<p>ko co noi dung</p>', '<p>ko co noi dung</p>', 7500000, 4532478, 'iphone 699.jpg', 'Import và Export dữ liệu từ database66.pdf', 2, 0, '2021-01-08 17:46:42', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_quanhuyen`
+-- Table structure for table `tbl_quanhuyen`
 --
 
-CREATE TABLE `tbl_quanhuyen` (
-  `maqh` varchar(5) CHARACTER SET utf8 NOT NULL,
-  `name_quanhuyen` varchar(100) CHARACTER SET utf8 NOT NULL,
-  `type` varchar(30) CHARACTER SET utf8 NOT NULL,
-  `matp` int(10) NOT NULL
+DROP TABLE IF EXISTS `tbl_quanhuyen`;
+CREATE TABLE IF NOT EXISTS `tbl_quanhuyen` (
+  `maqh` varchar(5) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `name_quanhuyen` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `type` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `matp` int(10) NOT NULL,
+  PRIMARY KEY (`maqh`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_quanhuyen`
+-- Dumping data for table `tbl_quanhuyen`
 --
 
 INSERT INTO `tbl_quanhuyen` (`maqh`, `name_quanhuyen`, `type`, `matp`) VALUES
@@ -1284,17 +1805,19 @@ INSERT INTO `tbl_quanhuyen` (`maqh`, `name_quanhuyen`, `type`, `matp`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_rating`
+-- Table structure for table `tbl_rating`
 --
 
-CREATE TABLE `tbl_rating` (
-  `rating_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `tbl_rating`;
+CREATE TABLE IF NOT EXISTS `tbl_rating` (
+  `rating_id` int(11) NOT NULL AUTO_INCREMENT,
   `product_id` int(11) NOT NULL,
-  `rating` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `rating` int(11) NOT NULL,
+  PRIMARY KEY (`rating_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=88 DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_rating`
+-- Dumping data for table `tbl_rating`
 --
 
 INSERT INTO `tbl_rating` (`rating_id`, `product_id`, `rating`) VALUES
@@ -1311,21 +1834,80 @@ INSERT INTO `tbl_rating` (`rating_id`, `product_id`, `rating`) VALUES
 (27, 7, 1),
 (28, 7, 5),
 (29, 13, 4),
-(30, 13, 2);
+(30, 13, 2),
+(31, 26, 5),
+(32, 26, 5),
+(33, 26, 2),
+(34, 15, 4),
+(35, 15, 3),
+(36, 28, 3),
+(37, 28, 3),
+(38, 28, 4),
+(39, 28, 4),
+(40, 34, 4),
+(41, 34, 4),
+(42, 32, 4),
+(43, 32, 4),
+(44, 20, 4),
+(45, 20, 4),
+(46, 20, 5),
+(47, 20, 5),
+(48, 20, 4),
+(49, 26, 4),
+(50, 26, 5),
+(51, 26, 3),
+(52, 26, 5),
+(53, 26, 5),
+(54, 26, 4),
+(55, 26, 2),
+(56, 26, 2),
+(57, 26, 5),
+(58, 26, 5),
+(59, 26, 4),
+(60, 26, 4),
+(61, 26, 4),
+(62, 26, 4),
+(63, 26, 4),
+(64, 26, 5),
+(65, 26, 2),
+(66, 26, 4),
+(67, 26, 4),
+(68, 26, 4),
+(69, 26, 3),
+(70, 26, 4),
+(71, 26, 5),
+(72, 26, 5),
+(73, 26, 5),
+(74, 26, 5),
+(75, 26, 3),
+(76, 26, 3),
+(77, 26, 3),
+(78, 26, 5),
+(79, 26, 5),
+(80, 26, 5),
+(81, 26, 5),
+(82, 26, 5),
+(83, 26, 5),
+(84, 26, 5),
+(85, 26, 5),
+(86, 26, 5),
+(87, 26, 3);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_roles`
+-- Table structure for table `tbl_roles`
 --
 
-CREATE TABLE `tbl_roles` (
-  `id_roles` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+DROP TABLE IF EXISTS `tbl_roles`;
+CREATE TABLE IF NOT EXISTS `tbl_roles` (
+  `id_roles` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  PRIMARY KEY (`id_roles`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_roles`
+-- Dumping data for table `tbl_roles`
 --
 
 INSERT INTO `tbl_roles` (`id_roles`, `name`) VALUES
@@ -1336,46 +1918,70 @@ INSERT INTO `tbl_roles` (`id_roles`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_shipping`
+-- Table structure for table `tbl_shipping`
 --
 
-CREATE TABLE `tbl_shipping` (
-  `shipping_id` int(10) UNSIGNED NOT NULL,
-  `shipping_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `shipping_address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `shipping_phone` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `shipping_email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `shipping_notes` text COLLATE utf8mb4_unicode_ci NOT NULL,
+DROP TABLE IF EXISTS `tbl_shipping`;
+CREATE TABLE IF NOT EXISTS `tbl_shipping` (
+  `shipping_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `shipping_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `shipping_address` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `shipping_phone` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `shipping_email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `shipping_notes` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
   `shipping_method` int(11) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`shipping_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_shipping`
+-- Dumping data for table `tbl_shipping`
 --
 
 INSERT INTO `tbl_shipping` (`shipping_id`, `shipping_name`, `shipping_address`, `shipping_phone`, `shipping_email`, `shipping_notes`, `shipping_method`, `created_at`, `updated_at`) VALUES
-(17, 'Hieu Tấn', '245 Nguyễn Văn Khạ, Tân An Hội .Thị trấn Củ Chi,TPHCM', '0932023992', 'Hieu dep giai', 'Nhanh nha mày', 1, NULL, NULL),
-(18, 'Hieu tấn', '123/123', '0932023992', 'dsadas@gmail.com', 'dasdasdasdas', 1, NULL, NULL),
-(19, 'Hieu tấn', '123/123', '0932023992', 'dsadas@gmail.com', 'dasdasdasdas', 0, NULL, NULL);
+(17, 'Hieu Tấn', '245 Nguyễn Văn Khạ, Tân An Hội .Thị trấn Củ Chi,TPHCM', '0932023992', 'Hieu dep giai', 'Nhanh nha mày', 1, '0000-00-00 00:00:00', NULL),
+(18, 'Hieu tấn', '123/123', '0932023992', 'dsadas@gmail.com', 'dasdasdasdas', 1, '0000-00-00 00:00:00', NULL),
+(19, 'Hieu tấn', '123/123', '0932023992', 'dsadas@gmail.com', 'dasdasdasdas', 0, '0000-00-00 00:00:00', NULL),
+(20, 'Duc khach hang', 'ffff', '0999', 'duc@gmail.com', 'sgfgfdgf', 0, '2020-11-23 04:44:37', NULL),
+(21, 'Duc khach hang', 'fffaaaa', '0999', 'duc@gmail.com', 'dddd', 0, '2020-11-23 04:54:57', NULL),
+(32, 'Duc khach hang', 'kkkk', '0999', 'duc@gmail.com', 'den 12h', 1, '2020-11-24 16:53:22', NULL),
+(33, 'giang', '29 lieu giai', '025', 'giang@gmail.com', 'den goi nhe', 1, '2020-11-24 17:02:00', NULL),
+(41, 'Duc khach hang', 'lvh', '0999', 'duc@gmail.com', 'hhh', 1, '2020-11-24 17:15:41', NULL),
+(52, 'Duc khach hang', '36 Phan ke binh', '0999', 'duc@gmail.com', NULL, 0, '2020-11-24 20:15:20', NULL),
+(53, 'Duc khach hang', 'angggg', '0999', 'duc@gmail.com', 'hhh', 1, '2020-11-25 21:23:50', NULL),
+(54, 'giang', '29 lieu giai', '025', 'giang@gmail.com', 'den thi goi anh ha trung', 1, '2020-11-26 17:53:06', NULL),
+(55, 'Duc khach hang', '1194 lang', '0999', 'duc@gmail.com', NULL, 0, '2020-11-29 19:47:56', NULL),
+(56, 'Duc khach hang', '94 lang', '0999', 'duc@gmail.com', 'ggg', 1, '2020-12-25 15:20:51', NULL),
+(57, 'Duc khach hang', '39 pkb', '0999', 'duc@gmail.com', 'den thi goi', 1, '2020-12-25 15:21:50', NULL),
+(58, 'Duc khach hang', '1990', '0999', 'duc@gmail.com', 'llll', 1, '2020-12-26 18:49:33', NULL),
+(59, 'Duc khach hang', '36 phan ke binh', '0999', 'duc@gmail.com', 'den quan hibiki', 1, '2021-01-18 17:11:57', NULL),
+(60, 'Duc khach hang', '39 linh lang', '0999', 'duc@gmail.com', 'den goi', 1, '2021-01-23 11:25:17', NULL),
+(61, 'Duc khach hang', '55', '0999', 'duc@gmail.com', NULL, 0, '2021-01-23 12:07:02', NULL),
+(62, 'Duc khach hang', '55', '0999', 'duc@gmail.com', NULL, 0, '2021-01-23 12:54:49', NULL),
+(63, 'Duc khach hang', '55', '0999', 'duc@gmail.com', NULL, 0, '2021-01-23 12:54:49', NULL),
+(64, 'Duc khach hang', '36 pkkb', '0999', 'duc@gmail.com', 'den thi goi', 1, '2021-04-19 04:58:33', NULL),
+(65, 'Duc khach hang', '36 hoang cau', '0999', 'duc@gmail.com', NULL, 0, '2021-04-19 09:04:50', NULL),
+(66, 'Duc khach hang', '55454', '0999', 'duc@gmail.com', 'gfugyuy', 0, '2021-06-03 10:43:03', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_slider`
+-- Table structure for table `tbl_slider`
 --
 
-CREATE TABLE `tbl_slider` (
-  `slider_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `tbl_slider`;
+CREATE TABLE IF NOT EXISTS `tbl_slider` (
+  `slider_id` int(11) NOT NULL AUTO_INCREMENT,
   `slider_name` varchar(255) NOT NULL,
   `slider_status` int(11) NOT NULL,
   `slider_image` varchar(100) NOT NULL,
-  `slider_desc` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `slider_desc` varchar(100) NOT NULL,
+  PRIMARY KEY (`slider_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_slider`
+-- Dumping data for table `tbl_slider`
 --
 
 INSERT INTO `tbl_slider` (`slider_id`, `slider_name`, `slider_status`, `slider_image`, `slider_desc`) VALUES
@@ -1387,18 +1993,20 @@ INSERT INTO `tbl_slider` (`slider_id`, `slider_name`, `slider_status`, `slider_i
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_social`
+-- Table structure for table `tbl_social`
 --
 
-CREATE TABLE `tbl_social` (
-  `user_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `tbl_social`;
+CREATE TABLE IF NOT EXISTS `tbl_social` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
   `provider_user_id` varchar(100) NOT NULL,
   `provider` varchar(100) NOT NULL,
-  `user` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `user` int(11) NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_social`
+-- Dumping data for table `tbl_social`
 --
 
 INSERT INTO `tbl_social` (`user_id`, `provider_user_id`, `provider`, `user`) VALUES
@@ -1410,124 +2018,208 @@ INSERT INTO `tbl_social` (`user_id`, `provider_user_id`, `provider`, `user`) VAL
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_tinhthanhpho`
+-- Table structure for table `tbl_statistical`
 --
 
-CREATE TABLE `tbl_tinhthanhpho` (
-  `matp` varchar(5) CHARACTER SET utf8 NOT NULL,
-  `name_city` varchar(100) CHARACTER SET utf8 NOT NULL,
-  `type` varchar(30) CHARACTER SET utf8 NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+DROP TABLE IF EXISTS `tbl_statistical`;
+CREATE TABLE IF NOT EXISTS `tbl_statistical` (
+  `id_statistical` int(11) NOT NULL AUTO_INCREMENT,
+  `order_date` varchar(100) NOT NULL,
+  `sales` varchar(200) NOT NULL,
+  `profit` varchar(200) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `total_order` int(11) NOT NULL,
+  PRIMARY KEY (`id_statistical`)
+) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_tinhthanhpho`
+-- Dumping data for table `tbl_statistical`
 --
 
-INSERT INTO `tbl_tinhthanhpho` (`matp`, `name_city`, `type`) VALUES
-('01', 'Thành phố Hà Nội', 'Thành phố Trung ương'),
-('02', 'Tỉnh Hà Giang', 'Tỉnh'),
-('04', 'Tỉnh Cao Bằng', 'Tỉnh'),
-('06', 'Tỉnh Bắc Kạn', 'Tỉnh'),
-('08', 'Tỉnh Tuyên Quang', 'Tỉnh'),
-('10', 'Tỉnh Lào Cai', 'Tỉnh'),
-('11', 'Tỉnh Điện Biên', 'Tỉnh'),
-('12', 'Tỉnh Lai Châu', 'Tỉnh'),
-('14', 'Tỉnh Sơn La', 'Tỉnh'),
-('15', 'Tỉnh Yên Bái', 'Tỉnh'),
-('17', 'Tỉnh Hoà Bình', 'Tỉnh'),
-('19', 'Tỉnh Thái Nguyên', 'Tỉnh'),
-('20', 'Tỉnh Lạng Sơn', 'Tỉnh'),
-('22', 'Tỉnh Quảng Ninh', 'Tỉnh'),
-('24', 'Tỉnh Bắc Giang', 'Tỉnh'),
-('25', 'Tỉnh Phú Thọ', 'Tỉnh'),
-('26', 'Tỉnh Vĩnh Phúc', 'Tỉnh'),
-('27', 'Tỉnh Bắc Ninh', 'Tỉnh'),
-('30', 'Tỉnh Hải Dương', 'Tỉnh'),
-('31', 'Thành phố Hải Phòng', 'Thành phố Trung ương'),
-('33', 'Tỉnh Hưng Yên', 'Tỉnh'),
-('34', 'Tỉnh Thái Bình', 'Tỉnh'),
-('35', 'Tỉnh Hà Nam', 'Tỉnh'),
-('36', 'Tỉnh Nam Định', 'Tỉnh'),
-('37', 'Tỉnh Ninh Bình', 'Tỉnh'),
-('38', 'Tỉnh Thanh Hóa', 'Tỉnh'),
-('40', 'Tỉnh Nghệ An', 'Tỉnh'),
-('42', 'Tỉnh Hà Tĩnh', 'Tỉnh'),
-('44', 'Tỉnh Quảng Bình', 'Tỉnh'),
-('45', 'Tỉnh Quảng Trị', 'Tỉnh'),
-('46', 'Tỉnh Thừa Thiên Huế', 'Tỉnh'),
-('48', 'Thành phố Đà Nẵng', 'Thành phố Trung ương'),
-('49', 'Tỉnh Quảng Nam', 'Tỉnh'),
-('51', 'Tỉnh Quảng Ngãi', 'Tỉnh'),
-('52', 'Tỉnh Bình Định', 'Tỉnh'),
-('54', 'Tỉnh Phú Yên', 'Tỉnh'),
-('56', 'Tỉnh Khánh Hòa', 'Tỉnh'),
-('58', 'Tỉnh Ninh Thuận', 'Tỉnh'),
-('60', 'Tỉnh Bình Thuận', 'Tỉnh'),
-('62', 'Tỉnh Kon Tum', 'Tỉnh'),
-('64', 'Tỉnh Gia Lai', 'Tỉnh'),
-('66', 'Tỉnh Đắk Lắk', 'Tỉnh'),
-('67', 'Tỉnh Đắk Nông', 'Tỉnh'),
-('68', 'Tỉnh Lâm Đồng', 'Tỉnh'),
-('70', 'Tỉnh Bình Phước', 'Tỉnh'),
-('72', 'Tỉnh Tây Ninh', 'Tỉnh'),
-('74', 'Tỉnh Bình Dương', 'Tỉnh'),
-('75', 'Tỉnh Đồng Nai', 'Tỉnh'),
-('77', 'Tỉnh Bà Rịa - Vũng Tàu', 'Tỉnh'),
-('79', 'Thành phố Hồ Chí Minh', 'Thành phố Trung ương'),
-('80', 'Tỉnh Long An', 'Tỉnh'),
-('82', 'Tỉnh Tiền Giang', 'Tỉnh'),
-('83', 'Tỉnh Bến Tre', 'Tỉnh'),
-('84', 'Tỉnh Trà Vinh', 'Tỉnh'),
-('86', 'Tỉnh Vĩnh Long', 'Tỉnh'),
-('87', 'Tỉnh Đồng Tháp', 'Tỉnh'),
-('89', 'Tỉnh An Giang', 'Tỉnh'),
-('91', 'Tỉnh Kiên Giang', 'Tỉnh'),
-('92', 'Thành phố Cần Thơ', 'Thành phố Trung ương'),
-('93', 'Tỉnh Hậu Giang', 'Tỉnh'),
-('94', 'Tỉnh Sóc Trăng', 'Tỉnh'),
-('95', 'Tỉnh Bạc Liêu', 'Tỉnh'),
-('96', 'Tỉnh Cà Mau', 'Tỉnh');
+INSERT INTO `tbl_statistical` (`id_statistical`, `order_date`, `sales`, `profit`, `quantity`, `total_order`) VALUES
+(1, '2020-11-13', '34150000', '34148000', 11, 7),
+(2, '2020-11-07', '68000000', '9000000', 60, 8),
+(3, '2020-11-06', '30000000', '3000000', 45, 7),
+(4, '2020-11-05', '45000000', '3800000', 30, 9),
+(5, '2020-11-04', '30000000', '1500000', 15, 12),
+(6, '2020-11-03', '8000000', '700000', 65, 30),
+(7, '2020-11-02', '28000000', '23000000', 32, 20),
+(8, '2020-11-01', '25000000', '20000000', 7, 6),
+(9, '2020-10-31', '36000000', '28000000', 40, 15),
+(10, '2020-10-30', '50000000', '13000000', 89, 19),
+(11, '2020-10-29', '20000000', '15000000', 63, 11),
+(12, '2020-10-28', '25000000', '16000000', 94, 14),
+(13, '2020-10-27', '32000000', '17000000', 16, 10),
+(14, '2020-10-26', '33000000', '19000000', 14, 5),
+(15, '2020-10-25', '36000000', '18000000', 22, 12),
+(16, '2020-10-24', '34000000', '20000000', 33, 20),
+(17, '2020-10-23', '25000000', '16000000', 94, 14),
+(18, '2020-10-22', '12000000', '7000000', 16, 10),
+(19, '2020-10-21', '63000000', '19000000', 14, 5),
+(20, '2020-10-20', '66000000', '18000000', 22, 12),
+(21, '2020-10-19', '74000000', '20000000', 33, 20),
+(22, '2020-10-18', '63000000', '19000000', 14, 5),
+(23, '2020-10-17', '66000000', '18000000', 23, 12),
+(24, '2020-10-16', '74000000', '20000000', 32, 20),
+(25, '2020-10-15', '63000000', '19000000', 14, 5),
+(26, '2020-10-14', '66000000', '18000000', 23, 12),
+(27, '2020-10-13', '74000000', '20000000', 33, 20),
+(28, '2020-10-12', '66000000', '18000000', 23, 12),
+(29, '2020-10-11', '74000000', '20000000', 10, 20),
+(30, '2020-10-10', '63000000', '19000000', 14, 5),
+(31, '2020-10-09', '66000000', '18000000', 23, 12),
+(32, '2020-10-08', '74000000', '20000000', 15, 20),
+(33, '2020-10-07', '66000000', '18000000', 23, 12),
+(34, '2020-10-06', '74000000', '20000000', 30, 22),
+(35, '2020-10-05', '66000000', '18000000', 23, 12),
+(36, '2020-10-04', '74000000', '20000000', 32, 20),
+(37, '2020-10-03', '63000000', '19000000', 14, 5),
+(38, '2020-10-02', '66000000', '18000000', 23, 12),
+(39, '2020-10-01', '74000000', '20000000', 32, 20),
+(40, '2020-09-30', '63000000', '19000000', 14, 5),
+(41, '2020-09-29', '66000000', '18000000', 23, 12),
+(42, '2020-09-28', '74000000', '20000000', 15, 20),
+(43, '2020-09-27', '66000000', '18000000', 23, 12),
+(44, '2020-09-26', '74000000', '20000000', 30, 22),
+(45, '2020-09-25', '66000000', '18000000', 23, 12),
+(46, '2020-09-24', '74000000', '20000000', 32, 20),
+(47, '2020-09-23', '63000000', '19000000', 14, 5),
+(48, '2020-09-22', '66000000', '18000000', 23, 12),
+(49, '2020-09-21', '74000000', '20000000', 32, 20),
+(50, '2020-09-20', '63000000', '19000000', 14, 5),
+(51, '2020-09-19', '66000000', '18000000', 23, 12),
+(52, '2020-09-18', '74000000', '20000000', 15, 20),
+(53, '2020-09-17', '66000000', '18000000', 23, 12),
+(54, '2020-09-16', '74000000', '20000000', 30, 22),
+(55, '2020-09-15', '66000000', '18000000', 23, 12),
+(56, '2020-09-14', '74000000', '20000000', 32, 20),
+(57, '2020-09-13', '63000000', '19000000', 14, 5),
+(58, '2020-09-12', '66000000', '18000000', 23, 12),
+(59, '2020-09-11', '74000000', '20000000', 32, 20),
+(60, '2020-09-10', '63000000', '19000000', 14, 5),
+(61, '2020-09-09', '66000000', '18000000', 23, 12),
+(62, '2020-09-08', '74000000', '20000000', 15, 20),
+(63, '2020-09-07', '66000000', '18000000', 23, 12),
+(64, '2020-09-06', '74000000', '20000000', 30, 22),
+(65, '2020-09-05', '66000000', '18000000', 23, 12),
+(66, '2020-09-04', '74000000', '20000000', 32, 20),
+(67, '2020-09-03', '63000000', '19000000', 14, 5),
+(68, '2020-09-02', '66000000', '18000000', 23, 12),
+(69, '2020-09-01', '74000000', '20000000', 32, 20),
+(70, '2020-11-08', '63300000', '63298000', 12, 12),
+(71, '2020-11-15', '63300000', '63298000', 12, 12),
+(72, '2020-11-12', '63300000', '63298000', 12, 12),
+(73, '2020-11-18', '63300000', '63298000', 12, 12),
+(74, '2020-11-16', '31650000', '31649000', 6, 6),
+(75, '2020-11-11', '34150000', '34148000', 11, 7),
+(76, '2020-11-14', '12500000', '250000', 25, 2),
+(77, '2021-01-18', '15575000', '6808958', 7, 2),
+(78, '2020-12-25', '4500000', '2957015', 7, 3),
+(79, '2021-01-23', '5000', '1538', 1, 1),
+(80, '2021-04-19', '27998000', '24179680', 3, 2),
+(81, '2021-06-03', '405000', '155517', 3, 1);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_videos`
+-- Table structure for table `tbl_videos`
 --
 
-CREATE TABLE `tbl_videos` (
-  `video_id` int(11) NOT NULL,
+DROP TABLE IF EXISTS `tbl_videos`;
+CREATE TABLE IF NOT EXISTS `tbl_videos` (
+  `video_id` int(11) NOT NULL AUTO_INCREMENT,
   `video_title` varchar(200) NOT NULL,
   `video_slug` varchar(255) NOT NULL,
-  `video_link` varchar(100) NOT NULL,
+  `video_link` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `sub_link` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
   `video_desc` mediumtext NOT NULL,
-  `video_image` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `video_image` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+  `status` int(11) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`video_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_videos`
+-- Dumping data for table `tbl_videos`
 --
 
-INSERT INTO `tbl_videos` (`video_id`, `video_title`, `video_slug`, `video_link`, `video_desc`, `video_image`) VALUES
-(3, 'Video họp định kỳ hàng tháng của shop', 'hop-cong-ty', '-k1j6Spy__s', 'Video họp định kỳ hàng tháng của shop,mang lại tình cảm gắn kết và hiểu nhau hơn của hop', 'viber-image-2019-06-06-12-01-4871.jpg'),
-(4, 'Video hoạt động cấm trại của shop ', 'cam-trai-cong-ty', 'LO6d8fVOmRo', 'Video hoạt động cấm trại của shop ', 'khu-cam-trai-zenna879.jpg'),
-(6, 'Video kho hàng hóa công ty', 'video-kho-hang-hoa-cong-ty', 'plrG31A7ZrA', 'Video kho hàng hóa công ty', 'hangle11.jpg'),
-(7, 'Quy trình vận chuyển hàng hóa công ty', 'quy-trinh-van-chuyen-hang-hoa-cong-ty', 'ct-apRn32Os', 'Quy trình vận chuyển hàng hóa công ty chúng tôi', 'thieu-xe8.jpg');
+INSERT INTO `tbl_videos` (`video_id`, `video_title`, `video_slug`, `video_link`, `sub_link`, `video_desc`, `video_image`, `status`) VALUES
+(16, 'laravel bai 190', 'laravel-bai-190', '0', 'SdL55HWNPRM', 'video chien tranh', 'gao meihui0.jpg', 0),
+(17, 'ww3 game 3d', 'ww3-game-3d', '0', '_dEBIAofnno', 'video chien tranh', 'cho chi hong60.jpg', 0),
+(27, 'holo holo nice', 'holo-holo-nice', '0', 'mlieywYp6Ts', 'nice musice', 'tai con meo co day18.jpg', 0),
+(29, '  phim hay that', 'xem-phim-hay-that', 'https://www.youtube.com/watch?v=JduOg4uelDo', 'JduOg4uelDo', 'xem hay phim hay', '2010200568.jpg', 0);
 
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `tbl_xaphuongthitran`
+-- Table structure for table `tbl_visitors`
 --
 
-CREATE TABLE `tbl_xaphuongthitran` (
-  `xaid` varchar(5) CHARACTER SET utf8 NOT NULL,
-  `name_xaphuong` varchar(100) CHARACTER SET utf8 NOT NULL,
-  `type` varchar(30) CHARACTER SET utf8 NOT NULL,
-  `maqh` int(10) NOT NULL
+DROP TABLE IF EXISTS `tbl_visitors`;
+CREATE TABLE IF NOT EXISTS `tbl_visitors` (
+  `id_visitors` int(11) NOT NULL AUTO_INCREMENT,
+  `ip_address` varchar(50) NOT NULL,
+  `date_visitor` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_visitors`)
+) ENGINE=InnoDB AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `tbl_visitors`
+--
+
+INSERT INTO `tbl_visitors` (`id_visitors`, `ip_address`, `date_visitor`) VALUES
+(1, '::1', '2020-11-08'),
+(2, '103.221.221.189', '2020-11-07'),
+(3, '104.221.221.189', '2020-11-06'),
+(4, '106.221.221.189', '2020-11-05'),
+(5, '107.221.221.189', '2020-11-04'),
+(6, '108.221.221.189', '2020-11-03'),
+(7, '109.221.221.189', '2020-11-02'),
+(8, '110.221.221.189', '2020-11-01'),
+(9, '121.221.221.189', '2020-10-31'),
+(10, '122.221.221.189', '2020-10-30'),
+(11, '123.221.221.189', '2020-10-29'),
+(12, '111.221.221.189', '2020-10-28'),
+(13, '112.221.221.189', '2020-10-27'),
+(14, '115.221.221.189', '2020-10-26'),
+(15, '116.221.221.189', '2020-10-25'),
+(16, '117.221.221.189', '2020-10-24'),
+(17, '118.221.221.189', '2020-10-23'),
+(18, '119.221.221.189', '2020-10-22'),
+(19, '125.221.221.189', '2020-10-21'),
+(20, '129.221.221.189', '2020-10-20'),
+(21, '130.221.221.189', '2020-10-19'),
+(22, '131.221.221.189', '2020-10-18'),
+(23, '132.221.221.189', '2020-10-17'),
+(24, '134.221.221.189', '2020-10-16'),
+(25, '150.13.005.189', '2020-11-10'),
+(26, '127.0.0.1', '2020-11-18'),
+(27, '192.168.137.24', '2020-12-29'),
+(28, '192.168.137.81', '2020-12-31'),
+(29, '192.168.1.10', '2021-01-03'),
+(30, '192.168.137.251', '2021-01-03'),
+(31, '192.168.137.216', '2021-01-04'),
+(32, '192.168.137.103', '2021-01-08'),
+(33, '192.168.1.21', '2021-04-18'),
+(34, '10.64.1.170', '2021-06-08'),
+(35, '10.64.1.217', '2021-06-17');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_xaphuongthitran`
+--
+
+DROP TABLE IF EXISTS `tbl_xaphuongthitran`;
+CREATE TABLE IF NOT EXISTS `tbl_xaphuongthitran` (
+  `xaid` varchar(5) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `name_xaphuong` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `type` varchar(30) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `maqh` int(10) NOT NULL,
+  PRIMARY KEY (`xaid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Đang đổ dữ liệu cho bảng `tbl_xaphuongthitran`
+-- Dumping data for table `tbl_xaphuongthitran`
 --
 
 INSERT INTO `tbl_xaphuongthitran` (`xaid`, `name_xaphuong`, `type`, `maqh`) VALUES
@@ -12705,309 +13397,21 @@ INSERT INTO `tbl_xaphuongthitran` (`xaid`, `name_xaphuong`, `type`, `maqh`) VALU
 -- --------------------------------------------------------
 
 --
--- Cấu trúc bảng cho bảng `users`
+-- Table structure for table `users`
 --
 
-CREATE TABLE `users` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Chỉ mục cho các bảng đã đổ
---
-
---
--- Chỉ mục cho bảng `admin_roles`
---
-ALTER TABLE `admin_roles`
-  ADD PRIMARY KEY (`id_admin_roles`);
-
---
--- Chỉ mục cho bảng `tbl_admin`
---
-ALTER TABLE `tbl_admin`
-  ADD PRIMARY KEY (`admin_id`);
-
---
--- Chỉ mục cho bảng `tbl_brand`
---
-ALTER TABLE `tbl_brand`
-  ADD PRIMARY KEY (`brand_id`);
-
---
--- Chỉ mục cho bảng `tbl_category_post`
---
-ALTER TABLE `tbl_category_post`
-  ADD PRIMARY KEY (`cate_post_id`);
-
---
--- Chỉ mục cho bảng `tbl_category_product`
---
-ALTER TABLE `tbl_category_product`
-  ADD PRIMARY KEY (`category_id`);
-
---
--- Chỉ mục cho bảng `tbl_comment`
---
-ALTER TABLE `tbl_comment`
-  ADD PRIMARY KEY (`comment_id`);
-
---
--- Chỉ mục cho bảng `tbl_coupon`
---
-ALTER TABLE `tbl_coupon`
-  ADD PRIMARY KEY (`coupon_id`);
-
---
--- Chỉ mục cho bảng `tbl_customers`
---
-ALTER TABLE `tbl_customers`
-  ADD PRIMARY KEY (`customer_id`);
-
---
--- Chỉ mục cho bảng `tbl_feeship`
---
-ALTER TABLE `tbl_feeship`
-  ADD PRIMARY KEY (`fee_id`);
-
---
--- Chỉ mục cho bảng `tbl_gallery`
---
-ALTER TABLE `tbl_gallery`
-  ADD PRIMARY KEY (`gallery_id`);
-
---
--- Chỉ mục cho bảng `tbl_infomation`
---
-ALTER TABLE `tbl_infomation`
-  ADD PRIMARY KEY (`info_id`);
-
---
--- Chỉ mục cho bảng `tbl_order`
---
-ALTER TABLE `tbl_order`
-  ADD PRIMARY KEY (`order_id`);
-
---
--- Chỉ mục cho bảng `tbl_order_details`
---
-ALTER TABLE `tbl_order_details`
-  ADD PRIMARY KEY (`order_details_id`);
-
---
--- Chỉ mục cho bảng `tbl_posts`
---
-ALTER TABLE `tbl_posts`
-  ADD PRIMARY KEY (`post_id`);
-
---
--- Chỉ mục cho bảng `tbl_product`
---
-ALTER TABLE `tbl_product`
-  ADD PRIMARY KEY (`product_id`);
-
---
--- Chỉ mục cho bảng `tbl_quanhuyen`
---
-ALTER TABLE `tbl_quanhuyen`
-  ADD PRIMARY KEY (`maqh`);
-
---
--- Chỉ mục cho bảng `tbl_rating`
---
-ALTER TABLE `tbl_rating`
-  ADD PRIMARY KEY (`rating_id`);
-
---
--- Chỉ mục cho bảng `tbl_roles`
---
-ALTER TABLE `tbl_roles`
-  ADD PRIMARY KEY (`id_roles`);
-
---
--- Chỉ mục cho bảng `tbl_shipping`
---
-ALTER TABLE `tbl_shipping`
-  ADD PRIMARY KEY (`shipping_id`);
-
---
--- Chỉ mục cho bảng `tbl_slider`
---
-ALTER TABLE `tbl_slider`
-  ADD PRIMARY KEY (`slider_id`);
-
---
--- Chỉ mục cho bảng `tbl_social`
---
-ALTER TABLE `tbl_social`
-  ADD PRIMARY KEY (`user_id`);
-
---
--- Chỉ mục cho bảng `tbl_tinhthanhpho`
---
-ALTER TABLE `tbl_tinhthanhpho`
-  ADD PRIMARY KEY (`matp`);
-
---
--- Chỉ mục cho bảng `tbl_videos`
---
-ALTER TABLE `tbl_videos`
-  ADD PRIMARY KEY (`video_id`);
-
---
--- Chỉ mục cho bảng `tbl_xaphuongthitran`
---
-ALTER TABLE `tbl_xaphuongthitran`
-  ADD PRIMARY KEY (`xaid`);
-
---
--- Chỉ mục cho bảng `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT cho các bảng đã đổ
---
-
---
--- AUTO_INCREMENT cho bảng `admin_roles`
---
-ALTER TABLE `admin_roles`
-  MODIFY `id_admin_roles` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
-
---
--- AUTO_INCREMENT cho bảng `tbl_admin`
---
-ALTER TABLE `tbl_admin`
-  MODIFY `admin_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
-
---
--- AUTO_INCREMENT cho bảng `tbl_brand`
---
-ALTER TABLE `tbl_brand`
-  MODIFY `brand_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
-
---
--- AUTO_INCREMENT cho bảng `tbl_category_post`
---
-ALTER TABLE `tbl_category_post`
-  MODIFY `cate_post_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT cho bảng `tbl_category_product`
---
-ALTER TABLE `tbl_category_product`
-  MODIFY `category_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
---
--- AUTO_INCREMENT cho bảng `tbl_comment`
---
-ALTER TABLE `tbl_comment`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
-
---
--- AUTO_INCREMENT cho bảng `tbl_coupon`
---
-ALTER TABLE `tbl_coupon`
-  MODIFY `coupon_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT cho bảng `tbl_customers`
---
-ALTER TABLE `tbl_customers`
-  MODIFY `customer_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT cho bảng `tbl_feeship`
---
-ALTER TABLE `tbl_feeship`
-  MODIFY `fee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT cho bảng `tbl_gallery`
---
-ALTER TABLE `tbl_gallery`
-  MODIFY `gallery_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-
---
--- AUTO_INCREMENT cho bảng `tbl_infomation`
---
-ALTER TABLE `tbl_infomation`
-  MODIFY `info_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT cho bảng `tbl_order`
---
-ALTER TABLE `tbl_order`
-  MODIFY `order_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
-
---
--- AUTO_INCREMENT cho bảng `tbl_order_details`
---
-ALTER TABLE `tbl_order_details`
-  MODIFY `order_details_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
-
---
--- AUTO_INCREMENT cho bảng `tbl_posts`
---
-ALTER TABLE `tbl_posts`
-  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
---
--- AUTO_INCREMENT cho bảng `tbl_product`
---
-ALTER TABLE `tbl_product`
-  MODIFY `product_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
-
---
--- AUTO_INCREMENT cho bảng `tbl_rating`
---
-ALTER TABLE `tbl_rating`
-  MODIFY `rating_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
-
---
--- AUTO_INCREMENT cho bảng `tbl_roles`
---
-ALTER TABLE `tbl_roles`
-  MODIFY `id_roles` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT cho bảng `tbl_shipping`
---
-ALTER TABLE `tbl_shipping`
-  MODIFY `shipping_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
-
---
--- AUTO_INCREMENT cho bảng `tbl_slider`
---
-ALTER TABLE `tbl_slider`
-  MODIFY `slider_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT cho bảng `tbl_social`
---
-ALTER TABLE `tbl_social`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
--- AUTO_INCREMENT cho bảng `tbl_videos`
---
-ALTER TABLE `tbl_videos`
-  MODIFY `video_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT cho bảng `users`
---
-ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
