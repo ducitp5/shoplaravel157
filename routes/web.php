@@ -88,7 +88,7 @@ Route::post('/save-product'                     ,   'ProductController@save_prod
 
 Route::post('/delete-document'                  ,   'ProductController@delete_document');
 
-//                                   'auth.roles'   =>   \App\Http\Middleware\AccessPermission::class,
+//     'auth.roles'   =>   \App\Http\Middleware\AccessPermission::class,
 
 Route::group(['middleware'      =>   'auth.roles'], function () {
     
@@ -112,7 +112,7 @@ Route::group(['middleware'      =>   'auth.roles'], function () {
 Route::get('/admin'                 ,       'AdminController@index');
 Route::post('/admin-dashboard'      ,       'AdminController@dashboard');
 
-Route::get('/dashboard'             ,       'AdminController@show_dashboard');
+Route::get('/dashboard'             ,       'AdminController@show_dashboard')   ->middleware('ducauth');
 
 Route::post('/days-order'           ,       'AdminController@days_order');
 Route::post('/days-order-demo'      ,       'AdminController@days_order_demo');

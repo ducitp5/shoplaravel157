@@ -27,8 +27,7 @@ class AccessPermission
          
             return      $next($request);
         }
-        
-        
+                
         if( !Auth::user() ){
         
             return      redirect('login-auth')->with('message' , 'you must login as an administor to continu');
@@ -38,8 +37,7 @@ class AccessPermission
             
             return      $next($request);
         }
-        
-        
+                
         Session::put('message' ,  'you dont have the permission go into this site');
         
         return      redirect('/dashboard');

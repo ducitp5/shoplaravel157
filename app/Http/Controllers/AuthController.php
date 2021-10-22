@@ -36,7 +36,8 @@ class AuthController extends Controller
         
         
         if(Auth::attempt([  'admin_email'       =>  $request->admin_email,
-                            'admin_password'    =>  $request->admin_password ])){
+     //                       'admin_password'    =>  $request->admin_password
+                            'password'          =>  $request->admin_password ])){
            
             $login              =   Login     ::where('admin_email'       ,   $request->admin_email)
                                               ->where('admin_password'    ,   $request->admin_password)    ->first();

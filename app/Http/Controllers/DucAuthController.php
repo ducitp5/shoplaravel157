@@ -41,11 +41,9 @@ class DucAuthController extends Controller
         $Admin      =   Admin   ::where('admin_email'       ,   $request->admin_email)
                                 ->where('admin_password'    ,   $request->admin_password)    
         
-                                ->first();
+                                ->first();        
         
-        
-        if($Admin){
-            
+        if($Admin){            
             
             Session::put('admin_name'       ,   $Admin->admin_name);
             Session::put('admin_id'         ,   $Admin->admin_id);
