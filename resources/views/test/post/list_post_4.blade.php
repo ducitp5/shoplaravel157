@@ -15,7 +15,7 @@
 <?php
 
     
-    use App\PostLang2;
+    use App\Post2;
     use Illuminate\Support\Facades\Session;
     use App\Lpl2;
 use app\DucClass\mySql\myModel;
@@ -72,11 +72,11 @@ use shopbanhanglaravel\app\DucClass\mySql\myDB;
                      	
 <?php 
 
-   /*  $all_post       =    PostLang2   ::with('cate_post')
+   /*  $all_post       =    Post2   ::with('cate_post')
                     
                                      ->paginate(5)  ; */
  
-    $all_post       =    PostLang2   ::Sql_cate_post();
+    $all_post       =    Post2   ::Sql_cate_post();
 
     
     $results_per_page       =    5;
@@ -97,7 +97,7 @@ use shopbanhanglaravel\app\DucClass\mySql\myDB;
     $page_first_result      =     ($page - 1)   *    $results_per_page;
     
     
-    $result                 =     PostLang2   ::Sql_cate_post2  ($page_first_result , $results_per_page);
+    $result                 =     Post2   ::Sql_cate_post2  ($page_first_result , $results_per_page);
     
     
     if ( mysqli_num_rows($result) > 0 ) {

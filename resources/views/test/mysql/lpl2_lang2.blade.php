@@ -19,15 +19,9 @@
     use Illuminate\Support\Facades\Session;
     use App\Lpl2;
     use app\DucClass\mySql\myModel;
+    use shopbanhanglaravel\app\DucClass\mySql\myDB;
+   
 
-    $message = Session::get('message');
-    
-    if($message){
-    
-        echo '<span class="text-alert">'.$message.'</span>';
-        
-        Session::put('message'  ,   null);
-    }
                                   
 ?>
 				
@@ -45,10 +39,6 @@
                         	
                         	<th style="width:20px;">id</th>
                         	
-                            
-<!--                             <th>Slug</th>
-                            <th>Mô tả bài viết</th>                            
- -->                            
                             <th>EN</th>
                             <th>FR</th>                            
                             <th>VN</th>
@@ -71,74 +61,49 @@
                      	
 <?php 
 
-    $all_post       =    Post2   ::with('cate_post')
-                    
- //                                    ->orderBy('cate_post_id')   
-                                     ->paginate(5)  ;
- 
-//    consolelog(myModel::getSql(Post2   ::with('cate_post')));
-
-     consolelog("list 78");    
-/*
-    consolevar2("79"                    , Post2::with('cate_post')->get());          
+//    dd(Post2    ::get());       // return Illuminate\Database\Eloquent\Collection(App\Post2)
     
-    consoletype2("type of 81 - "        , Post2::with('cate_post')->get()); 
+//    dd(Post2    ::with('cate_post')   );           // retrun Illuminate\Database\Eloquent\Builder
+//    dd(Post2    ::with('cate_post')->get());       // return Illuminate\Database\Eloquent\Collection(App\Post2)
     
-    consolelog("list 800000000000");
+    echo        '<hr>';
     
-    consolelog_json2('lp2 81'           , Post2::with('cate_post')->get()); 
-    consolelog("list 81");  
- */
+//    echo_prepvardump( Post2   ::Sql_cate_post());
+    
+//    echo_prepvardump( Post2   ::Sql_cate_post()->fetch_all(MYSQLI_ASSOC));        // return array
+    
+    $result     =    Post2   ::Sql_cate_post();
      
-    foreach($all_post as $key => $post){
-?>	
-	                   
+    
+    if ( mysqli_num_rows($result) > 0 ) {
+
+        $ini  =   0;
+        
+        while ( ($post = mysqli_fetch_array($result)) && ($ini < 1) ){
+            
+            $ini++;
+?>		                   
                     	<form action="{{url('test/post-assign-lang')}}" method="POST">
                     	
                     		@csrf	
-                    		<tr>
-                    			
-                			</tr>
                 			
                 			<tr>
                           		
                           		<td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label></td>
                                
-                                <td> <input type="hidden" name="post_id" value="{{$post->post_id}}">	{{ $post->post_id }}	</td>
-{{--                         		
-                                <td><input type="text"    name="post_idd" 	value="{{ $post->getprikey() }}"></td>
---}}                           		
-
-{{--                                
-                                <td>{{ 	$post->post_slug }}</td>
-                                
-                                <td>{!! $post->post_desc !!}</td>
---}}                                
-        
+                                <td> <input type="hidden" name="post_id" value="{{  $post['post_id']  }}">	{{ $post['post_id'] }}	</td>      
 <?php 
-        $all_lang       =    Lpl2   ::where('post_id'   ,   $post->post_id)     ->pluck('lang_id')  ->toArray();  
 
-        consolelog_json2('lp2 114' , $all_lang);
-        
-        consolevar2('lp2 116'       ,     Lpl2   ::where('post_id'   ,   $post->post_id)     ->pluck('lang_id'));
-        
-        consolelog(myModel::getSql(Lpl2   ::where('post_id'   ,   $post->post_id)));
-        
-        consolelogpretty(Lpl2   ::where('post_id'   ,   $post->post_id) ->get()   );
-        consolelog('2233');
-        
- //       consoletype( Lpl2   ::where('post_id'   ,   $post->post_id)  );
-        consolelog('11111');
-        
+            $all_lang       =    Lpl2   ::where('post_id'   ,   $post['post_id'])     ->pluck('lang_id')  ->toArray();
 ?>
                                 <td><input type="checkbox" name="english_lang" {{ in_array(1, $all_lang) 	?	 'checked'   :   '' }} > </td>                               
                                 <td><input type="checkbox" name="french_lang"  {{ in_array(2, $all_lang)	?	 'checked'   :   '' }} > </td> 
     							<td><input type="checkbox" name="viet_lang"    {{ in_array(3, $all_lang)	?	 'checked'   :   '' }} > </td> 
      
        				
-       							<td>{{ 	$post->post_title }}</td>
+       							<td>{{ 	$post['post_title'] }}</td>
                                 
-                                <td><img src="{{asset('public/uploads/post/'.$post->post_image)}}" height="100" width="100"></td>
+                                <td><img src="{{asset('public/uploads/post/'.$post['post_image'])}}" height="100" width="100"></td>
                                 
                                	<td>
                                 	<p><input type="submit" value="assign language" class="btn btn-sm btn-default"></p>
@@ -147,38 +112,61 @@
                       			
                     			</td>
                                 
-                                <td>{{ 	$post->cate_post	->cate_post_id }}</td>
-                                <td>{{ 	$post->cate_post	->cate_post_name }}</td>
+                                <td>{{ 	$post['cate_post_id'] }}</td>
+                                <td>{{ 	$post['cate_post_name']	 }}</td>
                                 
                                 <td>
 <?php 
-        if($post->post_status == 0){
+            if($post['post_status'] == 0){
 ?>		             			
 								Hiển thị
 <?php 
-        }
-        else{
+            }
+            else{
 ?>
                                 Ẩn
 <?php 
-        }
+            }
 ?>                             
                                 </td>
                         
                                 <td>
-                              		<a 	href="{{URL::to('/edit-post/'.$post->post_id)}}" 	class="active styling-edit" ui-toggle-class="">
+                              		<a 	href="{{URL::to('/edit-post/'.$post['post_id'])  }}" 	class="active styling-edit" ui-toggle-class="">
                               		
                                 		<i class="fa fa-pencil-square-o text-success text-active"></i></a>
                               
                               		<a 	onclick="return confirm('Bạn có chắc là muốn xóa bài viết này ko?')" 
                               			
-                              			href="{{URL::to('/delete-post/'.$post->post_id)}}" 	class="active styling-edit" ui-toggle-class="">
+                              			href="{{URL::to('/delete-post/'.$post['post_id'] )  }}" 	class="active styling-edit" ui-toggle-class="">
                                     	
                                     	<i class="fa fa-times text-danger text"></i></a>
                                 </td>
                           	</tr>
                     	</form>
 <?php 
+            $langs  =   [];
+            
+            consolelogpretty2('all lang - ', $all_lang);
+            
+            foreach ($all_lang as $key => $lang){
+
+//                dd($lang);
+
+//                dd(Lpl2::where('lang_id'   ,   $lang)   ->with('lang')  ->get());
+                
+                $langs[]  =   Lpl2::where('lang_id'   ,   $lang)   ->with('lang')  ->get();
+                
+            }
+            
+//            dd($langs);
+            
+            consolelog('11111');
+            
+            //            consolelogpretty(   Lpl2   ::where('post_id'   ,   $post['post_id']) ->with('postIn') ->get()   );
+            
+            dd( Lpl2   ::where('post_id'   ,   $post['post_id']) ->with('post')->with('lang') ->get());
+            
+        }
     }
 ?>
          
@@ -187,24 +175,22 @@
                     </tbody>
               	</table>
             </div>
-            
-           	<footer class="panel-footer">
-              	
-              	<div class="row">
-                
-                    <div class="col-sm-5 text-center">
-                      	<small class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50 items</small>
-                    </div>
-                    
-                    <div class="col-sm-7 text-right text-center-xs">                
-                      	<ul class="pagination pagination-sm m-t-none m-b-none">
-                        	{!!$all_post->links()!!}
-                      	</ul>
-                    </div>
-              	</div>
-            </footer> 
       	</div>
     </div>
+
+
+
+    <script type="text/javascript">
+    
+        $(document).ready(function(){
+    
+            $("#num_rows").change(function(){
+        
+                $("#form").submit();
+        
+            });
+        });
+    </script>
 
 
 @endsection

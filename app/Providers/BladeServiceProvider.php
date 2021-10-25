@@ -38,27 +38,9 @@ class BladeServiceProvider extends ServiceProvider
                 }
             }
             
-//                          Admin extend    Model
 
             if(Session::get('DucAuth')){       
                 
-                var_dump(Session::get('dbbAuth')); 
-                var_dump(Session::get('DucAuth'));
-                
- //               echo   json_encode(Session::get('dbbAuth'));
-                
-                
-        /*         consolelog("he lo");
-                consolelog1(Session::get('dbbAuth'));
-                consolelog11(Session::get('dbbAuth'));
-                
-                consolelog("byeee 1");
-                consolelog2(Session::get('dbbAuth'));
-                
-                
-                consolelog("DucAuth");
-                consolelog11(Session::get('DucAuth'));               
- */               
                 consolelog("byeee");
                 consolevar(Session::get('DucAuth'));
                  
@@ -68,7 +50,6 @@ class BladeServiceProvider extends ServiceProvider
                     
                     return true;
                 } 
-//                return true;
             }
             
             return false;

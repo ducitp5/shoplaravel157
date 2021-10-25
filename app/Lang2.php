@@ -17,10 +17,23 @@ class Lang2 extends Model
     public $timestamps          =    false; //set time to false
     
     
+//     public function post(){
+        
+//         return              $this    ->belongsToMany('App\Post2');
+//     }
+    
+    
+    public function lang(){
+        
+        return              $this    ->hasMany('App\Lpl2' , 'lang_id');
+    }
+    
+    
     public function post(){
         
-        return              $this    ->belongsToMany('App\PostLang2');
+        return              $this    ->hasManyThrough('App\Post2' , 'App\Lpl2' , 'lang_id' ,  'post_id'   );
     }
+    
     
  	
 }

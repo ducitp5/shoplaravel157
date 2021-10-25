@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\URL;
 use App\PostLang;
-use App\PostLang2;
+use App\Post2;
 use App\Lpl2;
 
 use app\DucClass\PHPMailer\PHPMailer;
@@ -203,6 +203,11 @@ class TestController extends Controller
     }
     
     
+    public function list_post(){
+        
+        return              view('test.post.list_post');
+    }
+    
     public function list_post_2(){
         
         return              view('test.post.list_post_2');
@@ -231,6 +236,11 @@ class TestController extends Controller
         return              view('test.post.list_post_6');
     }
     
+    public function list_post_7(){
+        
+        return              view('test.post.list_post_7');
+    }
+    
     
     
     public function post_assign_lang(Request $request){       
@@ -238,8 +248,11 @@ class TestController extends Controller
                      
         Lpl2::where('post_id'    ,   $request->post_id)    ->delete();               //      clear and refresh
         
+//        dd($request);
         
         if($request->english_lang){
+            
+// /            dd($request->english_lang);
             
             $getlang            =   new Lpl2();
             
@@ -274,10 +287,7 @@ class TestController extends Controller
     }
     
     
-    public function list_post(){
-        
-        return              view('test.list_post');
-    }
+   
     
     
     
@@ -408,4 +418,29 @@ class TestController extends Controller
     }
     
     
+    public function post2_lpl2(){
+        
+        return              view('test.mysql.post2_lpl2');        
+    }
+    
+    public function lpl2_post2(){
+        
+        return              view('test.mysql.lpl2_post2');
+    }
+    
+    public function lpl2_lang2(){
+        
+        return              view('test.mysql.lpl2_lang2');
+    }
+        
+    public function lang2_lpl2(){
+        
+        return              view('test.mysql.lang2_lpl2');
+    }
+    
+    public function post2(){
+        
+        return              view('test.mysql.post2');
+    }
+        
 }

@@ -13,6 +13,31 @@ function echo_pre( $data ) {
 }
 
 
+function echo_preprintr( $data ) {
+    
+    echo     "<pre> ";
+    
+    print_r($data);
+    
+    echo     "</pre>";
+}
+
+function echo_prepvardump( $data ) {
+    
+    echo     "<pre> ";
+    
+    var_dump($data);
+    
+    echo     "</pre>";
+}
+
+
+function consolelog_session() {
+    
+    consolelog_json2('laravel session' , session()->all());
+}
+
+
 function consolelog_json( $data ) {
     
     $output     =    "<script>console.log('csl1 - ' , ";

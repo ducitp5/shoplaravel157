@@ -58,7 +58,6 @@ class DucAuthController extends Controller
             
             Session::put('dbbAuth'          ,   $dbb);
 //            Auth::id() =    $Admin->admin_id;
-
             
             Session::put('message'          ,   'DUC Auth logined success');
             

@@ -15,7 +15,7 @@
 <?php
 
     
-    use App\PostLang2;
+    use App\Post2;
     use Illuminate\Support\Facades\Session;
     use App\Lpl2;
     
@@ -68,7 +68,7 @@
                      	
 <?php 
 
-    $all_post       =    PostLang2   ::Sql_cate_post();    
+    $all_post       =    Post2   ::Sql_cate_post();    
 
     $total_rows     =    mysqli_num_rows($all_post);
     
@@ -99,7 +99,7 @@
     
     $row        =    ($current_page-1) * $rowperpage;
     
-    $result     =    PostLang2   ::Sql_cate_post3( $row , $rowperpage );
+    $result     =    Post2   ::Sql_cate_post3( $row , $rowperpage );
     
     $sno        =    $row + 1;
 

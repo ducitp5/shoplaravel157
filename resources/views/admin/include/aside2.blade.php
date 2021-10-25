@@ -308,7 +308,7 @@
                             </a>
 
                             <ul class="sub">
-                                 <li><a href="{{URL::to('/add-users')}}">Thêm user</a></li>
+                            	<li><a href="{{URL::to('/add-users')}}">Thêm user</a></li>
                                 <li><a href="{{URL::to('/users')}}">Liệt kê user</a></li>
                               
                             </ul>

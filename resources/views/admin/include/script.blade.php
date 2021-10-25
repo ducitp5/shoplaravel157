@@ -1,5 +1,15 @@
+<?php
 
-   
+    consolelog_session();
+        
+?>
+
+
+<script type="text/javascript">
+
+  
+</script>
+
    
 <script type="text/javascript">
 

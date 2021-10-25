@@ -25,7 +25,7 @@ use App\Rules\Captcha;
 use Carbon\Carbon;
 use app\DucClass\mySql\myModel;
 
-
+session_start();
 
 class AdminController extends Controller
 {
@@ -524,7 +524,16 @@ class AdminController extends Controller
             return redirect('/dashboard')->with('message', 'Đăng nhập Admin thành công');
         } 
     }
+    
 
+    public function session(){
+    
+        consolelog_session();
+        
+//        var_dump(session()->all());
+        
+        dd(session()->all());
+    }
    
    
     

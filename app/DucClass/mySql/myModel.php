@@ -14,17 +14,19 @@ class myModel /* extends Model  */{
     
     public static function getSql($builder)
     {
-        
-        $sql        =    $builder   ->toSql();
-        
-        foreach($builder->getBindings() as $binding)
-        {
-            $value      =    is_numeric($binding) ? $binding : '"'.$binding.'"';
+        if($builder != null){
             
-            $sql        =    preg_replace('/\?/', $value, $sql, 1);
-        }
-        
-        return $sql;
+            $sql        =    $builder   ->toSql();
+            
+            foreach($builder->getBindings() as $binding)
+            {
+                $value      =    is_numeric($binding) ? $binding : '"'.$binding.'"';
+                
+                $sql        =    preg_replace('/\?/', $value, $sql, 1);
+            }
+            
+            return $sql;            
+        }        
     }
     
     

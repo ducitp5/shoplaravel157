@@ -108,6 +108,7 @@ Route::group(['middleware'      =>   'auth.roles'], function () {
 
 //Backend
 
+Route::get('/session'               ,       'AdminController@session');
 
 Route::get('/admin'                 ,       'AdminController@index');
 Route::post('/admin-dashboard'      ,       'AdminController@dashboard');
@@ -526,6 +527,8 @@ Route::post('test/list-post-5'               ,   'TestController@list_post_5' );
 Route::get('test/list-post-6'               ,   'TestController@list_post_6' );
 Route::post('test/list-post-6'               ,   'TestController@list_post_6' );
 
+Route::get('test/list-post-7'               ,   'TestController@list_post_7' );
+
 Route::get('test/suggestion'                ,   'TestController@suggestion' );
 
 Route::get('test/video-shop'                ,   'TestController@video' );
@@ -576,11 +579,20 @@ Route::get('test/export-excel-view'       ,   'TestController@export_excel_view'
 Route::post('test/export-excel'           ,   'TestController@export_excel' );
 
 
-
 Route::get('test/export-excel-view2'       ,   'TestController@export_excel_view2' );
 
 Route::post('test/export-excel2'           ,   'TestController@export_excel2' );
 
+
+Route::get('test/post2_lpl2'                ,   'TestController@post2_lpl2' );
+
+Route::get('test/lpl2_post2'                ,   'TestController@lpl2_post2' );
+
+Route::get('test/lpl2_lang2'                ,   'TestController@lpl2_lang2' );
+
+Route::get('test/lang2_lpl2'                ,   'TestController@lang2_lpl2' );
+
+Route::get('test/post2'                     ,   'TestController@post2' );
 
 
 

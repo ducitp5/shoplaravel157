@@ -15,7 +15,7 @@
 <?php
 
     
-    use App\PostLang2;
+    use App\Post2;
     use Illuminate\Support\Facades\Session;
     use App\Lpl2;
     use app\DucClass\mySql\myModel;
@@ -72,7 +72,7 @@
                      	
 <?php 
 
-    $all_post       =    PostLang2   ::Sql_cate_post();
+    $all_post       =    Post2   ::Sql_cate_post();
     
     
     
@@ -124,7 +124,7 @@
     
     // selecting rows
     
-    $result     =    PostLang2   ::Sql_cate_post3( $row , $rowperpage );
+    $result     =    Post2   ::Sql_cate_post3( $row , $rowperpage );
     
     $sno = $row + 1;
 

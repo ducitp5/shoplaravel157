@@ -9,11 +9,11 @@
 
 <?php 
     use App\Lpl2;
-    use App\PostLang2;
+    use App\Post2;
     
     use Illuminate\Support\Facades\Session;
     
-/*     $all_post       =    PostLang2   ::with('cate_post')
+/*     $all_post       =    Post2   ::with('cate_post')
 
                                      ->orderBy('cate_post_id')   ->first()  ; */
     
@@ -37,13 +37,13 @@
 
 <div class="container">
 
-	<p>$all_post       =    PostLang2  ::find(19) ;</p>
+	<p>$all_post       =    Post2  ::find(19) ;</p>
 	
 	<pre> 
 	
 <?php  
 
-    $all_post       =    PostLang2  ::find(19) ;
+    $all_post       =    Post2  ::find(19) ;
     
     echo_pre($all_post);
     print_r($all_post );
