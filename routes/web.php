@@ -594,6 +594,8 @@ Route::get('test/lang2_lpl2'                ,   'TestController@lang2_lpl2' );
 
 Route::get('test/post2'                     ,   'TestController@post2' );
 
+Route::get('test/Auth_loyal/login'          ,   'AuthLoyalController@getLogin' );
+Route::post('test/Auth_loyal/postLogin'     ,   'AuthLoyalController@postLogin' );
 
 
 use Illuminate\Support\Facades\DB;
