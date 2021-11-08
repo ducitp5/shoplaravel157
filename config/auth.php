@@ -50,6 +50,20 @@ return [
             'provider'  => 'customusers',
             'hash'      => false,
         ],
+        
+        //đây là đoạn mình thêm vào dùng để xác thực
+        
+        'loyal_customer' => [
+        
+            'driver'        => 'session',
+            'provider'      => 'loyal_customers',
+        ],
+        
+        'loyal_customer-api' => [
+            
+            'driver'            => 'token',
+            'provider'          => 'loyal_customers',
+        ],
     ],
 
     /*
@@ -84,6 +98,14 @@ return [
             'driver'        => 'eloquent',
             
             'model'         => App\Admin::class,
+        ],
+        
+        //truy suất dữ liệu cho bảng
+        
+        'loyal_customers' => [
+            
+            'driver'        => 'eloquent',
+            'model'         => App\LoyalCustomer::class,
         ],
     ],
 
