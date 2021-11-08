@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-//Frontend 
+//Frontend
 
 
 
@@ -26,7 +26,7 @@ Route::post('/autocomplete-ajax'    ,   'HomeController@autocomplete_ajax');
 
 
 
-//Lien he trang 
+//Lien he trang
 
 Route::get('/lien-he'                   ,   'ContactController@lien_he' );
 
@@ -91,12 +91,12 @@ Route::post('/delete-document'                  ,   'ProductController@delete_do
 //     'auth.roles'   =>   \App\Http\Middleware\AccessPermission::class,
 
 Route::group(['middleware'      =>   'auth.roles'], function () {
-    
+
     Route::get('/add-product'                  ,   'ProductController@add_product');
-    
+
     Route::get('/edit-product/{product_id}'    ,   'ProductController@edit_product');
 });
-    
+
 
 
 
@@ -155,7 +155,7 @@ Route::get('/active-category-product/{category_product_id}'     ,       'Categor
 
 
 
-//Send Mail 
+//Send Mail
 
 Route::get('/send-mail'             ,   'HomeController@send_mail');
 
@@ -467,7 +467,7 @@ Route::get('include/header'          ,   'IncludeController@header' );
 Route::get('include/slider'          ,   'IncludeController@slider' );
 
 Route::get('admin/include/header'    ,   'IncludeController@adminheader' );
-Route::get('admin/include/aside'     ,   'IncludeController@adminaside' );  
+Route::get('admin/include/aside'     ,   'IncludeController@adminaside' );
 
 
 
@@ -553,13 +553,13 @@ Route::get('test/include/leftside'          ,   'TestController@leftside' );
 Route::get('test/include/slider'            ,   'TestController@slider' );
 
 
-Route::get('test/admin/information'         ,   'TestController@information' ); 
+Route::get('test/admin/information'         ,   'TestController@information' );
 
 Route::get('test/admin/include/header'          ,   'TestController@adminheader' );
-Route::get('test/admin/include/aside'           ,   'TestController@adminaside' );  
+Route::get('test/admin/include/aside'           ,   'TestController@adminaside' );
 
-Route::get('test/admin/addcategoryproduct'      ,   'TestController@add_category_product' ); 
-Route::get('test/admin/all-category-product'    ,   'TestController@all_category_product' ); 
+Route::get('test/admin/addcategoryproduct'      ,   'TestController@add_category_product' );
+Route::get('test/admin/all-category-product'    ,   'TestController@all_category_product' );
 
 Route::get('test/admin/add-post'                ,   'TestController@add_post' );
 
@@ -606,13 +606,17 @@ Route::get('/testsqllog', function () {
         $user->name = 'change name';
         $user->save();
         $user->delete();
-        
+
         return factory(User::class)->create();
     });
-        
+
         User::find($user->id);
-        
+
         return view('welcome');
 });
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index2')->name('home');
