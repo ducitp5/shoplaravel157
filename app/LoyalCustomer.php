@@ -10,6 +10,8 @@ class LoyalCustomer extends Authenticatable
 {
     use Notifiable;
     
+    protected $table         =    'loyal_customers';
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -29,4 +31,9 @@ class LoyalCustomer extends Authenticatable
         
         'password', 'remember_token',
     ];
+    
+    public function getAuthPassword()
+    {
+        return $this->password;
+    }
 }
