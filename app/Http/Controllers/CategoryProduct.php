@@ -28,6 +28,11 @@ session_start();
 class CategoryProduct extends Controller
 {
  
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+    
     
     public function product_tabs(Request $request){
         

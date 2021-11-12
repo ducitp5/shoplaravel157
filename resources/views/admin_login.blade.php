@@ -70,11 +70,11 @@
     
     if( isset($admin_name)){
         
-        echo '<span class="text-alert">'.$admin_name.'</span>';
+        echo '<div><span class="text-alert">"'.$admin_name.'" is loginned </span>  </div>  ';
       
     }
     else {
-        echo '<span class="text-alert"> ko ton tai</span>';
+        echo '<span class="text-alert"> no body logged </span>';
     }
 ?>
     		<form action="{{URL::to('/admin-dashboard')}}" method="post">

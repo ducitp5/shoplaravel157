@@ -316,6 +316,18 @@
        
 @endhasrole
                    
+                   		<li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class="fa fa-book"></i>
+                                <span>Permission</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="{{URL::to('add-video')}}">User && Permission List</a></li>   
+                                
+                                <li><a href="{{URL::to('list-video')}}">roles</a></li>                             
+                            </ul>
+						</li>
+						
 					</ul>
 	            </div>
     			            <!-- sidebar menu end-->

@@ -114,7 +114,7 @@ Route::get('/session'               ,       'AdminController@session');
 Route::get('/admin'                 ,       'AdminController@index');
 Route::post('/admin-dashboard'      ,       'AdminController@dashboard');
 
-Route::get('/dashboard'             ,       'AdminController@show_dashboard')   ->middleware('ducauth');
+Route::get('/dashboard'             ,       'AdminController@show_dashboard')   ->middleware('admin');    // ->middleware('ducauth');
 
 Route::post('/days-order'           ,       'AdminController@days_order');
 Route::post('/days-order-demo'      ,       'AdminController@days_order_demo');
@@ -127,7 +127,7 @@ Route::get('/logout','AdminController@logout');         //dont use , we use logo
 
 
 
-//Category Product
+//Category Product  , set middleware in __constructor
 
 Route::post('/product-tabs'                                     ,       'CategoryProduct@product_tabs');
 

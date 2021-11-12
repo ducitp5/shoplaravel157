@@ -41,10 +41,8 @@ class BladeServiceProvider extends ServiceProvider
 
             if(Session::get('DucAuth')){       
                 
-                consolelog("byeee");
-                consolevar(Session::get('DucAuth'));
-                 
-                
+                consolelog("BladeServiceProvider 44");
+                consolevar(Session::get('DucAuth'));               
                 
                 if(  Session::get('DucAuth')  ->hasAnyRoles($expression)  ){
                     

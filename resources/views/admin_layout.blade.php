@@ -21,7 +21,7 @@
         <!--header end-->
         <!--sidebar start-->
         
-        @include('admin.include.aside2')
+        @include('admin.include.aside')
         
         <!--sidebar end-->
         <!--main content start-->

@@ -261,23 +261,18 @@ class AdminController extends Controller
         ]);
         
         $admin_email        =   $data['admin_email'];
-        $admin_password     =   ($data['admin_password']);
+        $admin_password     =   $data['admin_password'];
         
         $login              =   Login     ::where('admin_email'       ,   $admin_email)
                                           ->where('admin_password'    ,   $admin_password)    ->first();
         
         if($login){
-        
-/*             $login_count    =    $login->count();
-            
-            if($login_count>0){ */
-                
+                        
                 Session::put('admin_name'       ,   $login->admin_name);
                 Session::put('admin_id'         ,   $login->admin_id);
                 Session::put('admin_email'      ,   $login->admin_email);
                 
                 return      Redirect::to('/dashboard');
-  //          }
         }
         else{
         
