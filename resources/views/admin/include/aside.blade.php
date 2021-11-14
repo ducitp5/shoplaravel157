@@ -297,9 +297,19 @@
         
 
 
+<?php 
+    
+    use Illuminate\Support\Facades\Session;
+    
+    consolelog("---------------");
+    consolelog2('has role - ', Hasrole(['admin','author'] , Session::get('Role'))) ;
+    
+    if( Hasrole(['admin','author'] , Session::get('Role')) ){;
+?>
 
-@hasrole(['admin','author'])
-
+{{--
+	@hasrole(['admin','author'])
+--}}
                         <li class="sub-menu">
 
                             <a href="javascript:;">
@@ -313,9 +323,13 @@
                               
                             </ul>
 						</li>
-       
-@endhasrole
-                   
+{{--  
+	@endhasrole
+--}}               
+           
+<?php 
+    }
+?>
                    		<li class="sub-menu">
                             <a href="javascript:;">
                                 <i class="fa fa-book"></i>

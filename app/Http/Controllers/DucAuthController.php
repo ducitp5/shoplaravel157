@@ -40,7 +40,7 @@ class DucAuthController extends Controller
 
         $Admin      =   Admin   ::where('admin_email'       ,   $request->admin_email)
                                 ->where('admin_password'    ,   $request->admin_password)    
-        
+                                ->with('roles')
                                 ->first();        
         
         if($Admin){            
@@ -48,9 +48,10 @@ class DucAuthController extends Controller
             Session::put('admin_name'       ,   $Admin->admin_name);
             Session::put('admin_id'         ,   $Admin->admin_id);
             Session::put('admin_email'      ,   $Admin->admin_email);           
-            Session::put('DucAuth_id'       ,   $Admin->admin_id);
             
             Session::put('DucAuth'          ,   $Admin);
+            Session::put('DucAuthRole'      ,   $Admin->withRole());
+            Session::put('Role'             ,   $Admin->roles2());
             
             $dbb    =   DB::table('tbl_admin')  ->where('admin_id'  ,  $Admin->admin_id)
             
@@ -60,6 +61,13 @@ class DucAuthController extends Controller
 //            Auth::id() =    $Admin->admin_id;
             
             Session::put('message'          ,   'DUC Auth logined success');
+            
+            
+//             $_SESSION['testAuth']       =   'sincaho';
+//             $_SESSION['test']           =   $Admin;
+          
+ //           dd (session_id());
+ //           dd($_SESSION);
             
             return      redirect('/dashboard');
         }
@@ -73,14 +81,12 @@ class DucAuthController extends Controller
     
     
     
-    public function logout_auth(){
-        
+    public function logout_auth(){        
         
         Session::flush();
         
 //         Session::forget('admin_name');
-      
-        
+
         return      redirect('/duc-login-auth')     ->with('message'    ,   'Đăng xuất authentication thành công');
     }
     

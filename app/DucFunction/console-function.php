@@ -35,6 +35,7 @@ function echo_prepvardump( $data ) {
 function consolelog_session() {
     
     consolelog_json2('laravel session' , session()->all());
+//    consolelog_json2('laravel session' , $_SESSION);
 }
 
 

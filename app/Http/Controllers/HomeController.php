@@ -11,9 +11,7 @@ use App\Product;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 
-
-
-session_start();
+//session_start();          // native PHP
 
 
 class HomeController extends Controller

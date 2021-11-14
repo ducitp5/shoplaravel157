@@ -23,9 +23,15 @@ class AccessPermission
     
     public function handle($request     ,    Closure $next)
     {   
-        if(Session::get('DucAuth_id')){
-         
-            return      $next($request);
+        if(Session::get('DucAuth')){
+            
+            if(Hasrole(['admin','author'] , Session::get('Role'))){
+             
+                return      $next($request);
+            }
+            else{
+                return      redirect()->back()->with('message' , 'you dont have the permission');
+            }
         }
                 
         if( !Auth::user() ){

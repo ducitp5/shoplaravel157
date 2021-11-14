@@ -2,7 +2,7 @@
 
 /* duc lam */
 
-//      session_start();
+      session_start();
 
 /* */
 

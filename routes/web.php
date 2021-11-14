@@ -415,6 +415,7 @@ Route::post('/register'             ,   'AuthController@register');
 Route::get('/duc-login-auth'        ,   'DucAuthController@login_auth');
 Route::post('/duc-login'            ,   'DucAuthController@login');
 
+Route::get('/duc-logout-auth'        ,   'DucAuthController@logout_auth');
 
 //Gallery
 

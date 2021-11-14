@@ -26,7 +26,6 @@ class Admin extends  Authenticatable        // Model
     public    $timestamps    =    false;            //set time to false
        
  	
-
  	public function roles(){
  	    
  	    $query    =    $this   ->belongsToMany('App\Roles');
@@ -37,13 +36,11 @@ class Admin extends  Authenticatable        // Model
  	    return       $query;   // tbl_roles
  	}
  	
-
+ 	
  	public function getAuthPassword(){
  	
  	    return       $this->admin_password;
  	}
- 	
- 	
  	
  	
  	public function hasAnyRoles($roles){
@@ -85,5 +82,21 @@ class Admin extends  Authenticatable        // Model
  	                                  ->where('name'      ,   $role)      ->first();
  	}
  	
- 	 	
+ 	
+ 	public function withRole(){
+ 	    
+ 	    return     $this->join( 'admin_roles'   , 'tbl_admin.admin_id'     , '=' , 'admin_roles.admin_admin_id')
+ 	    
+                 	    ->join( 'tbl_roles'     , 'tbl_roles.id_roles'     , '=' , 'admin_roles.roles_id_roles' )
+                 	    
+                 	    ->where( 'admin_roles.admin_admin_id'       , '=' , $this->admin_id )
+                 	    
+                 	    ->get();
+ 	}
+ 	
+ 	
+ 	public function roles2(){
+ 	    
+ 	    return        $this   ->withRole()->pluck('name')->toArray();
+ 	}
 }

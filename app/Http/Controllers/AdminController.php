@@ -25,7 +25,6 @@ use App\Rules\Captcha;
 use Carbon\Carbon;
 use app\DucClass\mySql\myModel;
 
-session_start();
 
 class AdminController extends Controller
 {
@@ -522,10 +521,22 @@ class AdminController extends Controller
     
 
     public function session(){
-    
+        
+        echo '<pre>';
+        echo "hasrole - " .  Hasrole(['admin','author'] , Session::get('Role'));
+        
+        // Hasrole(['admin','author'] , Session::get('Role')) ;
+        
+        echo Hasrole(5, [1, 2]);
+ //       print_r($_SESSION);
+        
+        echo '</pre>';
+        
+        consolelog_json2("SESSION", $_SESSION);
+        
         consolelog_session();
         
-//        var_dump(session()->all());
+ //       var_dump(session()->all());
         
         dd(session()->all());
     }
