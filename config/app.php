@@ -178,17 +178,17 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\  EventServiceProvider::class,
         App\Providers\  RouteServiceProvider::class,
-        
+
         App\Providers\  GoogleDriveServiceProvider::class,
-        
-        App\Providers\  DataBaseQueryServiceProvider::class,       
-        
-        
+
+        App\Providers\  DataBaseQueryServiceProvider::class,
+
+
         Barryvdh\DomPDF\ServiceProvider::class,
-        
+
         Maatwebsite\Excel\ExcelServiceProvider::class,
 
-       
+        Barryvdh\Debugbar\ServiceProvider::class,
 
     ],
 
@@ -240,12 +240,13 @@ return [
         'URL'           => Illuminate\Support\Facades\URL::class,
         'Validator'     => Illuminate\Support\Facades\Validator::class,
         'View'          => Illuminate\Support\Facades\View::class,
-        'Socialite'     => Laravel\Socialite\Facades\Socialite::class,      
+        'Socialite'     => Laravel\Socialite\Facades\Socialite::class,
         'PDF'           => Barryvdh\DomPDF\Facade::class,
-        
-        
+
+
         'Excel'         => Maatwebsite\Excel\Facades\Excel::class,
-        
+
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];
