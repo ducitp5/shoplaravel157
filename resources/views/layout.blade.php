@@ -1,14 +1,14 @@
-<?php 
+<?php
 
     use App\CatePost;
-    
-    
+
+
     use Illuminate\Support\Facades\DB;
     use Illuminate\Support\Facades\Session;
 
-    
-    
-    
+
+
+
 ?>
 
 
@@ -20,12 +20,12 @@
 
     <meta charset="utf-8">
     <meta name="viewport" 		content="width=device-width, initial-scale=1.0">
-    
+
     <!---------Seo--------->
-    
+
     <meta name="description" 	content="{{$meta_desc}}">
     <meta name="keywords" 		content="{{$meta_keywords}}"/>
-    
+
     <meta name="robots" 		content="INDEX,FOLLOW"/>
 
     <link  rel="canonical" 		href="{{$url_canonical}}" />
@@ -41,20 +41,20 @@
     <title>{{$meta_title}}</title>
 
 	@include('include.css')
-	
-	
-	   
-    
-	
+
+
+
+
+
 </head><!--/head-->
 
 <body>
 
 
-    @include('include.header')    
-    
+    @include('include.header')
 
-<?php 
+
+<?php
 /*
  echo  (app_path() ."<br>");
 /*
@@ -65,45 +65,45 @@ echo  (__DIR__   ."<br>"  );
 
  //   include app_path().'\includeViews\slider.php';
 ?>
-    
-	{{--		@include('include.slider')								 --}} 
-			
-	{{-- 		@component('demo.include.slider')    @endcomponent   	 --}}	
+
+	{{--		@include('include.slider')								 --}}
+
+	{{-- 		@component('demo.include.slider')    @endcomponent   	 --}}
 
 
-     
- 
-    
-    
-    <section>													
+
+
+
+
+    <section>
         <div class="container">
-            
+
             <div class="row">
-            
+
        <!--          <div class="col-sm-3"> -->
-            
-                @include('include.leftside')  
-                    
+
+                @include('include.leftside')
+
      <!--            </div> -->
-                
+
                 <div class="col-sm-9 padding-right">
 
                		@yield('content')
-                    
+
                 </div>
             </div>
         </div>
     </section>
-    
-    
-    @include('include.footer')   
-   
-   
- 
 
-  	@include('include.script')  
-    
-  
-  
+
+    @include('include.footer')
+
+
+
+
+  	@include('include.script')
+
+
+
 </body>
 </html>

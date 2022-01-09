@@ -2,36 +2,36 @@
 
 /* duc lam */
 
-      session_start();
+//      session_start();
 
 /* */
 
 function includeDirectore( $dir ) {
-    
+
     function thisconsolelog( $data ) {
-        
+
         $output     =    "<script>console.log( '";
-        
+
         $output     .=   $data;
-        
+
         $output     .=   "' );</script>";
-        
+
         echo        $output;
     }
 //    thisconsolelog('files included : ');
-    
+
     $files = glob($dir . '/*.php');
-    
+
     foreach ($files as $file) {
-        
+
         if ($file != __FILE__) {
-            
+
             require_once ($file);
-        }       
-        
+        }
+
 //        thisconsolelog($file);
     }
-    
+
 //    thisconsolelog('end files included : ');
 }
 
