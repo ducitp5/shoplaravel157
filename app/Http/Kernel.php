@@ -27,14 +27,15 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middlewareGroups = [
-        
+
         'web' => [
             \App\Http\Middleware\EncryptCookies::class,
             \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
             \Illuminate\Session\Middleware\StartSession::class,
             // \Illuminate\Session\Middleware\AuthenticateSession::class,
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-            \App\Http\Middleware\VerifyCsrfToken::class,
+//            \App\Http\Middleware\VerifyCsrfToken::class,                  // 419 | Page Expired
+
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
             \App\Http\Middleware\Impersonate::class,
         ],
@@ -52,20 +53,20 @@ class Kernel extends HttpKernel
      *
      * @var array
      */
-    protected $routeMiddleware = [        
-        
+    protected $routeMiddleware = [
+
         'auth.basic'        => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'bindings' => \Illuminate\Routing\Middleware\SubstituteBindings::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
-        
+
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        
+
         'guest'             => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'auth'              => \App\Http\Middleware\Authenticate::class,
-        
+
         'auth.roles'        => \App\Http\Middleware\AccessPermission::class,
         'ducauth'           => \App\Http\Middleware\AdminDucAuth::class,
         'admin'             => \App\Http\Middleware\AdminAuth::class,
