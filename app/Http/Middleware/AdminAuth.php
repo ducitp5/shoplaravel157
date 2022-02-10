@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Illuminate\Support\Facades\Session;
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class AdminAuth
 {
@@ -16,11 +17,11 @@ class AdminAuth
      */
     public function handle($request, Closure $next)
     {
-        if( Session::get('admin_name')){
-            
+        if( Session::get('admin_name') || Auth::check() || Auth::guard('loyal_customer')->check()){
+
             return $next($request);
         }
-     
+
         return      redirect('/admin');
     }
 }
