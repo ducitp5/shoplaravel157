@@ -400,14 +400,14 @@ Route::get('/active-slide/{slide_id}','SliderController@active_slide');
 Route::get('/logout-auth'           ,   'AuthController@logout_auth');
 
 Route::get('/login-auth'            ,   'AuthController@login_auth');
-Route::post('/login'                ,   'AuthController@login');
+Route::post('/login2'               ,   'AuthController@login2');          // login2 to avoid overrided by login in Auth::route()
 
 
 Route::get('/register-auth'         ,   'AuthController@register_auth');
 
 
 
-Route::post('/register'             ,   'AuthController@register');
+Route::post('/register2'             ,   'AuthController@register2');        // register2 to avoid be overrided by register at Auth::route()
 
 
 //Duc Authetication
